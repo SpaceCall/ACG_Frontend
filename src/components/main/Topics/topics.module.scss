@@ -1,0 +1,7 @@
+.topics{
+    margin: 40px 0 0;
+    overflow-x: hidden;
+    height: calc(100vh - 116px);
+    display: grid;
+    grid-template: repeat(2, auto) / 21% auto 21%;
+}

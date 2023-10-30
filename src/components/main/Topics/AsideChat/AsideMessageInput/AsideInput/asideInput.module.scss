@@ -1,0 +1,21 @@
+$bg-color: #FFFFFF;
+$text-color: #0C0C0C;
+$placeholder-color: rgba(28, 28, 28, 0.20);
+
+.asideMessageInput__input {
+    display: block;
+    background-color: $bg-color;
+    width: 79%;
+    border: none;
+    border-radius: 12px 0 0 12px;
+    padding: 16px 20px;
+    font-family: 'Poppins';
+    font-size: 0.875em;
+    color: $text-color;
+    outline: none;
+
+    &::placeholder {
+        color: $placeholder-color;
+        line-height: 142.857%;
+    }
+}

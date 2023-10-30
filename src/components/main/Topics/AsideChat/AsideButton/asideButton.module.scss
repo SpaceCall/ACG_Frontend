@@ -1,0 +1,13 @@
+$bg-color: #0C0C0C;
+
+.asideButton{
+    height: 100px;
+    width: 15px;
+    background-color: $bg-color;
+    border-radius: 8px 0 0 8px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: calc(50% - 50px);
+    right: 100%;
+}

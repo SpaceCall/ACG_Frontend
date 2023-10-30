@@ -1,0 +1,11 @@
+$bg-color: rgba(248, 248, 248, 0.50);
+
+.header{
+    background-color: $bg-color;
+    padding: 12px 0;
+    &__wrapper{
+        display: grid;
+        grid-template-columns: 1fr 8fr 1fr;
+        align-items: center;
+    }
+}
