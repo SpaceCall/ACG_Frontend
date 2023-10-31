@@ -61,6 +61,7 @@ $bot-mess-bg: #F8F8F8;
     height: 70vh;
     max-height: 100%;
     overflow-y: auto;
+    position: relative;
 
     &__message {
         padding: 22px;
@@ -84,10 +85,12 @@ $bot-mess-bg: #F8F8F8;
         border: 1px solid $bot-mess-border;
         background-color: $bot-mess-bg;
         align-self: flex-start;
+        margin-left: 30px;
 
         &::before {
             content: url(./../../../../assets/icons/ai_avatar.svg);
-            margin-right: 10px;
+            position: absolute;
+            left: 200px;
         }
     }
 
