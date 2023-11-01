@@ -1,21 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './chatWindow.module.scss'
 
-export default function ChatWindow() {
+export default function ChatWindow({messages}) {
+    const elements = messages.map((item,id) => {
+        return (
+          <p key={id} className={`${styles.chatWindow__message} ${styles.chatWindow__personMessage}`}>{item.label}</p>
+        );
+      });
+      useEffect (() =>{
+        window.scroll(0,9999999)
+      },[messages])
     return (
         <div className={styles.chatWindow}>
-            <p className={`${styles.chatWindow__message} ${styles.chatWindow__personMessage}`}>Generate for me a coding course, beginner level, for 4 weeks </p>
-            <p className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}>What you know</p>
-            <p className={`${styles.chatWindow__message} ${styles.chatWindow__personMessage}`}>Generate for me a coding course, beginner level, for 4 weeks </p>
-            <p className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}>What you know</p>
-            <p className={`${styles.chatWindow__message} ${styles.chatWindow__personMessage}`}>Generate for me a coding course, beginner level, for 4 weeks </p>
-            <p className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}>What you know</p>
-            <p className={`${styles.chatWindow__message} ${styles.chatWindow__personMessage}`}>Generate for me a coding course, beginner level, for 4 weeks </p>
-            <p className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}>What you know</p>
-            <p className={`${styles.chatWindow__message} ${styles.chatWindow__personMessage}`}>Generate for me a coding course, beginner level, for 4 weeks </p>
-            <p className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}>What you know</p>
-            <p className={`${styles.chatWindow__message} ${styles.chatWindow__personMessage}`}>Generate for me a coding course, beginner level, for 4 weeks </p>
-            <p className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}>What you know</p>
+           {elements}
         </div>
     )
 }
