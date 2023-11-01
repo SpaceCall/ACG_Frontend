@@ -1,44 +1,8 @@
-$bg-color: #F8F8F8;
-$text-color: #0C0C0C;
-$placeholder-color: rgba(28, 28, 28, 0.20);
-$hover-bg-color: #c8c5c5;
-
 .messageInput {
     margin: 30px 0;
 
     &__wrapper {
         display: flex;
         justify-content: center;
-    }
-
-    &__input {
-        display: block;
-        background-color: $bg-color;
-        width: 76%;
-        border: none;
-        border-radius: 12px 0 0 12px;
-        padding: 16px 20px;
-        font-family: 'Poppins';
-        font-size: 0.875em;
-        color: $text-color;
-        outline: none;
-
-        &::placeholder {
-            color: $placeholder-color;
-            line-height: 142.857%;
-        }
-    }
-
-    &__button {
-        background-color: $bg-color;
-        border-radius: 0 12px 12px 0;
-        border: none;
-        width: 5%;
-        cursor: pointer;
-        transition: all .3s;
-
-        &:hover {
-            background-color: $hover-bg-color;
-        }
     }
 }
