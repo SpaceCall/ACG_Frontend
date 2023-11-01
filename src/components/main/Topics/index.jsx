@@ -9,6 +9,7 @@ export default function Topics() {
     return (
         <div className={styles.topics}>
             <CourseBar />
+            <CoursePath />
             <Content />
             <AsideChat />
         </div>
