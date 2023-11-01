@@ -1,18 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import MessageInput from './MessageInput'
 import styles from './chat.module.scss'
 
 export default function Chat() {
+    const [messages,setMessages] = useState([])
+    const [index,setIndex] = useState(0);
+    const botMessages = ['Привет я маму твою ебал','Кстати соси хуй','БИБА','Попка','выфалтлжвфыаолрфвыоларолдфврыол','6','7','8','9','10','11','12','13','14','15','16','17']
+    function createUserMessages(label) {
+        return {
+            label,
+            isUserSend: true,
+        }
+    }
+    function createBotMessages() {
+        return {
+            label:botMessages[index],
+            isUserSend:false,
+        }
+    }
+    const sendMassage = (text) =>{ if(text.length >= 1) setMessages([...messages,createUserMessages(text),createBotMessages()]);setIndex(index + 1) }
     return (
         <div className={styles.chat}>
-            <div className="container">
-                <div className={styles.chat__wrapper}>
-                    <div className={styles.test} >
-                    
-                    </div>
-                    <MessageInput />
-                </div>
-            </div>
+            <ChatWindow messages={messages} />
+            <MessageInput sendMassage={sendMassage} />
         </div>
     )
 }
