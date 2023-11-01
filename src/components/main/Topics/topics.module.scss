@@ -1,55 +1,7 @@
-$scroll-bar-color: #B0AEB7;
-$scroll-bg-color: #E4E4E4;
-%scroll-style {
-    &::-webkit-scrollbar {
-        width: 5px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: $scroll-bar-color;
-        border-radius: 20px;
-    }
-
-    &::-webkit-scrollbar-track {
-        background-color: $scroll-bg-color;
-        border-radius: 20px;
-    }
-
-    &::-moz-scrollbar {
-        width: 5px;
-    }
-
-    &::-moz-scrollbar-thumb {
-        background-color: $scroll-bar-color;
-        border-radius: 20px;
-    }
-
-    &::-moz-scrollbar-track {
-        background-color: $scroll-bg-color;
-        border-radius: 20px;
-    }
-
-    &::-o-scrollbar {
-        width: 5px;
-    }
-
-    &::-o-scrollbar-thumb {
-        background-color: $scroll-bar-color;
-        border-radius: 20px;
-    }
-
-    &::-o-scrollbar-track {
-        background-color: $scroll-bg-color;
-        border-radius: 20px;
-    }
-}
-
-.topics {
+.topics{
     margin: 40px 0 0;
     overflow-x: hidden;
     height: calc(100vh - 116px);
     display: grid;
-    grid-template: 10% 90% / 21% auto 21%;
-    position: relative;
-    @extend %scroll-style;
+    grid-template: repeat(2, auto) / 21% auto 21%;
 }

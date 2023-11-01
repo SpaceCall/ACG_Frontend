@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import styles from './asideChat.module.scss'
 import AsideButton from './AsideButton'
 import AsideChatWindow from './AsideChatWindow'
