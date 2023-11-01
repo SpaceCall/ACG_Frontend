@@ -5,6 +5,11 @@ $active-text-color: #0C0C0C;
     grid-column: 2;
     grid-row: 1 / 2;
 
+    &__wrapper{
+        width: 90%;
+        margin: 0 auto;
+    }
+
     &__nonActive {
         font-family: 'Poppins';
         color: $text-color;
