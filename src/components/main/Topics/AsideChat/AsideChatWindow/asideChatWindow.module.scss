@@ -1,3 +1,97 @@
-.asideChatWindow{
-    height: 100px;
+$scroll-bar-color: #B0AEB7;
+$scroll-bg-color: #E4E4E4;
+
+%scroll-style {
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $scroll-bar-color;
+        border-radius: 20px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: $scroll-bg-color;
+        border-radius: 20px;
+    }
+
+    &::-moz-scrollbar {
+        width: 10px;
+    }
+
+    &::-moz-scrollbar-thumb {
+        background-color: $scroll-bar-color;
+        border-radius: 20px;
+    }
+
+    &::-moz-scrollbar-track {
+        background-color: $scroll-bg-color;
+        border-radius: 20px;
+    }
+
+    &::-o-scrollbar {
+        width: 10px;
+    }
+
+    &::-o-scrollbar-thumb {
+        background-color: $scroll-bar-color;
+        border-radius: 20px;
+    }
+
+    &::-o-scrollbar-track {
+        background-color: $scroll-bg-color;
+        border-radius: 20px;
+    }
+}
+
+$text-color: #0C0C0C;
+$person-mess-border: #E2E8F0;
+$person-mess-bg: rgba(255, 255, 255, 0.53);
+$bot-mess-border: #716F76;
+$bot-mess-bg: #F8F8F8;
+
+.asideChatWindow {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 0 22px;
+    border-radius: 20px 0 20px 0;
+    height: 68vh;
+    overflow-y: auto;
+    position: relative;
+
+    &__message {
+        padding: 22px;
+        border-radius: 12px;
+        color: $text-color;
+        font-family: 'Poppins';
+        font-size: 1em;
+        font-weight: 500;
+        line-height: 100%;
+        margin-left: 50px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__personMessage {
+        border: 1px solid $person-mess-border;
+        background-color: $person-mess-bg;
+        align-self: flex-end;
+    }
+
+    &__botMessage {
+        border: 1px solid $bot-mess-border;
+        background-color: $bot-mess-bg;
+        align-self: flex-start;
+
+        &::before {
+            content: url(./../../../../../assets/icons/ai_avatar.svg);
+            margin-right: 10px;
+            position: absolute;
+            left: 30px;
+        }
+    }
+
+    @extend %scroll-style;
 }
