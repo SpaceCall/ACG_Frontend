@@ -3,9 +3,9 @@ import styles from './asideChat.module.scss'
 import AsideButton from './AsideButton'
 import AsideChatWindow from './AsideChatWindow'
 import AsideMessageInput from './AsideMessageInput'
-
+import Draggable from  'react-draggable'
 export default function AsideChat() {
-    const [isOpened, setIsOpened] = useState(false)
+    const [isOpened, setIsOpened] = useState(true)
     const chatRef = useRef(null)
 
     return (
@@ -16,9 +16,10 @@ export default function AsideChat() {
                 left: `${isOpened ? '100%' : '79%'}`,
             }}
         >
-            <AsideButton isOpened={isOpened} setIsOpened={setIsOpened} chatRef={chatRef} />
-            <AsideChatWindow />
-            <AsideMessageInput />
-        </div>
+            
+             <AsideButton isOpened={isOpened} setIsOpened={setIsOpened} chatRef={chatRef} />
+              <AsideChatWindow />
+              <AsideMessageInput/>
+            </div>
     )
 }
