@@ -20,11 +20,7 @@ export default function ChatWindow({ messages }) {
     }
     displayMessagesWithDelay()
   }, [messages])
-  function biba() {
-    setTimeout(() => {
-      return 'negr'
-    }, 1000)
-  }
+  
   return (
     <div className={styles.chatWindow} ref={chatRef}>
       {messages.map((message, id) => {
