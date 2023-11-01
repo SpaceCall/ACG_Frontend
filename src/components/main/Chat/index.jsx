@@ -10,7 +10,7 @@ export default function Chat() {
     function createUserMessages(label) {
         return {
             label,
-            isUserSend:true,
+            isUserSend: true,
         }
     }
     function createBotMessages() {
@@ -22,9 +22,9 @@ export default function Chat() {
     const sendMassage = (text) =>{ if(text.length >= 1) setMessages([...messages,createUserMessages(text),createBotMessages()]);setIndex(index + 1) }
     return (
         <div className={styles.chat}>
-            <ChatWindow messages={messages}/>
-            <MessageInput sendMassage={sendMassage}/>
+            <ChatWindow messages={messages} />
+            <MessageInput sendMassage={sendMassage} />
         </div>
-        
+
     )
 }
