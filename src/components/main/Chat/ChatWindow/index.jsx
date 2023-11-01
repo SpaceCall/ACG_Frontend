@@ -15,33 +15,25 @@ export default function ChatWindow({ messages }) {
 
   useEffect(() => {
     const displayMessagesWithDelay = async () => {
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
     }
     displayMessagesWithDelay()
   }, [messages])
-function biba(){
-    setTimeout(()=>{
-        return 'negr'
-    },1000)
-}
+  
   return (
     <div className={styles.chatWindow} ref={chatRef}>
       {messages.map((message, id) => {
-        if(message.isUserSend === true){
-            return (
+        if (message.isUserSend === true) {
+          return (
             <p key={id} className={`${styles.chatWindow__message} ${styles.chatWindow__personMessage}`}>{message.label}</p>
-            );
-        }else{
-            return (
-                <div key={id} className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}><Helper text={message.label}/></div>
-            );
+          );
+        } else {
+          return (
+            <div key={id} className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}><Helper text={message.label} /></div>
+          );
         }
       })}
     </div>
   )
 }
-
-
-
-
