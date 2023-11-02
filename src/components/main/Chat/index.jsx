@@ -4,27 +4,48 @@ import styles from './chat.module.scss'
 import ChatWindow from './ChatWindow'
 
 export default function Chat() {
-    const [messages,setMessages] = useState([])
-    const [index,setIndex] = useState(0);
-    const botMessages = ['Привет я маму твою ебал','Кстати соси хуй','БИБА','Попка','выфалтлжвфыаолрфвыоларолдфврыол','6','7','8','9','10','11','12','13','14','15','16','17']
-    function createUserMessages(label) {
+    const [messages, setMessages] = useState([])
+    const [index, setIndex] = useState(0);
+    const botMessages = [
+        "This is just the demo", 
+        "This is just the demo", 
+        'This is just the demo',
+        'This is just the demo',
+        'This is just the demo',
+        "This is just the demo", 
+        "This is just the demo", 
+        'This is just the demo',
+        'This is just the demo',
+        'This is just the demo',
+        "This is just the demo", 
+        "This is just the demo", 
+        'This is just the demo',
+        'This is just the demo',
+        'This is just the demo',
+    ]
+
+    const createUserMessages = (label) => {
         return {
             label,
             isUserSend: true,
         }
     }
-    function createBotMessages() {
+
+    const createBotMessages = () => {
         return {
-            label:botMessages[index],
-            isUserSend:false,
+            label: botMessages[index],
+            isUserSend: false,
         }
     }
-    const sendMassage = (text) =>{ if(text.length >= 1) setMessages([...messages,createUserMessages(text),createBotMessages()]);setIndex(index + 1) }
+
+    const sendMessage = (text) => {
+        if (text.length >= 1) setMessages([...messages, createUserMessages(text), createBotMessages()]); setIndex(index + 1)
+    }
+
     return (
         <div className={styles.chat}>
             <ChatWindow messages={messages} />
-            <MessageInput sendMassage={sendMassage} />
+            <MessageInput sendMessage={sendMessage} />
         </div>
-
     )
 }
