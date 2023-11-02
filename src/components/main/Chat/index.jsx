@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import MessageInput from './MessageInput'
-import styles from './chat.module.scss'
 import ChatWindow from './ChatWindow'
+import styles from './chat.module.scss'
 
 export default function Chat() {
     const [messages, setMessages] = useState([])

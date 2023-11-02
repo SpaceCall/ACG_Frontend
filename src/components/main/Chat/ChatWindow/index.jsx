@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import styles from './chatWindow.module.scss'
 import BotMessage from './BotMessage'
+import ChatTable from '../ChatTable'
+import ChatButtons from '../ChatButtons'
 
 export default function ChatWindow({ messages }) {
   const chatRef = useRef(null)
@@ -18,6 +20,8 @@ export default function ChatWindow({ messages }) {
 
   return (
     <div className={styles.chatWindow} ref={chatRef}>
+      <ChatButtons />
+      <ChatTable />
       {messages.map((message, id) => {
         if (message.isUserSend === true) {
           return (

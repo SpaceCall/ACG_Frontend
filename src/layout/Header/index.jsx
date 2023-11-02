@@ -2,6 +2,7 @@ import React from 'react'
 import Logo from '../../components/header/Logo'
 import Links from '../../components/header/Links'
 import styles from './header.module.scss'
+// import LoginButtons from '../../components/header/LoginButtons'
 
 export default function Header() {
     return (
@@ -10,6 +11,7 @@ export default function Header() {
                 <div className={styles.header__wrapper}>
                     <Logo />
                     <Links />
+                    {/* <LoginButtons /> */}
                 </div>
             </div>
         </div>
