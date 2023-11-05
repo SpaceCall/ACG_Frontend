@@ -3,12 +3,14 @@ import styles from './content.module.scss'
 import image from './../../../../assets/icons/image.svg'
 
 export default function Content({ isActive }) {
-    const notes = 'Notes'
-    const resources = 'Resources'
-    const quiz = 'Quiz'
+    const notes = `Notes ${isActive.title}`
+    const resources = `Resources ${isActive.title}`
+    const quiz = `Quiz ${isActive.title}`
 
     const [activeButton, setActiveButton] = useState('notes')
     const makeActive = (button) => setActiveButton(button)
+
+    useEffect(() => makeActive('notes'), [isActive])
     
     return (
         <div className={styles.topics__content}>
@@ -24,19 +26,19 @@ export default function Content({ isActive }) {
                         className={activeButton === 'notes' ? styles.active : styles.nonActive}
                         onClick={() => makeActive('notes')}
                     >
-                        {notes}
+                        Notes
                     </button>
                     <button
                         className={activeButton === 'resources' ? styles.active : styles.nonActive}
                         onClick={() => makeActive('resources')}
                     >
-                        {resources}
+                        Resources
                     </button>
                     <button
                         className={activeButton === 'quiz' ? styles.active : styles.nonActive}
                         onClick={() => makeActive('quiz')}
                     >
-                        {quiz}
+                        Quiz
                     </button>
                 </div>
                 <div className={styles.topics__content__text}>
