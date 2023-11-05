@@ -5,7 +5,7 @@ import text_icon from './../../../../assets/icons/text_icon_b.svg'
 import video_icon from './../../../../assets/icons/video_icon.svg'
 import complete_icon from './../../../../assets/icons/complete_icon.svg'
 
-const DropdownList = () => {
+const DropdownList = ({ setIsActive }) => {
   const [isOpen, setIsOpen] = useState({});
 
   const handleItemClick = (item) => {
@@ -14,6 +14,8 @@ const DropdownList = () => {
       [item]: !prevState[item],
     }));
   };
+
+  const openSubtopic = (item) => setIsActive(item)
 
   const items = data.content.map((item) => {
     return (
@@ -24,8 +26,8 @@ const DropdownList = () => {
         </div>
         {isOpen[item.title] && (
           <div className={styles.dropdownSublist}>
-            {item.content.map((subitem) => (
-              <div className={`sublist-item ${styles.sublistItem}`}>
+            {item.content.map((subitem, index) => (
+              <div key={index} onClick={() => openSubtopic(subitem)} className={`sublist-item ${styles.sublistItem}`}>
                 <img src={`${subitem.type === 'video' ? `${video_icon}` : `${text_icon}`}`} alt="Image" />
                 <div>
                   <div className={`courseTitle`}>{subitem.title}</div>

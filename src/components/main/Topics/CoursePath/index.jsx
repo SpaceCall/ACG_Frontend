@@ -1,12 +1,12 @@
 import React from 'react'
 import styles from './coursePath.module.scss'
 
-export default function CoursePath() {
+export default function CoursePath({ isActive }) {
     const pathParts = [
         'Courses',
         'Coding',
-        'Lesson 2',
-        'The subtopic 1'
+        `${isActive.title.substr(0, 8)}`,
+        `${isActive.title.substr(10)}`
     ]
 
     return (

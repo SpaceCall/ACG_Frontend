@@ -1,21 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './content.module.scss'
 import image from './../../../../assets/icons/image.svg'
 
-export default function Content() {
-    const [activeButton, setActiveButton] = useState(null)
-
+export default function Content({ isActive }) {
     const notes = 'Notes'
     const resources = 'Resources'
     const quiz = 'Quiz'
 
+    const [activeButton, setActiveButton] = useState('notes')
     const makeActive = (button) => setActiveButton(button)
-
+    
     return (
         <div className={styles.topics__content}>
             <div className={styles.topics__content__wrapper}>
                 <div className={styles.topics__content__title}>
-                    <h2>The subtopic 1</h2>
+                    <h2>{isActive.title}</h2>
                 </div>
                 <div className={styles.topics__content__image}>
                     <img src={image} alt="Pic" />

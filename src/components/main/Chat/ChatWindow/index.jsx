@@ -20,8 +20,8 @@ export default function ChatWindow({ messages }) {
 
   return (
     <div className={styles.chatWindow} ref={chatRef}>
-      <ChatButtons />
-      <ChatTable />
+      {/* <ChatButtons />
+      <ChatTable /> */}
       {messages.map((message, id) => {
         if (message.isUserSend === true) {
           return (
