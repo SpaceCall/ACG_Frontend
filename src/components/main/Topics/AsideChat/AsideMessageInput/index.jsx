@@ -1,12 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import send from './../../../../../assets/icons/send.svg'
 import styles from './asideMessageInput.module.scss'
 
-export default function AsideMessageInput() {
+export default function AsideMessageInput({ sendMessage }) {
+    const [label, setLabel] = useState('')
+    const onLabelChange = (e) => setLabel(e.target.value)
+
+    const onSubmit = (e) => {
+        e.preventDefault()
+        sendMessage(label)
+        setLabel('')
+    }
+
     return (
-        <div className={styles.asideMessageInput}>
-            <input className={styles.asideMessageInput__input} type="text" placeholder='Type message' />
-            <button className={styles.asideMessageInput__button}><img src={send} alt="Send" /></button>
+        <div className={styles.messageInput}>
+            <div className="container">
+                <form className={styles.messageInput__wrapper} onSubmit={onSubmit}>
+                    <input className={styles.messageInput__input}
+                        type="text"
+                        value={label}
+                        onChange={onLabelChange}
+                        placeholder="What needs to be done?"
+                    />
+                    <button type="submit" className={styles.messageInput__button}><img src={send} alt="Send" /></button>
+                </form>
+            </div>
         </div>
     )
 }

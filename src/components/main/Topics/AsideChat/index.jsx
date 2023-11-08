@@ -19,11 +19,29 @@ export default function AsideChat() {
             type:"message"
         },{
             text:"This is just the demo",
-            type:"topic"
+            type:"message"
         },{
             text:"This is just the demo",
-            type:"end"
-        } 
+            type:"message"
+        },{
+            text:"This is just the demo",
+            type:"message"
+        },{
+            text:"This is just the demo",
+            type:"message"
+        },{
+            text:"This is just the demo",
+            type:"message"
+        },{
+            text:"This is just the demo",
+            type:"message"
+        },{
+            text:"This is just the demo",
+            type:"message"
+        },{
+            text:"This is just the demo",
+            type:"message"
+        },
     ]
 
     const createUserMessages = (label) => {
@@ -54,9 +72,11 @@ export default function AsideChat() {
         >
 
             <AsideButton isOpened={isOpened} setIsOpened={setIsOpened} chatRef={chatRef} />
+            <AsideChatWindow messages={messages}/>
+            <AsideMessageInput sendMessage={sendMessage}/>
+            {/* <ChatWindow messages={messages} />
+            <MessageInput sendMessage={sendMessage}/> */}
             
-            <ChatWindow messages={messages} />
-            <MessageInput sendMessage={sendMessage}/>
         </div>
     )
 }
