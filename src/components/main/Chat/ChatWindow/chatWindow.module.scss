@@ -84,13 +84,15 @@ $bot-mess-bg: #F8F8F8;
     &__botMessage {
         border: 1px solid $bot-mess-border;
         background-color: $bot-mess-bg;
+        display: inline-flex;
+        align-items: center;
         align-self: flex-start;
-        margin-left: 30px;
+        margin-left: 50px;
 
         &::before {
             content: url(./../../../../assets/icons/ai_avatar.svg);
             position: absolute;
-            left: 200px;
+            left: 220px;
         }
     }
 

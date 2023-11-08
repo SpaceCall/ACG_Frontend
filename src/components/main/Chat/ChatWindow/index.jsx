@@ -20,27 +20,29 @@ export default function ChatWindow({ messages }) {
 
   return (
     <div className={styles.chatWindow} ref={chatRef}>
-      {/* <ChatButtons />
-      <ChatTable /> */}
       {messages.map((message, id) => {
         if (message.isUserSend === true) {
           return (
             <p key={id} className={`${styles.chatWindow__message} ${styles.chatWindow__personMessage}`}>{message.label}</p>
           )
-        }else if(message.type === 'message'){
+        } else if (message.type === 'message') {
           return (
             <div key={id} className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}><BotMessage text={message.label} /></div>
           )
-        }else if(message.type === 'topic'){
+        } else if (message.type === 'topic') {
           return (
-            <div><div className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}><BotMessage text={message.label} /></div><ChatTable text={message.label} /></div>
+            <div>
+              <div className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}>
+                <BotMessage text={message.label} />
+              </div>
+              <ChatTable text={message.label} />
+            </div>
           )
-        }else if(message.type === 'end'){
+        } else if (message.type === 'end') {
           return (
             <div><div className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}><BotMessage text={message.label} /></div><ChatButtons text={message.label} /></div>
           )
         }
-        
       })}
     </div>
   )

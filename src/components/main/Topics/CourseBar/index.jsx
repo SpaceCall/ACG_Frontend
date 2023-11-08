@@ -27,10 +27,10 @@ const DropdownList = ({ setIsActive }) => {
         {isOpen[item.title] && (
           <div className={styles.dropdownSublist}>
             {item.content.map((subitem, index) => (
-              <div key={index} onClick={() => openSubtopic(subitem)} className={`sublist-item ${styles.sublistItem}`}>
+              <div key={index} onClick={() => openSubtopic(subitem)} className={`sublist-item`}>
                 <img src={`${subitem.type === 'video' ? `${video_icon}` : `${text_icon}`}`} alt="Image" />
                 <div>
-                  <div className={`courseTitle`}>{subitem.title}</div>
+                  <div className={`courseTitle`}>{subitem.subtopic}</div>
                   <div className={`courseSubtitle`}>{subitem.type === 'video' ? `Video: 10 min` : `Reading: 10 min`}</div>
                 </div>
               </div>

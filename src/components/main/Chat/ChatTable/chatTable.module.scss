@@ -7,9 +7,12 @@ $border-color: #716F76;
     font-family: 'Poppins';
     color: $text-color;
     text-align: left;
+    width: 100%;
     padding: 0 16px;
     margin-top: 20px;
     border-radius: 15px;
+
+    border: 1px black solid;
     colgroup {
         col:nth-child(1) {
             width: 20%;

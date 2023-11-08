@@ -5,8 +5,8 @@ export default function CoursePath({ isActive }) {
     const pathParts = [
         'Courses',
         'Coding',
-        `${isActive.title.substr(0, 8)}`,
-        `${isActive.title.substr(10)}`
+        `${isActive.lesson}`,
+        `${isActive.subtopic}`
     ]
 
     return (

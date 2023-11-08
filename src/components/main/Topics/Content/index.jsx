@@ -3,9 +3,8 @@ import styles from './content.module.scss'
 import image from './../../../../assets/icons/image.svg'
 
 export default function Content({ isActive }) {
-    const notes = `Notes ${isActive.title}`
-    const resources = `Resources ${isActive.title}`
-    const quiz = `Quiz ${isActive.title}`
+    const notes = `Notes ${isActive.lesson}: ${isActive.subtopic}`
+    const resources = `Resources ${isActive.lesson}: ${isActive.subtopic}`
 
     const [activeButton, setActiveButton] = useState('notes')
     const makeActive = (button) => setActiveButton(button)
@@ -16,7 +15,7 @@ export default function Content({ isActive }) {
         <div className={styles.topics__content}>
             <div className={styles.topics__content__wrapper}>
                 <div className={styles.topics__content__title}>
-                    <h2>{isActive.title}</h2>
+                    <h2>{isActive.lesson}: {isActive.subtopic}</h2>
                 </div>
                 <div className={styles.topics__content__image}>
                     <img src={image} alt="Pic" />
@@ -34,17 +33,10 @@ export default function Content({ isActive }) {
                     >
                         Resources
                     </button>
-                    <button
-                        className={activeButton === 'quiz' ? styles.active : styles.nonActive}
-                        onClick={() => makeActive('quiz')}
-                    >
-                        Quiz
-                    </button>
                 </div>
                 <div className={styles.topics__content__text}>
                     {activeButton === 'notes' ? notes : null}
                     {activeButton === 'resources' ? resources : null}
-                    {activeButton === 'quiz' ? quiz : null}
                 </div>
             </div>
         </div>
