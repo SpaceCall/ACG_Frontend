@@ -4,7 +4,7 @@ import AsideChat from './AsideChat'
 import Content from './Content'
 import CoursePath from './CoursePath'
 import CourseBar from './CourseBar'
-
+import Chat from '../Chat'
 export default function Topics() {
     const [isActive, setIsActive] = useState({
         "lesson": "Lesson 1",
@@ -16,7 +16,7 @@ export default function Topics() {
             <CourseBar setIsActive={setIsActive} />
             <CoursePath isActive={isActive} />
             <Content isActive={isActive} />
-            <AsideChat />
+            <div><Chat /> </div>
         </div>
     )
 }

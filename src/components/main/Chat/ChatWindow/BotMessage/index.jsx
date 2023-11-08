@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import Loader from '../Loader'
 
-export default function BotMessage({ text }) {
+export default function BotMessage({ text,time }) {
   const [displayText, setDisplayText] = useState('')
   const loader = <Loader />
   useEffect(() => {
     setDisplayText(loader)
     const timer = setTimeout(() => {
       setDisplayText(text)
-    }, Math.ceil(Math.random()*2000))
+    }, time)
     return () => {
       clearTimeout(timer)
     }

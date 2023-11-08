@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from './chatWindow.module.scss'
 import BotMessage from './BotMessage'
 import ChatTable from '../ChatTable'
@@ -6,19 +6,14 @@ import ChatButtons from '../ChatButtons'
 
 export default function ChatWindow({ messages }) {
   const chatRef = useRef(null)
-
+  const [displayTime, setDisplayTime] = useState('')
   useEffect(() => {
     const chatWindow = chatRef.current
-    setTimeout(() => {
-      if (chatWindow && messages.length > 0) {
-        const lastMessage = chatWindow.lastElementChild
-        lastMessage.scrollIntoView({ behavior: "smooth" })
-      }
-    }, 10)
-
-
-    const displayMessagesWithDelay = async () => await new Promise((resolve) => setTimeout(resolve, 1000))
-    displayMessagesWithDelay()
+    if (chatWindow && messages.length > 0) {
+      const lastMessage = chatWindow.lastElementChild
+      lastMessage.scrollIntoView({ behavior: 'smooth' })
+    }
+    setDisplayTime(Math.ceil(Math.random()*2000))
   }, [messages])
 
   return (
@@ -30,20 +25,20 @@ export default function ChatWindow({ messages }) {
           )
         } else if (message.type === 'message') {
           return (
-            <div key={id} className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}><BotMessage text={message.label} /></div>
+            <div key={id} className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}><BotMessage time={displayTime} text={message.label} /></div>
           )
         } else if (message.type === 'topic') {
           return (
             <div>
               <div className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}>
-                <BotMessage text={message.label} />
+                <BotMessage text={message.label} time={displayTime}/>
               </div>
-              <ChatTable text={message.label} />
+              <ChatTable text={message.label} time={displayTime}/>
             </div>
           )
         } else if (message.type === 'end') {
           return (
-            <div><div className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}><BotMessage text={message.label} /></div><ChatButtons text={message.label} /></div>
+            <div><div className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}><BotMessage time={displayTime} text={message.label} /></div><ChatButtons time={displayTime} text={message.label} /></div>
           )
         }
       })}
