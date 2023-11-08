@@ -23,6 +23,6 @@ export default function ChatButtons({time}) {
       }
     }, [])
     return (
-        <div >{displayContent}</div>
+        <div>{displayContent}</div>
     )
 }
