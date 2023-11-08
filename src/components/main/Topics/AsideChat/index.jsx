@@ -4,7 +4,7 @@ import AsideButton from './AsideButton'
 import AsideChatWindow from './AsideChatWindow'
 import AsideMessageInput from './AsideMessageInput'
 export default function AsideChat() {
-    const [isOpened, setIsOpened] = useState(true)
+    const [isOpened, setIsOpened] = useState(false)
     const chatRef = useRef(null)
 
     return (
