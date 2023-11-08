@@ -8,7 +8,7 @@ export default function BotMessage({ text }) {
     setDisplayText(loader)
     const timer = setTimeout(() => {
       setDisplayText(text)
-    }, 200)
+    }, Math.ceil(Math.random()*2000))
     return () => {
       clearTimeout(timer)
     }
