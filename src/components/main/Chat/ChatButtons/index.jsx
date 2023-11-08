@@ -21,7 +21,7 @@ export default function ChatButtons({time}) {
       return () => {
         clearTimeout(timer)
       }
-    }, [])
+    },[])
     return (
         <div>{displayContent}</div>
     )
