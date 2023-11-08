@@ -7,21 +7,19 @@ export default function Chat() {
     const [messages, setMessages] = useState([])
     const [index, setIndex] = useState(0);
     const botMessages = [
-        "This is just the demo", 
-        "This is just the demo", 
-        'This is just the demo',
-        'This is just the demo',
-        'This is just the demo',
-        "This is just the demo", 
-        "This is just the demo", 
-        'This is just the demo',
-        'This is just the demo',
-        'This is just the demo',
-        "This is just the demo", 
-        "This is just the demo", 
-        'This is just the demo',
-        'This is just the demo',
-        'This is just the demo',
+        {
+            text:"This is just the demo",
+            type:"message"
+        },{
+            text:"This is just the demo",
+            type:"message"
+        },{
+            text:"This is just the demo",
+            type:"topic"
+        },{
+            text:"This is just the demo",
+            type:"end"
+        } 
     ]
 
     const createUserMessages = (label) => {
@@ -33,8 +31,9 @@ export default function Chat() {
 
     const createBotMessages = () => {
         return {
-            label: botMessages[index],
+            label: botMessages[index].text,
             isUserSend: false,
+            type:botMessages[index].type,
         }
     }
 

@@ -8,7 +8,8 @@ $border-color: #716F76;
     color: $text-color;
     text-align: left;
     padding: 0 16px;
-
+    margin-top: 20px;
+    border-radius: 15px;
     colgroup {
         col:nth-child(1) {
             width: 20%;
