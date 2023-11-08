@@ -2,10 +2,10 @@ $bg-color: rgba(248, 248, 248, 0.50);
 
 .header{
     background-color: $bg-color;
-    padding: 12px 0;
+    padding: 12px;
     &__wrapper{
         display: grid;
-        grid-template-columns: auto 11fr 1fr;
+        grid-template-columns: 1fr 4fr 1fr;
         align-items: center;
     }
 }

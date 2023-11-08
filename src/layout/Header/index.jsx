@@ -7,12 +7,10 @@ import styles from './header.module.scss'
 export default function Header() {
     return (
         <div className={styles.header}>
-            <div className="container">
                 <div className={styles.header__wrapper}>
                     <Logo />
                     <Links />
                     {/* <LoginButtons /> */}
-                </div>
             </div>
         </div>
     )

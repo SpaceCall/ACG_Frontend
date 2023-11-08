@@ -2,9 +2,10 @@ $text-color: #0C0C0C;
 
 a {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     gap: 5px;
+    justify-self: start;
     span {
         color: $text-color;
         font-family: 'Poppins';
