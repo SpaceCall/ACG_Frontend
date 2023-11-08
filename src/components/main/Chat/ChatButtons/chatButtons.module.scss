@@ -14,6 +14,7 @@ $hovered-confirm-btn-text: #0C0C0C;
     align-items: center;
     gap: 5px;
     margin-top: 20px;
+
     button {
         padding: 16px;
         width: 37%;
@@ -23,6 +24,7 @@ $hovered-confirm-btn-text: #0C0C0C;
         cursor: pointer;
         transition: all .3s;
 
+        a,
         span {
             font-family: 'Poppins';
             font-size: 1.125em;
@@ -37,7 +39,10 @@ $hovered-confirm-btn-text: #0C0C0C;
 
     &__cancel {
         background-color: $cancel-btn-bg;
-        color: $cancel-btn-text;
+
+        span {
+            color: $cancel-btn-text;
+        }
 
         span::before {
             content: url(./../../../../assets/icons/cross.svg);
@@ -45,21 +50,30 @@ $hovered-confirm-btn-text: #0C0C0C;
 
         &:hover {
             background-color: $hovered-cancel-btn-bg;
-            color: $hovered-cancel-btn-text;
+
+            span {
+                color: $hovered-cancel-btn-text;
+            }
         }
     }
 
     &__confirm {
         background-color: $confirm-btn-bg;
-        color: $confirm-btn-text;
 
-        span::before {
+        a {
+            color: $confirm-btn-text;
+        }
+
+        a::before {
             content: url(./../../../../assets/icons/tick.svg);
         }
 
         &:hover {
             background-color: $hovered-confirm-btn-bg;
-            color: $hovered-confirm-btn-text;
+
+            a {
+                color: $hovered-confirm-btn-text;
+            }
         }
     }
 }
