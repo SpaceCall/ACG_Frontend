@@ -9,7 +9,7 @@ export default function ChatButtons() {
                 <span>No, I want to change something</span>
             </button>
             <button className={styles.chatButtons__confirm}>   
-                <NavLink to={"topics"}><span>Yes, generate course</span></NavLink>
+                <NavLink to={"/topics"}><span>Yes, generate course</span></NavLink>
             </button>
         </div>
     )
