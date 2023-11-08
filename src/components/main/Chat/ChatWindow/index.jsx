@@ -9,10 +9,13 @@ export default function ChatWindow({ messages }) {
 
   useEffect(() => {
     const chatWindow = chatRef.current
-    if (chatWindow && messages.length > 0) {
-      const lastMessage = chatWindow.lastElementChild
-      lastMessage.scrollIntoView({ behavior: 'smooth' })
-    }
+    setTimeout(() => {
+      if (chatWindow && messages.length > 0) {
+        const lastMessage = chatWindow.lastElementChild
+        lastMessage.scrollIntoView({ behavior: "smooth" })
+      }
+    }, 10)
+
 
     const displayMessagesWithDelay = async () => await new Promise((resolve) => setTimeout(resolve, 1000))
     displayMessagesWithDelay()
