@@ -26,6 +26,7 @@ export default function Chat() {
         return {
             label,
             isUserSend: true,
+            id:Date.now(),
         }
     }
 
@@ -33,13 +34,16 @@ export default function Chat() {
         return {
             label: botMessages[index].text,
             isUserSend: false,
-            type:botMessages[index].type,
+            type: botMessages[index].type,
+            id:Date.now()+1,
         }
     }
 
     const sendMessage = (text) => {
-        if (text.length >= 1) setMessages([createBotMessages(), createUserMessages(text), ...messages])
-        setIndex(index + 1)
+        if (text.length >= 1) {
+            setMessages([createBotMessages(), createUserMessages(text)]) 
+            setIndex(index + 1)
+        }
     }
 
     return (
