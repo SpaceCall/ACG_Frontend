@@ -3,6 +3,6 @@ import styles from './form.module.scss'
 
 export default function Form() {
     return (
-        <div className={styles.form}>Form</div>
+        <div id='form' className={styles.form}>Form</div>
     )
 }

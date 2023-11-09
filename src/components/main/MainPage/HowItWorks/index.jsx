@@ -30,7 +30,7 @@ export default function HowItWorks() {
     ]
 
     return (
-        <div className={styles.howItWorks}>
+        <div id='howitworks' className={styles.howItWorks}>
             <h2>How it works?</h2>
             <ul className={styles.howItWorks__list}>
                 {list.map((listItem, index) => (

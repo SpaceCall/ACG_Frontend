@@ -3,7 +3,7 @@ import styles from './cases.module.scss'
 
 export default function Cases() {
     return (
-        <div className={styles.cases}>
+        <div id='cases' className={styles.cases}>
             <h2>Use Cases</h2>
             <table className={styles.cases__table}>
                 <colgroup>
