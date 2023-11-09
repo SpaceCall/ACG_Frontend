@@ -42,17 +42,20 @@ $hovered-confirm-btn-text: #0C0C0C;
 
         span {
             color: $cancel-btn-text;
+            &::before {
+                content: url(./../../../../assets/icons/black-cross.svg);
+            }
         }
 
-        span::before {
-            content: url(./../../../../assets/icons/cross.svg);
-        }
 
         &:hover {
             background-color: $hovered-cancel-btn-bg;
 
             span {
                 color: $hovered-cancel-btn-text;
+                &::before {
+                    content: url(./../../../../assets/icons/white-cross.svg);
+                }
             }
         }
     }
@@ -62,17 +65,20 @@ $hovered-confirm-btn-text: #0C0C0C;
 
         a {
             color: $confirm-btn-text;
+            &::before {
+                content: url(./../../../../assets/icons/white-tick.svg);
+            }
         }
 
-        a::before {
-            content: url(./../../../../assets/icons/tick.svg);
-        }
 
         &:hover {
             background-color: $hovered-confirm-btn-bg;
 
             a {
                 color: $hovered-confirm-btn-text;
+                &::before {
+                    content: url(./../../../../assets/icons/black-tick.svg);
+                }
             }
         }
     }
