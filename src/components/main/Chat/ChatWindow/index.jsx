@@ -1,47 +1,55 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './chatWindow.module.scss'
 import BotMessage from './BotMessage'
 import ChatTable from '../ChatTable'
 import ChatButtons from '../ChatButtons'
 
 export default function ChatWindow({ messages }) {
-  const chatRef = useRef(null)
   const [displayTime, setDisplayTime] = useState('')
-  useEffect(() => {
-    const chatWindow = chatRef.current
-    if (chatWindow && messages.length > 0) {
-      const bottomMessage = chatWindow.firstElementChild
-      bottomMessage.scrollIntoView({ behavior: 'smooth' })
-    }
-    setDisplayTime(Math.ceil(Math.random()*2000))
-  }, [messages])
-
-  return (
-    <div className={styles.chatWindow} ref={chatRef}>
-      {messages.map((message, id) => {
-        if (message.isUserSend === true) {
-          return (
-            <p key={id} className={`${styles.chatWindow__message} ${styles.chatWindow__personMessage}`}>{message.label}</p>
-          )
-        } else if (message.type === 'message') {
-          return (
-            <div key={id} className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}><BotMessage time={displayTime} text={message.label} /></div>
-          )
-        } else if (message.type === 'topic') {
-          return (
-            <div>
-              <div className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}>
-                <BotMessage text={message.label} time={displayTime}/>
+    const [renderedPage, setRenderedPage] = useState([])
+  
+    useEffect(() => {
+      setDisplayTime(Math.ceil(Math.random() * 2000))
+  
+      // Создаем новый массив, объединяя messages.map(...) и текущий renderedPage
+      const newRenderedPage = [
+        ...messages.map((message) => {
+          if (message.isUserSend === true) {
+            return (
+              <div key={message.id} className={`${styles.chatWindow__message} ${styles.chatWindow__personMessage}`}>
+                <span>{message.label}</span>
               </div>
-              <ChatTable text={message.label} time={displayTime}/>
-            </div>
-          )
-        } else if (message.type === 'end') {
-          return (
-            <div><div className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}><BotMessage time={displayTime} text={message.label} /></div><ChatButtons time={displayTime} text={message.label} /></div>
-          )
-        }
-      })}
-    </div>
-  )
-}
+            )
+          } else if (message.type === 'message') {
+            return (
+              <div key={message.id} className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}>
+                <BotMessage time={displayTime} text={message.label} />
+              </div>
+            )
+          }else if (message.type === 'topic') {
+            return (
+              <div key={message.id} >
+                <div className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}>
+                  <BotMessage text={message.label} time={displayTime}/>
+                </div>
+                <ChatTable text={message.label} time={displayTime*2}/>
+              </div>
+            )
+          } else if (message.type === 'end') {
+            return (
+              <div key={message.id}><div className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}><BotMessage time={displayTime} text={message.label} /></div><ChatButtons time={displayTime*2} text={message.label} /></div>
+            )
+          }
+        }),
+        ...renderedPage, // Добавляем текущий renderedPage после новых сообщений
+      ]
+      setRenderedPage(newRenderedPage)
+    }, [messages])
+  
+    return (
+      <div className={styles.chatWindow}>
+        {renderedPage}
+      </div>
+    )
+  }
+

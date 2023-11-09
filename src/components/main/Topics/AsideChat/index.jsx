@@ -47,6 +47,7 @@ export default function AsideChat() {
         return {
             label,
             isUserSend: true,
+            id:Date.now(),
         }
     }
 
@@ -55,12 +56,15 @@ export default function AsideChat() {
             label: botMessages[index].text,
             isUserSend: false,
             type: botMessages[index].type,
+            id:Date.now()+1,
         }
     }
 
     const sendMessage = (text) => {
-        if (text.length >= 1) setMessages([createBotMessages(), createUserMessages(text), ...messages]) 
-        setIndex(index + 1)
+        if (text.length >= 1) {
+            setMessages([createBotMessages(), createUserMessages(text)]) 
+            setIndex(index + 1)
+        }
     }
     
     return (
