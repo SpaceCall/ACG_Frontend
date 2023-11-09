@@ -3,6 +3,6 @@ import styles from './team.module.scss'
 
 export default function Team() {
     return (
-        <div className={styles.team}>Team</div>
+        <div id='team' className={styles.team}>Team</div>
     )
 }

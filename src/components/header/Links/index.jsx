@@ -1,12 +1,11 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import styles from './links.module.scss'
 
 export default function Links() {
     const links = [
         {
             value: 'About us',
-            path: 'about'
+            path: 'cases'
         },
         {
             value: 'How it works',
@@ -18,7 +17,7 @@ export default function Links() {
         },
         {
             value: 'Contacts',
-            path: 'contacts'
+            path: 'form'
         },
     ]
 
@@ -27,7 +26,7 @@ export default function Links() {
             <ul>
                 {links.map((link, index) => (
                     <li key={index}>
-                        <NavLink to={link.path}>{link.value}</NavLink>
+                        <a href={`#${link.path}`}>{link.value}</a>
                     </li>
                 ))}
             </ul>
