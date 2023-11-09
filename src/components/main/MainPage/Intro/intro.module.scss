@@ -38,7 +38,7 @@ $learn_bg_hovered_color: #0C0C0C;
 
         button {
             cursor: pointer;
-            width: 13%;
+            min-width: 13%;
             border-radius: 12px;
             padding: 16px;
             transition: all .3s;
