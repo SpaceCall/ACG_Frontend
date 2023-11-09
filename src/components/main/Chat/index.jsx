@@ -38,7 +38,8 @@ export default function Chat() {
     }
 
     const sendMessage = (text) => {
-        if (text.length >= 1) setMessages([...messages, createUserMessages(text), createBotMessages()]); setIndex(index + 1)
+        if (text.length >= 1) setMessages([createBotMessages(), createUserMessages(text), ...messages])
+        setIndex(index + 1)
     }
 
     return (

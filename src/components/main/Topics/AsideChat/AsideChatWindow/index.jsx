@@ -2,15 +2,15 @@ import React, { useEffect, useRef, useState } from 'react'
 import styles from './asideChatWindow.module.scss'
 import BotMessage from '../../../Chat/ChatWindow/BotMessage'
 export default function AsideChatWindow({ messages }) {
-    const chatRef = useRef(null)
+  const chatRef = useRef(null)
   const [displayTime, setDisplayTime] = useState('')
   useEffect(() => {
     const chatWindow = chatRef.current
     if (chatWindow && messages.length > 0) {
-      const lastMessage = chatWindow.lastElementChild
-      lastMessage.scrollIntoView({ behavior: 'smooth' })
+      const bottomMessage = chatWindow.firstElementChild
+      bottomMessage.scrollIntoView({ behavior: 'smooth' })
     }
-    setDisplayTime(Math.ceil(Math.random()*2000))
+    setDisplayTime(Math.ceil(Math.random() * 2000))
   }, [messages])
 
   return (
@@ -18,7 +18,9 @@ export default function AsideChatWindow({ messages }) {
       {messages.map((message, id) => {
         if (message.isUserSend === true) {
           return (
-            <p key={id} className={`${styles.asideChatWindow__message} ${styles.asideChatWindow__personMessage}`}>{message.label}</p>
+            <div key={id} className={`${styles.asideChatWindow__message} ${styles.asideChatWindow__personMessage}`}>
+              <span>{message.label}</span>
+            </div>
           )
         } else if (message.type === 'message') {
           return (

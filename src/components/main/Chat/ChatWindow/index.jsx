@@ -10,8 +10,8 @@ export default function ChatWindow({ messages }) {
   useEffect(() => {
     const chatWindow = chatRef.current
     if (chatWindow && messages.length > 0) {
-      const lastMessage = chatWindow.lastElementChild
-      lastMessage.scrollIntoView({ behavior: 'smooth' })
+      const bottomMessage = chatWindow.firstElementChild
+      bottomMessage.scrollIntoView({ behavior: 'smooth' })
     }
     setDisplayTime(Math.ceil(Math.random()*2000))
   }, [messages])
