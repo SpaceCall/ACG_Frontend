@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Loader from '../Loader'
 
-export default function BotMessage({ text,time }) {
+export default function BotMessage({ text,time,enableSubmit }) {
   const [displayText, setDisplayText] = useState('')
   const loader = <Loader />
   useEffect(() => {
@@ -23,6 +23,7 @@ export default function BotMessage({ text,time }) {
       index += 1;
 
       if (index === text.length-1) {
+        enableSubmit()
         clearInterval(interval);
       }
     }, time / text.length);

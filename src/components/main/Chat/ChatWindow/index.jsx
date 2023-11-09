@@ -4,7 +4,7 @@ import BotMessage from './BotMessage'
 import ChatTable from '../ChatTable'
 import ChatButtons from '../ChatButtons'
 
-export default function ChatWindow({ messages }) {
+export default function ChatWindow({ messages,enableSubmit }) {
   const [displayTime, setDisplayTime] = useState('')
     const [renderedPage, setRenderedPage] = useState([])
   
@@ -23,21 +23,26 @@ export default function ChatWindow({ messages }) {
           } else if (message.type === 'message') {
             return (
               <div key={message.id} className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}>
-                <BotMessage time={displayTime} text={message.label} />
+                <BotMessage enableSubmit={enableSubmit} time={displayTime} text={message.label} />
               </div>
             )
           }else if (message.type === 'topic') {
             return (
               <div key={message.id} >
                 <div className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}>
-                  <BotMessage text={message.label} time={displayTime}/>
+                  <BotMessage enableSubmit={enableSubmit} text={message.label} time={displayTime}/>
                 </div>
                 <ChatTable text={message.label} time={displayTime*2}/>
               </div>
             )
           } else if (message.type === 'end') {
             return (
-              <div key={message.id}><div className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}><BotMessage time={displayTime} text={message.label} /></div><ChatButtons time={displayTime*2} text={message.label} /></div>
+              <div key={message.id}>
+                <div className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}>
+                  <BotMessage enableSubmit={enableSubmit}time={displayTime} text={message.label} />
+                  </div>
+                  <ChatButtons time={displayTime*2} text={message.label} />
+              </div>
             )
           }
         }),

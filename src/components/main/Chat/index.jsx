@@ -6,6 +6,7 @@ import styles from './chat.module.scss'
 export default function Chat() {
     const [messages, setMessages] = useState([])
     const [index, setIndex] = useState(0);
+    const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
     const botMessages = [
         {
             text:"This is just the demo",
@@ -41,15 +42,18 @@ export default function Chat() {
 
     const sendMessage = (text) => {
         if (text.length >= 1) {
+            setIsSubmitDisabled(true);
             setMessages([createBotMessages(), createUserMessages(text)]) 
             setIndex(index + 1)
         }
     }
-
+    const enableSubmit = () =>{
+        setIsSubmitDisabled(false)
+    }
     return (
         <div className={styles.chat}>
-            <ChatWindow messages={messages} />
-            <MessageInput sendMessage={sendMessage} />
+            <ChatWindow messages={messages}  enableSubmit={enableSubmit}/>
+            <MessageInput sendMessage={sendMessage} isSubmitDisabled={isSubmitDisabled}/>
         </div>
     )
 }

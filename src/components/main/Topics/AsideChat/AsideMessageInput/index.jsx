@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import send from './../../../../../assets/icons/send.svg'
 import styles from './asideMessageInput.module.scss'
 
-export default function AsideMessageInput({ sendMessage }) {
+export default function AsideMessageInput({ sendMessage,isSubmitDisabled }) {
     const [label, setLabel] = useState('')
     const onLabelChange = (e) => setLabel(e.target.value)
 
@@ -22,7 +22,7 @@ export default function AsideMessageInput({ sendMessage }) {
                         onChange={onLabelChange}
                         placeholder="What needs to be done?"
                     />
-                    <button type="submit" className={styles.messageInput__button}><img src={send} alt="Send" /></button>
+                    <button disabled={isSubmitDisabled}type="submit" className={styles.messageInput__button}><img src={send} alt="Send" /></button>
                 </form>
             </div>
         </div>
