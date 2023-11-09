@@ -15,7 +15,7 @@ $hovered-confirm-btn-text: #0C0C0C;
     gap: 5px;
     margin-top: 20px;
 
-    button {
+    a {
         padding: 16px;
         width: 37%;
         border-radius: 12px;
@@ -23,39 +23,33 @@ $hovered-confirm-btn-text: #0C0C0C;
         box-shadow: 0px 1px 2px -1px rgba(17, 12, 34, 0.08);
         cursor: pointer;
         transition: all .3s;
-
-        a,
-        span {
-            font-family: 'Poppins';
-            font-size: 1.125em;
-            font-weight: 600;
-            line-height: 88.889%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-        }
+        font-family: 'Poppins';
+        font-size: 1.125em;
+        font-weight: 600;
+        line-height: 88.889%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
     }
 
     &__cancel {
         background-color: $cancel-btn-bg;
 
-        span {
-            color: $cancel-btn-text;
-            &::before {
-                content: url(./../../../../assets/icons/black-cross.svg);
-            }
+        color: $cancel-btn-text;
+
+        &::before {
+            content: url(./../../../../assets/icons/black-cross.svg);
         }
 
 
         &:hover {
             background-color: $hovered-cancel-btn-bg;
 
-            span {
-                color: $hovered-cancel-btn-text;
-                &::before {
-                    content: url(./../../../../assets/icons/white-cross.svg);
-                }
+            color: $hovered-cancel-btn-text;
+
+            &::before {
+                content: url(./../../../../assets/icons/white-cross.svg);
             }
         }
     }
@@ -63,22 +57,20 @@ $hovered-confirm-btn-text: #0C0C0C;
     &__confirm {
         background-color: $confirm-btn-bg;
 
-        a {
-            color: $confirm-btn-text;
-            &::before {
-                content: url(./../../../../assets/icons/white-tick.svg);
-            }
+        color: $confirm-btn-text;
+
+        &::before {
+            content: url(./../../../../assets/icons/white-tick.svg);
         }
 
 
         &:hover {
             background-color: $hovered-confirm-btn-bg;
 
-            a {
-                color: $hovered-confirm-btn-text;
-                &::before {
-                    content: url(./../../../../assets/icons/black-tick.svg);
-                }
+            color: $hovered-confirm-btn-text;
+
+            &::before {
+                content: url(./../../../../assets/icons/black-tick.svg);
             }
         }
     }
