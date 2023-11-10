@@ -25,25 +25,25 @@ export default function ChatTable({time}) {
             <td>Topic 1</td>
             <td>Description</td>
             <td>1 week</td>
-            <td><button><img src={deleteIcon} /></button></td>
+            <td><button><img alt='delete' src={deleteIcon} /></button></td>
         </tr>
         <tr>
             <td>Topic 2</td>
             <td>Description</td>
             <td>1 week</td>
-            <td><button><img src={deleteIcon} /></button></td>
+            <td><button><img alt='delete' src={deleteIcon} /></button></td>
         </tr>
         <tr>
             <td>Topic 3</td>
             <td>Description</td>
             <td>1 week</td>
-            <td><button><img src={deleteIcon} /></button></td>
+            <td><button><img alt='delete' src={deleteIcon} /></button></td>
         </tr>
         <tr>
             <td>Topic 4</td>
             <td>Description</td>
             <td>1 week</td>
-            <td><button><img src={deleteIcon} /></button></td>
+            <td><button><img alt='delete' src={deleteIcon} /></button></td>
         </tr>
     </tbody>
 </table>
@@ -55,7 +55,7 @@ export default function ChatTable({time}) {
       return () => {
         clearTimeout(timer)
       }
-    }, [])
+    }, [time])
     return (
             <div>{displayContent}</div>
     )
