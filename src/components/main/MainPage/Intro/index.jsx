@@ -10,7 +10,7 @@ export default function Intro() {
             </div>
             <h1>Unlock Your Learning Potential with ACG</h1>
             <div className={styles.intro__buttons}>
-                <a href='#form' className={styles.intro__buttons__course}>Get a course</a>
+                <a href='#form' className={styles.intro__buttons__course}>Get a demo</a>
                 <a className={styles.intro__buttons__learn}>Learn more</a>
             </div>
         </div>
