@@ -5,6 +5,7 @@ import Cases from './Cases'
 import HowItWorks from './HowItWorks'
 import Team from './Team'
 import Form from './Form'
+import Contacts from './Contacts'
 
 export default function MainPage() {
     return (
@@ -15,6 +16,7 @@ export default function MainPage() {
                 <HowItWorks />
                 <Team />
                 <Form />
+                <Contacts />
             </div>
         </div>
     )

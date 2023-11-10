@@ -17,7 +17,7 @@ export default function Links() {
         },
         {
             value: 'Contacts',
-            path: 'form'
+            path: 'contacts'
         },
     ]
 
