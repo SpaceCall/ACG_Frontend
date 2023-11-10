@@ -48,7 +48,7 @@ export default function AsideChat() {
         return {
             label,
             isUserSend: true,
-            id:Date.now(),
+            id: Date.now(),
         }
     }
 
@@ -57,22 +57,22 @@ export default function AsideChat() {
             label: botMessages[index].text,
             isUserSend: false,
             type: botMessages[index].type,
-            id:Date.now()+1,
+            id: Date.now() + 1,
         }
     }
 
     const sendMessage = (text) => {
         if (text.length >= 1) {
             setIsSubmitDisabled(true);
-            setMessages([createBotMessages(), createUserMessages(text)]) 
+            setMessages([createBotMessages(), createUserMessages(text)])
             setIndex(index + 1)
         }
     }
-    const enableSubmit = () =>{
+    const enableSubmit = () => {
         setIsSubmitDisabled(false)
     }
 
-    
+
     return (
         <div
             className={styles.asideChat}
@@ -81,9 +81,11 @@ export default function AsideChat() {
                 transform: `translateX(${isOpened ? '0' : '100%'})`,
             }}
         >
-            <AsideButton isOpened={isOpened} setIsOpened={setIsOpened} chatRef={chatRef} />
-            <AsideChatWindow messages={messages} enableSubmit={enableSubmit}/>
-            <AsideMessageInput sendMessage={sendMessage} isSubmitDisabled={isSubmitDisabled} />
+            <div className={styles.asideChat__wrapper}>
+                <AsideButton isOpened={isOpened} setIsOpened={setIsOpened} chatRef={chatRef} />
+                <AsideChatWindow messages={messages} enableSubmit={enableSubmit} />
+                <AsideMessageInput sendMessage={sendMessage} isSubmitDisabled={isSubmitDisabled} />
+            </div>
         </div>
     )
 }
