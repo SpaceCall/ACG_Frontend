@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from '../../components/header/Logo'
-import Links from '../../components/header/Links'
+import Links from '../../components/shared/Links'
 import styles from './header.module.scss'
 // import LoginButtons from '../../components/header/LoginButtons'
 
