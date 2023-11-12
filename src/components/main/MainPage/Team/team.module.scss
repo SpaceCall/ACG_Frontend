@@ -14,13 +14,14 @@ $text-color: #0C0C0C;
         font-weight: 600;
         line-height: 125%;
         letter-spacing: -1.92px;
+        margin-left: 5%;
     }
 
     &__carousel {
         overflow: hidden;
         width: 80%;
         align-self: flex-end;
-
+        margin-right: 5%;
         &__cards {
             margin: 48px 0 40px;
             display: flex;
@@ -34,7 +35,7 @@ $text-color: #0C0C0C;
             background-color: $card-bg-color;
             padding: 24px;
             line-height: 150%;
-            flex: 0 0 35%;
+            flex: 0 0 32%;
 
             &__header {
                 display: flex;

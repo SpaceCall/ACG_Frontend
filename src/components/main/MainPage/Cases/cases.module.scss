@@ -2,7 +2,7 @@ $table-text-color: #0C0C0C;
 
 .cases {
     margin-bottom: 808px;
-
+    
     h2 {
         margin-bottom: 76px;
         text-align: center;
@@ -15,10 +15,10 @@ $table-text-color: #0C0C0C;
     }
 
     &__table {
-        width: 100%;
+        width: 90%;
         border-spacing: 20px;
         text-align: justify;
-
+        margin-left: 6%;
         colgroup {
             col:nth-child(1) {
                 width: 33%;
