@@ -4,28 +4,24 @@ import styles from './howItWorks.module.scss'
 export default function HowItWorks() {
     const list = [
         {
-            title: "Choose Your Learning Path",
-            description: (
-                <>
-                    Dive into the world of knowledge by selecting the topic that ignites your curiosity. With a vast array of subjects to explore, <span>ACG</span> ensures you have the freedom to learn what matters most to you.
-                </>
-            ),
+            title: "Consult with the mentor-chatbot.",
+            description: "Say exactly what you expect from the course, your current level of knowledge , and the time you want to invest in it."
         },
         {
-            title: "Customize Your Learning Experience",
-            description: (
-                <>
-                    Tailor your course to match your schedule and expertise. Whether you're a beginner or an expert, <span>ACG</span> lets you decide the duration and difficulty level that suits your learning pace and style.
-                </>
-            ),
+            title: "Get a customized study plan.",
+            description: "The mentor generates a study plan based on your preferences and actual topics for study"
         },
         {
-            title: "Your Comprehensive Learning Journey",
-            description: (
-                <>
-                    <span>ACG</span> goes the extra mile to create a holistic learning experience for you. Our platform assembles a curated collection of videos, tutorials, images, and other resources, ensuring you get a well-rounded education in your chosen topic.
-                </>
-            ),
+            title: "Learn topics through video and text.",
+            description: "At each stage of the plan, you will have access to the most relevant articles and videos for your studies"
+        },
+        {
+            title: "Practice, ask questions, and provide feedback.",
+            description: "Ask questions for clarification and take practical tasks to reinforce your understanding of the material"
+        },
+        {
+            title: "The study plan is personalized for you.",
+            description: "Based on comprehensive testing and feedback, it will be continuously enhanced to ensure 100% mastery of the material."
         }
     ]
 

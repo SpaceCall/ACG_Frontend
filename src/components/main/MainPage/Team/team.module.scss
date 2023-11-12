@@ -43,19 +43,33 @@ $text-color: #0C0C0C;
                 font-weight: 500;
 
                 &__name {
-                    width: 40%;
+                    width: 30%;
                     font-size: 1.5em;
                 }
 
                 &__speciality {
                     font-size: 1em;
+                    text-align: right;
                 }
             }
 
             &__body {
                 font-size: 1.25em;
                 font-weight: 400;
-                margin: 143px 0 169px;
+                margin: 20px 0;
+
+                &__photo{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 390px;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: top;
+                    }
+                }
             }
         }
 

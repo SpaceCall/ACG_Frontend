@@ -1,23 +1,20 @@
 import React from 'react'
-import twitter from './../../../assets/icons/twitter.svg'
-import facebook from './../../../assets/icons/facebook.svg'
-import instagram from './../../../assets/icons/instagram.svg'
+import linkedin from './../../../assets/icons/linkedin.svg'
+import telegram from './../../../assets/icons/telegram.svg'
 import { Link } from 'react-router-dom'
 import styles from './medias.module.scss'
 
-export default function Medias() {
+export default function Medias({ profileLink }) {
     const medias = [
         {
-            src: twitter,
-            alt: 'twitter'
+            src: linkedin,
+            alt: 'linkedin',
+            path: profileLink?.linkedin
         },
         {
-            src: facebook,
-            alt: 'facebook'
-        },
-        {
-            src: instagram,
-            alt: 'instagram'
+            src: telegram,
+            alt: 'telegram',
+            path: profileLink?.telegram
         }
     ]
 
@@ -26,7 +23,7 @@ export default function Medias() {
             <ul>
                 {medias.map((media, index) => (
                     <li key={index}>
-                        <Link><img src={media.src} alt={media.alt} /></Link>
+                        <Link to={media.path}><img src={media.src} alt={media.alt} /></Link>
                     </li>
                 ))}
             </ul>
