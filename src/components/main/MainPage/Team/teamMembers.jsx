@@ -3,7 +3,7 @@ import maksym_korobiy from './../../../../assets/images/photos/maksym_korobiy.jp
 // import uliana_husar from './../../../../assets/images/photos/uliana_husar.jpg'
 import viktoria_sypko from './../../../../assets/images/photos/viktoria_sypko.jpg'
 // import danylo_penkovskyi from './../../../../assets/images/photos/danylo_penkovskyi.jpg'
-// import andriy_goray from './../../../../assets/images/photos/andriy_goray.jpg'
+import andriy_goray from './../../../../assets/images/photos/andriy_goray.jpg'
 import vadym_harmash from './../../../../assets/images/photos/vadym_harmash.jpg'
 import nikita_stetsenko from './../../../../assets/images/photos/nikita_stetsenko.jpg'
 // import anna_plakhutina from './../../../../assets/images/photos/anna_plakhutina.jpg'
@@ -61,11 +61,10 @@ const teamMembers = [
     },
     {
         "name": "Andriy Goray",
-        "speciality": "Full stack developer",
+        "speciality": "Team tech lead",
         "description": "Short background description",
-        // "photo": andriy_goray,
+        "photo": andriy_goray,
         "contacts": {
-            "telegram": 'https://t.me/Morzh1',
             "linkedin": 'https://www.linkedin.com/in/%D0%B0%D0%BD%D0%B4%D1%80%D0%B5%D0%B9-%D0%B3%D0%BE%D1%80%D0%B0%D0%B9-a4b197246/'
         }
     },

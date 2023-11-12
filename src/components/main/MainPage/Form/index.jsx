@@ -3,34 +3,46 @@ import axios from 'axios';
 import styles from './form.module.scss';
 
 export default function Form() {
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-
-  const handleInputChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:3001/add-email', { email });
-      setMessage(response.data.message);
-       // Очистка поля ввода после успешной отправки
-    } catch (error) {
-      // Обработка ошибок
-      if (error.response) {
-        // Ошибка с ответом от сервера
-        setMessage(error.response.data.error || 'Произошла ошибка при отправке запроса.');
-      } else if (error.request) {
-        // Запрос был сделан, но не получен ответ
-        setMessage('Произошла ошибка при ожидании ответа от сервера.');
-      } else {
-        // Ошибка настройки запроса
-        setMessage('Произошла ошибка при настройке запроса.');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+  
+    const handleInputChange = (e) => {
+      setEmail(e.target.value);
+    };
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+  
+      try {
+        // Отправка запроса на сервер
+        const response = await axios.post('http://localhost:3001/add-email', { email });
+  
+        // Обработка успешного ответа
+        setMessage(response.data.message);
+      } catch (error) {
+        // Обработка ошибок
+        if (error.response) {
+          // Ошибка с ответом от сервера
+          if (error.response.status === 400) {
+            // В случае статуса 400 (Bad Request), игнорируем ошибку
+            setMessage(error.response.data.error || 'Произошла ошибка при отправке запроса.');
+          } else {
+            // Другие ошибки с ответом от сервера
+            setMessage('Произошла ошибка при отправке запроса.');
+          }
+        } else if (error.request) {
+          // Запрос был сделан, но не получен ответ
+          setMessage('Произошла ошибка при ожидании ответа от сервера.');
+        } else {
+          // Ошибка настройки запроса
+          setMessage('Произошла ошибка при настройке запроса.');
+        }
       }
-    }
-    setEmail('');
-  };
+  
+      // Очистка поля ввода после отправки
+      setEmail('');
+    };
+  
 
   return (
     <div id='form' className={styles.form}>
