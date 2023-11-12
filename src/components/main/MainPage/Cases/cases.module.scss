@@ -1,0 +1,69 @@
+$table-text-color: #0C0C0C;
+
+.cases {
+    margin-bottom: 808px;
+
+    h2 {
+        margin-bottom: 76px;
+        text-align: center;
+        color: $table-text-color;
+        font-family: 'Poppins';
+        font-weight: 400;
+        font-size: 5em;
+        line-height: 80%;
+        letter-spacing: -3.6px;
+    }
+
+    &__table {
+        width: 100%;
+        border-spacing: 20px;
+        text-align: justify;
+
+        colgroup {
+            col:nth-child(1) {
+                width: 33%;
+            }
+
+            col:nth-child(2) {
+                width: 40%;
+            }
+
+            col:nth-child(3) {
+                width: 30%;
+            }
+        }
+
+        thead {
+            text-align: left;
+            vertical-align: top;
+
+            th {
+                font-weight: 600;
+
+                div {
+                    width: 100%;
+                    color: $table-text-color;
+                    font-family: 'Poppins';
+                    font-size: 1em;
+                    line-height: 150%;
+
+                    span {
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+
+        tbody {
+            vertical-align: top;
+
+            div {
+                width: 90%;
+
+                span {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}

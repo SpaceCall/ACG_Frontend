@@ -1,0 +1,19 @@
+$text-color: #0C0C0C;
+
+a {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+    justify-self: start;
+    span {
+        color: $text-color;
+        font-family: 'Poppins';
+        font-size: 3em;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 100%;
+        letter-spacing: -4.232px;
+    }
+    text-decoration: none;
+}

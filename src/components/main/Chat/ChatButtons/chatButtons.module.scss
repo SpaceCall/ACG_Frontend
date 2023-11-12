@@ -1,0 +1,77 @@
+$cancel-btn-bg: #F8F8F8;
+$cancel-btn-text: #0C0C0C;
+$confirm-btn-bg: #0C0C0C;
+$confirm-btn-text: #F8F8F8;
+
+$hovered-cancel-btn-bg: #0C0C0C;
+$hovered-cancel-btn-text: #F8F8F8;
+$hovered-confirm-btn-bg: #F8F8F8;
+$hovered-confirm-btn-text: #0C0C0C;
+
+.chatButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 20px;
+
+    a {
+        padding: 16px;
+        width: 37%;
+        border-radius: 12px;
+        border: 1px solid $confirm-btn-bg;
+        box-shadow: 0px 1px 2px -1px rgba(17, 12, 34, 0.08);
+        cursor: pointer;
+        transition: all .3s;
+        font-family: 'Poppins';
+        font-size: 1.125em;
+        font-weight: 600;
+        line-height: 88.889%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+    }
+
+    &__cancel {
+        background-color: $cancel-btn-bg;
+
+        color: $cancel-btn-text;
+
+        &::before {
+            content: url(./../../../../assets/icons/black-cross.svg);
+        }
+
+
+        &:hover {
+            background-color: $hovered-cancel-btn-bg;
+
+            color: $hovered-cancel-btn-text;
+
+            &::before {
+                content: url(./../../../../assets/icons/white-cross.svg);
+            }
+        }
+    }
+
+    &__confirm {
+        background-color: $confirm-btn-bg;
+
+        color: $confirm-btn-text;
+
+        &::before {
+            content: url(./../../../../assets/icons/white-tick.svg);
+        }
+
+
+        &:hover {
+            background-color: $hovered-confirm-btn-bg;
+
+            color: $hovered-confirm-btn-text;
+
+            &::before {
+                content: url(./../../../../assets/icons/black-tick.svg);
+            }
+        }
+    }
+}
