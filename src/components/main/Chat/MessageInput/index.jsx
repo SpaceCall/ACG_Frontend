@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styles from './messageInput.module.scss'
-import Input from './Input'
-import Button from './Button'
+import send from './../../../../assets/icons/send.svg'
 
 export default function MessageInput({ sendMessage, isSubmitDisabled }) {
     const [label, setLabel] = useState('')
