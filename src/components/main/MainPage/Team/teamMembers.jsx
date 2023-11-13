@@ -60,12 +60,11 @@ const teamMembers = [
         }
     },
     {
-        "name": "Andriy Goray",
-        "speciality": "Full stack developer",
+        "name": "Andrey Goray",
+        "speciality": "Team tech lead",
         "description": "Short background description",
         "photo": andriy_goray,
         "contacts": {
-            "telegram": 'https://t.me/Morzh1',
             "linkedin": 'https://www.linkedin.com/in/%D0%B0%D0%BD%D0%B4%D1%80%D0%B5%D0%B9-%D0%B3%D0%BE%D1%80%D0%B0%D0%B9-a4b197246/'
         }
     },

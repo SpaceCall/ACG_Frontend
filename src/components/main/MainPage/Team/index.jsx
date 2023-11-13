@@ -28,7 +28,7 @@ export default function Team() {
         }
     }, [])
 
-    const nextSlide = () => currentPosition < membersData.length - 2 ? setCurrentPosition(currentPosition + 1) : null
+    const nextSlide = () => currentPosition < membersData.length - 3 ? setCurrentPosition(currentPosition + 1) : null
 
     const prevSlide = () => (currentPosition > 0 ? setCurrentPosition(currentPosition - 1) : null)
 
