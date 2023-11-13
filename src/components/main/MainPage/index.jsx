@@ -14,9 +14,9 @@ export default function MainPage() {
             <div className={styles.mainPage__wrapper}>
                 <Intro />
                 <Cases />
+                <Mission />
                 <HowItWorks />
                 <Team />
-                <Mission />
                 <Form />
                 <Contacts />
             </div>
