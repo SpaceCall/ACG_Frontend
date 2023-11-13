@@ -34,7 +34,7 @@ export default function Cases() {
                                 materials according to your preferences, feedback, and practice
                                 results. The platform analyzes your practice results, as well as
                                 learning difficulties and questions you asked the bot
-                                throughout the course. Based on this information, <span>ACG</span>{' '}
+                                throughout the course. Based on this information, <span>ACG</span>
                                 updates your training plan to help you understand the material.
                                 And as you go through the course, you don't have to run to google
                                 for more explanations. You will always have a bot mentor to
@@ -58,8 +58,8 @@ export default function Cases() {
                             </p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                </div >
+            </div >
+        </div >
     );
 }

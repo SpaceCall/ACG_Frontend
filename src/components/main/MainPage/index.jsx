@@ -4,6 +4,7 @@ import Intro from './Intro'
 import Cases from './Cases'
 import HowItWorks from './HowItWorks'
 import Team from './Team'
+import Mission from './Mission'
 import Form from './Form'
 import Contacts from './Contacts'
 
@@ -15,6 +16,7 @@ export default function MainPage() {
                 <Cases />
                 <HowItWorks />
                 <Team />
+                <Mission />
                 <Form />
                 <Contacts />
             </div>

@@ -1,0 +1,25 @@
+.mission {
+    margin-bottom: 200px;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        text-align: center;
+
+        h2 {
+            font-size: 4em;
+            font-weight: 600;
+            line-height: 125%;
+            letter-spacing: -1.92px;
+            margin-left: 5%;
+        }
+
+        p {
+            width: 80%;
+            font-size: 1.25em;
+        }
+    }
+}
