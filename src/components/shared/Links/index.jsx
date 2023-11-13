@@ -4,7 +4,7 @@ import styles from './links.module.scss'
 export default function Links() {
     const links = [
         {
-            value: 'About us',
+            value: 'Use cases',
             path: 'cases'
         },
         {

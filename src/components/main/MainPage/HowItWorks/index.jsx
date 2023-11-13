@@ -27,24 +27,26 @@ export default function HowItWorks() {
 
     return (
         <div id='howitworks' className={styles.howItWorks}>
-            <h2>How it works?</h2>
-            <ul className={styles.howItWorks__list}>
-                {list.map((listItem, index) => (
-                    <li key={index} className={styles.howItWorks__list__item}>
-                        <div className={styles.howItWorks__list__item__number}>
-                            {String(index + 1).padStart(2, '0')}
-                        </div>
-                        <div className={styles.howItWorks__list__item__info}>
-                            <h3>
-                                {listItem.title}
-                            </h3>
-                            <p>
-                                {listItem.description}
-                            </p>
-                        </div>
-                    </li>
-                ))}
-            </ul>
+            <div className="container">
+                <h2>How it works?</h2>
+                <ul className={styles.howItWorks__list}>
+                    {list.map((listItem, index) => (
+                        <li key={index} className={styles.howItWorks__list__item}>
+                            <div className={styles.howItWorks__list__item__number}>
+                                {String(index + 1).padStart(2, '0')}
+                            </div>
+                            <div className={styles.howItWorks__list__item__info}>
+                                <h3>
+                                    {listItem.title}
+                                </h3>
+                                <p>
+                                    {listItem.description}
+                                </p>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     )
 }

@@ -15,7 +15,7 @@ export default function Form() {
     try {
       const response = await axios.post('http://localhost:3001/add-email', { email });
       setMessage(response.data.message);
-       // Очистка поля ввода после успешной отправки
+      // Очистка поля ввода после успешной отправки
     } catch (error) {
       // Обработка ошибок
       if (error.response) {
@@ -34,15 +34,17 @@ export default function Form() {
 
   return (
     <div id='form' className={styles.form}>
-      <h2>Join the ACG Community</h2>
-      <p>
-        Become a part of the <span>ACG</span> community and gain access to personalized learning like never before. Sign up
-        now to start your journey toward knowledge, growth, and success.
-      </p>
-      <form onSubmit={handleSubmit}>
-        <input type="email" placeholder="Enter your email" value={email} onChange={handleInputChange} />
-        <button type="submit" >Send</button>
-      </form>
+      <div className="container">
+        <h2>Join the ACG Community</h2>
+        <p>
+          Become a part of the <span>ACG</span> community and gain access to personalized learning like never before. Sign up
+          now to start your journey toward knowledge, growth, and success.
+        </p>
+        <form onSubmit={handleSubmit}>
+          <input type="email" placeholder="Enter your email" value={email} onChange={handleInputChange} />
+          <button type="submit" >Send</button>
+        </form>
+      </div>
     </div>
   );
 }

@@ -1,10 +1,10 @@
 $table-text-color: #0C0C0C;
 
 .cases {
-    margin-bottom: 808px;
+    margin-bottom: 300px;
 
     h2 {
-        margin-bottom: 76px;
+        margin-bottom: 30px;
         text-align: center;
         color: $table-text-color;
         font-family: 'Poppins';
@@ -14,56 +14,49 @@ $table-text-color: #0C0C0C;
         letter-spacing: -3.6px;
     }
 
-    &__table {
-        width: 100%;
-        border-spacing: 20px;
-        text-align: justify;
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
 
-        colgroup {
-            col:nth-child(1) {
-                width: 33%;
-            }
+    &__case {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 30%;
+        position: relative;
 
-            col:nth-child(2) {
-                width: 40%;
-            }
-
-            col:nth-child(3) {
-                width: 30%;
-            }
+        p {
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: justify;
+            opacity: 0;
+            z-index: -1;
         }
 
-        thead {
-            text-align: left;
-            vertical-align: top;
+        &__content {
+            font-size: 1.5em;
+        }
 
-            th {
-                font-weight: 600;
-
-                div {
-                    width: 100%;
-                    color: $table-text-color;
-                    font-family: 'Poppins';
-                    font-size: 1em;
-                    line-height: 150%;
-
-                    span {
-                        font-weight: 600;
-                    }
+        &__title {
+            text-align: center;
+            opacity: 1;
+            transition: all .3s;
+            
+            &:hover {
+                opacity: 0;
+                
+                p {
+                    opacity: 1;
                 }
             }
         }
 
-        tbody {
-            vertical-align: top;
-
-            div {
-                width: 90%;
-
-                span {
-                    font-weight: 600;
-                }
-            }
+        &__numbers {
+            font-size: 7em;
+            font-weight: 700;
+            text-align: center;
         }
     }
 }

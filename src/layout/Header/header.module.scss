@@ -1,9 +1,16 @@
-$bg-color: rgba(248, 248, 248, 0.50);
+$bg-color: rgba(248, 248, 248, 0.80);
 
-.header{
+.header {
     background-color: $bg-color;
+    backdrop-filter: blur(10px);
     padding: 12px;
-    &__wrapper{
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+
+    &__wrapper {
         display: grid;
         grid-template-columns: 1fr 4fr 1fr;
         align-items: center;

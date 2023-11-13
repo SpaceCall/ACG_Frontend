@@ -29,18 +29,19 @@ $underline-color: #0C0C0C;
             color: $text-color;
             font-family: 'Poppins';
             line-height: 150%;
-            margin-left: 80px;
 
             &__number {
                 font-size: 1.5em;
                 font-weight: 400;
                 width: 1%;
+                line-height: 1.5;
             }
 
             &__info {
                 h3 {
                     font-size: 2.5em;
                     font-weight: 500;
+                    line-height: 1;
                 }
 
                 p {
