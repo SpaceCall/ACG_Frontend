@@ -1,11 +1,11 @@
 $table-text-color: #0C0C0C;
-$title-bg-color: #FFFFFF;
+$border-color: #0C0C0C;
 
 .cases {
     margin-bottom: 100px;
 
     h2 {
-        margin-bottom: 30px;
+        margin-bottom: 50px;
         text-align: center;
         color: $table-text-color;
         font-family: 'Poppins';
@@ -24,42 +24,73 @@ $title-bg-color: #FFFFFF;
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 25%;
+        width: 30%;
+        padding-left: 30px;
         position: relative;
 
-        p {
-            position: absolute;
-            top: 20%;
-            left: 0;
-            text-align: justify;
-            z-index: -1;
-            font-size: 1em;
-            vertical-align: middle;
-            font-size: 0.8em;
-        }
-
-        &__content{
+        &__content {
             font-size: 1.125em;
-        }
-
-        &__title {
-            background-color: $title-bg-color;
-            padding: 80px 100px;
-            text-align: center;
-            opacity: 1;
-            transition: all .3s;
-            user-select: none;
+            transition: all .5s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
             cursor: pointer;
+            position: relative;
+
+            p {
+                text-align: justify;
+                font-size: 1em;
+                transition: all .5s ease-in-out;
+                font-size: 0.8em;
+            }
+
+            &__numbers {
+                font-size: 7em;
+                font-weight: 700;
+            }
+
+            &__title {
+                padding-bottom: 100px;
+                opacity: 1;
+                transition: all .5s ease-in-out;
+                user-select: none;
+            }
 
             &:hover {
-                opacity: 0;
+                .cases__case__content__title {
+                    transform: translateY(-180px);
+                    opacity: 0;
+                }
             }
         }
 
-        &__numbers {
-            font-size: 7em;
-            font-weight: 700;
-            text-align: center;
+        &:nth-child(1):hover {
+            p {
+                transform: translateY(-355px);
+            }
+        }
+
+        &:nth-child(2):hover {
+            p {
+                transform: translateY(-300px);
+            }
+        }
+
+        &:nth-child(3):hover {
+            p {
+                transform: translateY(-355px);
+            }
+        }
+
+        &::before {
+            content: '';
+            width: 1px;
+            height: 100%;
+            background-color: $border-color;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
     }
 }

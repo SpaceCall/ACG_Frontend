@@ -9,8 +9,8 @@ export default function Cases() {
                 <div className={styles.cases__wrapper}>
                     <div className={styles.cases__case}>
                         <div className={styles.cases__case__content}>
-                            <div className={styles.cases__case__title}>
-                                <div className={styles.cases__case__numbers}>01</div>
+                            <div className={styles.cases__case__content__title}>
+                                <div className={styles.cases__case__content__numbers}>01</div>
                                 <h3>Tailoring Education</h3>
                             </div>
                             <p>
@@ -25,8 +25,8 @@ export default function Cases() {
                     </div>
                     <div className={styles.cases__case}>
                         <div className={styles.cases__case__content}>
-                            <div className={styles.cases__case__title}>
-                                <div className={styles.cases__case__numbers}>02</div>
+                            <div className={styles.cases__case__content__title}>
+                                <div className={styles.cases__case__content__numbers}>02</div>
                                 <h3>Individual Approach</h3>
                             </div>
                             <p>
@@ -44,8 +44,8 @@ export default function Cases() {
                     </div>
                     <div className={styles.cases__case}>
                         <div className={styles.cases__case__content}>
-                            <div className={styles.cases__case__title}>
-                                <div className={styles.cases__case__numbers}>03</div>
+                            <div className={styles.cases__case__content__title}>
+                                <div className={styles.cases__case__content__numbers}>03</div>
                                 <h3>Task-Oriented Learning</h3>
                             </div>
                             <p>
