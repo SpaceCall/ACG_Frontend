@@ -7,7 +7,7 @@ export default function Logo() {
     return (
         <NavLink to='/'>
             <img src={logo} alt="ACG" />
-            <span className={styles.logo__name}>ACG</span>
+            {window.innerWidth > 992 ? <span className={styles.logo__name}>ACG</span> : null}
         </NavLink>
     )
 }
