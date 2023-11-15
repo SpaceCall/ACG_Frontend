@@ -11,8 +11,8 @@ $btn_bg_hovered_color: #FFFFFF;
 
 $course_text_hovered_color: #0C0C0C;
 $course_bg_hovered_color: #FFFFFF;
-$learn_text_hovered_color: #FFFFFF;
-$learn_bg_hovered_color: #0C0C0C;
+$learn_bg_hovered_color: #FFFFFF;
+$learn_text_hovered_color: #0C0C0C;
 
 .intro {
     margin: 120px auto 250px;
@@ -75,6 +75,9 @@ $learn_bg_hovered_color: #0C0C0C;
             }
 
             &:last-child {
+                background-color: $learn_bg_color;
+                color: $learn_text_color;
+
                 &:hover {
                     background-color: $learn_bg_hovered_color;
                     color: $learn_text_hovered_color;
