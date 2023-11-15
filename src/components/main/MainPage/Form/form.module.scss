@@ -47,7 +47,9 @@ $send-text-hovered-color: #0C0C0C;
         }
 
         button {
-            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
             min-width: 13%;
             border-radius: 12px;
@@ -104,10 +106,14 @@ $send-text-hovered-color: #0C0C0C;
                 border-bottom: 1px solid $border-color;
                 outline: none;
             }
+
+            button {
+                font-size: 0.7em;
+            }
         }
     }
 }
 
-@media screen and (min-width: 481px) {}
+@media screen and (max-width: 767px) {}
 
-@media screen and ((min-width: 320px)) {}
+@media screen and ((max-width: 476px)) {}
