@@ -11,11 +11,11 @@ export default function Medias({ profileLink }) {
             alt: 'linkedin',
             path: profileLink?.linkedin
         },
-        {
-            src: telegram,
-            alt: 'telegram',
-            path: profileLink?.telegram
-        }
+        // {
+        //     src: telegram,
+        //     alt: 'telegram',
+        //     path: profileLink?.telegram
+        // }
     ]
 
     return (

@@ -36,3 +36,19 @@ $line-color: #0C0C0C;
         }
     }
 }
+
+@media screen and (max-width: 991.98px) {
+    .contacts {
+        gap: 32px;
+        padding: 74px 50px 67px;
+        font-size: 0.7em;
+
+        &__links {
+            width: 60%;
+        }
+    }
+}
+
+@media screen and (min-width: 481px) {}
+
+@media screen and ((min-width: 320px)) {}

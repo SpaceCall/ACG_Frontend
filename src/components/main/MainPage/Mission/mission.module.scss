@@ -20,3 +20,24 @@
         }
     }
 }
+
+@media screen and (max-width: 991.98px) {
+    .mission {
+        margin-bottom: 150px;
+    
+        &__wrapper {
+    
+            h2 {
+                font-size: 3em;
+            }
+    
+            p {
+                font-size: 0.7em;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 481px) {}
+
+@media screen and ((min-width: 320px)) {}

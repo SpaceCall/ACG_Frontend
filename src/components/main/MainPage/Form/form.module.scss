@@ -79,3 +79,35 @@ $send-text-hovered-color: #0C0C0C;
         }
     }
 }
+
+@media screen and (max-width: 991.98px) {
+    .form {
+        padding-bottom: 100px;
+
+        h2 {
+            font-size: 3em;
+        }
+
+        p {
+            font-size: 0.7em;
+            font-weight: 400;
+            margin: 50px auto;
+            width: 60%;
+        }
+
+        form {
+
+            input {
+                min-width: 28%;
+                padding: 12px 0;
+                border: none;
+                border-bottom: 1px solid $border-color;
+                outline: none;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 481px) {}
+
+@media screen and ((min-width: 320px)) {}

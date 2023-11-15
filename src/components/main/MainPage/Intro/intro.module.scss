@@ -82,3 +82,21 @@ $learn_bg_hovered_color: #FFFFFF;
         }
     }
 }
+
+@media screen and (max-width: 991.98px) {
+    .intro {
+        margin: 120px auto 200px;
+
+        &__personalized p {
+            font-size: 0.8em;
+        }
+
+        h1 {
+            font-size: 3em;
+        }
+    }
+}
+
+@media screen and (min-width: 481px) {}
+
+@media screen and ((min-width: 320px)) {}
