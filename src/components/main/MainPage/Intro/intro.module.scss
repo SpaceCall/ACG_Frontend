@@ -1,23 +1,23 @@
 $course_text_color: #FFFFFF;
 $course_bg_color: #0C0C0C;
-$learn_text_color: #0C0C0C;
+$learn_text_color: #FFFFFF;
+$learn_bg_color: #0C0C0C;
 $learn_border_color: #0C0C0C;
-$learn_bg_color: #FFFFFF;
 
 $course_text_hovered_color: #0C0C0C;
 $course_bg_hovered_color: #FFFFFF;
-$learn_text_hovered_color: #FFFFFF;
-$learn_bg_hovered_color: #0C0C0C;
+$learn_text_hovered_color: #0C0C0C;
+$learn_bg_hovered_color: #FFFFFF;
 
 .intro {
-    margin: 66px auto 250px;
+    margin: 120px auto 250px;
     text-align: center;
 
     &__personalized {
-        margin-bottom: 44px;
+        margin: 0 auto 100px;
 
         p {
-            font-size: 1.25em;
+            font-size: 1.5em;
         }
     }
 
@@ -28,7 +28,7 @@ $learn_bg_hovered_color: #0C0C0C;
         line-height: 90%;
         letter-spacing: -2.4px;
         width: 90%;
-        margin: 0 auto 100px;
+        margin: 0 auto 45px;
     }
 
     &__buttons {
