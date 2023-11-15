@@ -1,6 +1,6 @@
 import React from 'react'
 import linkedin from './../../../assets/icons/linkedin.svg'
-import telegram from './../../../assets/icons/telegram.svg'
+// import telegram from './../../../assets/icons/telegram.svg'
 import { Link } from 'react-router-dom'
 import styles from './medias.module.scss'
 

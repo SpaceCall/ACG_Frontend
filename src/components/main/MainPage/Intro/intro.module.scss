@@ -2,7 +2,12 @@ $course_text_color: #FFFFFF;
 $course_bg_color: #0C0C0C;
 $learn_text_color: #FFFFFF;
 $learn_bg_color: #0C0C0C;
-$learn_border_color: #0C0C0C;
+
+$btn_border_color: #0C0C0C;
+$btn_text_color: #FFFFFF;
+$btn_bg_color: #0C0C0C;
+$btn_text_hovered_color: #0C0C0C;
+$btn_bg_hovered_color: #FFFFFF;
 
 $course_text_hovered_color: #0C0C0C;
 $course_bg_hovered_color: #FFFFFF;
@@ -47,37 +52,33 @@ $learn_bg_hovered_color: #FFFFFF;
             font-size: 1.125em;
             font-weight: 600;
             line-height: 88.889%;
-        }
+            background-color: $btn_bg_color;
+            border: 1px solid $btn_bg_color;
+            color: $btn_text_color;
 
-        &__course {
-            background-color: $course_bg_color;
-            border: 1px solid $course_bg_color;
-            color: $course_text_color;
-            padding: 16px;
-
-            &::after {
-                content: url(./../../../../assets/icons/white_arrow_right.svg);
-                margin-left: 12px;
-            }
-
-            &:hover {
-                background-color: $course_bg_hovered_color;
-                color: $course_text_hovered_color;
+            &:first-child {
+                padding: 16px;
 
                 &::after {
-                    content: url(./../../../../assets/icons/black_arrow_right.svg);
+                    content: url(./../../../../assets/icons/white_arrow_right.svg);
+                    margin-left: 12px;
+                }
+
+                &:hover {
+                    background-color: $course_bg_hovered_color;
+                    color: $course_text_hovered_color;
+
+                    &::after {
+                        content: url(./../../../../assets/icons/black_arrow_right.svg);
+                    }
                 }
             }
-        }
 
-        &__learn {
-            background-color: $learn_bg_color;
-            border: 1px solid $learn_border_color;
-            color: $learn_text_color;
-
-            &:hover {
-                background-color: $learn_bg_hovered_color;
-                color: $learn_text_hovered_color;
+            &:last-child {
+                &:hover {
+                    background-color: $learn_bg_hovered_color;
+                    color: $learn_text_hovered_color;
+                }
             }
         }
     }
