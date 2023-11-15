@@ -22,7 +22,7 @@ $send-text-hovered-color: #0C0C0C;
     p {
         color: $text-color;
         text-align: center;
-        font-size: 1em;
+        font-size: 1.5em;
         font-weight: 400;
         margin: 77px auto 56px;
         width: 47%;
@@ -47,9 +47,7 @@ $send-text-hovered-color: #0C0C0C;
         }
 
         button {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: block;
             text-align: center;
             min-width: 13%;
             border-radius: 12px;
@@ -81,39 +79,3 @@ $send-text-hovered-color: #0C0C0C;
         }
     }
 }
-
-@media screen and (max-width: 991.98px) {
-    .form {
-        padding-bottom: 100px;
-
-        h2 {
-            font-size: 3em;
-        }
-
-        p {
-            font-size: 0.7em;
-            font-weight: 400;
-            margin: 50px auto;
-            width: 60%;
-        }
-
-        form {
-
-            input {
-                min-width: 28%;
-                padding: 12px 0;
-                border: none;
-                border-bottom: 1px solid $border-color;
-                outline: none;
-            }
-
-            button {
-                font-size: 0.7em;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 767px) {}
-
-@media screen and ((max-width: 476px)) {}

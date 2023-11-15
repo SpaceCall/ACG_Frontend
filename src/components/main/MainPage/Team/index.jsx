@@ -100,7 +100,7 @@ export default function Team() {
                                     </div>
                                     <div className={styles.team__carousel__card__body}>
                                         <div className={styles.team__carousel__card__body__photo}>
-                                            {member.photo && <img src={member.photo} alt={member.name} />}
+                                            {member.photo && <img src={member.photo} alt={member.name} draggable="false"/>}
                                         </div>
                                     </div>
                                     <div className={styles.team__carousel__card__footer}>
