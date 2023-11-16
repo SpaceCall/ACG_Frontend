@@ -8,8 +8,6 @@ import membersData from './teamMembers'
 export default function Team() {
     const [currentPosition, setCurrentPosition] = useState(0)
     const [slideWidth, setSlideWidth] = useState(0)
-    const [isDragging, setIsDragging] = useState(false)
-    const [startX, setStartX] = useState(0)
     const [threshold, setThreshold] = useState(3)
     const gap = 24
 
@@ -39,32 +37,6 @@ export default function Team() {
         }
     }, [])
 
-    const handleMouseDown = (e) => {
-        setIsDragging(true)
-        setStartX(e.clientX - carouselRef.current.offsetLeft)
-    };
-
-    const handleMouseMove = (e) => {
-        if (!isDragging) return
-
-        const x = e.pageX - carouselRef.current.offsetLeft
-        const dragDistance = x - startX
-
-        if (dragDistance > slideWidth / 2) {
-            prevSlide()
-            setStartX(x)
-        } else if (dragDistance < -slideWidth / 2) {
-            nextSlide()
-            setStartX(x)
-        } else {
-            carouselRef.current.style.transform = `translateX(-${currentPosition * (slideWidth + gap) + dragDistance}px)`
-        }
-    }
-
-    const handleMouseUp = () => {
-        setIsDragging(false)
-    }
-
     const nextSlide = () => (currentPosition < membersData.length - threshold ? setCurrentPosition(currentPosition + 1) : null)
 
     const prevSlide = () => (currentPosition > 0 ? setCurrentPosition(currentPosition - 1) : null)
@@ -83,16 +55,7 @@ export default function Team() {
                 <h2>Our team</h2>
                 <div className={styles.team__carousel}>
                     <div className={styles.team__carousel__wrapper}>
-                        <div
-                            ref={carouselRef}
-                            className={styles.team__carousel__cards}
-                            onMouseDown={handleMouseDown}
-                            onMouseMove={handleMouseMove}
-                            onMouseUp={handleMouseUp}
-                            onMouseLeave={handleMouseUp}
-                            onTouchStart={handleMouseDown}
-                            onTouchMove={handleMouseMove}
-                            onTouchEnd={handleMouseUp}>
+                        <div ref={carouselRef} className={styles.team__carousel__cards}>
                             {membersData.map((member, index) => (
                                 <div key={index} ref={cardRef} className={styles.team__carousel__card}>
                                     <div className={styles.team__carousel__card__header}>
@@ -112,15 +75,15 @@ export default function Team() {
                                 </div>
                             ))}
                         </div>
-                        <div className={styles.team__carousel__arrows}>
-                            <button onClick={prevSlide}>
-                                <img src={left_arrow} alt='Previous' />
-                            </button>
-                            <button onClick={nextSlide}>
-                                <img src={right_arrow} alt='Next' />
-                            </button>
-                        </div>
                     </div>
+                </div>
+                <div className={styles.team__carousel__arrows}>
+                    <button onClick={prevSlide}>
+                        <img src={left_arrow} alt='Previous' />
+                    </button>
+                    <button onClick={nextSlide}>
+                        <img src={right_arrow} alt='Next' />
+                    </button>
                 </div>
             </div>
         </div>

@@ -2,6 +2,23 @@ $card-bg-color: #E8E8E8;
 $btn-bg-color: #FFFFFF;
 $text-color: #0C0C0C;
 
+%scroll-style {
+    &::-webkit-scrollbar {
+        width: 0.1px;
+        opacity: 0;
+    }
+
+    &::-moz-scrollbar {
+        width: 0.1px;
+        opacity: 0;
+    }
+
+    &::-o-scrollbar {
+        width: 0.1px;
+        opacity: 0;
+    }
+}
+
 .team {
     margin-bottom: 200px;
     font-family: 'Poppins';
@@ -18,7 +35,8 @@ $text-color: #0C0C0C;
     }
 
     &__carousel {
-        overflow: hidden;
+        @extend %scroll-style;
+        overflow-y: hidden;
         align-self: flex-end;
         margin-left: 20%;
         user-select: none;
