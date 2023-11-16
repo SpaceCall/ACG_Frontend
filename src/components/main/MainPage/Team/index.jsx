@@ -59,18 +59,22 @@ export default function Team() {
                             {membersData.map((member, index) => (
                                 <div key={index} ref={cardRef} className={styles.team__carousel__card}>
                                     <div className={styles.team__carousel__card__header}>
-                                        <div className={styles.team__carousel__card__header__name}>{member.name}</div>
-                                        <div className={styles.team__carousel__card__header__speciality}>
-                                            {member.speciality}
+                                        <div className={styles.team__carousel__card__container}>
+                                            <div className={styles.team__carousel__card__header__name}>{member.name}</div>
+                                            <div className={styles.team__carousel__card__header__speciality}>
+                                                {member.speciality}
+                                            </div>
                                         </div>
                                     </div>
                                     <div className={styles.team__carousel__card__body}>
-                                        <div className={styles.team__carousel__card__body__photo}>
-                                            {member.photo && <img src={member.photo} alt={member.name} draggable="false" />}
+                                            <div className={styles.team__carousel__card__body__photo}>
+                                                {member.photo && <img src={member.photo} alt={member.name} draggable="false" />}
                                         </div>
                                     </div>
                                     <div className={styles.team__carousel__card__footer}>
-                                        <Medias profileLink={member.contacts} />
+                                        <div className={styles.team__carousel__card__container}>
+                                            <Medias profileLink={member.contacts} />
+                                        </div>
                                     </div>
                                 </div>
                             ))}
