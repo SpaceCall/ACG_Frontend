@@ -36,7 +36,7 @@ $text-color: #0C0C0C;
 
     &__carousel {
         @extend %scroll-style;
-        overflow-y: hidden;
+        overflow: hidden;
         align-self: flex-end;
         margin-left: 20%;
         user-select: none;
@@ -123,6 +123,7 @@ $text-color: #0C0C0C;
 
         &__carousel {
             margin-left: 0;
+            overflow-x: scroll;
 
             &__card {
                 flex: 0 0 32%;
