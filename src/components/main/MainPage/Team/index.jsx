@@ -10,18 +10,27 @@ export default function Team() {
     const [slideWidth, setSlideWidth] = useState(0)
     const [isDragging, setIsDragging] = useState(false)
     const [startX, setStartX] = useState(0)
+    const [threshold, setThreshold] = useState(3)
     const gap = 24
 
     const carouselRef = useRef(null)
     const cardRef = useRef(null)
 
     useEffect(() => {
+        if (window.innerWidth > 768) {
+            setThreshold(3)
+        } else if (window.innerWidth <= 768 && window.innerWidth >= 480) {
+            setThreshold(2)
+        } else {
+            setThreshold(1)
+        }
+
         setSlideWidth(cardRef.current.clientWidth)
 
         const handleResize = () => {
             setSlideWidth(cardRef.current.clientWidth)
             setCurrentPosition(0)
-        };
+        }
 
         window.addEventListener('resize', handleResize)
 
@@ -36,7 +45,6 @@ export default function Team() {
     };
 
     const handleMouseMove = (e) => {
-        e.stopPropagation()
         if (!isDragging) return
 
         const x = e.pageX - carouselRef.current.offsetLeft
@@ -57,7 +65,7 @@ export default function Team() {
         setIsDragging(false)
     }
 
-    const nextSlide = () => (currentPosition < membersData.length - 3 ? setCurrentPosition(currentPosition + 1) : null)
+    const nextSlide = () => (currentPosition < membersData.length - threshold ? setCurrentPosition(currentPosition + 1) : null)
 
     const prevSlide = () => (currentPosition > 0 ? setCurrentPosition(currentPosition - 1) : null)
 
@@ -73,25 +81,20 @@ export default function Team() {
         >
             <div className="container">
                 <h2>Our team</h2>
-                <div className={styles.team__carousel}
-                    onMouseDown={handleMouseDown}
-                    onMouseMove={handleMouseMove}
-                    onMouseUp={handleMouseUp}
-                    onMouseLeave={handleMouseUp}
-                    onTouchStart={handleMouseDown}
-                    onTouchMove={handleMouseMove}
-                    onTouchEnd={handleMouseUp}>
+                <div className={styles.team__carousel}>
                     <div className={styles.team__carousel__wrapper}>
-                        <div ref={carouselRef} className={styles.team__carousel__cards}>
+                        <div
+                            ref={carouselRef}
+                            className={styles.team__carousel__cards}
+                            onMouseDown={handleMouseDown}
+                            onMouseMove={handleMouseMove}
+                            onMouseUp={handleMouseUp}
+                            onMouseLeave={handleMouseUp}
+                            onTouchStart={handleMouseDown}
+                            onTouchMove={handleMouseMove}
+                            onTouchEnd={handleMouseUp}>
                             {membersData.map((member, index) => (
-                                <div key={index} ref={cardRef} className={styles.team__carousel__card}
-                                    onMouseDown={handleMouseDown}
-                                    onMouseMove={handleMouseMove}
-                                    onMouseUp={handleMouseUp}
-                                    onMouseLeave={handleMouseUp}
-                                    onTouchStart={handleMouseDown}
-                                    onTouchMove={handleMouseMove}
-                                    onTouchEnd={handleMouseUp}>
+                                <div key={index} ref={cardRef} className={styles.team__carousel__card}>
                                     <div className={styles.team__carousel__card__header}>
                                         <div className={styles.team__carousel__card__header__name}>{member.name}</div>
                                         <div className={styles.team__carousel__card__header__speciality}>
@@ -100,7 +103,7 @@ export default function Team() {
                                     </div>
                                     <div className={styles.team__carousel__card__body}>
                                         <div className={styles.team__carousel__card__body__photo}>
-                                            {member.photo && <img src={member.photo} alt={member.name} draggable="false"/>}
+                                            {member.photo && <img src={member.photo} alt={member.name} draggable="false" />}
                                         </div>
                                     </div>
                                     <div className={styles.team__carousel__card__footer}>
