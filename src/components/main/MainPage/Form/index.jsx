@@ -5,6 +5,19 @@ import config from './config.jsx'
 export default function Form() {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [csrfToken, setCsrfToken] = useState('');
+
+    // useEffect(() => {
+    //   async function fetchCsrfToken() {
+    //     try {
+    //       const response = await axios.get(`http://${config.server.address}:${config.server.port}/csrf-token`);
+    //       setCsrfToken(response.data.csrfToken);
+    //     } catch (error) {
+    //       console.error('Error fetching CSRF token:', error);
+    //     }
+    //   }
+    //   fetchCsrfToken();
+    // }, []);
   
     const handleInputChange = (e) => {
       setEmail(e.target.value);
@@ -14,8 +27,21 @@ export default function Form() {
       e.preventDefault();
   
       try {
+        const csrfResponse = await axios.get(`http://${config.server.address}/csrf-token`,{
+          withCredentials: true, 
+        });
+        const csrfToken = csrfResponse.data.csrfToken;
         // Отправка запроса на сервер
-        const response = await axios.post(`http://${config.server.address}:${config.server.port}/add-email`, { email });
+        const response = await axios.post(
+          `http://${config.server.address}/add-email`,
+          { email },
+          {
+            headers: {
+              'X-CSRF-TOKEN': csrfToken, 
+            },
+            withCredentials: true,
+          }
+        );
   
         // Обработка успешного ответа
         setMessage(response.data.message);
@@ -53,6 +79,7 @@ export default function Form() {
       </p>
       <form onSubmit={handleSubmit}>
         <input type="email" placeholder="Enter your email" value={email} onChange={handleInputChange} />
+        <input type="hidden" name="_csrf" value={csrfToken} />
         <button type="submit" >Send</button>
       </form>
     </div>
