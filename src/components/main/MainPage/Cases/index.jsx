@@ -13,13 +13,16 @@ export default function Cases() {
                                 <div className={styles.cases__case__content__numbers}>01</div>
                                 <h3>Tailoring Education</h3>
                             </div>
-                            <p>
-                                You no longer have to choose from dozens of different courses,
-                                afraid that you will pay for nothing and the course will not fit
-                                your expectations. Just talk to our mentor-chatbot, tell us what
-                                you want to learn, how much time you have and what experience
-                                you already have. <span>ACG</span> will design a learning plan
-                                based on your needs and experience.
+                            <p className={styles.cases__case__content__main__text}>
+                            We will generate a course according to your expectations and experiance
+                            </p>
+                            <p className={styles.cases__case__content__learn_more__text}>
+                            You no longer have to choose from dozens of different courses,
+                                 afraid that you will pay for nothing and the course will not
+                                  fit your expectations. Just talk to our mentor-chatbot,
+                                   tell us what you want to learn, how much time you have and what
+                                    experience you already have. <span>ACG</span> will design a learning plan based
+                                     on your needs and experience.
                             </p>
                         </div>
                     </div>
@@ -27,18 +30,15 @@ export default function Cases() {
                         <div className={styles.cases__case__content}>
                             <div className={styles.cases__case__content__title}>
                                 <div className={styles.cases__case__content__numbers}>02</div>
-                                <h3>Individual Approach</h3>
+                                <h3>Real-Projects Practice</h3>
                             </div>
-                            <p>
-                                <span>ACG</span> will personalize the learning process and
-                                materials according to your preferences, feedback, and practice
-                                results. The platform analyzes your practice results, as well as
-                                learning difficulties and questions you asked the bot
-                                throughout the course. Based on this information, <span>ACG</span>
-                                updates your training plan to help you understand the material.
-                                And as you go through the course, you don't have to run to google
-                                for more explanations. You will always have a bot mentor to
-                                explain everything you don't understand.
+                            <p className={styles.cases__case__content__main__text}>
+                            You will consolidate your knowledge with advanced practical tasks that you can then encounter in real life
+                            </p>
+                            <p className={styles.cases__case__content__learn_more__text}>
+                            After each module, we will give you a task that corresponds to real challenges
+                             you may face in the future, and you will complete it from start to finish under
+                              the mentorship of our chatbot, which will provide you with all the support you need.
                             </p>
                         </div>
                     </div>
@@ -46,15 +46,16 @@ export default function Cases() {
                         <div className={styles.cases__case__content}>
                             <div className={styles.cases__case__content__title}>
                                 <div className={styles.cases__case__content__numbers}>03</div>
-                                <h3>Task-Oriented Learning</h3>
+                                <h3>Individual support</h3>
                             </div>
-                            <p>
-                                We can help you accomplish a specific task. You can tell us what
-                                you are looking for from this course, what skills you are
-                                interested in and we will provide material especially to prepare
-                                you for the assignment. We will give detailed practical
-                                assignments, so that you do not just learn the theory, but
-                                immediately apply it on real tasks.
+                            <p className={styles.cases__case__content__main__text}>
+                            Our mentor-chatbot will explain any information and answer all your questions during the course
+                            </p>
+                            <p className={styles.cases__case__content__learn_more__text}>
+                            If you encounter any questions during your studies or practical assignments,
+                             there's no need to search the internet for answers. Our mentor chatbot will
+                              supply you with all the necessary information and responses. Based on your queries,
+                               the platform will generate the necessary material to better understand the topic
                             </p>
                         </div>
                     </div>

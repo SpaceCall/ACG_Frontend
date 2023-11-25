@@ -27,13 +27,13 @@ export default function Form() {
       e.preventDefault();
   
       try {
-        const csrfResponse = await axios.get(`http://${config.server.address}/csrf-token`,{
+        const csrfResponse = await axios.get(`https://${config.server.address}/csrf-token`,{
           withCredentials: true, 
         });
         const csrfToken = csrfResponse.data.csrfToken;
         // Отправка запроса на сервер
         const response = await axios.post(
-          `http://${config.server.address}/add-email`,
+          `https://${config.server.address}/add-email`,
           { email },
           {
             headers: {
