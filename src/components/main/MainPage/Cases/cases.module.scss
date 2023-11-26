@@ -158,7 +158,7 @@ $border-color: #0C0C0C;
         margin-bottom: 100px;
         &__wrapper{
             flex-direction: column;
-            gap: 30px;
+            gap: 80px;
         }
         h2 {
             margin-bottom: 50px;
@@ -166,7 +166,7 @@ $border-color: #0C0C0C;
         }
 
         &__case {
-            max-height: 700px;
+            max-height: 150px;
 
             &__content {
                 font-size: 1em;
@@ -185,9 +185,18 @@ $border-color: #0C0C0C;
                     margin-bottom: 20px;
                 }
 
+                &__main__text{
+                    transform: translateY(50px);
+                }
+
                 &:hover {
-                    p {
-                        transform: translateY(-75px);
+                    .cases__case {
+                        &__content__main__text {
+                            transform: translateY(-75px);
+                        }
+                        &__content__learn_more__text {
+                            transform: translateY(-50px);
+                        }
                     }
                 }
             }
