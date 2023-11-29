@@ -12,7 +12,7 @@ export default function Contacts() {
             <div className={styles.contacts__line}></div>
             <div className={styles.contacts__footer}>
                 <p>© 2023 ACG. All rights reserved.</p>
-                <Medias />
+                <Medias profileLink={{"linkedin": 'https://www.linkedin.com/company/artcogen/mycompany/'}}/>
             </div>
         </div>
     )

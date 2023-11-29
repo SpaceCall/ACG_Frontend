@@ -5,9 +5,9 @@ import styles from './logo.module.scss'
 
 export default function Logo() {
     return (
-        <NavLink to='/'>
+            <a href={`#`}>
             <img src={logo} alt="ACG" />
             {window.innerWidth > 992 ? <span className={styles.logo__name}>ACG</span> : null}
-        </NavLink>
+            </a>
     )
 }
