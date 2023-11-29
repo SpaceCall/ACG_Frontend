@@ -14,9 +14,24 @@ export default function Form() {
       e.preventDefault();
   
       try {
+        const ipResponse = await axios.get(`https://api.ipify.org?format=json`);
+        const ip = ipResponse.data.ip;
+        const csrfResponse = await axios.get(`https://${config.server.address}/csrf-token`,{
+          withCredentials: true, 
+        });
+        const csrfToken = csrfResponse.data.csrfToken;
         // Отправка запроса на сервер
-        const response = await axios.post('http://localhost:3001/add-email', { email });
-  
+        const response = await axios.post(
+          `https://${config.server.address}/landing/add-email`,
+          { email },
+          {
+            headers: {
+              'X-CSRF-TOKEN': csrfToken, 
+              'ip': ip
+            },
+            withCredentials: true,
+          }
+        );
         // Обработка успешного ответа
         setMessage(response.data.message);
       } catch (error) {
