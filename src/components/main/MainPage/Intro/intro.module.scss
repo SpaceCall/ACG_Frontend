@@ -1,83 +1,76 @@
-$course_text_color: #FFFFFF;
-$course_bg_color: #0C0C0C;
-$learn_text_color: #0C0C0C;
-$learn_border_color: #0C0C0C;
-$learn_bg_color: #FFFFFF;
+$text-color: #0C0C0C;
+$border-color: #0C0C0C;
 
-$course_text_hovered_color: #0C0C0C;
-$course_bg_hovered_color: #FFFFFF;
-$learn_text_hovered_color: #FFFFFF;
-$learn_bg_hovered_color: #0C0C0C;
+$btn-bg-color: #FF6314;
+$btn-border-color: #FF6314;
+$btn-text-color: #FFFFFF;
+
+$hovered-btn-bg-color: #FFFFFF;
+$hovered-btn-text-color: #FF6314;
 
 .intro {
-    margin: 66px auto 358px;
+    margin: 90px auto 0;
     text-align: center;
+    height: calc(100vh - 162px);
 
-    &__personalized {
-        margin-bottom: 44px;
-
-        p {
-            font-size: 1.25em;
-        }
-    }
-
-    h1 {
-        font-family: 'Poppins';
-        font-size: 5em;
-        font-weight: 500;
-        line-height: 90%;
-        letter-spacing: -2.4px;
-        width: 80%;
-        margin: 0 auto 100px;
-    }
-
-    &__buttons {
+    &__wrapper {
         display: flex;
-        gap: 24px;
-        justify-content: center;
+    }
 
-        a {
-            display: block;
-            min-width: 13%;
-            border-radius: 12px;
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        text-align: left;
+
+        &__text {
+            color: $text-color;
+            font-family: 'Jost';
+            font-size: 1.25em;
+            line-height: 150%;
+            padding-bottom: 8px;
+            border-bottom: 1px solid $border-color;
+        }
+
+        &__title {
+            color: $text_color;
+            font-family: 'Jost';
+            font-size: 5em;
+            font-weight: 500;
+            line-height: 110%;
+            letter-spacing: -2.4px;
+            text-transform: uppercase;
+            width: 60%;
+            margin: 24px 0 60px;
+        }
+
+        &__button {
+            background-color: $btn-bg-color;
             padding: 16px;
-            transition: all .3s;
-            cursor: pointer;
+            min-width: 180px;
+            border: 1px solid $btn-border-color;
+            border-radius: 4px;
+            color: $btn-text-color;
             font-family: 'Poppins';
             font-size: 1.125em;
             font-weight: 600;
             line-height: 88.889%;
-        }
-
-        &__course {
-            background-color: $course_bg_color;
-            border: 1px solid $course_bg_color;
-            color: $course_text_color;
-            padding: 16px;
-
-            &::after {
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            transition: all .3s;
+            &::after{
                 content: url(./../../../../assets/icons/white_arrow_right.svg);
-                margin-left: 12px;
             }
-
-            &:hover {
-                background-color: $course_bg_hovered_color;
-                color: $course_text_hovered_color;
-
-                &::after {
-                    content: url(./../../../../assets/icons/black_arrow_right.svg);
+            &:hover{
+                background-color: $hovered-btn-bg-color;
+                color: $hovered-btn-text-color;
+                &::after{
+                    content: url(./../../../../assets/icons/orange_arrow_right.svg);
                 }
-            }
-        }
-
-        &__learn {
-            background-color: $learn_bg_color;
-            border: 1px solid $learn_border_color;
-            color: $learn_text_color;
-
-            &:hover {
-                background-color: $learn_bg_hovered_color;
-                color: $learn_text_hovered_color;
             }
         }
     }
