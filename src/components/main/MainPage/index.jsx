@@ -12,8 +12,8 @@ export default function MainPage() {
         <div className={styles.mainPage}>
             <div className={styles.mainPage__wrapper}>
                 <Intro />
-                {/* <Cases />
-                <HowItWorks />
+                <Cases />
+                {/* <HowItWorks />
                 <Team />
                 <Form />
                 <Contacts /> */}

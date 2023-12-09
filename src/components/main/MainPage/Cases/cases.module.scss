@@ -1,67 +1,177 @@
-$table-text-color: #0C0C0C;
+$text-color: #0C0C0C;
+$case-orange-color: #FF6314;
+$case-black-color: #0C0C0C;
+$line-color: #0C0C0C;
+$even-list-item: #000000;
 
 .cases {
-    margin-bottom: 808px;
 
-    h2 {
-        margin-bottom: 76px;
-        text-align: center;
-        color: $table-text-color;
-        font-family: 'Poppins';
-        font-weight: 400;
-        font-size: 5em;
-        line-height: 80%;
-        letter-spacing: -3.6px;
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 150px;
     }
 
-    &__table {
-        width: 100%;
-        border-spacing: 20px;
-        text-align: justify;
+    &__title {
+        color: $text-color;
+        font-family: 'Jost';
+        font-size: 5em;
+        font-weight: 400;
+        line-height: 110%;
+        letter-spacing: -2.4px;
+        text-transform: uppercase;
+        margin-bottom: 90px;
+    }
 
-        colgroup {
-            col:nth-child(1) {
-                width: 33%;
-            }
+    &__case {
+        display: flex;
+        gap: 75px;
 
-            col:nth-child(2) {
-                width: 40%;
-            }
+        &__image {
+            width: 60%;
 
-            col:nth-child(3) {
-                width: 30%;
+            img {
+                width: 100%;
             }
         }
 
-        thead {
-            text-align: left;
-            vertical-align: top;
+        &__description {
+            margin-top: 17px;
+            width: 36%;
 
-            th {
-                font-weight: 600;
+            &__title {
+                font-size: 4em;
+                font-family: 'Jost';
+                font-weight: 400;
+                line-height: 110%;
+                letter-spacing: -1.92px;
+                text-transform: uppercase;
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 50px;
 
-                div {
-                    width: 100%;
-                    color: $table-text-color;
+                &__orange {
+                    color: $case-orange-color;
+                }
+
+                &__black {
+                    color: $case-black-color;
+                }
+            }
+
+            &__list {
+                display: flex;
+                flex-direction: column;
+                gap: 56px;
+
+                li {
+                    color: $text-color;
                     font-family: 'Poppins';
                     font-size: 1em;
+                    font-style: normal;
+                    font-weight: 400;
                     line-height: 150%;
+                    width: 60%;
+                    position: relative;
 
-                    span {
-                        font-weight: 600;
+                    .line {
+                        height: 10px;
+                        display: flex;
+                        align-items: center;
+                        position: absolute;
+                        width: 75%;
+                        top: 50%;
+
+                        height: 1px;
+                        background-image: linear-gradient(90deg, $line-color, $line-color 50%, $line-color 50%, $line-color 30%, transparent 50%);
+                        background-size: 20px 1px;
+
+                        &::after,
+                        &::before {
+                            content: '';
+                            display: block;
+                            width: 7px;
+                            height: 7px;
+                            border-radius: 50%;
+                            border: 1px $line-color solid;
+                            background-color: $line-color;
+                            position: absolute;
+                        }
+
+                        &::after {
+                            right: 0;
+                        }
+
+                        &::before {
+                            left: 0;
+                        }
                     }
                 }
             }
         }
+    }
 
-        tbody {
-            vertical-align: top;
+    &__odd {
+        flex-direction: row;
 
-            div {
-                width: 90%;
+        &__description {
 
-                span {
-                    font-weight: 600;
+            &__title {
+                &__orange {
+                    align-self: flex-start;
+                }
+
+                &__black {
+                    align-self: flex-end;
+                }
+            }
+
+            &__list li {
+                .line {
+                    right: 100%;
+                    margin-right: 19px;
+                }
+            }
+        }
+    }
+
+    &__even {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+
+        &__description {
+
+            &__title {
+                &__orange {
+                    align-self: flex-end;
+                }
+
+                &__black {
+                    align-self: flex-start;
+                }
+            }
+
+            &__list li {
+                width: 95%;
+
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 50%;
+                    border: 1px solid $even-list-item;
+                    position: absolute;
+                    top: 5px;
+                    right: 100%;
+                    margin-right: 13px;
+                }
+
+                .line {
+                    left: 100%;
+                    margin-left: 19px;
+                    width: 55%;
                 }
             }
         }

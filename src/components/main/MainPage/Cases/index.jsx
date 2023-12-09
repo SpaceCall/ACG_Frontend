@@ -1,43 +1,104 @@
-import React from 'react'
-import styles from './cases.module.scss'
+import React from 'react';
+import styles from './cases.module.scss';
+import case_image from './../../../../assets/images/case-image.png';
 
 export default function Cases() {
+    const casesData = [
+        {
+            title: ['Tailoring', 'Education'],
+            list: [
+                'ACG will design a learning plan based on your needs and experience.',
+                'ACG will design a learning plan based on your needs and experience.',
+            ],
+        },
+        {
+            title: ['Task-Oriented', 'Learning'],
+            list: [
+                'We will give detailed practical assignments, so that you do not just learn the theory, but immediately apply it on real tasks.',
+                'You can tell us what you are looking for from this course, what skills you are interested in, and we will provide material especially to prepare you for the assignment.',
+            ],
+        },
+        {
+            title: ['Individual', 'Approach'],
+            list: [
+                'The platform analyzes your practice results, as well as learning difficulties and questions you asked the bot throughout the course.',
+                'Based on this information, ACG updates your training plan to help you understand the material.',
+                'You will always have a bot mentor to explain everything you don\'t understand.',
+            ],
+        },
+    ]
+
     return (
         <div id='cases' className={styles.cases}>
-            <h2>Use Cases</h2>
-            <table className={styles.cases__table}>
-                <colgroup>
-                    <col />
-                    <col />
-                    <col />
-                </colgroup>
-                <thead>
-                    <tr>
-                        <th><div>Tailoring Education</div></th>
-                        <th><div>Individual Approach</div></th>
-                        <th><div>Task-Oriented Learning</div></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div>
-                                You no longer have to choose from dozens of different courses, afraid that you will pay for nothing and the course will not fit your expectations. Just talk to our mentor-chatbot, tell us what you want to learn, how much time you have and what experience you already have. <span>ACG</span> will design a learning plan based on your needs and experience.
+            <div className='container'>
+                <h2 className={styles.cases__title}>Use Cases</h2>
+                <div className={styles.cases__wrapper}>
+                    {casesData.map((caseItem, index) => (
+                        <div
+                            key={index}
+                            className={`
+                                ${styles.cases__case} 
+                                ${index % 2 === 0 ? styles.cases__odd : 
+                                                    styles.cases__even}
+                            `}
+                        >
+                            <div
+                                className={`
+                                    ${styles.cases__case__image} 
+                                    ${index % 2 === 0 ? 
+                                        styles.cases__odd__image : 
+                                        styles.cases__even__image}
+                                `}>
+                                <img src={case_image} alt='Chat' />
                             </div>
-                        </td>
-                        <td>
-                            <div>
-                                <span>ACG</span> will personalize the learning process and materials according to your preferences, feedback, and practice results. The platform analyzes your practice results, as well as learning difficulties and questions you asked the bot throughout the course. Based on this information, <span>ACG</span> updates your training plan to help you understand the material. And as you go through the course, you don't have to run to google for more explanations. You will always have a bot mentor to explain everything you don't understand.
+                            <div
+                                className={`
+                                    ${styles.cases__case__description} 
+                                    ${index % 2 === 0 ? styles.cases__odd__description : 
+                                                        styles.cases__even__description}
+                                `}>
+                                <h3
+                                    className={`
+                                        ${styles.cases__case__description__title} 
+                                        ${index % 2 === 0 ? styles.cases__odd__description__title : 
+                                                            styles.cases__even__description__title}
+                                    `}>
+                                    <span
+                                        className={`
+                                            ${styles.cases__case__description__title__orange} 
+                                            ${index % 2 === 0 ? styles.cases__odd__description__title__orange : 
+                                                                styles.cases__even__description__title__orange}
+                                    `}>
+                                        {caseItem.title[0]}
+                                    </span>
+                                    <span
+                                        className={`
+                                            ${styles.cases__case__description__title__black} 
+                                            ${index % 2 === 0 ? styles.cases__odd__description__title__black : 
+                                                                styles.cases__even__description__title__black}
+                                        `}>
+                                        {caseItem.title[1]}
+                                    </span>
+                                </h3>
+                                <ul
+                                    className={`
+                                        ${styles.cases__case__description__list} 
+                                        ${index % 2 === 0 ? styles.cases__odd__description__list : 
+                                                            styles.cases__even__description__list}`}>
+                                    {caseItem.list.map((item, listItemIndex) => (
+                                        <li key={listItemIndex}>
+                                            <div className={styles.line}>
+                                                <hr />
+                                            </div>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
-                        </td>
-                        <td>
-                            <div>
-                                We can help you accomplish a specific task. You can tell us what you are looking for from this course, what skills you are interested in and we will provide material especially to prepare you for the assignment. We will give detailed practical assignments, so that you do not just learn the theory, but immediately apply it on real tasks.
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
     )
 }
