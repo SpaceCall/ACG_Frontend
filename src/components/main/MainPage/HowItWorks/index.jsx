@@ -4,47 +4,51 @@ import styles from './howItWorks.module.scss'
 export default function HowItWorks() {
     const list = [
         {
-            title: "Consult with the mentor-chatbot.",
-            description: "Say exactly what you expect from the course, your current level of knowledge , and the time you want to invest in it."
+            title: ["Choose Your", "Learning Path"],
+            description: <>
+                Dive into the world of knowledge by selecting the topic that ignites your curiosity. With a vast array of subjects to explore, <span>ACG</span> ensures you have the freedom to learn what matters most to you. Say exactly what you expect from the course, your current level of knowledge, and the time you want to invest in it.
+            </>
         },
         {
-            title: "Get a customized study plan.",
-            description: "The mentor generates a study plan based on your preferences and actual topics for study"
+            title: ["Customize Your", "Learning Experience"],
+            description: <>
+                Dive into the world of knowledge by selecting the topic that ignites your curiosity. With a vast array of subjects to explore, <span>ACG</span> ensures you have the freedom to learn what matters most to you. Say exactly what you expect from the course, your current level of knowledge, and the time you want to invest in it.
+            </>
         },
         {
-            title: "Learn topics through video and text.",
-            description: "At each stage of the plan, you will have access to the most relevant articles and videos for your studies"
+            title: ["Your Comprehensive", "Learning Journey"],
+            description: <>
+                Dive into the world of knowledge by selecting the topic that ignites your curiosity. With a vast array of subjects to explore, <span>ACG</span> ensures you have the freedom to learn what matters most to you. Say exactly what you expect from the course, your current level of knowledge, and the time you want to invest in it.
+            </>
         },
-        {
-            title: "Practice, ask questions, and provide feedback.",
-            description: "Ask questions for clarification and take practical tasks to reinforce your understanding of the material"
-        },
-        {
-            title: "The study plan is personalized for you.",
-            description: "Based on comprehensive testing and feedback, it will be continuously enhanced to ensure 100% mastery of the material."
-        }
     ]
 
     return (
         <div id='howitworks' className={styles.howItWorks}>
-            <h2>How it works?</h2>
-            <ul className={styles.howItWorks__list}>
-                {list.map((listItem, index) => (
-                    <li key={index} className={styles.howItWorks__list__item}>
-                        <div className={styles.howItWorks__list__item__number}>
-                            {String(index + 1).padStart(2, '0')}
-                        </div>
-                        <div className={styles.howItWorks__list__item__info}>
-                            <h3>
-                                {listItem.title}
-                            </h3>
-                            <p>
-                                {listItem.description}
-                            </p>
-                        </div>
-                    </li>
-                ))}
-            </ul>
+            <div className="container">
+                <h2>How it works <span>?</span></h2>
+                <div className={styles.howItWorks__wrapper}>
+                    <ul className={styles.howItWorks__list}>
+                        {list.map((listItem, index) => (
+                            <li key={index} className={styles.howItWorks__list__item}>
+                                <div className={styles.howItWorks__list__item__info}>
+                                    <h3>
+                                        <span>
+                                            {listItem.title[0]}
+                                        </span>
+                                        <span>
+                                            {listItem.title[1]}
+                                        </span>
+                                    </h3>
+                                    <p>
+                                        {listItem.description}
+                                    </p>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
         </div>
     )
 }

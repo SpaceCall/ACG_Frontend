@@ -1,52 +1,76 @@
-$text-color: #0C0C0C;
-$underline-color: #0C0C0C;
+$text-black-color: #0C0C0C;
+$text-orange-color: #FF6314;
+$line-color: #0C0C0C;
+
+%line {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: $line-color;
+}
 
 .howItWorks {
     margin-bottom: 200px;
 
     h2 {
-        margin: 0 80px 50px 0;
-        text-align: right;
-        color: $text-color;
-        text-align: right;
-        font-family: 'Poppins';
-        font-size: 4em;
-        font-weight: 600;
-        line-height: 125%;
-        letter-spacing: -1.92px;
+        color: $text-black-color;
+        font-family: 'Jost';
+        font-size: 5em;
+        font-weight: 400;
+        line-height: 110%;
+        letter-spacing: -2.4px;
+        text-transform: uppercase;
+        margin-bottom: 90px;
+
+        span {
+            color: $text-orange-color;
+        }
     }
 
     &__list {
         display: flex;
         flex-direction: column;
-        gap: 56px;
 
         &__item {
-            display: flex;
-            gap: 80px;
-            width: calc(100% - 162px);
             position: relative;
-            color: $text-color;
+            color: $text-black-color;
             font-family: 'Poppins';
             line-height: 150%;
-            margin-left: 80px;
-
-            &__number {
-                font-size: 1.5em;
-                font-weight: 400;
-                width: 1%;
-            }
+            padding: 64px 0;
 
             &__info {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
                 h3 {
-                    font-size: 2.5em;
-                    font-weight: 500;
+                    color: $text-black-color;
+                    font-family: 'Jost';
+                    font-size: 2em;
+                    font-weight: 400;
+                    line-height: 110%;
+                    letter-spacing: -0.64px;
+                    text-transform: uppercase;
+                    display: flex;
+                    flex-direction: column;
+                    width: 50%;
+
+                    span {
+                        &:last-child {
+                            margin-left: 170px;
+                        }
+                    }
                 }
 
                 p {
-                    font-size: 1.25em;
-                    width: 53%;
-                    margin: 32px 0 56px;
+                    color: $text-black-color;
+                    font-family: 'Poppins';
+                    font-size: 1em;
+                    font-weight: 400;
+                    line-height: 170%;
+                    width: 47%;
 
                     span {
                         font-weight: 600;
@@ -54,19 +78,15 @@ $underline-color: #0C0C0C;
                 }
 
                 &::after {
-                    content: '';
-                    display: block;
-                    position: absolute;
+                    @extend %line;
                     bottom: 0;
-                    width: 100%;
-                    height: 1px;
-                    background-color: $underline-color;
                 }
             }
         }
 
-        :last-child div::after {
-            display: none;
+        :first-child div::before {
+            @extend %line;
+            top: 0;
         }
     }
 }

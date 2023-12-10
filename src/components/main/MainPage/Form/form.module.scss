@@ -1,31 +1,38 @@
-$text-color: #0C0C0C;
+$text-black-color: #0C0C0C;
+$text-orange-color: #FF6314;
 $border-color: #0C0C0C;
-$send-bg-color: #0C0C0C;
+$send-bg-color: #FF6314;
 $send-text-color: #FFFFFF;
 
 $send-bg-hovered-color: #FFFFFF;
-$send-text-hovered-color: #0C0C0C;
+$send-text-hovered-color: #FF6314;
 
 .form {
-    font-family: 'Poppins';
+    text-align: center;
     padding-bottom: 160px;
 
     h2 {
-        color: $text-color;
-        text-align: center;
-        font-size: 4.5em;
-        font-weight: 600;
-        line-height: 125%;
-        letter-spacing: -2.16px;
+        color: $text-black-color;
+        font-family: 'Jost';
+        font-size: 5em;
+        font-weight: 400;
+        line-height: 110%;
+        letter-spacing: -2.4px;
+        text-transform: uppercase;
+        span{
+            color: $text-orange-color;
+        }
     }
 
     p {
-        color: $text-color;
+        color: $text-black-color;
         text-align: center;
-        font-size: 1.5em;
+        font-family: 'Poppins';
+        font-size: 1.25em;
         font-weight: 400;
-        margin: 77px auto 56px;
-        width: 47%;
+        margin: 40px auto 80px;
+        width: 45%;
+        line-height: 150%;
 
         span {
             font-weight: 600;
@@ -37,6 +44,7 @@ $send-text-hovered-color: #0C0C0C;
         justify-content: center;
         gap: 24px;
         margin: 0 auto;
+        font-family: 'Poppins';
 
         input {
             min-width: 28%;
@@ -50,14 +58,12 @@ $send-text-hovered-color: #0C0C0C;
             display: block;
             text-align: center;
             min-width: 13%;
-            border-radius: 12px;
+            border-radius: 4px;
             padding: 16px;
             transition: all .3s;
             cursor: pointer;
-            font-family: 'Poppins';
             font-size: 1.125em;
             font-weight: 600;
-            line-height: 88.889%;
             background-color: $send-bg-color;
             border: 1px solid $send-bg-color;
             color: $send-text-color;
@@ -73,7 +79,7 @@ $send-text-hovered-color: #0C0C0C;
                 color: $send_text_hovered_color;
 
                 &::after {
-                    content: url(./../../../../assets/icons/black_arrow_right.svg);
+                    content: url(./../../../../assets/icons/orange_arrow_right.svg);
                 }
             }
         }

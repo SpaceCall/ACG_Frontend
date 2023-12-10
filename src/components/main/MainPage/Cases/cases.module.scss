@@ -5,7 +5,8 @@ $line-color: #0C0C0C;
 $even-list-item: #000000;
 
 .cases {
-
+    margin-bottom: 150px;
+    
     &__wrapper {
         display: flex;
         flex-direction: column;
