@@ -6,12 +6,10 @@ $even-list-item: #000000;
 
 .cases {
     margin-bottom: 150px;
-    
+
     &__wrapper {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        gap: 150px;
     }
 
     &__title {
@@ -27,7 +25,8 @@ $even-list-item: #000000;
 
     &__case {
         display: flex;
-        gap: 75px;
+        gap: 70px;
+        margin: 0 0 10px;
 
         &__image {
             width: 60%;
