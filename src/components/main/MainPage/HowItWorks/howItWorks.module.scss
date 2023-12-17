@@ -44,6 +44,7 @@ $line-color: #0C0C0C;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                overflow-x: hidden;
 
                 h3 {
                     color: $text-black-color;
@@ -58,8 +59,11 @@ $line-color: #0C0C0C;
                     width: 50%;
 
                     span {
+
+                        &:first-child,
                         &:last-child {
-                            margin-left: 170px;
+                            transform: translateX(80%);
+                            transition: all 0.7s ease;
                         }
                     }
                 }
@@ -71,6 +75,9 @@ $line-color: #0C0C0C;
                     font-weight: 400;
                     line-height: 170%;
                     width: 47%;
+                    opacity: 0;
+                    transform: translateX(500px);
+                    transition: all 0.7s ease;
 
                     span {
                         font-weight: 600;
@@ -80,6 +87,28 @@ $line-color: #0C0C0C;
                 &::after {
                     @extend %line;
                     bottom: 0;
+                }
+
+                &:hover {
+                    h3 {
+                        span {
+
+                            &:first-child {
+                                transform: translateX(0);
+                                transition: all 0.7s ease;
+                            }
+    
+                            &:last-child {
+                                transform: translateX(0);
+                                margin-left: 170px;
+                            }
+                        }
+                    }
+
+                    p {
+                        opacity: 1;
+                        transform: translateX(0);
+                    }
                 }
             }
         }
