@@ -70,3 +70,43 @@ $non-active-btn-bg: #F8F8F8;
         line-height: 150%;
     }
 }
+
+.topic__quiz__ablock {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+
+}
+
+.topic__quiz__awrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    
+}
+
+.topic__quiz__buttons {
+    background-color: #6147FF;
+    width: 20px;
+    height: 20px;
+}
+
+.topic__quiz__atext {
+    font-size: 16px;
+}
+
+input {
+    margin: 0;
+    padding: 0;
+}
+
+.topic__quiz__qtitle {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.topic__quiz__q {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
