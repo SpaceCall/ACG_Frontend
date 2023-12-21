@@ -3,7 +3,7 @@ import styles from './content.module.scss'
 import image from './../../../../assets/icons/image.svg'
 
 export default function Content({ isActive }) {
-    const notes = `Notes ${isActive.lesson}: ${isActive.subtopic}`
+    const notes = `Notes ${isActive.lesson}: ${isActive.content}`
     const resources = `Resources ${isActive.lesson}: ${isActive.subtopic}`
 
     const [activeButton, setActiveButton] = useState('notes')
@@ -15,7 +15,7 @@ export default function Content({ isActive }) {
         <div className={styles.topics__content}>
             <div className={styles.topics__content__wrapper}>
                 <div className={styles.topics__content__title}>
-                    <h2>{isActive.lesson}: {isActive.subtopic}</h2>
+                    <h2>{isActive.lesson}<br/> {isActive.subtopic}</h2>
                 </div>
                 <div className={styles.topics__content__image}>
                     <img src={image} alt="Pic" />
