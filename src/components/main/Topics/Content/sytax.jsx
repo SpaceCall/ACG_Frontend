@@ -8,9 +8,6 @@ import { python } from "@codemirror/legacy-modes/mode/python";
 
 export default function Content({ isActive }) {
     const [activeButton, setActiveButton] = useState('notes')
-    const makeActive = (button) => setActiveButton(button)
-
-    useEffect(() => makeActive('notes'), [isActive])
     return (
         <div className={styles.topics__content}>
             <div className={styles.topics__content__wrapper}>
@@ -20,13 +17,11 @@ export default function Content({ isActive }) {
                 <div className={styles.topics__content__buttons}>
                     <button
                         className={activeButton === 'notes' ? styles.active : styles.nonActive}
-                        onClick={() => makeActive('notes')}
                     >
                         Notes
                     </button>
                     <button
                         className={activeButton === 'resources' ? styles.active : styles.nonActive}
-                        onClick={() => makeActive('resources')}
                     >
                         Resources
                     </button>
@@ -81,43 +76,6 @@ print("x is less than 10")`}
                     theme={okaidia}
                     extensions={[StreamLanguage.define(python)]}
                 />
-                
-
-                Variables and Data Types in Python:
-
-                Variables in Python are created when values are assigned to them, and the data type is determined automatically. Python supports various data types, such as integers, floats, strings, lists, tuples, dictionaries, and others.
-
-                <CodeMirror
-                    value={`x = 5  # integer
-y = 3.14  # float
-s = "Hello"  # string
-lst = [1, 2, 3]  # list
-tpl = (1, 2, 3)  # tuple
-dct = {"one": 1, "two": 2}  # dictionary`}
-                    height="100px"
-                    readOnly={true}
-                    theme={okaidia}
-                    extensions={[StreamLanguage.define(python)]}
-                />
-                
-
-                Basic Python Operators:
-
-                Python supports various operators for performing arithmetic, logical, and comparison operations, such as +, -, *, /, %, **, ==, !=, and others. Python also supports assignment operators, such as =, +=, -=, and others.
-
-                
-                <CodeMirror
-                    value={`x = 5 + 3  # addition
-y = 5 - 3  # subtraction
-z = 5 * 3  # multiplication
-w = 5 / 3  # division`}
-                    height="70px"
-                    readOnly={true}
-                    theme={okaidia}
-                    extensions={[StreamLanguage.define(python)]}
-                />
-                
-                By studying these topics, you will be able to understand the basics of Python and start writing your code in this language.
                 </div>
             </div>
         </div>
