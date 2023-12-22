@@ -5,12 +5,13 @@ $active-btn-text: #F8F8F8;
 $active-btn-bg: #0C0C0C;
 $non-active-btn-text: #0C0C0C;
 $non-active-btn-bg: #F8F8F8;
+$block-color: #000000;
 
 .topics__content {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
 
-    &__wrapper{
+    &__wrapper {
         width: 90%;
         margin: 0 auto;
     }
@@ -69,5 +70,14 @@ $non-active-btn-bg: #F8F8F8;
         font-family: 'Poppins';
         font-size: 0.875em;
         line-height: 150%;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        div{
+            font-size: 14px;
+            height: 100%;
+            border-radius: var(--12, 12px);
+            background-color: $block-color;
+        }
     }
 }
