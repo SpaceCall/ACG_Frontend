@@ -9,7 +9,7 @@ export default function ChatWindow({ messages,enableSubmit }) {
     const [renderedPage, setRenderedPage] = useState([])
   
     useEffect(() => {
-        setDisplayTime(Math.ceil(Math.random() * 2000))
+        setDisplayTime(Math.ceil(Math.random() * (6000 - 3000) + 3000 ))
 
       // Создаем новый массив, объединяя messages.map(...) и текущий renderedPage
       const newRenderedPage = [
