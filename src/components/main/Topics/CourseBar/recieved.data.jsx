@@ -7,7 +7,6 @@ const data = {
         {
           "lesson": "Lesson 1: Introduction to Python",
           "subtopic": "Understanding Python Syntax",
-          code
         },{
           "lesson": "Lesson 1: Introduction to Python",
           "subtopic": "Variables and Data Types in Python"

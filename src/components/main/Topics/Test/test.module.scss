@@ -28,6 +28,11 @@ $hovered-submit-btn-text: #0C0C0C;
         display: flex;
         flex-direction: column;
         gap: 25px;
+
+        ul li{
+            list-style: circle;
+            margin-left: 20px;
+        }
     }
 
     &__question {
