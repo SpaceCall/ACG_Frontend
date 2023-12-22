@@ -9,8 +9,17 @@ const data = {
           "subtopic": "Understanding Python Syntax",
           "content":`Python's syntax includes the structure of the language and the rules for writing correct programs. Important aspects of Python's syntax are:Comments start with the # symbol.
           
-          code
-          # This is a comment
+          
+          ${`<CodeMirror
+            value={'# This is a comment'}
+            height="200px"
+            readOnly={true}
+            theme={okaidia}
+            extensions={[StreamLanguage.define(python)]}
+            onChange={(value, viewUpdate) => {
+              console.log("value:", value);
+            }}
+          />`}
           The end of a line signifies the end of a statement.
           
           code
