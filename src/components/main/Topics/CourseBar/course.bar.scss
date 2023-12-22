@@ -1,7 +1,11 @@
 /* styles.module.css */
 
 .dropdownContainer {
-    position: relative;
+    position: sticky;
+    overflow-y: scroll;
+  }
+  .scroll{
+    overflow-y: scroll;
   }
   
   .courseTitle {

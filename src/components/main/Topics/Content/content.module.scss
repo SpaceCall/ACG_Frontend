@@ -7,6 +7,7 @@ $non-active-btn-text: #0C0C0C;
 $non-active-btn-bg: #F8F8F8;
 
 .topics__content {
+    overflow-y: scroll;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
 

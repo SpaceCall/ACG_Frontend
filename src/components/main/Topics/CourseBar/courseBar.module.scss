@@ -1,8 +1,11 @@
 /* styles.module.css */
 
 .dropdownContainer {
-  position: relative;
-  width: 30%;
+  position: sticky;
+  overflow-y: scroll;
+}
+.scroll{
+  overflow-y: scroll;
 }
 
 .courseTitle {
@@ -29,18 +32,14 @@
 
 .dropdownSublist {
   position: absolute;
-  top: 100%;
-  /* Отступ от верхней границы родительского элемента */
-  left: 0;
-  /* Выравнивание по левой границе родительского элемента */
+  top: 100%; /* Отступ от верхней границы родительского элемента */
+  left: 0; /* Выравнивание по левой границе родительского элемента */
   background-color: #fff;
   border: 1px solid #ccc;
   padding: 10px;
   display: flex;
-  flex-direction: column;
-  /* Вертикальное расположение элементов */
-  z-index: 1;
-  /* Поднимаем подсписок над остальными элементами */
+  flex-direction: column; /* Вертикальное расположение элементов */
+  z-index: 1; /* Поднимаем подсписок над остальными элементами */
 }
 
 .sublist-item {

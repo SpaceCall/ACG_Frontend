@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import logo from './../../../assets/icons/logo-dark.svg'
+import logo from './../../../assets/icons/logo_black.svg'
 import styles from './logo.module.scss'
 
 export default function Logo() {

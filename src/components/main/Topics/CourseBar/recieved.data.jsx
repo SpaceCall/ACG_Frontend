@@ -51,6 +51,10 @@ const data = {
           "lesson": "Lesson 1: Introduction to Python",
           "subtopic": "Python Networking Basics"
         },
+        {
+          "lesson": "Lesson 1: Introduction to Python",
+          "subtopic": "Test"
+        },
       ]
     },
     {
@@ -201,6 +205,10 @@ const data = {
         {
           "lesson": "Lesson 7: Building the Rock, Scissors, Paper Game",
           "subtopic": "Optimizing the Game Code"
+        },
+        {
+          "lesson": "Lesson 7: Building the Rock, Scissors, Paper Game",
+          "subtopic": "Final practical asigment"
         },]
 
     }

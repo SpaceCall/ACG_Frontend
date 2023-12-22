@@ -12,34 +12,7 @@ export default function AsideChat() {
     const [index, setIndex] = useState(0);
     const botMessages = [
         {
-            text: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-            type: "message"
-        }, {
-            text: "This is just the demo",
-            type: "message"
-        }, {
-            text: "This is just the demo",
-            type: "message"
-        }, {
-            text: "This is just the demo",
-            type: "message"
-        }, {
-            text: "This is just the demo",
-            type: "message"
-        }, {
-            text: "This is just the demo",
-            type: "message"
-        }, {
-            text: "This is just the demo",
-            type: "message"
-        }, {
-            text: "This is just the demo",
-            type: "message"
-        }, {
-            text: "This is just the demo",
-            type: "message"
-        }, {
-            text: "This is just the demo",
+            text: "No, in Python, you do not need to put a semicolon (;) at the end of each line. Python uses newlines to end a statement, so a semicolon is not necessary. However, semicolons can be used to separate multiple statements on a single line if needed, but this is generally discouraged as it can make the code less readable.",
             type: "message"
         },
     ]
