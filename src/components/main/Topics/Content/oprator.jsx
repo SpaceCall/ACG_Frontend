@@ -29,7 +29,7 @@ export default function Content({ isActive }) {
                 <div className={styles.topics__content__text}>
                 Python supports various operators for performing arithmetic, logical, and comparison operations, such as +, -, *, /, %, **, ==, !=, and others. Python also supports assignment operators, such as =, +=, -=, and others.
 
-                
+                <br/>
                 <CodeMirror
                     value={`x = 5 + 3  # addition
 y = 5 - 3  # subtraction
@@ -40,7 +40,7 @@ w = 5 / 3  # division`}
                     theme={okaidia}
                     extensions={[StreamLanguage.define(python)]}
                 />
-                
+                <br/>
                 By studying these topics, you will be able to understand the basics of Python and start writing your code in this language.
                 </div>
             </div>

@@ -29,6 +29,7 @@ export default function Content({ isActive }) {
                 <div className={styles.topics__content__text}>
                 Python's syntax includes the structure of the language and the rules for writing correct programs. Important aspects of Python's syntax are:
                 Comments start with the # symbol.
+                <br/>
                 <CodeMirror
                     value={'# This is a comment'}
                     height="25px"
@@ -36,10 +37,10 @@ export default function Content({ isActive }) {
                     theme={okaidia}
                     extensions={[StreamLanguage.define(python)]}
                 />
-
+                 <br/>
                 The end of a line signifies the end of a statement.
 
-            
+                <br/>
                 <CodeMirror
                     value={'x = 5'}
                     height="25px"
@@ -47,7 +48,9 @@ export default function Content({ isActive }) {
                     theme={okaidia}
                     extensions={[StreamLanguage.define(python)]}
                 />
+                 <br/>
                 Semicolons (;) can be used to separate statements on one line.
+                <br/>
                 <CodeMirror
                     value={'x = 5; y = 10'}
                     height="25px"
@@ -55,8 +58,9 @@ export default function Content({ isActive }) {
                     theme={okaidia}
                     extensions={[StreamLanguage.define(python)]}
                 />
+                 <br/>
                 Indentation is important for defining code blocks.
-
+                <br/>
                 <CodeMirror
                     value={`if x < 10:
 print("x is less than 10")`}
@@ -65,10 +69,10 @@ print("x is less than 10")`}
                     theme={okaidia}
                     extensions={[StreamLanguage.define(python)]}
                 />
-                
+                 <br/>
 
                 Parentheses are used for grouping or calling functions.
-
+                <br/>
                 <CodeMirror
                     value={`print("Hello, World!")`}
                     height="25px"

@@ -33,7 +33,7 @@ export default function Content({ isActive }) {
 
                 Code Profiling: Using tools to analyze the program's execution to identify which parts of the code consume the most time and resources.
                 Example in Python:
-
+                <br/>
                 <CodeMirror
                     value={`import cProfile
 
@@ -48,10 +48,10 @@ cProfile.run('example_function()')`}
                     theme={okaidia}
                     extensions={[StreamLanguage.define(python)]}
                 />
-                
+                <br/>
                 Efficient Algorithms and Data Structures: Choosing the right algorithm or data structure can significantly impact program execution speed.
                 Example in Python:
-
+                <br/>
                 <CodeMirror
                     value={`# Poor example: finding the minimum element in a list
 lst = [5, 2, 9, 1, 5, 6]
@@ -67,9 +67,10 @@ min_val = min(lst)`}
                     theme={okaidia}
                     extensions={[StreamLanguage.define(python)]}
                 />
-                
+                <br/>
                 Caching: Storing the results of certain operations for later use to avoid recomputation.
                 Example in Python:
+                <br/>
                 <CodeMirror
                     value={`from functools import lru_cache
 @lru_cache(maxsize=None)
@@ -82,9 +83,10 @@ def fib(n):
                     theme={okaidia}
                     extensions={[StreamLanguage.define(python)]}
                 />
-
+                <br/>
                 Parallel Execution: Distributing computations across multiple threads or processes to improve execution speed.
                 Example in Python:
+                <br/>
                 <CodeMirror
                     value={`from concurrent.futures import ThreadPoolExecutor
 
@@ -98,7 +100,7 @@ with ThreadPoolExecutor() as executor:
                     theme={okaidia}
                     extensions={[StreamLanguage.define(python)]}
                 />
-                
+                 <br/>
                 These methods can be combined and used together to achieve the best results
                 </div>
             </div>

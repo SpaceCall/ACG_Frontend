@@ -28,7 +28,7 @@ export default function Content({ isActive }) {
                 </div>
                 <div className={styles.topics__content__text}>
                 Variables in Python are created when values are assigned to them, and the data type is determined automatically. Python supports various data types, such as integers, floats, strings, lists, tuples, dictionaries, and others.
-
+                <br/>
                 <CodeMirror
                     value={`x = 5  # integer
 y = 3.14  # float
