@@ -7,9 +7,6 @@ import { StreamLanguage } from "@codemirror/language";
 import { python } from "@codemirror/legacy-modes/mode/python";
 
 export default function Content({ isActive }) {
-    const notes = isActive.content
-    const resources = `Resources ${isActive.lesson}: ${isActive.subtopic}`
-
     const [activeButton, setActiveButton] = useState('notes')
     const makeActive = (button) => setActiveButton(button)
 

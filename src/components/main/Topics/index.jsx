@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from './topics.module.scss'
 import AsideChat from './AsideChat'
-import Content from './Content/index(old)'
+import Content from './Content/index'
 import CoursePath from './CoursePath'
 import CourseBar from './CourseBar'
 
