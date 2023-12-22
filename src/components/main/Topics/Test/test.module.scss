@@ -1,0 +1,133 @@
+$title-color: #0C0C0C;
+$text-color: #0C0C0C;
+$selected-answer-color: #6147FF;
+$input-border-color: #0C0C0C;
+$placeholder-color: #666666;
+
+$submit-btn-bg: #0C0C0C;
+$submit-btn-text: #F8F8F8;
+$hovered-submit-btn-bg: #F8F8F8;
+$hovered-submit-btn-text: #0C0C0C;
+
+.test {
+    &__wrapper {
+        margin: 0 auto;
+        width: 90%;
+
+        h2 {
+            color: $title-color;
+            font-family: 'Poppins';
+            font-size: 1.5em;
+            font-weight: 700;
+            line-height: 150%;
+            margin-bottom: 34px;
+        }
+    }
+
+    &__questions {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    &__question {
+        h3 {
+            color: $text-color;
+            font-family: 'Poppins';
+            font-size: 1.5em;
+            font-weight: 600;
+            line-height: 150%;
+        }
+
+        p {
+            color: $text-color;
+            font-family: 'Poppins';
+            font-size: 1em;
+            font-weight: 600;
+            line-height: 150%;
+            margin: 10px 0 20px;
+        }
+
+        &__answers {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            label {
+                display: flex;
+                gap: 16px;
+            }
+
+            input[type="radio"] {
+                padding: 2px 1.5px 2px 2.5px;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                accent-color: $selected-answer-color;
+            }
+
+            input[type="checkbox"] {
+                border-radius: 2px;
+                padding: 2px 1.5px 2px 2.5px;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                accent-color: $selected-answer-color;
+            }
+
+            input[type="text"] {
+                width: 65%;
+                padding: 8px 16px;
+                border-radius: 12px;
+                border: 1px solid $input-border-color;
+                color: $text-color;
+
+                &::placeholder {
+                    color: $placeholder-color;
+                    font-family: 'Poppins';
+                    font-size: 0.875em;
+                    font-weight: 500;
+                    line-height: 150%;
+                }
+            }
+        }
+
+        &__submit {
+            padding: 16px;
+            margin-top: 16px;
+            min-width: 25%;
+            border-radius: 12px;
+            border: 1px solid $submit-btn-bg;
+            box-shadow: 0px 1px 2px -1px rgba(17, 12, 34, 0.08);
+            cursor: pointer;
+            transition: all .3s;
+            font-family: 'Poppins';
+            font-size: 1.125em;
+            font-weight: 600;
+            line-height: 88.889%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            background-color: $submit-btn-bg;
+            color: $submit-btn-text;
+
+            &::after {
+                content: url(./../../../../assets/icons/white-tick.svg);
+            }
+
+            &:hover {
+                background-color: $hovered-submit-btn-bg;
+                color: $hovered-submit-btn-text;
+
+                &::after {
+                    content: url(./../../../../assets/icons/black-tick.svg);
+                }
+            }
+        }
+    }
+}

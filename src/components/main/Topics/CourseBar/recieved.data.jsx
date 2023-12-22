@@ -65,16 +65,16 @@ const data = {
         },
         {
           "lesson": "Lesson 1: Introduction to Python",
-          "subtopic": "The subtopic 2"
+          "subtopic": "Variables and Data Types in Python"
         },
         {
           "lesson": "Lesson 1: Introduction to Python",
-          "subtopic": "The subtopic 3"
+          "subtopic": "Basic Python Operators"
         },
       ]
     },
     {
-      "title": "Lesson 2: The topic",
+      "title": "Lesson 2: Python Data Structures",
       "content": [
         {
           "lesson": "Lesson 2",
@@ -95,7 +95,7 @@ const data = {
       ]
     },
     {
-      "title": "Lesson 3: The topic",
+      "title": "Lesson 3: Functions in Python",
       "content": [
         {
           "lesson": "Lesson 3",
@@ -121,7 +121,7 @@ const data = {
     }
     ,
     {
-      "title": "Lesson 4: The topic",
+      "title": "Lesson 4: Python Modules and Packages",
       "content": [
         {
           "lesson": "Lesson 4",
@@ -130,7 +130,7 @@ const data = {
       ]
     },
     {
-      "title": "Lesson 5: The topic",
+      "title": "Lesson 5: Object-Oriented Programming in Python",
       "content": [
         {
           "lesson": "Lesson 5",

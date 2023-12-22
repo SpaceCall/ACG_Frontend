@@ -4,4 +4,10 @@
     height: calc(100vh - 116px);
     display: grid;
     grid-template: repeat(2, auto) / 21% auto 21%;
+
+    &__center{
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
 }
