@@ -14,9 +14,6 @@ export default function Content({ isActive }) {
     const makeActive = (button) => setActiveButton(button)
 
     useEffect(() => makeActive('notes'), [isActive])
-    const regex = /(<([^>]+)>)/ig;
-  
-    const formattedTitle = notes.replace(regex, '')
     return (
         <div className={styles.topics__content}>
             <div className={styles.topics__content__wrapper}>

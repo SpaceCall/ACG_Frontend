@@ -77,8 +77,14 @@ print("x is less than 10")`}
 
                 Parentheses are used for grouping or calling functions.
 
-                code
-                print("Hello, World!")
+                <CodeMirror
+                    value={`print("Hello, World!")`}
+                    height="25px"
+                    readOnly={true}
+                    theme={okaidia}
+                    extensions={[StreamLanguage.define(python)]}
+                />
+                
 
                 Variables and Data Types in Python:
 
