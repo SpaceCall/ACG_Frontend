@@ -1,11 +1,11 @@
-.topics{
+.topics {
     margin: 40px 0 0;
     overflow: hidden;
     height: calc(100vh - 116px);
     display: grid;
     grid-template: repeat(2, auto) / 21% auto 21%;
 
-    &__center{
+    &__center {
         display: flex;
         flex-direction: column;
         overflow-y: hidden;
