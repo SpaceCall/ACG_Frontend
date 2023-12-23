@@ -1,10 +1,58 @@
 /* styles.module.css */
+$scroll-bar-color: #B0AEB7;
+$scroll-bg-color: #E4E4E4;
+
+%scroll-style {
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $scroll-bar-color;
+    border-radius: 20px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $scroll-bg-color;
+    border-radius: 20px;
+  }
+
+  &::-moz-scrollbar {
+    width: 10px;
+  }
+
+  &::-moz-scrollbar-thumb {
+    background-color: $scroll-bar-color;
+    border-radius: 20px;
+  }
+
+  &::-moz-scrollbar-track {
+    background-color: $scroll-bg-color;
+    border-radius: 20px;
+  }
+
+  &::-o-scrollbar {
+    width: 10px;
+  }
+
+  &::-o-scrollbar-thumb {
+    background-color: $scroll-bar-color;
+    border-radius: 20px;
+  }
+
+  &::-o-scrollbar-track {
+    background-color: $scroll-bg-color;
+    border-radius: 20px;
+  }
+}
 
 .dropdownContainer {
   position: sticky;
   overflow-y: scroll;
 }
-.scroll{
+
+.scroll {
+  @extend %scroll-style;
   overflow-y: scroll;
 }
 
@@ -32,14 +80,18 @@
 
 .dropdownSublist {
   position: absolute;
-  top: 100%; /* Отступ от верхней границы родительского элемента */
-  left: 0; /* Выравнивание по левой границе родительского элемента */
+  top: 100%;
+  /* Отступ от верхней границы родительского элемента */
+  left: 0;
+  /* Выравнивание по левой границе родительского элемента */
   background-color: #fff;
   border: 1px solid #ccc;
   padding: 10px;
   display: flex;
-  flex-direction: column; /* Вертикальное расположение элементов */
-  z-index: 1; /* Поднимаем подсписок над остальными элементами */
+  flex-direction: column;
+  /* Вертикальное расположение элементов */
+  z-index: 1;
+  /* Поднимаем подсписок над остальными элементами */
 }
 
 .sublist-item {

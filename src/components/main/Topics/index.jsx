@@ -27,7 +27,6 @@ export default function Topics() {
                 {isActive.subtopic === 'Test' ? <Test isActive={isActive} /> : null}
                 {isActive.subtopic === 'Final practical asigment' ? <Test1 isActive={isActive} /> : null}
                 {isActive.subtopic === 'Optimizing the Game Code' ? <Optimizing isActive={isActive} /> : null}
-               
             </div>
             <AsideChat />
         </div>
