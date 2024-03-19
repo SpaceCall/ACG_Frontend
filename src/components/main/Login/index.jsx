@@ -11,7 +11,8 @@ export default function Login() {
             {!isForSignIn ? 
                 <SignInPage styles={styles} toSignUp={() => setIsForSignIn(true)} /> 
                     : 
-                <SignUpPage styles={styles} toSignIn={() => setIsForSignIn(false)} />}
+                <SignUpPage styles={styles} toSignIn={() => setIsForSignIn(false)} />
+            }
         </>
     )
 }
