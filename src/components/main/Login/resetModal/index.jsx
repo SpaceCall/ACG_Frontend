@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ForgotModal({ styles, onClose }) {
+export default function ResetModal({ styles, onClose }) {
     return (
         <div className={styles.login__modal}>
             <div className={styles.login__modal__wrapper}>
@@ -8,8 +8,7 @@ export default function ForgotModal({ styles, onClose }) {
                     <div className={styles.login__modal__header}>
                         <span className={styles.login__modal__header__close} onClick={onClose}>X</span>
                         <div className={styles.login__modal__header__text}>
-                            <h2>Forgot password? No worries</h2>
-                            <p>We'll email you reset instructions</p>
+                            <h2>Reset password</h2>
                         </div>
                     </div>
                     <div className={styles.login__modal__body}>
@@ -17,8 +16,16 @@ export default function ForgotModal({ styles, onClose }) {
                             <label>Email</label>
                             <input type="email" placeholder='Enter email' />
                         </div>
-                        <div className={styles.login__modal__body__btn}>Send</div>
-                        <span className={styles.login__modal__body__remember}>Remember password?</span>
+                        <div className={styles.login__modal__body__input}>
+                            <label>Password</label>
+                            <input type="email" placeholder='Must contain at least one letter and number' />
+                        </div>
+                        <div className={styles.login__modal__body__input}>
+                            <label>Confirm password</label>
+                            <input type="email" placeholder='Confirm' />
+                        </div>
+                        <div className={styles.login__modal__body__btn}>Reset password</div>
+                        <span className={styles.login__modal__body__remember}>Remember password</span>
                     </div>
                 </div>
             </div>

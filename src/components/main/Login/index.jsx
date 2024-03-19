@@ -3,11 +3,15 @@ import styles from './styles/index.module.scss'
 import loginImg from '../../../assets/images/login/hi-there.png'
 import ForgotModal from './forgotModal'
 import CheckModal from './checkModal'
+import SuccessModal from './successModal'
+import ResetModal from './resetModal'
 
 export default function Login() {
     // const [isForLogin, setIsForLogin] = useState(true)
     const [isForgotPassword, setIsForgotPassword] = useState(false)
     const [isCheck, setIsCheck] = useState(false)
+    const [isSuccess, setIsSuccess] = useState(false)
+    const [isReset, setIsReset] = useState(false)
 
     return (
         <div className={styles.login}>
@@ -22,11 +26,11 @@ export default function Login() {
                         <div className={styles.login__field__body__or}>or</div>
                         <div className={styles.login__field__body__email}>
                             <label>Email</label>
-                            <input type="email" />
+                            <input type="email" placeholder='Email' />
                         </div>
                         <div className={styles.login__field__body__password}>
                             <label>Password</label>
-                            <input type="password" />
+                            <input type="password" placeholder='Password' />
                         </div>
                     </div>
                     <div className={styles.login__field__footer}>
@@ -44,6 +48,8 @@ export default function Login() {
             </div>
             {isForgotPassword && <ForgotModal styles={styles} onClose={() => setIsForgotPassword(false)} />}
             {isCheck && <CheckModal styles={styles} onClose={() => setIsCheck(false)} />}
+            {isSuccess && <SuccessModal styles={styles} onClose={() => setIsSuccess(false)} />}
+            {isReset && <ResetModal styles={styles} onClose={() => setIsReset(false)} />}
         </div>
     )
 }

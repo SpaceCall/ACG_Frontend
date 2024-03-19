@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ForgotModal({ styles, onClose }) {
+export default function SuccessModal({ styles, onClose }) {
     return (
         <div className={styles.login__modal}>
             <div className={styles.login__modal__wrapper}>
@@ -8,17 +8,12 @@ export default function ForgotModal({ styles, onClose }) {
                     <div className={styles.login__modal__header}>
                         <span className={styles.login__modal__header__close} onClick={onClose}>X</span>
                         <div className={styles.login__modal__header__text}>
-                            <h2>Forgot password? No worries</h2>
-                            <p>We'll email you reset instructions</p>
+                            <h2>Success</h2>
+                            <p>Your password has been reset</p>
                         </div>
                     </div>
                     <div className={styles.login__modal__body}>
-                        <div className={styles.login__modal__body__input}>
-                            <label>Email</label>
-                            <input type="email" placeholder='Enter email' />
-                        </div>
-                        <div className={styles.login__modal__body__btn}>Send</div>
-                        <span className={styles.login__modal__body__remember}>Remember password?</span>
+                        <div className={styles.login__modal__body__btn}>Log In</div>
                     </div>
                 </div>
             </div>

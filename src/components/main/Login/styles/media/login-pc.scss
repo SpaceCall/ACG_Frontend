@@ -45,5 +45,55 @@
                 }
             }
         }
+
+        &__modal {
+            &__header {
+                &__text {
+                    
+                    h2 {
+                        font-size: 1.125em;
+                    }
+    
+                    p {
+                        font-size: 0.875em;
+                    }
+                }
+    
+                &__check {
+                    span {
+                        font-size: 0.875em;
+                    }
+                }
+            }
+    
+            &__body {
+                
+                &__email {
+                    label {
+                        font-size: 0.875em;
+                    }
+    
+                    input {
+                        font-size: 1em;
+                    }
+                }
+    
+                &__btn {
+                    font-size: 1em;
+                }
+    
+                &__remember {
+                    font-size: 1em;
+                }
+    
+                &__again {
+                    text-align: center;
+    
+                    span {
+                        font-size: 1em;
+                    }
+                }
+            }
+        }
     }
 }
