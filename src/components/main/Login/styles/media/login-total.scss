@@ -1,4 +1,4 @@
-.login {
+.welcome {
     height: 100vh;
     display: flex;
     justify-content: flex-end;
@@ -29,14 +29,14 @@
         }
 
         &__body {
-            margin-top: 40px;
+            margin-top: 20px;
 
             &__or {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 gap: 15px;
-                margin: 40px 0 30px;
+                margin: 20px 0;
                 text-align: center;
 
                 &::after,
@@ -49,27 +49,24 @@
                 }
             }
 
-            &__email {
-                margin-bottom: 18px;
-            }
-
-            &__password {
-                margin-bottom: 44px;
-            }
-
-            &__email,
-            &__password {
+            &__inputs{
                 display: flex;
                 flex-direction: column;
-                gap: 5px;
-                font-family: 'Poppins';
-
-                input {
-                    padding: 12px;
-                    border-radius: 12px;
-                    border: 1px #C9D1D7 solid;
+                gap: 12px;
+                margin-bottom: 12px;
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    font-family: 'Poppins';
+                    input {
+                        padding: 12px;
+                        border-radius: 12px;
+                        border: 1px #C9D1D7 solid;
+                    }
                 }
             }
+
         }
 
         &__footer {

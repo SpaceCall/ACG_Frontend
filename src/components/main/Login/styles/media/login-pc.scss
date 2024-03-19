@@ -1,16 +1,16 @@
 @media screen and (min-width: 992px) {
-    .login {
+    .welcome {
 
         &__field {
             &__header {
                 text-align: center;
 
                 h2 {
-                    font-size: 3.75em;
+                    font-size: 3em;
                 }
 
                 p {
-                    font-size: 1em;
+                    font-size: 0.875em;
                 }
             }
 
@@ -19,14 +19,16 @@
                     font-size: 0.875em;
                 }
 
-                &__email,
-                &__password {
+                &__inputs div {
                     label {
-                        font-size: 0.875em;
+                        font-size: 0.75em;
                     }
 
                     input {
-                        font-size: 1em;
+                        font-size: 0.875em;
+                        &::placeholder{
+                            font-size: 0.875em;
+                        }
                     }
                 }
             }
@@ -49,46 +51,46 @@
         &__modal {
             &__header {
                 &__text {
-                    
+
                     h2 {
                         font-size: 1.125em;
                     }
-    
+
                     p {
                         font-size: 0.875em;
                     }
                 }
-    
+
                 &__check {
                     span {
                         font-size: 0.875em;
                     }
                 }
             }
-    
+
             &__body {
-                
+
                 &__email {
                     label {
                         font-size: 0.875em;
                     }
-    
+
                     input {
                         font-size: 1em;
                     }
                 }
-    
+
                 &__btn {
                     font-size: 1em;
                 }
-    
+
                 &__remember {
                     font-size: 1em;
                 }
-    
+
                 &__again {
                     text-align: center;
-    
+
                     span {
                         font-size: 1em;
                     }
