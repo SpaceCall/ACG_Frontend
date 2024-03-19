@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import Chat from '../components/main/Chat'
 import Topics from '../components/main/Topics'
 import MainPage from '../components/main/MainPage'
+import Login from '../components/main/Login'
 
 export default function Router() {
     return (

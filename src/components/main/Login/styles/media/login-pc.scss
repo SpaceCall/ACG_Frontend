@@ -1,0 +1,49 @@
+@media screen and (min-width: 992px) {
+    .login {
+
+        &__field {
+            &__header {
+                text-align: center;
+
+                h2 {
+                    font-size: 3.75em;
+                }
+
+                p {
+                    font-size: 1em;
+                }
+            }
+
+            &__body {
+                &__or {
+                    font-size: 0.875em;
+                }
+
+                &__email,
+                &__password {
+                    label {
+                        font-size: 0.875em;
+                    }
+
+                    input {
+                        font-size: 1em;
+                    }
+                }
+            }
+
+            &__footer {
+                &__forgot {
+                    font-size: 0.875em;
+                }
+
+                &__loginBtn {
+                    font-size: 1em;
+                }
+
+                &__signUp {
+                    font-size: 0.875em;
+                }
+            }
+        }
+    }
+}
