@@ -1,8 +1,56 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './styles/index.module.scss'
 import pythonBlog from '../../../assets/images/blogs/python-blog.png'
+import Blog from './blog'
 
 export default function Blogs() {
+    const [activeCategory, setActiveCategory] = useState('All')
+    const categories = [
+        { id: 1, name: 'All' },
+        { id: 2, name: 'Development' },
+        { id: 3, name: 'Software' },
+        { id: 4, name: 'Process' }
+    ]
+
+    const handleCategoryClick = (category) => {
+        setActiveCategory(category)
+    }
+
+    const blogs = [
+        {
+            id: 1,
+            date: '12.08.2023',
+            mins: '13',
+            imgSource: pythonBlog,
+            category: 'Development',
+            description: "Introduction to Python Programming: A Beginner's Guide"
+        },
+        {
+            id: 1,
+            date: '12.08.2023',
+            mins: '13',
+            imgSource: pythonBlog,
+            category: 'Development',
+            description: "Introduction to Python Programming: A Beginner's Guide"
+        },
+        {
+            id: 1,
+            date: '12.08.2023',
+            mins: '13',
+            imgSource: pythonBlog,
+            category: 'Development',
+            description: "Introduction to Python Programming: A Beginner's Guide"
+        },
+        {
+            id: 1,
+            date: '12.08.2023',
+            mins: '13',
+            imgSource: pythonBlog,
+            category: 'Development',
+            description: "Introduction to Python Programming: A Beginner's Guide"
+        }
+    ]
+
     return (
         <div className={styles.blogs}>
             <div className="container">
@@ -17,6 +65,7 @@ export default function Blogs() {
                                 </div>
                                 <div className={styles.blogs__intro__blog__image__pic}>
                                     <img src={pythonBlog} alt="Python" />
+                                    <div className={styles.blogs__intro__blog__image__category}>Development</div>
                                 </div>
                             </div>
                             <div className={styles.blogs__intro__blog__info}>
@@ -26,7 +75,23 @@ export default function Blogs() {
                             </div>
                         </div>
                     </div>
-                    <div className={styles.blogs__catalog}></div>
+                    <div className={styles.blogs__catalog}>
+                        <h2 className={styles.blogs__catalog__title}>Blog Posts</h2>
+                        <nav className={styles.blogs__catalog__categories}>
+                            <ul className={styles.blogs__catalog__categories__list}>
+                                {categories.map(category => (
+                                    <li key={category.id}>
+                                        <div className={activeCategory === category.name ? styles.active : ''} onClick={() => handleCategoryClick(category.name)}>{category.name}</div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </nav>
+                        <div className={styles.blogs__catalog__wrapper}>
+                            {blogs.map((blog) => (
+                                <Blog key={blog.id} styles={styles} blog={blog} />
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

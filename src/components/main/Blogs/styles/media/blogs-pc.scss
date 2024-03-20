@@ -1,31 +1,82 @@
 @media screen and (min-width: 992px) {
-    .blogs{
-        &__intro{
-            &__title{
+    .blogs {
+        &__intro {
+            &__title {
                 font-size: 5em;
             }
+
             &__blog {
                 &__image {
+                    &__category {
+                        font-size: 1em;
+                    }
+
                     &__time {
                         span:first-child {
                             font-size: 1.25em;
                         }
+
                         span:last-child {
                             font-size: 0.875em;
                         }
                     }
                 }
-    
+
                 &__info {
-                    h2{
+                    h2 {
                         font-size: 1.5em;
                     }
+
                     p {
                         font-size: 1em;
                     }
-    
+
                     a {
                         font-size: 1em;
+                    }
+                }
+            }
+        }
+
+        &__catalog {
+            &__title {
+                font-size: 3.5em;
+            }
+
+            &__categories {
+                &__list {
+                    li {
+                        div {
+                            font-size: 1em;
+                        }
+                    }
+                }
+            }
+
+            &__wrapper {
+
+                &__blog {
+
+                    &__image {
+                        &__category {
+                            font-size: 1em;
+                        }
+
+                        &__time {
+                            span:first-child {
+                                font-size: 1.25em;
+                            }
+
+                            span:last-child {
+                                font-size: 0.875em;
+                            }
+                        }
+                    }
+
+                    &__info {
+                        p {
+                            font-size: 1.25em;
+                        }
                     }
                 }
             }

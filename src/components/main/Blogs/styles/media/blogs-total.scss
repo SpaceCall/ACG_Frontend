@@ -1,12 +1,14 @@
 $orange-color: #FF6314;
 $black-color: #000000;
 $white-color: #FFFFFF;
+$grey-color: #686868;
 
 .blogs {
     margin-top: 80px;
     font-family: 'Poppins';
 
     &__intro {
+        margin-bottom: 150px;
         &__title {
             color: $black-color;
             text-transform: uppercase;
@@ -29,6 +31,19 @@ $white-color: #FFFFFF;
                 display: flex;
                 flex-direction: column;
                 gap: 15px;
+
+                &__pic {
+                    position: relative;
+                }
+
+                &__category {
+                    position: absolute;
+                    top: 20px;
+                    right: 25px;
+                    padding: 8px 30px;
+                    border-radius: 64px;
+                    background-color: $white-color;
+                }
 
                 &__time {
                     display: flex;
@@ -54,6 +69,7 @@ $white-color: #FFFFFF;
 
             &__info {
                 width: 25%;
+
                 p {
                     margin: 25px 0 160px;
                 }
@@ -73,17 +89,128 @@ $white-color: #FFFFFF;
                     color: $white-color;
                     cursor: pointer;
                     transition: all .3s;
-                    &::after{
+
+                    &::after {
                         content: url(../../../../../assets/icons/white_arrow_right.svg);
                     }
 
                     &:hover {
                         background-color: $white-color;
                         color: $orange-color;
-                        &::after{
+
+                        &::after {
                             content: url(../../../../../assets/icons/orange_arrow_right.svg);
                         }
                     }
+                }
+            }
+        }
+    }
+
+    &__catalog {
+        &__title {
+            font-family: 'Jost';
+            font-weight: 500;
+        }
+
+        &__categories {
+            display: flex;
+            margin: 15px 0 60px;
+            position: relative;
+
+            &::after {
+                content: '';
+                background-color: $grey-color;
+                height: 2px;
+                width: 100%;
+                display: block;
+                position: absolute;
+                bottom: 0;
+                z-index: - 1;
+            }
+
+            &__list {
+                display: flex;
+                align-items: center;
+                gap: 65px;
+                width: 50%;
+
+                li {
+                    text-align: center;
+
+                    div {
+                        padding: 12px 32px;
+                        cursor: pointer;
+                        border-bottom: 2px $grey-color solid;
+                    }
+
+                    .active {
+                        color: $orange-color;
+                        border-bottom: 2px $orange-color solid;
+                        transition: color .3s, border-color .3s;
+                    }
+                }
+            }
+        }
+
+        &__wrapper {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            row-gap: 60px;
+
+            &__blog {
+                width: 48%;
+
+                &__image {
+
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+
+                    &__pic {
+                        position: relative;
+                    }
+
+                    img {
+                        width: 100%;
+                        margin-bottom: 26px;
+                    }
+
+                    &__category {
+                        position: absolute;
+                        top: 20px;
+                        right: 25px;
+                        padding: 8px 30px;
+                        border-radius: 64px;
+                        background-color: $white-color;
+                    }
+
+                    &__time {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        position: relative;
+
+                        span:first-child {
+                            font-family: 'Jost';
+                            font-weight: 700;
+                        }
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            width: 100%;
+                            height: 1px;
+                            background-color: $black-color;
+                            top: calc(100% + 3px);
+                        }
+                    }
+                }
+
+                &__info{
+                    width: 57%;
+                    font-weight: 600;
                 }
             }
         }
