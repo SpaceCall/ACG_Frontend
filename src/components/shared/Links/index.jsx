@@ -5,19 +5,23 @@ export default function Links() {
     const links = [
         {
             value: 'About us',
-            path: 'cases'
+            path: 'cases',
+            anchor: true
         },
         {
             value: 'How it works',
-            path: 'howitworks'
+            path: 'howitworks',
+            anchor: true
         },
         {
-            value: 'Our team',
-            path: 'team'
+            value: 'Blog',
+            path: 'blogs',
+            anchor: false
         },
         {
             value: 'Contacts',
-            path: 'contacts'
+            path: 'contacts',
+            anchor: true
         },
     ]
 
@@ -26,7 +30,7 @@ export default function Links() {
             <ul>
                 {links.map((link, index) => (
                     <li key={index}>
-                        <a href={`#${link.path}`}>{link.value}</a>
+                        {link.anchor ? <a href={`#${link.path}`}>{link.value}</a> : <a href={`${link.path}`}>{link.value}</a>}
                     </li>
                 ))}
             </ul>

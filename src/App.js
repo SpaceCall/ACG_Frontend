@@ -8,9 +8,9 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {/* <Header />
-        <Main /> */}
-        <Login />
+        <Header />
+        <Main />
+        {/* <Login /> */}
       </BrowserRouter>
     </div>
   );
