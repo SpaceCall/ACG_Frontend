@@ -6,7 +6,11 @@ export default function Content({ styles }) {
     const [isSticky, setIsSticky] = useState(false)
 
     const handleItemClick = (id) => {
-        setActiveItemId(id === activeItemId ? null : id)
+        setActiveItemId(id)
+    }
+
+    const scrollActiveItemChange = (id) => {
+        setActiveItemId(id)
     }
 
     useEffect(() => {
@@ -33,7 +37,7 @@ export default function Content({ styles }) {
                             className={activeItemId === tableItem.id ? styles.active : ''}
                             onClick={() => handleItemClick(tableItem.id)}
                         >
-                            <a href={`#${tableItem.id + 1}`}>{tableItem.name}</a>
+                            <a href={`#${tableItem.id}`}>{tableItem.name}</a>
                         </li>
                     ))}
                 </ul>

@@ -1,38 +1,34 @@
 const tableItems = [
     {
         id: 1,
-        name: 'Why Python?'
+        name: 'Introduction to Python Programming'
     },
     {
         id: 2,
-        name: 'Getting Started'
+        name: 'Why Python?'
     },
     {
         id: 3,
-        name: 'Variables and Data Types'
+        name: 'Basic Concepts'
     },
     {
         id: 4,
-        name: 'Example: Variables and Data Types'
-    },
-    {
-        id: 5,
         name: 'Control Flow'
     },
     {
-        id: 6,
+        id: 5,
         name: 'Functions'
     },
     {
-        id: 7,
+        id: 6,
         name: 'Object-Oriented Programming (OOP)'
     },
     {
-        id: 8,
+        id: 7,
         name: 'Resources for Further Learning'
     },
     {
-        id: 9,
+        id: 8,
         name: 'Conclusions'
     },
 ]
