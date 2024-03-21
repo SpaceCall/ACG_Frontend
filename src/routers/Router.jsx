@@ -4,6 +4,7 @@ import Chat from '../components/main/Chat'
 import Topics from '../components/main/Topics'
 import MainPage from '../components/main/MainPage'
 import Blogs from '../components/main/Blogs'
+import BlogPage from '../components/main/BlogPage'
 
 export default function Router() {
     return (
@@ -12,6 +13,7 @@ export default function Router() {
             <Route path='/chat' element={<Chat />} />
             <Route path='/topics' element={<Topics />} />
             <Route path='/blogs' element={<Blogs />} />
+            <Route path='/blog' element={<BlogPage />} />   
         </Routes>
     )
 }

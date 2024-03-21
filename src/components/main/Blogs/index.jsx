@@ -51,6 +51,10 @@ export default function Blogs() {
         }
     ]
 
+    const totalPages = 8
+    const visiblePages = [1, 2, 7, 8]
+    const ellipsis = '...'
+
     return (
         <div className={styles.blogs}>
             <div className="container">
@@ -91,6 +95,9 @@ export default function Blogs() {
                                 <Blog key={blog.id} styles={styles} blog={blog} />
                             ))}
                         </div>
+                    </div>
+                    <div className={styles.blogs__pagination}>
+                        
                     </div>
                 </div>
             </div>
