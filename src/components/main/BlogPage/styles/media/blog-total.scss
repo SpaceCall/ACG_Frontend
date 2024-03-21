@@ -90,5 +90,11 @@ $grey-color: #686868;
                 }
             }
         }
+        &__text{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 56px;
+        }
     }
 }
