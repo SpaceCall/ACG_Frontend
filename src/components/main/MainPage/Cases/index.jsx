@@ -82,7 +82,7 @@ export default function Cases() {
                 <h2 className={styles.cases__title}>Use Cases</h2>
                 <Slider className={styles.cases__wrapper} ref={slickRef} {...sliderSettings}>
                     {casesData.map((caseItem, index) => (
-                        <div>
+                        <div key={index}>
                             <div
                                 key={index}
                                 className={`

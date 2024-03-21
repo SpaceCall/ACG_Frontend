@@ -4,7 +4,6 @@ import Intro from './Intro'
 import Cases from './Cases'
 import HowItWorks from './HowItWorks'
 import Form from './Form'
-import Contacts from './Contacts'
 
 export default function MainPage() {
     return (
@@ -14,7 +13,6 @@ export default function MainPage() {
                 <Cases />
                 <HowItWorks />
                 <Form />
-                {/* <Contacts /> */}
             </div>
         </div>
     )

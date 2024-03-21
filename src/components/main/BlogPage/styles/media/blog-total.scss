@@ -2,6 +2,7 @@ $orange-color: #FF6314;
 $black-color: #000000;
 $white-color: #FFFFFF;
 $grey-color: #686868;
+$lightgrey-color: #F0F3F7;
 
 .blog {
     margin-top: 80px;
@@ -10,15 +11,15 @@ $grey-color: #686868;
     &__intro {
         display: flex;
         justify-content: space-between;
-        
-        &__info{
+
+        &__info {
             width: 45%;
-            
+
             span {
                 display: block;
                 position: relative;
                 font-weight: 700;
-    
+
                 &::after {
                     content: '';
                     position: absolute;
@@ -31,7 +32,7 @@ $grey-color: #686868;
                 }
             }
 
-            h2{
+            h2 {
                 margin: 25px 0 120px;
                 font-family: 'Poppins';
                 font-weight: 500;
@@ -40,10 +41,11 @@ $grey-color: #686868;
                 width: 88%;
             }
 
-            &__categories{
+            &__categories {
                 display: flex;
                 gap: 16px;
-                div{
+
+                div {
                     padding: 8px 30px;
                     border-radius: 64px;
                     background-color: $white-color;
@@ -52,49 +54,113 @@ $grey-color: #686868;
             }
         }
 
-        &__image{
+        &__image {
             width: 50%;
-            img{
+
+            img {
                 width: 100%;
             }
         }
 
     }
 
-    &__content{
+    &__content {
         font-family: 'Poppins';
         margin-top: 180px;
         display: flex;
-        justify-content: space-between;
-        &__table{
+        justify-content: flex-end;
+        position: relative;
+        gap: 250px;
+
+        &__table {
             width: 30%;
-            &__title{
+
+            &__title {
                 font-weight: 500;
                 margin-bottom: 27px;
             }
-            &__list{
+
+            &__list {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 16px;
-                li{
-                    padding-left: 20px;
-                    border-left: 3px transparent solid;
-                    color: $grey-color;
+
+                li {
                     cursor: pointer;
-                    transition: color .3s, border-color .3s;
+                    
+                    a {
+                        padding-left: 20px;
+                        text-decoration: none;
+                        color: $grey-color;
+                        transition: color .3s, border-color .3s;
+                        border-left: 3px transparent solid;
+                    }
                 }
-                .active{
+
+                .active a {
                     border-left: 3px $orange-color solid;
                     color: $black-color;
                 }
             }
         }
-        &__text{
+
+        .sticky {
+            position: sticky;
+            top: 22px;
+            bottom: 0;
+            left: 0;
+
+            h2,
+            ul {
+                position: fixed;
+            }
+
+            h2 {
+                top: 30px;
+            }
+
+            ul {
+                top: 83.8px;
+            }
+        }
+
+        &__text {
             width: 50%;
             display: flex;
             flex-direction: column;
             gap: 56px;
+
+            &__block {
+                &__title {
+                    font-weight: 500;
+                    margin-bottom: 24px;
+                }
+
+                &__subtitle {
+                    font-weight: 500;
+                    margin: 24px 0;
+                }
+
+                &__paragraph {
+                    margin-bottom: 24px;
+                }
+
+                &__code {
+                    background-color: $lightgrey-color;
+                    padding: 8px;
+
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 12px;
+
+                        li {
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
         }
     }
 }

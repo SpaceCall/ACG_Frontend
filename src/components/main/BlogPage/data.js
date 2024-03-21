@@ -55,10 +55,10 @@ const contentItems = [
         description: "In Python, you can store data in variables. Unlike other languages, Python is dynamically typed, meaning you don't need to declare variable types explicitly. Common data types include integers, floats, strings, booleans, lists, tuples, dictionaries, and sets.",
         subtitleBottom: "Example: Variables and Data Types",
         code: [
-            'name = "Alice"',
-            'age = 30',
-            'height = 5.9',
-            'is_student = False'
+            { text: 'name = "Alice"', tabs: 0 },
+            { text: 'age = 30', tabs: 0 },
+            { text: 'height = 5.9', tabs: 0 },
+            { text: 'is_student = False', tabs: 0 },
         ]
     },
     {
@@ -66,16 +66,16 @@ const contentItems = [
         title: "Control Flow",
         description: "Control flow statements like if-else, for loops, and while loops allow you to control the execution of your code based on conditions.",
         code: [
-            '# Example: Control Flow',
-            'if age >= 18:',
-            '    print("You are an adult.")',
-            'else:',
-            '    print("You are a minor.")',
-            'for i in range(5):',
-            '    print(i)',
-            'while age < 40:',
-            '    age += 1',
-            '    print("Happy Birthday!")'
+            { text: '# Example: Control Flow', tabs: 0 },
+            { text: 'if age >= 18:', tabs: 0 },
+            { text: 'print("You are an adult.")', tabs: 1 },
+            { text: 'else:', tabs: 0 },
+            { text: 'print("You are a minor.")', tabs: 1 },
+            { text: 'for i in range(5):', tabs: 0 },
+            { text: 'print(i)', tabs: 1 },
+            { text: 'while age < 40:', tabs: 0 },
+            { text: 'age += 1', tabs: 1 },
+            { text: 'print("Happy Birthday!")', tabs: 1 }
         ]
     },
     {
@@ -83,10 +83,10 @@ const contentItems = [
         title: "Functions",
         description: "Functions are reusable blocks of code that perform specific tasks. You can define your functions using the `def` keyword.",
         code: [
-            '# Example: Functions',
-            'def greet(name):',
-            '    print("Hello, " + name + "!")',
-            'greet("Bob")'
+            { text: '# Example: Functions', tabs: 0 },
+            { text: 'def greet(name):', tabs: 0 },
+            { text: 'print("Hello, " + name + "!")', tabs: 1 },
+            { text: 'greet("Bob")', tabs: 0 },
         ]
     },
     {
@@ -94,14 +94,14 @@ const contentItems = [
         title: "Object-Oriented Programming (OOP)",
         description: "Python supports object-oriented programming paradigms, allowing you to create classes and objects to model real-world entities.",
         code: [
-            '# Example: Object-Oriented Programming',
-            'class Dog:',
-            '    def __init__(self, name):',
-            '        self.name = name',
-            '    def bark(self):',
-            '        print(self.name + " says woof!")',
-            'my_dog = Dog("Buddy")',
-            'my_dog.bark()',
+            { text: '# Example: Object-Oriented Programming', tabs: 0 },
+            { text: 'class Dog:', tabs: 0 },
+            { text: 'def __init__(self, name):', tabs: 1 },
+            { text: 'self.name = name', tabs: 2 },
+            { text: 'def bark(self):', tabs: 1 },
+            { text: 'print(self.name + " says woof!")', tabs: 2 },
+            { text: 'my_dog = Dog("Buddy")', tabs: 0 },
+            { text: 'my_dog.bark()', tabs: 0 },
         ]
     },
     {

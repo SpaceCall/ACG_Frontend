@@ -1,16 +1,30 @@
-import React, { useState } from 'react'
-import data from './data'
+import React, { useState, useEffect } from 'react';
+import data from './data';
 
 export default function Content({ styles }) {
-    const [activeItemId, setActiveItemId] = useState(1);
+    const [activeItemId, setActiveItemId] = useState(1)
+    const [isSticky, setIsSticky] = useState(false)
 
     const handleItemClick = (id) => {
-        setActiveItemId(id === activeItemId ? null : id);
+        setActiveItemId(id === activeItemId ? null : id)
     }
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY
+            setIsSticky(scrollPosition >= 695)
+        }
+
+        window.addEventListener('scroll', handleScroll)
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
 
     return (
         <div className={styles.blog__content}>
-            <div className={styles.blog__content__table}>
+            <div className={`${styles.blog__content__table} ${isSticky ? styles.sticky : ''}`}>
                 <h2 className={styles.blog__content__table__title}>Table of content</h2>
                 <ul className={styles.blog__content__table__list}>
                     {data.tableItems.map((tableItem) => (
@@ -19,7 +33,7 @@ export default function Content({ styles }) {
                             className={activeItemId === tableItem.id ? styles.active : ''}
                             onClick={() => handleItemClick(tableItem.id)}
                         >
-                            {tableItem.name}
+                            <a href={`#${tableItem.id + 1}`}>{tableItem.name}</a>
                         </li>
                     ))}
                 </ul>
@@ -27,20 +41,22 @@ export default function Content({ styles }) {
             <div className={styles.blog__content__text}>
                 {data.contentItems.map((textBlock) => (
                     <div key={textBlock.id} className={styles.blog__content__text__block}>
-                        <h2 className={styles.blog__content__text__block__title}>{textBlock.title && textBlock.title}</h2>
-                        <h3 className={styles.blog__content__text__block__subtitle}>{textBlock.subtitleTop && textBlock.subtitleTop}</h3>
-                        <p className={styles.blog__content__text__block__paragraph}>{textBlock.description && textBlock.description}</p>
-                        <h3 className={styles.blog__content__text__block__subtitle}>{textBlock.subtitleBottom && textBlock.subtitleBottom}</h3>
-                        <div className={styles.blog__content__text__block__code}>
+                        {textBlock.title && <h2 id={textBlock.id} className={styles.blog__content__text__block__title}>{textBlock.title}</h2>}
+                        {textBlock.subtitleTop && <h3 className={styles.blog__content__text__block__subtitle}>{textBlock.subtitleTop}</h3>}
+                        {textBlock.description && <p className={styles.blog__content__text__block__paragraph}>{textBlock.description}</p>}
+                        {textBlock.subtitleBottom && <h3 className={styles.blog__content__text__block__subtitle}>{textBlock.subtitleBottom}</h3>}
+                        {textBlock.code && <div className={styles.blog__content__text__block__code}>
                             <ul>
-                                {textBlock.code && textBlock.code.map((codeStr, index) => (
-                                    <li key={index}>{codeStr}</li>
+                                {textBlock.code.map((codeLine, index) => (
+                                    <li key={index} style={{ marginLeft: `${codeLine.tabs * 20}px` }}>
+                                        {codeLine.text}
+                                    </li>
                                 ))}
                             </ul>
-                        </div>
+                        </div>}
                     </div>
                 ))}
             </div>
         </div>
-    )
+    );
 }
