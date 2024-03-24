@@ -1,10 +1,8 @@
-$text-color: #0C0C0C;
-$case-orange-color: #FF6314;
-$case-black-color: #0C0C0C;
-$line-color: #0C0C0C;
-$even-list-item: #000000;
+$black-color: #0C0C0C;
+$orange-color: #FF6314;
+$grey-color: #3A3A3B;
 
-.cases {
+.howItWorks {
     margin-bottom: 150px;
 
     &__wrapper {
@@ -13,7 +11,7 @@ $even-list-item: #000000;
     }
 
     &__title {
-        color: $text-color;
+        color: $black-color;
         font-family: 'Jost';
         font-size: 5em;
         font-weight: 400;
@@ -21,158 +19,105 @@ $even-list-item: #000000;
         letter-spacing: -2.4px;
         text-transform: uppercase;
         margin-bottom: 90px;
+        display: flex;
+        flex-direction: column;
+        width: 33%;
+
+        span {
+            align-self: flex-end;
+            color: $orange-color;
+        }
     }
 
-    &__case {
+    &__list {
         display: flex;
-        gap: 70px;
-        margin: 0 0 10px;
+        flex-direction: column;
+        gap: 56px;
 
-        &__image {
-            width: 60%;
+        &__blocks {
+            display: flex;
+            justify-content: space-between;
 
-            img {
-                width: 100%;
-            }
-        }
+            &__block {
+                font-family: 'Poppins';
+                color: $black-color;
+                transition: color .3s;
 
-        &__description {
-            margin-top: 17px;
-            width: 36%;
-
-            &__title {
-                font-size: 4em;
-                font-family: 'Jost';
-                font-weight: 400;
-                line-height: 110%;
-                letter-spacing: -1.92px;
-                text-transform: uppercase;
-                display: flex;
-                flex-direction: column;
-                margin-bottom: 50px;
-
-                &__orange {
-                    color: $case-orange-color;
+                h2 {
+                    font-size: 2.25em;
+                    font-weight: 500;
+                    padding: 0 24px;
                 }
 
-                &__black {
-                    color: $case-black-color;
+                p {
+                    font-size: 1.25em;
+                    font-weight: 500;
+                    margin: 8px 0 16px;
+                    min-height: 92px;
+                    padding: 0 24px;
+                    max-width: 90%;
                 }
-            }
 
-            &__list {
-                display: flex;
-                flex-direction: column;
-                gap: 56px;
+                .line {
+                    height: 1px;
+                    width: 100%;
+                    background-color: $grey-color;
+                    margin-bottom: 16px;
+                    transition: color .3s;
+                }
 
                 li {
-                    color: $text-color;
-                    font-family: 'Poppins';
-                    font-size: 1em;
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: 150%;
-                    width: 60%;
+                    list-style: none;
+                    padding: 0 24px;
                     position: relative;
+                    opacity: 0;
+                    transform: translateY(100px);
+                    transition: opacity .3s, transform .3s;
 
-                    .line {
-                        height: 10px;
-                        display: flex;
-                        align-items: center;
+                    &::before {
+                        content: '';
                         position: absolute;
-                        width: 75%;
-                        top: 50%;
-
-                        height: 1px;
-                        background-image: linear-gradient(90deg, $line-color, $line-color 50%, $line-color 50%, $line-color 30%, transparent 50%);
-                        background-size: 20px 1px;
-
-                        &::after,
-                        &::before {
-                            content: '';
-                            display: block;
-                            width: 7px;
-                            height: 7px;
-                            border-radius: 50%;
-                            border: 1px $line-color solid;
-                            background-color: $line-color;
-                            position: absolute;
-                        }
-
-                        &::after {
-                            right: 0;
-                        }
-
-                        &::before {
-                            left: 0;
-                        }
+                        left: 5px;
+                        top: 10px;
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 50%;
+                        display: block;
+                        background-color: $black-color;
                     }
                 }
             }
-        }
-    }
 
-    &__odd {
-        flex-direction: row;
+            .active {
+                color: $orange-color;
 
-        &__description {
-
-            &__title {
-                &__orange {
-                    align-self: flex-start;
-                }
-
-                &__black {
-                    align-self: flex-end;
-                }
-            }
-
-            &__list li {
                 .line {
-                    right: 100%;
-                    margin-right: 19px;
+                    background-color: $orange-color;
+                }
+
+                li {
+                    opacity: 1;
+                    transform: translateY(0);
                 }
             }
         }
     }
 
-    &__even {
-        flex-direction: row-reverse;
-        justify-content: space-between;
+    &__laptop {
+        display: flex;
+        justify-content: center;
 
-        &__description {
+        &__image {
+            background: url(../../../../assets/images/cases/laptop.png) center/contain no-repeat;
+            height: 542px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-            &__title {
-                &__orange {
-                    align-self: flex-end;
-                }
-
-                &__black {
-                    align-self: flex-start;
-                }
-            }
-
-            &__list li {
-                width: 95%;
-
-                &::before {
-                    content: '';
-                    display: block;
-                    width: 14px;
-                    height: 14px;
-                    border-radius: 50%;
-                    border: 1px solid $even-list-item;
-                    position: absolute;
-                    top: 5px;
-                    right: 100%;
-                    margin-right: 13px;
-                }
-
-                .line {
-                    left: 100%;
-                    margin-left: 19px;
-                    width: 55%;
-                }
+            img {
+                margin-bottom: 35px;
+                flex: 0 0 30%;
             }
         }
     }

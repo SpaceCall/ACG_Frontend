@@ -1,159 +1,84 @@
-import React, { useRef, useEffect } from 'react'
-import Slider from 'react-slick'
-import styles from './howItWorks.module.scss'
-import 'slick-carousel/slick/slick-theme.scss'
-import 'slick-carousel/slick/slick.scss'
-import case_image from './../../../../assets/images/case-image.png'
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Slider from 'react-slick';
+import styles from './howItWorks.module.scss';
+import images from './images';
 
 export default function HowItWorks() {
-    const casesData = [
-        {
-            title: ['Tailoring', 'Education'],
-            list: [
-                'ACG will design a learning plan based on your needs and experience.',
-                'ACG will design a learning plan based on your needs and experience.',
-            ],
-        },
-        {
-            title: ['Task-Oriented', 'Learning'],
-            list: [
-                'We will give detailed practical assignments, so that you do not just learn the theory, but immediately apply it on real tasks.',
-                'You can tell us what you are looking for from this course, what skills you are interested in, and we will provide material especially to prepare you for the assignment.',
-            ],
-        },
-        {
-            title: ['Individual', 'Approach'],
-            list: [
-                'The platform analyzes your practice results, as well as learning difficulties and questions you asked the bot throughout the course.',
-                'Based on this information, ACG updates your training plan to help you understand the material.',
-                'You will always have a bot mentor to explain everything you don\'t understand.',
-            ],
-        },
-    ]
+    const [activeBlock, setActiveBlock] = useState(0);
 
-    const debounce = (func, wait, immediate) => {
-        let timeout
-        return function (...args) {
-            const context = this
-            const later = () => {
-                timeout = null
-                if (!immediate) func.apply(context, args)
-            }
-            const callNow = immediate && !timeout
-            clearTimeout(timeout)
-            timeout = setTimeout(later, wait)
-            if (callNow) func.apply(context, args)
+    const howItWorksData = [
+        {
+            number: '01',
+            title: 'Consult with the mentor-chatbot.',
+            desription: 'Say what you want to learn, your background and the goal you want to achieve',
+            activeImage: images.activeImageFirst
+        },
+        {
+            number: '02',
+            title: 'Get a customized study plan',
+            desription: 'Receive a study plan based on your preferences and actual topics for study',
+            activeImage: images.activeImageSecond
+        },
+        {
+            number: '03',
+            title: 'Learn topics through video and text.',
+            desription: 'At each stage, you will have access to the most relevant articles and videos for your studies',
+            activeImage: images.activeImageThird
+        },
+        {
+            number: '04',
+            title: 'Mentor support',
+            desription: 'Receive answers to questions that arise during the course from a chatbot mentor',
+            activeImage: images.activeImageFourth
         }
-    }
+    ];
 
     const sliderSettings = {
-        vertical: true,
+        horizontal: true,
         adaptiveHeight: false,
-        swipe: false,
+        swipe: true,
         infinite: false,
         arrows: false
-    }
-
-    const slickRef = useRef(null)
-    const slickIsAnimating = useRef(false)
-
-    const handleWheelEvent = debounce((e) => {
-        if (!slickIsAnimating.current) {
-            e.preventDefault()
-            const direction = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY
-            direction > 0 ? slickRef.current.slickNext() : slickRef.current.slickPrev()
-        }
-    }, 100, true)
-
-    useEffect(() => {
-        slickRef.current.slickGoTo(0)
-
-        const listElement = slickRef.current.innerSlider.list
-        listElement.addEventListener('wheel', handleWheelEvent)
-
-        return () => {
-            listElement.removeEventListener('wheel', handleWheelEvent)
-        }
-    }, [handleWheelEvent]);
+    };
 
     return (
-        <div id='howItWorks' className={styles.cases}>
+        <div id='howItWorks' className={styles.howItWorks}>
             <div className='container'>
-                <h2 className={styles.cases__title}>Use Cases</h2>
-                <Slider className={styles.cases__wrapper} ref={slickRef} {...sliderSettings}>
-                    {casesData.map((caseItem, index) => (
-                        <div key={index}>
-                            <div
-                                key={index}
-                                className={`
-                                    ${styles.cases__case} 
-                                    ${index % 2 === 0 ? styles.cases__odd :
-                                                        styles.cases__even}
-                                `}
-                            >
+                <div className={styles.howItWorks__wrapper}>
+                    <h2 className={styles.howItWorks__title}>How it <span>works ?</span></h2>
+                    <div className={styles.howItWorks__list}>
+                        <div className={styles.howItWorks__list__blocks}>
+                            {howItWorksData.map((block, index) => (
                                 <div
-                                    className={`
-                                        ${styles.cases__case__image} 
-                                        ${index % 2 === 0 ?
-                                                        styles.cases__odd__image :
-                                                        styles.cases__even__image}
-                                    `}
+                                    key={block.number}
+                                    className={`${styles.howItWorks__list__blocks__block} ${activeBlock === index ? styles.active : ''}`}
+                                    onClick={() => setActiveBlock(index)}
                                 >
-                                    <img src={case_image} alt='Chat' />
+                                    <h2>{block.number}.</h2>
+                                    <p>{block.title}</p>
+                                    <div className={styles.line}></div>
+                                    <li>{block.desription}</li>
                                 </div>
-                                <div
-                                    className={`
-                                        ${styles.cases__case__description} 
-                                        ${index % 2 === 0 ? styles.cases__odd__description :
-                                                            styles.cases__even__description}
-                                    `}
-                                >
-                                    <h3
-                                        className={`
-                                            ${styles.cases__case__description__title} 
-                                            ${index % 2 === 0 ? styles.cases__odd__description__title :
-                                                                styles.cases__even__description__title}
-                                        `}
-                                    >
-                                        <span
-                                            className={`
-                                                ${styles.cases__case__description__title__orange} 
-                                                ${index % 2 === 0 ? styles.cases__odd__description__title__orange :
-                                                                    styles.cases__even__description__title__orange}
-                                        `}
-                                        >
-                                            {caseItem.title[0]}
-                                        </span>
-                                        <span
-                                            className={`
-                                                ${styles.cases__case__description__title__black} 
-                                                ${index % 2 === 0 ? styles.cases__odd__description__title__black :
-                                                                    styles.cases__even__description__title__black}
-                                            `}
-                                        >
-                                            {caseItem.title[1]}
-                                        </span>
-                                    </h3>
-                                    <ul
-                                        className={`
-                                            ${styles.cases__case__description__list} 
-                                            ${index % 2 === 0 ? styles.cases__odd__description__list :
-                                                                styles.cases__even__description__list}`}
-                                    >
-                                        {caseItem.list.map((item, listItemIndex) => (
-                                            <li key={listItemIndex}>
-                                                <div className={styles.line}>
-                                                    <hr />
-                                                </div>
-                                                {item}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
+                            ))}
+                        </div>
+                        <div className={styles.howItWorks__laptop}>
+                            <div className={styles.howItWorks__laptop__image}>
+                                <AnimatePresence>
+                                    <motion.img
+                                        key={howItWorksData[activeBlock].number}
+                                        src={howItWorksData[activeBlock].activeImage}
+                                        alt="Active Laptop Image"
+                                        initial={{ opacity: 0, x: '100%' }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: '-100%' }}
+                                        transition={{ duration: 0.5 }}
+                                    />
+                                </AnimatePresence>
                             </div>
                         </div>
-                    ))}
-                </Slider>
+                    </div>
+                </div>
             </div>
         </div>
     );
