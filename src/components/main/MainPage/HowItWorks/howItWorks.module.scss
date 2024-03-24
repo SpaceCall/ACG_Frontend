@@ -1,21 +1,19 @@
-$text-black-color: #0C0C0C;
-$text-orange-color: #FF6314;
+$text-color: #0C0C0C;
+$case-orange-color: #FF6314;
+$case-black-color: #0C0C0C;
 $line-color: #0C0C0C;
+$even-list-item: #000000;
 
-%line {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    background-color: $line-color;
-}
+.cases {
+    margin-bottom: 150px;
 
-.howItWorks {
-    margin-bottom: 200px;
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+    }
 
-    h2 {
-        color: $text-black-color;
+    &__title {
+        color: $text-color;
         font-family: 'Jost';
         font-size: 5em;
         font-weight: 400;
@@ -23,99 +21,159 @@ $line-color: #0C0C0C;
         letter-spacing: -2.4px;
         text-transform: uppercase;
         margin-bottom: 90px;
-
-        span {
-            color: $text-orange-color;
-        }
     }
 
-    &__list {
+    &__case {
         display: flex;
-        flex-direction: column;
+        gap: 70px;
+        margin: 0 0 10px;
 
-        &__item {
-            position: relative;
-            color: $text-black-color;
-            font-family: 'Poppins';
-            line-height: 150%;
-            padding: 64px 0;
+        &__image {
+            width: 60%;
 
-            &__info {
+            img {
+                width: 100%;
+            }
+        }
+
+        &__description {
+            margin-top: 17px;
+            width: 36%;
+
+            &__title {
+                font-size: 4em;
+                font-family: 'Jost';
+                font-weight: 400;
+                line-height: 110%;
+                letter-spacing: -1.92px;
+                text-transform: uppercase;
                 display: flex;
-                justify-content: space-between;
-                align-items: center;
-                overflow-x: hidden;
+                flex-direction: column;
+                margin-bottom: 50px;
 
-                h3 {
-                    color: $text-black-color;
-                    font-family: 'Jost';
-                    font-size: 2em;
-                    font-weight: 400;
-                    line-height: 110%;
-                    letter-spacing: -0.64px;
-                    text-transform: uppercase;
-                    display: flex;
-                    flex-direction: column;
-                    width: 50%;
-
-                    span {
-
-                        &:first-child,
-                        &:last-child {
-                            transform: translateX(80%);
-                            transition: all 0.7s ease;
-                        }
-                    }
+                &__orange {
+                    color: $case-orange-color;
                 }
 
-                p {
-                    color: $text-black-color;
+                &__black {
+                    color: $case-black-color;
+                }
+            }
+
+            &__list {
+                display: flex;
+                flex-direction: column;
+                gap: 56px;
+
+                li {
+                    color: $text-color;
                     font-family: 'Poppins';
                     font-size: 1em;
+                    font-style: normal;
                     font-weight: 400;
-                    line-height: 170%;
-                    width: 47%;
-                    opacity: 0;
-                    transform: translateX(500px);
-                    transition: all 0.7s ease;
+                    line-height: 150%;
+                    width: 60%;
+                    position: relative;
 
-                    span {
-                        font-weight: 600;
-                    }
-                }
+                    .line {
+                        height: 10px;
+                        display: flex;
+                        align-items: center;
+                        position: absolute;
+                        width: 75%;
+                        top: 50%;
 
-                &::after {
-                    @extend %line;
-                    bottom: 0;
-                }
+                        height: 1px;
+                        background-image: linear-gradient(90deg, $line-color, $line-color 50%, $line-color 50%, $line-color 30%, transparent 50%);
+                        background-size: 20px 1px;
 
-                &:hover {
-                    h3 {
-                        span {
-
-                            &:first-child {
-                                transform: translateX(0);
-                                transition: all 0.7s ease;
-                            }
-    
-                            &:last-child {
-                                transform: translateX(0);
-                                margin-left: 170px;
-                            }
+                        &::after,
+                        &::before {
+                            content: '';
+                            display: block;
+                            width: 7px;
+                            height: 7px;
+                            border-radius: 50%;
+                            border: 1px $line-color solid;
+                            background-color: $line-color;
+                            position: absolute;
                         }
-                    }
 
-                    p {
-                        opacity: 1;
-                        transform: translateX(0);
+                        &::after {
+                            right: 0;
+                        }
+
+                        &::before {
+                            left: 0;
+                        }
                     }
                 }
             }
         }
+    }
 
-        :first-child div::before {
-            @extend %line;
-            top: 0;
+    &__odd {
+        flex-direction: row;
+
+        &__description {
+
+            &__title {
+                &__orange {
+                    align-self: flex-start;
+                }
+
+                &__black {
+                    align-self: flex-end;
+                }
+            }
+
+            &__list li {
+                .line {
+                    right: 100%;
+                    margin-right: 19px;
+                }
+            }
+        }
+    }
+
+    &__even {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+
+        &__description {
+
+            &__title {
+                &__orange {
+                    align-self: flex-end;
+                }
+
+                &__black {
+                    align-self: flex-start;
+                }
+            }
+
+            &__list li {
+                width: 95%;
+
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 50%;
+                    border: 1px solid $even-list-item;
+                    position: absolute;
+                    top: 5px;
+                    right: 100%;
+                    margin-right: 13px;
+                }
+
+                .line {
+                    left: 100%;
+                    margin-left: 19px;
+                    width: 55%;
+                }
+            }
         }
     }
 }
