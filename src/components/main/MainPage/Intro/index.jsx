@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './intro.module.scss'
 
 export default function Intro() {
+    
     return (
         <div id='intro' className={styles.intro}>
             <div className="container">
