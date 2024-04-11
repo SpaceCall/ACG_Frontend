@@ -91,9 +91,10 @@ export default function Blogs() {
                             </ul>
                         </nav>
                         <div className={styles.blogs__catalog__wrapper}>
-                            {blogs.map((blog) => (
+                            {/* {blogs.map((blog) => (
                                 <Blog key={blog.id} styles={styles} blog={blog} />
-                            ))}
+                            ))} */}
+                            Coming Soon...
                         </div>
                     </div>
                     <div className={styles.blogs__pagination}>
