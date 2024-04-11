@@ -10,7 +10,7 @@ export default function Intro() {
                     <div className={styles.intro__content}>
                         <p className={styles.intro__content__text}>Get the course that suits you perfectly</p>
                         <h1 className={styles.intro__content__title}>ACG generates courses based on your goals and experience</h1>
-                        <a href='/chat' className={styles.intro__content__button}>Start</a>
+                        <a href='/comingsoon' className={styles.intro__content__button}>Start</a>
                     </div>
                 </div>
             </div>

@@ -5,13 +5,15 @@ import Topics from '../components/main/Topics'
 import MainPage from '../components/main/MainPage'
 import Blogs from '../components/main/Blogs'
 import BlogPage from '../components/main/BlogPage'
+import ComingSoon from '../components/main/MainPage/ComingSoon'
 
 export default function Router() {
     return (
         <Routes>
             <Route path='/' element={<MainPage />} />
             <Route path='/blogs' element={<Blogs />} />
-            <Route path='/blog' element={<BlogPage />} />   
+            <Route path='/blog' element={<BlogPage />} />
+            <Route path='/comingsoon' element={<ComingSoon />} />
         </Routes>
     )
 }
