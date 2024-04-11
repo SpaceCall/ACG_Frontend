@@ -5,13 +5,13 @@ export default function Links() {
     const links = [
         {
             value: 'Use cases',
-            path: 'cases',
-            anchor: true
+            path: 'http://localhost:3000/#cases',
+            anchor: false
         },
         {
             value: 'How it works',
-            path: 'howitworks',
-            anchor: true
+            path: 'http://localhost:3000/#howitworks',
+            anchor: false
         },
         {
             value: 'Blog',

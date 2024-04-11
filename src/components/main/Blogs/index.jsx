@@ -26,7 +26,7 @@ export default function Blogs() {
             description: "Introduction to Python Programming: A Beginner's Guide"
         },
         {
-            id: 1,
+            id: 2,
             date: '12.08.2023',
             mins: '13',
             imgSource: pythonBlog,
@@ -34,7 +34,7 @@ export default function Blogs() {
             description: "Introduction to Python Programming: A Beginner's Guide"
         },
         {
-            id: 1,
+            id: 3,
             date: '12.08.2023',
             mins: '13',
             imgSource: pythonBlog,
@@ -42,7 +42,7 @@ export default function Blogs() {
             description: "Introduction to Python Programming: A Beginner's Guide"
         },
         {
-            id: 1,
+            id: 4,
             date: '12.08.2023',
             mins: '13',
             imgSource: pythonBlog,
