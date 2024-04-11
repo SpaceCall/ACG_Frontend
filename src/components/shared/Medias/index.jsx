@@ -4,17 +4,17 @@ import telegram from './../../../assets/icons/telegram.svg'
 import { Link } from 'react-router-dom'
 import styles from './medias.module.scss'
 
-export default function Medias({ profileLink }) {
+export default function Medias({ profileLinks }) {
     const medias = [
         {
             src: linkedin,
             alt: 'linkedin',
-            path: profileLink?.linkedin
+            path: profileLinks?.linkedin
         },
         {
             src: telegram,
             alt: 'telegram',
-            path: profileLink?.telegram
+            path: profileLinks?.telegram
         }
     ]
 
@@ -23,7 +23,7 @@ export default function Medias({ profileLink }) {
             <ul>
                 {medias.map((media, index) => (
                     <li key={index}>
-                        <Link to={media.path}><img src={media.src} alt={media.alt} /></Link>
+                        <a href={media.path} target='_blank'><img src={media.src} alt={media.alt} /></a>
                     </li>
                 ))}
             </ul>
