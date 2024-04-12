@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import styles from './howItWorks.module.scss';
 import images from './images';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css';
 
 export default function HowItWorks() {
-    const [activeBlock, setActiveBlock] = useState(0);
-    const [timerId, setTimerId] = useState(null);
+    const [activeBlock, setActiveBlock] = useState(0)
+    const [timerId, setTimerId] = useState(null)
 
     const howItWorksData = [
         {
@@ -31,7 +33,7 @@ export default function HowItWorks() {
             description: 'Receive answers to questions that arise during the course from a chatbot mentor',
             activeImage: images.activeImageFourth
         }
-    ];
+    ]
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -75,13 +77,20 @@ export default function HowItWorks() {
                             ))}
                         </div>
                         <div className={styles.howItWorks__laptop}>
-                            <div className={styles.howItWorks__laptop__image}>
-                                <img src={howItWorksData[activeBlock].activeImage} alt="Active Image" />
-                            </div>
+                            <img src={images.laptop} className={styles.laptop} alt="Laptop" />
+                            <Swiper
+                                slidesPerView={1}
+                                className={styles.howItWorks__laptop__images}
+                            >
+                                <SwiperSlide><img src={howItWorksData[0].activeImage} alt="" /></SwiperSlide>
+                                <SwiperSlide><img src={howItWorksData[1].activeImage} alt="" /></SwiperSlide>
+                                <SwiperSlide><img src={howItWorksData[2].activeImage} alt="" /></SwiperSlide>
+                                <SwiperSlide><img src={howItWorksData[3].activeImage} alt="" /></SwiperSlide>
+                            </Swiper>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    );
+    )
 }

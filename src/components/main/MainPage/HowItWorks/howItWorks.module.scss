@@ -106,18 +106,21 @@ $grey-color: #3A3A3B;
     &__laptop {
         display: flex;
         justify-content: center;
+        background-color: #FFFFFF;
+        position: relative;
+        .laptop{
+            position: absolute;
+            z-index: 1;
+        }
 
-        &__image {
-            background: url(../../../../assets/images/cases/laptop.png) center/contain no-repeat;
+        &__images {
             height: 542px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
-            img {
-                margin-bottom: 35px;
-            }
+            position: absolute;
+            left: 19px;
+            top: 10px;
+            z-index: 4;
+            overflow: hidden;
+            width: 55%;
         }
     }
 }
