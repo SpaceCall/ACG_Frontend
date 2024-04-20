@@ -77,8 +77,9 @@ export default function HowItWorks() {
                             ))}
                         </div>
                         <div className={styles.howItWorks__laptop}>
-                            <img src={images.laptop} className={styles.laptop} alt="Laptop" />
-                            <Swiper
+                            <img src={images.activeImageFirst} alt="Main" />
+                            {/* <img src={images.laptop} className={styles.laptop} alt="Laptop" /> */}
+                            {/* <Swiper
                                 slidesPerView={1}
                                 className={styles.howItWorks__laptop__images}
                             >
@@ -86,7 +87,7 @@ export default function HowItWorks() {
                                 <SwiperSlide><img src={howItWorksData[1].activeImage} alt="" /></SwiperSlide>
                                 <SwiperSlide><img src={howItWorksData[2].activeImage} alt="" /></SwiperSlide>
                                 <SwiperSlide><img src={howItWorksData[3].activeImage} alt="" /></SwiperSlide>
-                            </Swiper>
+                            </Swiper> */}
                         </div>
                     </div>
                 </div>

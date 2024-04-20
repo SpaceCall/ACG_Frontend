@@ -6,6 +6,7 @@ import MainPage from '../components/main/MainPage'
 import Blogs from '../components/main/Blogs'
 import BlogPage from '../components/main/BlogPage'
 import ComingSoon from '../components/main/MainPage/ComingSoon'
+import Login from '../components/main/Login'
 
 export default function Router() {
     return (
@@ -14,6 +15,7 @@ export default function Router() {
             <Route path='/blogs' element={<Blogs />} />
             <Route path='/blog' element={<BlogPage />} />
             <Route path='/comingsoon' element={<ComingSoon />} />
+            <Route path='/login' element={<Login />}></Route>
         </Routes>
     )
 }

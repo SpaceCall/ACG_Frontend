@@ -107,11 +107,29 @@ $grey-color: #3A3A3B;
         display: flex;
         justify-content: center;
         background-color: #FFFFFF;
+        margin: 0 auto;
+        width: 890px;
+        height: 546px;
+        background: url(../../../.../../../assets/images/cases/laptop.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
         position: relative;
-        .laptop{
+        img{
             position: absolute;
-            z-index: 1;
+            top: 8px;
+            width: 728px;
+            height: 493px;
         }
+
+        // &::after{
+        //     position: relative;
+        //     content: url(../../../.../../../assets/images/cases/laptop.png)
+        // }
+        // .laptop{
+        //     position: absolute;
+        //     z-index: 1;
+        // }
 
         &__images {
             height: 542px;
