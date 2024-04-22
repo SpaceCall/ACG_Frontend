@@ -20,7 +20,6 @@ export default function SignInPage({ styles, toSignUp }) {
                         <p>Welcome to the ACG</p>
                     </div>
                     <div className={styles.welcome__field__body}>
-                        <div className={styles.welcome__field__body__google}>idi nahuy</div>
                         <div className={styles.welcome__field__body__or}>or</div>
                         <div className={styles.welcome__field__body__inputs}>
                             <div className={styles.welcome__field__body__email}>
