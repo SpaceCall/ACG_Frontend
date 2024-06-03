@@ -7,7 +7,7 @@ import { StreamLanguage } from "@codemirror/language";
 import { python } from "@codemirror/legacy-modes/mode/python";
 
 export default function Content({ isActive }) {
-    const [activeButton, setActiveButton] = useState('notes')
+    const [activeButton, setActiveButton] = useState('resources')
 
     return (
         <div className={styles.topics__content}>
@@ -16,13 +16,15 @@ export default function Content({ isActive }) {
                     <h2>{isActive.lesson}<br /> {isActive.subtopic}</h2>
                 </div>
                 <div className={styles.topics__content__buttons}>
-                    <button
+                <button
                         className={activeButton === 'notes' ? styles.active : styles.nonActive}
+                        onClick={() => setActiveButton('notes')}
                     >
                         Notes
                     </button>
                     <button
                         className={activeButton === 'resources' ? styles.active : styles.nonActive}
+                        onClick={() => setActiveButton('resources')}
                     >
                         Resources
                     </button>

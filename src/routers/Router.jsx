@@ -16,9 +16,9 @@ export default function Router() {
             <Route path='/blog' element={<BlogPage />} />
             <Route path='/comingsoon' element={<ComingSoon />} />
             <Route path='/login' element={<Login />}></Route>
+            <Route path='/chat' element={<Chat />} />
+            <Route path='/topics' element={<Topics />} />
         </Routes>
     )
 }
-//<Route path='/chat' element={<Chat />} />
-//<Route path='/topics' element={<Topics />} />
 
