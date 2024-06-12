@@ -115,30 +115,23 @@ $grey-color: #3A3A3B;
         background-size: contain;
         background-position: center;
         position: relative;
-        img{
-            position: absolute;
-            top: 8px;
-            width: 728px;
-            height: 493px;
-        }
 
-        // &::after{
-        //     position: relative;
-        //     content: url(../../../.../../../assets/images/cases/laptop.png)
-        // }
-        // .laptop{
-        //     position: absolute;
-        //     z-index: 1;
-        // }
+        img {
+            position: absolute;
+            left: 6px;
+            top: 8px;
+            width: 98%;
+            height: 475px;
+            margin: 0 auto;
+        }
 
         &__images {
             height: 542px;
             position: absolute;
-            left: 19px;
             top: 10px;
             z-index: 4;
             overflow: hidden;
-            width: 55%;
+            width: 82%;
         }
     }
 }

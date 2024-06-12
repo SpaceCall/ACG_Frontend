@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './howItWorks.module.scss';
 import images from './images';
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 export default function HowItWorks() {
-    const [activeBlock, setActiveBlock] = useState(0)
-    const [timerId, setTimerId] = useState(null)
+    const [activeBlock, setActiveBlock] = useState(0);
+    const swiperRef = useRef(null);
 
     const howItWorksData = [
         {
@@ -32,29 +32,21 @@ export default function HowItWorks() {
             title: 'Mentor support',
             description: 'Receive answers to questions that arise during the course from a chatbot mentor',
             activeImage: images.activeImageFourth
+        },
+        {
+            number: '05',
+            title: 'Practical task',
+            description: 'Complete challenging practical task along the whole course',
+            activeImage: images.activeImageFifth
         }
-    ]
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setActiveBlock(prevBlock => (prevBlock + 1) % howItWorksData.length)
-        }, 5000)
-
-        setTimerId(timer)
-
-        return () => {
-            clearInterval(timer)
-        }
-    }, [])
+    ];
 
     const handleBlockClick = (index) => {
-        setActiveBlock(index)
-        clearInterval(timerId)
-        const timer = setInterval(() => {
-            setActiveBlock(prevBlock => (prevBlock + 1) % howItWorksData.length)
-        }, 5000)
-        setTimerId(timer)
-    }
+        setActiveBlock(index);
+        if (swiperRef.current && swiperRef.current.slideTo) {
+            swiperRef.current.slideTo(index);
+        }
+    };
 
     return (
         <div id='howitworks' className={styles.howItWorks}>
@@ -77,21 +69,22 @@ export default function HowItWorks() {
                             ))}
                         </div>
                         <div className={styles.howItWorks__laptop}>
-                            <img src={images.activeImageFirst} alt="Main" />
-                            {/* <img src={images.laptop} className={styles.laptop} alt="Laptop" /> */}
-                            {/* <Swiper
+                            <Swiper
                                 slidesPerView={1}
                                 className={styles.howItWorks__laptop__images}
+                                onSwiper={(swiper) => { swiperRef.current = swiper; }}
+                                onSlideChange={(swiper) => setActiveBlock(swiper.activeIndex)}
                             >
-                                <SwiperSlide><img src={howItWorksData[0].activeImage} alt="" /></SwiperSlide>
-                                <SwiperSlide><img src={howItWorksData[1].activeImage} alt="" /></SwiperSlide>
-                                <SwiperSlide><img src={howItWorksData[2].activeImage} alt="" /></SwiperSlide>
-                                <SwiperSlide><img src={howItWorksData[3].activeImage} alt="" /></SwiperSlide>
-                            </Swiper> */}
+                                {howItWorksData.map((block, index) => (
+                                    <SwiperSlide key={index}>
+                                        <img src={block.activeImage} alt={`Slide ${index + 1}`} />
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }

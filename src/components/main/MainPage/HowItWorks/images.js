@@ -3,13 +3,15 @@ import activeImageFirst from '../../../../assets/images/cases/active-image-1.png
 import activeImageSecond from '../../../../assets/images/cases/active-image-2.png'
 import activeImageThird from '../../../../assets/images/cases/active-image-3.png'
 import activeImageFourth from '../../../../assets/images/cases/active-image-4.png'
+import activeImageFifth from '../../../../assets/images/cases/active-image-5.png'
 
 const images = {
     laptop,
     activeImageFirst: activeImageFirst,
     activeImageSecond: activeImageSecond,
     activeImageThird: activeImageThird,
-    activeImageFourth: activeImageFourth
+    activeImageFourth: activeImageFourth,
+    activeImageFifth: activeImageFifth
 }
 
 export default images
