@@ -6,12 +6,12 @@ export default function Links() {
         {
             value: 'Use cases',
             path: '#cases',
-            anchor: true
+            anchor: false
         },
         {
             value: 'How it works',
             path: '#howitworks',
-            anchor: true
+            anchor: false
         },
         {
             value: 'Blog',
