@@ -5,12 +5,12 @@ export default function Links() {
     const links = [
         {
             value: 'Use cases',
-            path: 'http://localhost:3000/#cases',
+            path: 'cases',
             anchor: false
         },
         {
             value: 'How it works',
-            path: 'http://localhost:3000/#howitworks',
+            path: 'howitworks',
             anchor: false
         },
         {
