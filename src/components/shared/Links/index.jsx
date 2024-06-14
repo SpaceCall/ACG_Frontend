@@ -1,14 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './links.module.scss';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-export default function Links() {
+export default function Links({ onClose }) {
     const location = useLocation();
     const navigate = useNavigate();
-
-    useEffect(() => {
-        console.log(location);
-    }, [location]);
 
     const links = [
         {
@@ -37,6 +33,7 @@ export default function Links() {
         if (link.anchor && location.pathname !== '/') {
             navigate(`/#${link.path}`);
         }
+        onClose()
     };
 
     return (

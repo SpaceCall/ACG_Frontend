@@ -1,0 +1,12 @@
+@media screen and ((min-width: 320px) and (max-width: 480.98px)),
+(max-width: 319.98px) {
+    .header{
+        padding: 12px;
+        &__wrapper{
+            grid-template-columns: 1fr 1fr;
+        }
+        &__burgerIcon {
+            display: flex;
+        }
+    }
+}
