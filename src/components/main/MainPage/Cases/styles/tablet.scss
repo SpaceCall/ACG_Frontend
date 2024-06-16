@@ -1,0 +1,52 @@
+@media screen and (min-width: 481px) and (max-width: 991.98px) {}
+
+@media screen and (min-width: 768px) and (max-width: 991.98px) {}
+
+@media screen and (max-width: 991.98px) {
+    .cases {
+        margin-bottom: 120px;
+
+        h2 {
+            width: 40%;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cases {
+
+        h2 {
+            font-size: 2.25em;
+            width: 28%;
+        }
+
+        &__list {
+            &__item {
+                padding: 32px 0;
+
+                &__info {
+                    flex-direction: column;
+                    gap: 32px;
+
+                    h3 {
+                        font-size: 1.5em;
+                        width: 100%;
+
+                        span {
+
+                            &:last-child {
+                                transform: translateX(20%);
+                                color: $text-orange-color;
+                            }
+                        }
+                    }
+
+                    p {
+                        font-size: 1em;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

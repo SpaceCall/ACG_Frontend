@@ -1,0 +1,108 @@
+@media screen and (min-width: 481px) and (max-width: 991.98px) {}
+
+@media screen and (min-width: 768px) and (max-width: 991.98px) {}
+
+@media screen and (max-width: 991.98px) {
+    .howItWorks {
+        margin-bottom: 120px;
+
+        &__title {
+            width: 63%;
+        }
+
+        &__list {
+
+            &__blocks {
+
+                &__block {
+
+                    h2 {
+                        padding: 0 12px;
+                    }
+
+                    p {
+                        min-height: 122px;
+                        padding: 0 12px;
+                    }
+
+                    li {
+                        padding: 0 12px;
+
+                        &::before {
+                            left: 0px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__laptop {
+            width: 750px;
+
+            img {
+                top: 50px;
+                height: 400px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .howItWorks {
+        &__title {
+            width: 41%;
+            font-size: 2.25em;
+            margin-bottom: 48px;
+        }
+
+        &__list {
+            gap: 0;
+
+            &__blocks {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                &__block {
+                    display: none;
+
+                    &.active {
+                        display: block;
+                    }
+
+                    h2 {
+                        padding: 0 12px;
+                    }
+
+                    p {
+                        min-height: 20px;
+                        padding: 0 12px;
+                    }
+
+                    li {
+                        padding: 0 12px;
+
+                        &::before {
+                            left: 0px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__laptop {
+            width: 470px;
+            height: 450px;
+
+            img {
+                left: 3px;
+                top: 80px;
+                height: 250px;
+            }
+
+            &__images {
+                height: 450px;
+            }
+        }
+    }
+}

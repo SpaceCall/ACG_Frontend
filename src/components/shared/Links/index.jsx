@@ -33,7 +33,7 @@ export default function Links({ onClose }) {
         if (link.anchor && location.pathname !== '/') {
             navigate(`/#${link.path}`);
         }
-        onClose()
+        if(onClose) onClose()
     };
 
     return (

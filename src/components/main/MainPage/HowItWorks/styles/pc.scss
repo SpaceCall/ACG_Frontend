@@ -1,0 +1,13 @@
+@media screen and (min-width: 992px) {}
+
+@media screen and (min-width: 1250.01px) and (max-width: 1440px) {
+    .howItWorks h2{
+        width: 39%;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1249.98px) {
+    .howItWorks h2{
+        width: 48%;
+    }
+}

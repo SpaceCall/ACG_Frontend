@@ -1,0 +1,137 @@
+$black-color: #0C0C0C;
+$orange-color: #FF6314;
+$grey-color: #3A3A3B;
+
+.howItWorks {
+    margin-bottom: 150px;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        color: $black-color;
+        font-family: 'Jost';
+        font-size: 5em;
+        font-weight: 400;
+        line-height: 110%;
+        letter-spacing: -2.4px;
+        text-transform: uppercase;
+        margin-bottom: 90px;
+        display: flex;
+        flex-direction: column;
+        width: 33%;
+
+        span {
+            align-self: flex-end;
+            color: $orange-color;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 56px;
+
+        &__blocks {
+            display: flex;
+            justify-content: space-between;
+
+            &__block {
+                font-family: 'Poppins';
+                color: $black-color;
+                transition: color .3s;
+
+                h2 {
+                    font-size: 2.25em;
+                    font-weight: 500;
+                    padding: 0 24px;
+                }
+
+                p {
+                    font-size: 1.25em;
+                    font-weight: 500;
+                    margin: 8px 0 16px;
+                    min-height: 92px;
+                    padding: 0 24px;
+                    max-width: 90%;
+                }
+
+                .line {
+                    height: 1px;
+                    width: 100%;
+                    background-color: $grey-color;
+                    margin-bottom: 16px;
+                    transition: color .3s;
+                }
+
+                li {
+                    list-style: none;
+                    padding: 0 24px;
+                    position: relative;
+                    opacity: 0;
+                    transform: translateY(100px);
+                    transition: opacity .3s, transform .3s;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: 5px;
+                        top: 10px;
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 50%;
+                        display: block;
+                        background-color: $black-color;
+                    }
+                }
+            }
+
+            .active {
+                color: $orange-color;
+
+                .line {
+                    background-color: $orange-color;
+                }
+
+                li {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+    }
+
+    &__laptop {
+        display: flex;
+        justify-content: center;
+        background-color: #FFFFFF;
+        margin: 0 auto;
+        width: 890px;
+        height: 546px;
+        background: url(../../../.../../../../assets/images/cases/laptop.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        position: relative;
+
+        img {
+            position: absolute;
+            left: 6px;
+            top: 8px;
+            width: 98%;
+            height: 475px;
+            margin: 0 auto;
+        }
+
+        &__images {
+            height: 542px;
+            position: absolute;
+            top: 10px;
+            z-index: 4;
+            overflow: hidden;
+            width: 82%;
+        }
+    }
+}

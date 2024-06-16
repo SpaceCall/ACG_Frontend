@@ -64,7 +64,7 @@ export default function HowItWorks() {
                                     <h2>{block.number}.</h2>
                                     <p>{block.title}</p>
                                     <div className={styles.line}></div>
-                                    <li>{block.description}</li>
+                                    <li><span>{block.description}</span></li>
                                 </div>
                             ))}
                         </div>

@@ -1,0 +1,98 @@
+$text-black-color: #0C0C0C;
+$text-orange-color: #FF6314;
+$line-color: #0C0C0C;
+
+%line {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: $line-color;
+}
+
+.cases {
+    margin-bottom: 200px;
+
+    h2 {
+        color: $text-black-color;
+        font-family: 'Jost';
+        font-size: 5em;
+        font-weight: 400;
+        line-height: 110%;
+        letter-spacing: -2.4px;
+        text-transform: uppercase;
+        margin-bottom: 90px;
+        display: flex;
+        flex-direction: column;
+        width: 23%;
+
+        span {
+            color: $text-orange-color;
+            align-self: flex-end;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+
+        &__item {
+            position: relative;
+            color: $text-black-color;
+            font-family: 'Poppins';
+            line-height: 150%;
+            padding: 64px 0;
+
+            &__info {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                overflow: hidden;
+
+                h3 {
+                    color: $text-black-color;
+                    font-family: 'Jost';
+                    font-size: 2em;
+                    font-weight: 400;
+                    line-height: 110%;
+                    letter-spacing: -0.64px;
+                    text-transform: uppercase;
+                    display: flex;
+                    flex-direction: column;
+                    width: 50%;
+
+                    span {
+                        &:last-child {
+                            transform: translateX(20%);
+                            color: $text-orange-color;
+                        }
+                    }
+                }
+
+                p {
+                    color: $text-black-color;
+                    font-family: 'Poppins';
+                    font-size: 1em;
+                    font-weight: 400;
+                    line-height: 170%;
+                    width: 47%;
+
+                    span {
+                        font-weight: 600;
+                    }
+                }
+
+                &::after {
+                    @extend %line;
+                    bottom: 0;
+                }
+            }
+        }
+
+        :first-child div::before {
+            @extend %line;
+            top: 0;
+        }
+    }
+}

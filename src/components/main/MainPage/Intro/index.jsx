@@ -8,7 +8,7 @@ export default function Intro() {
             <div className="container">
                 <div className={styles.intro__wrapper}>
                     <div className={styles.intro__content}>
-                        <p className={styles.intro__content__text}>Get the course that suits you perfectly</p>
+                        <p className={styles.intro__content__text}>Get a course you'll definitely complete</p>
                         <h1 className={styles.intro__content__title}>ACG generates courses based on your goals and experience</h1>
                         <a href='/comingsoon' className={styles.intro__content__button}>Start</a>
                     </div>
