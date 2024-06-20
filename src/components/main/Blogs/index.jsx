@@ -59,7 +59,7 @@ export default function Blogs() {
         <div className={styles.blogs}>
             <div className="container">
                 <div className={styles.blogs__wrapper}>
-                    <div className={styles.blogs__intro}>
+                    {/* <div className={styles.blogs__intro}>
                         <h2 className={styles.blogs__intro__title}><span>best</span> Blogs of the acg</h2>
                         <div className={styles.blogs__intro__blog}>
                             <div className={styles.blogs__intro__blog__image}>
@@ -78,10 +78,10 @@ export default function Blogs() {
                                 <a href="">More</a>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div className={styles.blogs__catalog}>
                         <h2 className={styles.blogs__catalog__title}>Blog Posts</h2>
-                        <nav className={styles.blogs__catalog__categories}>
+                        {/* <nav className={styles.blogs__catalog__categories}>
                             <ul className={styles.blogs__catalog__categories__list}>
                                 {categories.map(category => (
                                     <li key={category.id}>
@@ -89,7 +89,7 @@ export default function Blogs() {
                                     </li>
                                 ))}
                             </ul>
-                        </nav>
+                        </nav> */}
                         <div className={styles.blogs__catalog__wrapper}>
                             {/* {blogs.map((blog) => (
                                 <Blog key={blog.id} styles={styles} blog={blog} />

@@ -3,14 +3,17 @@ import './App.scss';
 import Header from './layout/Header';
 import Main from './layout/Main';
 import Footer from './components/footer';
+import Context from './context/Context';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
-        <Main />
-        <Footer />
+        <Context>
+          <Header />
+          <Main />
+          <Footer />
+        </Context>
       </BrowserRouter>
     </div>
   );
