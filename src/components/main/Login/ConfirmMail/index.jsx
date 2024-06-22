@@ -33,7 +33,6 @@ export default function ConfirmMail() {
 
     return (
         <div>
-            <h1>COMPELTE</h1>
         </div>
     )
 }

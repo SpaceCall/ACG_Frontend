@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function SuccessModal({ styles, onClose }) {
-    const email = 'example@gmail.com'
+export default function SuccessModal({ styles, onClose, userEmail}) {
+    const email = userEmail
 
     return (
         <div className={styles.welcome__modal}>
