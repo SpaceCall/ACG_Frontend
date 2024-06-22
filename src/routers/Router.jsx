@@ -20,8 +20,8 @@ export default function Router() {
             <Route path='/blog' element={<BlogPage />} />
             <Route path='/comingsoon' element={<ComingSoon />} />
             <Route path='/login/:token' element={<ConfirmMail />} />
-            <Route path={`/signIn`} element={<SignInPage />} />
-            <Route path={`/signUp`} element={<SignUpPage />} />
+            <Route path='/signIn' element={<SignInPage />} />
+            <Route path='/signUp' element={<SignUpPage />} />
             <Route path='/chat' element={<Chat />} />
             <Route path='/topics' element={<Topics />} />
         </Routes>

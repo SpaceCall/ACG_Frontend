@@ -31,32 +31,27 @@ $sign_up_bg_hovered_color: #F8F8F8;
         border-radius: 12px;
         padding: 15px 28px;
         transition: all .3s;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: $sign_up_text_color;
+        font-family: 'Poppins';
+        font-size: 1.125em;
+        font-weight: 600;
+        line-height: 88.889%;
 
-        span {
-            display: flex;
-            align-items: center;
-            color: $sign_up_text_color;
-            font-family: 'Poppins';
-            font-size: 1.125em;
-            font-weight: 600;
-            line-height: 88.889%;
-
-            &::after {
-                content: url(./../../../assets/icons/white_arrow_right.svg);
-                margin-left: 12px;
-                width: 24px;
-            }
+        &::after {
+            content: url(./../../../assets/icons/white_arrow_right.svg);
+            margin-left: 12px;
+            width: 24px;
         }
 
         &:hover {
             background-color: $sign_up_bg_hovered_color;
+            color: $sign_up_text_hovered_color;
 
-            span {
-                color: $sign_up_text_hovered_color;
-
-                &::after {
-                    content: url(./../../../assets/icons/black_arrow_right.svg);
-                }
+            &::after {
+                content: url(./../../../assets/icons/black_arrow_right.svg);
             }
         }
     }
@@ -66,10 +61,12 @@ $sign_up_bg_hovered_color: #F8F8F8;
     .header__loginButtons {
         grid-column: 4;
     }
+
     .signUp {
         display: none;
     }
-    .signIn span{
+
+    .signIn span {
         font-size: 0.75em;
     }
 }
