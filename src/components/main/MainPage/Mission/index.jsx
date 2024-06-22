@@ -1,18 +1,29 @@
-import React from 'react'
+import React from 'react';
 import styles from './mission.module.scss';
+import { FormattedMessage } from 'react-intl';
 
 export default function Mission() {
     return (
         <div className={styles.mission}>
             <div className="container">
                 <div className={styles.mission__wrapper}>
-                    <h2>Mission & <span>vision</span></h2>
+                    <h2>
+                        <FormattedMessage id="landing.main.mission.title.firstPart" /> <span>
+                            <FormattedMessage id="landing.main.mission.title.secondPart" />
+                        </span>
+                    </h2>
                     <div className={styles.mission__description}>
-                        <p><span>Inspire</span> and assist individuals in achieving educational goals through accessible, effective, and engaging learning experiences. </p>
-                        <p><span>Create</span> an innovative platform for personalized education, simplifying access to relevant materials and promoting self-development for everyone, regardless of experience or opportunities.</p>
+                        <p>
+                            <span><FormattedMessage id="landing.main.mission.first.paragraph.firstPart" /></span> 
+                            <FormattedMessage id="landing.main.mission.first.paragraph.secondPart" />
+                        </p>
+                        <p>
+                            <span><FormattedMessage id="landing.main.mission.second.paragraph.firstPart" /></span> 
+                            <FormattedMessage id="landing.main.mission.second.paragraph.secondPart" />
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }

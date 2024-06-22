@@ -4,12 +4,24 @@ import ForgotModal from './forgotModal'
 import CheckModal from './checkModal'
 import SuccessModal from './successModal'
 import ResetModal from './resetModal'
+import styles from './styles/index.module.scss'
 
-export default function SignInPage({ styles, toSignUp }) {
+export default function SignInPage() {
     const [isForgotPassword, setIsForgotPassword] = useState(false)
     const [isCheck, setIsCheck] = useState(false)
     const [isSuccess, setIsSuccess] = useState(false)
     const [isReset, setIsReset] = useState(false)
+    const [errors, setErrors] = useState({ email: '', password: '' })
+    const [password, setPassword] = useState('')
+
+    const handleSubmit = () => {
+        let errorMessages = { email: '', password: '' }
+
+        // if()errorMessages.password = 'Wrong password'
+        // if() errorMessages.email = 'Account is not activated'
+
+        setErrors(errorMessages)
+    }
 
     return (
         <div className={styles.welcome}>
@@ -26,18 +38,32 @@ export default function SignInPage({ styles, toSignUp }) {
                                 <label>Email</label>
                                 <input type="email" placeholder='Email' />
                             </div>
+                            {errors.email && (
+                                <div className={styles.error}>
+                                    <span>{errors.email}</span>
+                                </div>
+                            )}
                             <div className={styles.welcome__field__body__password}>
                                 <label>Password</label>
-                                <input type="password" placeholder='Password' />
+                                <input 
+                                    type="password" 
+                                    placeholder='Password' 
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}/>
                             </div>
+                            {errors.password && (
+                                <div className={styles.error}>
+                                    <span>{errors.password}</span>
+                                </div>
+                            )}
                         </div>
                     </div>
                     <div className={styles.welcome__field__footer}>
                         <div className={styles.welcome__field__footer__forgot} onClick={() => setIsForgotPassword(true)}>Forgot Password?</div>
-                        <div className={styles.welcome__field__footer__loginBtn}>Log in</div>
+                        <div className={styles.welcome__field__footer__loginBtn} onClick={handleSubmit}>Log in</div>
                         <div className={styles.welcome__field__footer__signUp}>
                             <span>Don't have an account? </span>
-                            <span onClick={toSignUp}>Sign Up</span>
+                            <a href='signUp'>Sign Up</a>
                         </div>
                     </div>
                 </div>

@@ -3,6 +3,7 @@ import styles from './howItWorks.module.scss';
 import images from './images';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import { FormattedMessage } from 'react-intl';
 
 export default function HowItWorks() {
     const [activeBlock, setActiveBlock] = useState(0);
@@ -11,32 +12,32 @@ export default function HowItWorks() {
     const howItWorksData = [
         {
             number: '01',
-            title: 'Consult with the mentor-chatbot.',
-            description: 'Say what you want to learn, your background and the goal you want to achieve',
+            titleId: 'landing.main.howItWorks.first.title',
+            descriptionId: 'landing.main.howItWorks.first.description',
             activeImage: images.activeImageFirst
         },
         {
             number: '02',
-            title: 'Get a customized study plan',
-            description: 'Receive a study plan based on your preferences and actual topics for study',
+            titleId: 'landing.main.howItWorks.second.title',
+            descriptionId: 'landing.main.howItWorks.second.description',
             activeImage: images.activeImageSecond
         },
         {
             number: '03',
-            title: 'Learn topics through video and text.',
-            description: 'At each stage, you will have access to the most relevant articles and videos for your studies',
+            titleId: 'landing.main.howItWorks.third.title',
+            descriptionId: 'landing.main.howItWorks.third.description',
             activeImage: images.activeImageThird
         },
         {
             number: '04',
-            title: 'Mentor support',
-            description: 'Receive answers to questions that arise during the course from a chatbot mentor',
+            titleId: 'landing.main.howItWorks.fourth.title',
+            descriptionId: 'landing.main.howItWorks.fourth.description',
             activeImage: images.activeImageFourth
         },
         {
             number: '05',
-            title: 'Practical task',
-            description: 'Complete challenging practical task along the whole course',
+            titleId: 'landing.main.howItWorks.fifth.title',
+            descriptionId: 'landing.main.howItWorks.fifth.description',
             activeImage: images.activeImageFifth
         }
     ];
@@ -52,7 +53,11 @@ export default function HowItWorks() {
         <div id='howitworks' className={styles.howItWorks}>
             <div className='container'>
                 <div className={styles.howItWorks__wrapper}>
-                    <h2 className={styles.howItWorks__title}>How it <span>works ?</span></h2>
+                    <h2 className={styles.howItWorks__title}>
+                        <FormattedMessage id="landing.main.howItWorks.title.firstPart" /> <span>
+                            <FormattedMessage id="landing.main.howItWorks.title.secondPart" />
+                        </span>
+                    </h2>
                     <div className={styles.howItWorks__list}>
                         <div className={styles.howItWorks__list__blocks}>
                             {howItWorksData.map((block, index) => (
@@ -62,9 +67,9 @@ export default function HowItWorks() {
                                     onClick={() => handleBlockClick(index)}
                                 >
                                     <h2>{block.number}.</h2>
-                                    <p>{block.title}</p>
+                                    <p><FormattedMessage id={block.titleId} /></p>
                                     <div className={styles.line}></div>
-                                    <li><span>{block.description}</span></li>
+                                    <li><span><FormattedMessage id={block.descriptionId} /></span></li>
                                 </div>
                             ))}
                         </div>

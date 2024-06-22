@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import styles from './form.module.scss';
 import config from './config.jsx'
+import { FormattedMessage } from 'react-intl';
+import LangContext from '../../../../context/Context.js'
 
 export default function Form() {
 	const [email, setEmail] = useState('');
 	const [message, setMessage] = useState('');
+	const langContext = useContext(LangContext)
 
 	const handleInputChange = (e) => {
 		setEmail(e.target.value);
@@ -63,15 +66,25 @@ export default function Form() {
 
 	return (
 		<div id='form' className={styles.form}>
-			<h2>Join the <span>ACG Community</span></h2>
+			<h2>
+				<FormattedMessage id="landing.main.form.title.firstPart" /> <span>
+					<FormattedMessage id="landing.main.form.title.secondPart" />
+				</span>
+			</h2>
 			<p>
-				Become a part of the <span>ACG</span> community and gain access to personalized learning like never before. Sign up
-				now to start your journey toward knowledge, growth, and success.
+				<FormattedMessage id="landing.main.form.paragraph" />
 			</p>
 			<form onSubmit={handleSubmit}>
-				<input type="email" placeholder="Enter your email" value={email} onChange={handleInputChange} />
+				<input
+					type="email"
+                    placeholder={langContext && langContext.activeLang === 'en' ? 'Enter your email' : 'Введіть свою пошту'}
+                    value={email}
+                    onChange={handleInputChange}
+				/>
 				<input type="hidden" name="_csrf" />
-				<button type="submit" >Send</button>
+				<button type="submit">
+					<FormattedMessage id="landing.main.form.send" />
+				</button>
 			</form>
 		</div>
 	);

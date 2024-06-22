@@ -1,6 +1,10 @@
 $bg-color: rgba(248, 248, 248, 0.50);
 $black-color: #0C0C0C;
 $white-color: #FFFFFF;
+$sign_up_text_color: #F8F8F8;
+$sign_up_bg_color: #0C0C0C;
+$sign_up_text_hovered_color: #0C0C0C;
+$sign_up_bg_hovered_color: #F8F8F8;
 
 .header {
     background-color: $bg-color;
@@ -13,10 +17,13 @@ $white-color: #FFFFFF;
 
     &__logo {
         display: flex;
-        justify-content: flex-end;
         align-items: center;
         gap: 5px;
         justify-self: start;
+        img{
+            width: 45px;
+            height: 45px;
+        }
     }
 
     &__burgerIcon {
@@ -103,6 +110,45 @@ $white-color: #FFFFFF;
             p {
                 width: 65%;
                 font-weight: 400;
+            }
+        }
+    }
+
+    .signUp {
+        background-color: $sign_up_bg_color;
+        border: 1px solid $sign_up_bg_color;
+        border-radius: 12px;
+        padding: 15px 28px;
+        transition: all .3s;
+        max-width: 70%;
+        margin: 0 auto;
+        text-decoration: none;
+
+        span {
+            display: flex;
+            align-items: center;
+            color: $sign_up_text_color;
+            font-family: 'Poppins';
+            font-size: 1.125em;
+            font-weight: 600;
+            line-height: 88.889%;
+
+            &::after {
+                content: url(../../../assets/icons/white_arrow_right.svg);
+                margin-left: 12px;
+                width: 24px;
+            }
+        }
+
+        &:hover {
+            background-color: $sign_up_bg_hovered_color;
+
+            span {
+                color: $sign_up_text_hovered_color;
+
+                &::after {
+                    content: url(../../../assets/icons/black_arrow_right.svg);
+                }
             }
         }
     }

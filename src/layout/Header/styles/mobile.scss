@@ -3,7 +3,7 @@
     .header{
         padding: 12px;
         &__wrapper{
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 2fr 1fr;
         }
         &__burgerIcon {
             display: flex;

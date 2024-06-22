@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react'
 import Links from '../../components/shared/Links'
 import styles from './header.module.scss'
 import { NavLink } from 'react-router-dom'
-import logo from './../../assets/icons/logo_black.svg'
-// import LoginButtons from '../../components/header/LoginButtons'
+import logo from './../../assets/icons/logo.svg'
+// import { LangContext } from '../../context/Context';
+import LanguageSelector from '../../components/shared/LanguageSelector'
+import LoginButtons from '../../components/header/LoginButtons'
+
 
 export default function Header() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
@@ -16,6 +19,8 @@ export default function Header() {
     const onClose = () => {
         setIsBurgerMenuOpen(false)
     }
+
+    // const langContext = useContext(LangContext)
 
     useEffect(() => {
         const handleResize = () => {
@@ -38,6 +43,7 @@ export default function Header() {
             <div className={styles.header__wrapper}>
                 <NavLink to='/' className={styles.header__logo}>
                     <img src={logo} alt="ACG" />
+                    {/* <span>ACG</span> */}
                 </NavLink>
                 {windowWidth && windowWidth > 992 ? (
                     <Links />
@@ -45,11 +51,12 @@ export default function Header() {
                     <></>
                 )}
 
+                <LoginButtons />
                 <div className={styles.header__burgerIcon} onClick={toggleBurgerMenu}>
                     <div className={styles.line}></div>
                     <div className={styles.line}></div>
                 </div>
-                {/* <LoginButtons /> */}
+                <LanguageSelector />
             </div>
             {isBurgerMenuOpen &&
                 <div className={isBurgerMenuOpen ? styles.modal : `${styles.header__modal} ${styles.closed}`}>
@@ -58,6 +65,9 @@ export default function Header() {
                             <span className={styles.modal__close} onClick={onClose}>X</span>
                             <div className={styles.modal__body}>
                                 <Links onClose={onClose} />
+                                <a href='/signUp' className={styles.signUp}>
+                                    <span>Sign up</span>
+                                </a>
                             </div>
                         </div>
                     </div>

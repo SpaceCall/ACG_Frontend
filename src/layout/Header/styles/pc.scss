@@ -1,7 +1,7 @@
 @media screen and (min-width: 992px) {
     .header {
         &__wrapper {
-            grid-template-columns: 1fr 4fr 1fr;
+            grid-template-columns: 1fr 4fr 3fr 1fr;
         }
 
         &__burgerIcon {

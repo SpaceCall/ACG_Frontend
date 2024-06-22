@@ -1,11 +1,10 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { IntlProvider } from 'react-intl';
+import { useNavigate, useParams } from 'react-router-dom';
 import English from '../lang/en.json';
 import Ukrainian from '../lang/uk.json';
 
 export const LangContext = createContext(null);
-
-const locale = navigator.language.startsWith('uk') ? 'uk' : 'en';
 
 const messages = {
     en: English,
@@ -13,15 +12,24 @@ const messages = {
 };
 
 export default function Context({ children }) {
-    const [activeLang, setActiveLang] = useState(locale);
+    const { lang } = useParams()
+    // const navigate = useNavigate()
+    const browserLocale = navigator.language.startsWith('uk') ? 'uk' : 'en'
 
-    const setUkrainianLang = () => {
-        setActiveLang('uk');
-    };
+    const initialLocale = lang || localStorage.getItem('locale') || browserLocale
+    const [activeLang, setActiveLang] = useState(initialLocale)
 
-    const setEnglishLang = () => {
-        setActiveLang('en');
-    };
+    // useEffect(() => {
+    //     if (lang !== activeLang) navigate(`/${activeLang}`)
+    // }, [activeLang, navigate, lang])
+
+    useEffect(() => {
+        localStorage.setItem('locale', activeLang)
+    }, [activeLang])
+
+    const setUkrainianLang = () => setActiveLang('uk')
+
+    const setEnglishLang = () => setActiveLang('en')
 
     const value = {
         activeLang,

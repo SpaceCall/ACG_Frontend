@@ -1,32 +1,31 @@
-import React from 'react'
-import styles from './cases.module.scss'
+import React from 'react';
+import styles from './cases.module.scss';
+import { FormattedMessage } from 'react-intl';
 
 export default function Cases() {
     const list = [
         {
-            title: ["Tailoring", "Education"],
-            description: <>
-                Based on your experience, ACG will generate a course that will provide the necessary knowledge to achieve your goal
-            </>
+            title: ["landing.main.cases.first.title.firstPart", "landing.main.cases.first.title.secondPart"],
+            description: "landing.main.cases.first.description"
         },
         {
-            title: ["Real-projects", "practice"],
-            description: <>
-                Consolidate your knowledge by completing advanced practice exercises that will prepare you for real work tasks
-            </>
+            title: ["landing.main.cases.second.title.firstPart", "landing.main.cases.second.title.secondPart"],
+            description: "landing.main.cases.second.description"
         },
         {
-            title: ["Individual", "support"],
-            description: <>
-                Receive support from a mentor-chatbot during the course and practical tasks. Based on your questions and results, ACG will adapt the next material.
-            </>
+            title: ["landing.main.cases.third.title.firstPart", "landing.main.cases.third.title.secondPart"],
+            description: "landing.main.cases.third.description"
         },
-    ]
+    ];
 
     return (
         <div id='cases' className={styles.cases}>
             <div className="container">
-                <h2>Use  <span>cases</span></h2>
+                <h2>
+                    <FormattedMessage id="landing.main.cases.title.firstPart" /> <span>
+                        <FormattedMessage id="landing.main.cases.title.secondPart" />
+                    </span>
+                </h2>
                 <div className={styles.cases__wrapper}>
                     <ul className={styles.cases__list}>
                         {list.map((listItem, index) => (
@@ -34,14 +33,14 @@ export default function Cases() {
                                 <div className={styles.cases__list__item__info}>
                                     <h3>
                                         <span>
-                                            {listItem.title[0]}
+                                            <FormattedMessage id={listItem.title[0]} />
                                         </span>
                                         <span>
-                                            {listItem.title[1]}
+                                            <FormattedMessage id={listItem.title[1]} />
                                         </span>
                                     </h3>
                                     <p>
-                                        {listItem.description}
+                                        <FormattedMessage id={listItem.description} />
                                     </p>
                                 </div>
                             </li>
@@ -50,5 +49,5 @@ export default function Cases() {
                 </div>
             </div>
         </div>
-    )
+    );
 }

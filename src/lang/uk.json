@@ -1,3 +1,43 @@
 {
-    "hello": "привіт"
+    "landing.main.subtitle": "Отримайте курс, який ви точно завершите",
+    "landing.main.title": "ACG генерує курси на основі ваших цілей та досвіду",
+    "landing.main.start": "Почати",
+
+    "landing.main.cases.title.firstPart": "Використовуйте",
+    "landing.main.cases.title.secondPart": "Кейси",
+    "landing.main.cases.first.title.firstPart": "Індивідуальна",
+    "landing.main.cases.first.title.secondPart": "Освіта",
+    "landing.main.cases.first.description": "На основі вашого досвіду ACG згенерує курс, який надасть необхідні знання для досягнення вашої мети",
+    "landing.main.cases.second.title.firstPart": "Практика на ",
+    "landing.main.cases.second.title.secondPart": "реальних проєктах",
+    "landing.main.cases.second.description": "Закріпіть свої знання, виконуючи просунуті практичні вправи, які підготують вас до реальних робочих завдань",
+    "landing.main.cases.third.title.firstPart": "Індивідуальна",
+    "landing.main.cases.third.title.secondPart": "підтримка",
+    "landing.main.cases.third.description": "Отримуйте підтримку від наставника-чатбота під час курсу та практичних завдань. На основі ваших запитань та результатів ACG адаптуватиме наступний матеріал",
+
+    "landing.main.howItWorks.title.firstPart": "ЯК ЦЕ",
+    "landing.main.howItWorks.title.secondPart": "ПРАЦЮЄ?",
+    "landing.main.howItWorks.first.title": "Консультація з наставником-чатботом.",
+    "landing.main.howItWorks.first.description": "Скажіть, що ви хочете вивчити, ваш досвід та мету, яку бажаєте досягти",
+    "landing.main.howItWorks.second.title": "Отримайте персоналізований план навчання",
+    "landing.main.howItWorks.second.description": "Отримайте план навчання на основі ваших вподобань та актуальних тем для вивчення",
+    "landing.main.howItWorks.third.title": "Вивчайте теми через відео та текст.",
+    "landing.main.howItWorks.third.description": "На кожному етапі у вас буде доступ до найбільш актуальних статей та відео для вашого навчання",
+    "landing.main.howItWorks.fourth.title": "Підтримка наставника",
+    "landing.main.howItWorks.fourth.description": "Отримуйте відповіді на питання, що виникають під час курсу, від чатбота-наставника",
+    "landing.main.howItWorks.fifth.title": "Практичне завдання",
+    "landing.main.howItWorks.fifth.description": "Виконуйте складні практичні завдання протягом усього курсу",
+
+    "landing.main.mission.title.firstPart": "Наша",
+    "landing.main.mission.title.secondPart": "місія",
+    "landing.main.mission.first.paragraph.firstPart": "Надихати",
+    "landing.main.mission.first.paragraph.secondPart": "та допомагати людям досягати освітніх цілей через доступні, ефективні та захоплюючі навчальні програми.",
+    "landing.main.mission.second.paragraph.firstPart": "Створити",
+    "landing.main.mission.second.paragraph.secondPart": "інноваційну платформу для персоналізованої освіти, яка спрощує доступ до релевантних матеріалів і сприяє саморозвитку для всіх, незалежно від досвіду чи можливостей.",
+
+    "landing.main.form.title.firstPart": "ПРИЄДНАТИСЯ ДО ",
+    "landing.main.form.title.secondPart": "СПІЛЬНОТИ ACG",
+    "landing.main.form.paragraph": "Станьте частиною спільноти ACG і отримайте доступ до персоналізованого навчання, якого ви ніколи раніше не бачили. Зареєструйтесь зараз, щоб почати свій шлях до знань, зростання та успіху.",
+    "landing.main.form.placeholder": "Введіть свій email",
+    "landing.main.form.send": "Надіслати"
 }

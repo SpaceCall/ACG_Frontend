@@ -1,8 +1,6 @@
 import React from 'react'
 
-export default function SuccessModal({ styles, onClose }) {
-    const email = 'example@gmail.com'
-
+export default function IsExistModal({ styles, onClose }) {
     return (
         <div className={styles.welcome__modal}>
             <div className={styles.welcome__modal__wrapper}>
@@ -10,8 +8,8 @@ export default function SuccessModal({ styles, onClose }) {
                     <div className={styles.welcome__modal__header}>
                         <span className={styles.welcome__modal__header__close} onClick={onClose}>X</span>
                         <div className={styles.welcome__modal__header__text}>
-                            <h2>Check your email</h2>
-                            <p>We’ve sent you a password reset link to <a href={`mailto:${email}`}>{email}</a> Please also check your spam folder</p>
+                            <h2>This email is already used!</h2>
+                            <p>Try to log in</p>
                         </div>
                     </div>
                     <div className={styles.welcome__modal__body}>

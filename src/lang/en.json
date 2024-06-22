@@ -1,3 +1,43 @@
 {
-    "hello": "hello"
+    "landing.main.subtitle": "Get a course you'll definitely complete",
+    "landing.main.title": "ACG generates courses based on your goals and experience",
+    "landing.main.start": "Start",
+
+    "landing.main.cases.title.firstPart": "Use",
+    "landing.main.cases.title.secondPart": "cases",
+    "landing.main.cases.first.title.firstPart": "Tailoring",
+    "landing.main.cases.first.title.secondPart": "Education",
+    "landing.main.cases.first.description": "Based on your experience, ACG will generate a course that will provide the necessary knowledge to achieve your goal",
+    "landing.main.cases.second.title.firstPart": "Real-projects",
+    "landing.main.cases.second.title.secondPart": "practice",
+    "landing.main.cases.second.description": "Consolidate your knowledge by completing advanced practice exercises that will prepare you for real work tasks",
+    "landing.main.cases.third.title.firstPart": "Individual",
+    "landing.main.cases.third.title.secondPart": "support",
+    "landing.main.cases.third.description": "Receive support from a mentor-chatbot during the course and practical tasks. Based on your questions and results, ACG will adapt the next material.",
+
+    "landing.main.howItWorks.title.firstPart": "HOW IT",
+    "landing.main.howItWorks.title.secondPart": "WORKS ?",
+    "landing.main.howItWorks.first.title": "Consult with the mentor-chatbot.",
+    "landing.main.howItWorks.first.description": "Say what you want to learn, your background and the goal you want to achieve",
+    "landing.main.howItWorks.second.title": "Get a customized study plan",
+    "landing.main.howItWorks.second.description": "Receive a study plan based on your preferences and actual topics for study",
+    "landing.main.howItWorks.third.title": "Learn topics through video and text.",
+    "landing.main.howItWorks.third.description": "At each stage, you will have access to the most relevant articles and videos for your studies",
+    "landing.main.howItWorks.fourth.title": "Mentor support",
+    "landing.main.howItWorks.fourth.description": "Receive answers to questions that arise during the course from a chatbot mentor",
+    "landing.main.howItWorks.fifth.title": "Practical task",
+    "landing.main.howItWorks.fifth.description": "Complete challenging practical task along the whole course",
+
+    "landing.main.mission.title.firstPart": "Mission &",
+    "landing.main.mission.title.secondPart": "vision",
+    "landing.main.mission.first.paragraph.firstPart": "Inspire ",
+    "landing.main.mission.first.paragraph.secondPart": "and assist individuals in achieving educational goals through accessible, effective, and engaging learning experiences.",
+    "landing.main.mission.second.paragraph.firstPart": "Create ",
+    "landing.main.mission.second.paragraph.secondPart": "an innovative platform for personalized education, simplifying access to relevant materials and promoting self-development for everyone, regardless of experience or opportunities.",
+
+    "landing.main.form.title.firstPart": "JOIN THE ",
+    "landing.main.form.title.secondPart": "ACG COMMUNITY",
+    "landing.main.form.paragraph": "Become a part of the ACG community and gain access to personalized learning like never before. Sign up now to start your journey toward knowledge, growth, and success.",
+    "landing.main.form.placeholder": "Enter your email",
+    "landing.main.form.send": "Send"
 }
