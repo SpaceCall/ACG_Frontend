@@ -28,10 +28,11 @@ export default function SignUpPage() {
         if (password.length < 8) errorMessages.password += 'Password must contain at least 8 characters. '
         if (!uppercasePattern.test(password)) errorMessages.password += 'Password must contain at least one uppercase letter. '
         if (password !== confirmPassword) errorMessages.confirmPassword = 'Passwords do not match.'
+        if (name.length < 3) errorMessages.name = 'Name must contain at least 3 characters.'
 
         setErrors(errorMessages)
 
-        if (!errorMessages.password && !errorMessages.confirmPassword) {
+        if (!errorMessages.password && !errorMessages.confirmPassword && !errorMessages.name) {
             const data = {
                 email: email,
                 name: name,
