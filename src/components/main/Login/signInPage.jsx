@@ -105,7 +105,7 @@ export default function SignInPage({ toSignUp }) {
                         <div className={styles.welcome__field__footer__forgot} onClick={() => setIsForgotPassword(true)}>Forgot Password?</div>
                         <div className={styles.welcome__field__footer__signUp}>
                             <span>Don't have an account? </span>
-                            <span onClick={toSignUp}>Sign Up</span>
+                            <a href='signup'>Sign Up</a>
                         </div>
                     </div>
                 </div>
