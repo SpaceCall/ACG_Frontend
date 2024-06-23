@@ -14,10 +14,11 @@ export default function SignInPage({ toSignUp }) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState({ email: '', password: '' })
+    const [showPassword, setShowPassword] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        
+
         let errorMessages = { email: '', password: '' }
 
         // Custom validation logic can go here
@@ -39,20 +40,24 @@ export default function SignInPage({ toSignUp }) {
                 },
                 body: JSON.stringify(data)
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Request failed!')
-                }
-                return response.json()
-            })
-            .then(data => {
-                console.log(data)
-                setIsSuccess(true)
-            })
-            .catch(error => {
-                console.error('Error:', error)
-            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Request failed!')
+                    }
+                    return response.json()
+                })
+                .then(data => {
+                    console.log(data)
+                    setIsSuccess(true)
+                })
+                .catch(error => {
+                    console.error('Error:', error)
+                })
         }
+    }
+
+    const toggleShowPassword = () => {
+        setShowPassword(!showPassword)
     }
 
     return (
@@ -69,12 +74,12 @@ export default function SignInPage({ toSignUp }) {
                             <div className={styles.welcome__field__body__inputs}>
                                 <div className={styles.welcome__field__body__email}>
                                     <label>Email</label>
-                                    <input 
-                                        type="email" 
-                                        placeholder='Email' 
-                                        value={email} 
+                                    <input
+                                        type="email"
+                                        placeholder='Email'
+                                        value={email}
                                         onChange={(e) => setEmail(e.target.value)}
-                                        className={errors.email ? styles.inputError : ''} 
+                                        className={errors.email ? styles.inputError : ''}
                                     />
                                 </div>
                                 {errors.email && (
@@ -84,13 +89,18 @@ export default function SignInPage({ toSignUp }) {
                                 )}
                                 <div className={styles.welcome__field__body__password}>
                                     <label>Password</label>
-                                    <input 
-                                        type="password" 
-                                        placeholder='Password' 
+                                    <input
+                                        type={showPassword ? "text" : "password"}
+                                        placeholder='Password'
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
                                         className={errors.password ? styles.inputError : ''}
                                     />
+                                    <button
+                                        type="button"
+                                        onClick={toggleShowPassword}
+                                        className={styles.showPasswordBtn}
+                                    >{showPassword ? "Hide" : "Show"}</button>
                                 </div>
                                 {errors.password && (
                                     <div className={styles.error}>

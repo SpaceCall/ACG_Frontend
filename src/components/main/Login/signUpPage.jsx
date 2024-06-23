@@ -18,6 +18,8 @@ export default function SignUpPage() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
+    const [showConfPassword, setShowConfPassword] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -47,20 +49,27 @@ export default function SignUpPage() {
                 },
                 body: JSON.stringify(data)
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Request failed!')
-                }
-                return response.json()
-            })
-            .then(data => {
-                console.log(data)
-                setIsSuccess(true)
-            })
-            .catch(error => {
-                console.error('Error:', error)
-            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Request failed!')
+                    }
+                    return response.json()
+                })
+                .then(data => {
+                    console.log(data)
+                    setIsSuccess(true)
+                })
+                .catch(error => {
+                    console.error('Error:', error)
+                })
         }
+    }
+
+    const toggleShowPassword = () => {
+        setShowPassword(!showPassword)
+    }
+    const toggleShowConfPassword = () => {
+        setShowConfPassword(!showConfPassword)
     }
 
     return (
@@ -77,12 +86,12 @@ export default function SignUpPage() {
                             <div className={styles.welcome__field__body__inputs}>
                                 <div className={styles.welcome__field__body__name}>
                                     <label>Name</label>
-                                    <input 
-                                        type="text" 
-                                        placeholder='Your name' 
+                                    <input
+                                        type="text"
+                                        placeholder='Your name'
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
-                                        className={errors.name ? styles.inputError : ''} 
+                                        className={errors.name ? styles.inputError : ''}
                                     />
                                 </div>
                                 {errors.name && (
@@ -92,12 +101,12 @@ export default function SignUpPage() {
                                 )}
                                 <div className={styles.welcome__field__body__email}>
                                     <label>Email</label>
-                                    <input 
-                                        type="email" 
-                                        placeholder='Email' 
+                                    <input
+                                        type="email"
+                                        placeholder='Email'
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
-                                        className={errors.email ? styles.inputError : ''} 
+                                        className={errors.email ? styles.inputError : ''}
                                     />
                                 </div>
                                 {errors.email && (
@@ -108,12 +117,17 @@ export default function SignUpPage() {
                                 <div className={styles.welcome__field__body__password}>
                                     <label>Password</label>
                                     <input
-                                        type="password"
+                                        type={showPassword ? "text" : "password"}
                                         placeholder='Enter password'
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
                                         className={errors.password ? styles.inputError : ''}
                                     />
+                                    <button
+                                        type="button"
+                                        onClick={toggleShowPassword}
+                                        className={styles.showPasswordBtn}
+                                    >{showPassword ? "Hide" : "Show"}</button>
                                     {errors.password && (
                                         <div className={styles.error}>
                                             <span>{errors.password}</span>
@@ -123,12 +137,17 @@ export default function SignUpPage() {
                                 <div className={styles.welcome__field__body__passwordConf}>
                                     <label>Confirm password</label>
                                     <input
-                                        type="password"
+                                        type={showConfPassword ? "text" : "password"}
                                         placeholder='Must contain at least one letter and one number'
                                         value={confirmPassword}
                                         onChange={(e) => setConfirmPassword(e.target.value)}
                                         className={errors.confirmPassword ? styles.inputError : ''}
                                     />
+                                    <button
+                                        type="button"
+                                        onClick={toggleShowConfPassword}
+                                        className={styles.showPasswordBtn}
+                                    >{showConfPassword ? "Hide" : "Show"}</button>
                                     {errors.confirmPassword && (
                                         <div className={styles.error}>
                                             <span>{errors.confirmPassword}</span>
