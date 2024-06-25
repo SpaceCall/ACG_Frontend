@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import MessageInput from './MessageInput'
 import ChatWindow from './ChatWindow'
 import styles from './chat.module.scss'
-
+import Cookies from 'js-cookie';
 export default function Chat() {
     const [messages, setMessages] = useState([{
         label: "Hello there! I'm here to create the perfect course just for you. To get started, I'd love to learn more about your preferences, including the course goal, your experience, and any specific wishes you have. Feel free to share, and we'll tailor the course to match your needs!",
@@ -12,6 +12,7 @@ export default function Chat() {
       }])
     const [index, setIndex] = useState(0);
     const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
+    const [newMessage, setNewMessage]= useState("");
     const botMessages = [
         {
             text:"Perhaps you'd like to get additional knowledge in Python in the process of passing?",
@@ -39,19 +40,49 @@ export default function Chat() {
         }
     }
 
-    const createBotMessages = () => {
+    const createBotMessages = (text) => {
         return {
-            label: botMessages[index].text,
+            label: text,
             isUserSend: false,
-            type: botMessages[index].type,
+            type: "message",
             id:Date.now()+1,
         }
     }
+ 
+    const  sendMessage = async (text) => {
 
-    const sendMessage = (text) => {
         if (text.length >= 1) {
             setIsSubmitDisabled(true);
-            setMessages([createBotMessages(), createUserMessages(text)]) 
+            const user = JSON.parse(Cookies.get('user'));
+            console.log(user)
+            await fetch(`http://localhost:3001/chat/${user.user.user_id}`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${user.accessToken}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ 
+                        message:text 
+                    })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Request failed!');    
+                    } 
+                    return response.json(); 
+                    
+                })
+                .then(data => {
+                    //navigate(`/login`);
+                    console.log(data)
+                    setNewMessage(data)
+                    setMessages([createBotMessages(newMessage), createUserMessages(text)]) 
+                })
+                .catch(error => {
+                    console.log('Error activating account.');
+                    console.error('Error:', error);
+                });
+            
             setIndex(index + 1)
         }
     }

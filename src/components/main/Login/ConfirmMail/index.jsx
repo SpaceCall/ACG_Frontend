@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams,useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 export default function ConfirmMail() {
     const { token } = useParams();
     const navigate = useNavigate();
@@ -21,8 +22,10 @@ export default function ConfirmMail() {
             
         })
         .then(data => {
-            navigate(`/login`);
-            console.log(data.message);
+            //navigate(`/login`);
+            console.log(data)
+            Cookies.set('user', JSON.stringify(data), { expires: 7 });
+            
         })
         .catch(error => {
             console.log('Error activating account.');

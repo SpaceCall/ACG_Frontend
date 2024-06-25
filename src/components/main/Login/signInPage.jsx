@@ -5,7 +5,7 @@ import CheckModal from './checkModal'
 import SuccessModal from './successModal'
 import ResetModal from './resetModal'
 import styles from './styles/index.module.scss'
-
+import Cookies from 'js-cookie';
 export default function SignInPage({ toSignUp }) {
     const [isForgotPassword, setIsForgotPassword] = useState(false)
     const [isCheck, setIsCheck] = useState(false)
@@ -48,7 +48,8 @@ export default function SignInPage({ toSignUp }) {
                 })
                 .then(data => {
                     console.log(data)
-                    setIsSuccess(true)
+                    //setIsSuccess(true)
+                    Cookies.set('user', JSON.stringify(data), { expires: 7 });
                 })
                 .catch(error => {
                     console.error('Error:', error)
