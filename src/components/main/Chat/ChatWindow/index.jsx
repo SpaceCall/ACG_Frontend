@@ -4,14 +4,13 @@ import BotMessage from './BotMessage'
 import ChatTable from '../ChatTable'
 import ChatButtons from '../ChatButtons'
 
-export default function ChatWindow({ messages,enableSubmit }) {
+export default function ChatWindow({ messages,enableSubmit,chatId,setChatId }) {
   const [displayTime, setDisplayTime] = useState('')
     const [renderedPage, setRenderedPage] = useState([])
   
     useEffect(() => {
-        setDisplayTime(Math.ceil(Math.random() * (6000 - 3000) + 3000 ))
+        //setDisplayTime(Math.ceil(Math.random() * (3000 - 2000) + 2000 ))
 
-      // Создаем новый массив, объединяя messages.map(...) и текущий renderedPage
       const newRenderedPage = [
         ...messages.map((message) => {
           if (message.isUserSend === true) {
@@ -20,17 +19,24 @@ export default function ChatWindow({ messages,enableSubmit }) {
                 <span>{message.label}</span>
               </div>
             )
-          } else if (message.type === 'message') {
+          }else if (message.type === 'message' ) {
+            if(message.isFirst){
+              return (
+                <div key={message.id} className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}>
+                  <BotMessage enableSubmit={enableSubmit} text={message.label} disable={true}/>
+                </div>
+              )
+            }
             return (
               <div key={message.id} className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}>
-                <BotMessage enableSubmit={enableSubmit} time={displayTime} text={message.label} />
+                <BotMessage enableSubmit={enableSubmit} text={message.label} chatId={chatId} setChatId={setChatId}/>
               </div>
             )
           }else if (message.type === 'topic') {
             return (
               <div key={message.id} >
                 <div className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}>
-                  <BotMessage enableSubmit={enableSubmit} text={message.label} time={displayTime}/>
+                  <BotMessage enableSubmit={enableSubmit} text={message.label}/>
                 </div>
                 <ChatTable text={message.label} time={displayTime*2}/>
               </div>
@@ -39,7 +45,7 @@ export default function ChatWindow({ messages,enableSubmit }) {
             return (
               <div key={message.id}>
                 <div className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}>
-                  <BotMessage enableSubmit={enableSubmit}time={displayTime} text={message.label} />
+                  <BotMessage enableSubmit={enableSubmit} text={message.label}/>
                   </div>
                   <ChatButtons time={displayTime*2} text={message.label} />
               </div>

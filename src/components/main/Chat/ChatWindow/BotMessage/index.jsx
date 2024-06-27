@@ -1,32 +1,55 @@
-import React, { useState, useEffect } from 'react'
-import Loader from '../Loader'
+import React, { useState, useEffect, useRef } from 'react';
+import Loader from '../Loader';
+import api from '../../../../../service/api';
 
-export default function BotMessage({ text,time,enableSubmit }) {
-  const [displayText, setDisplayText] = useState('')
-  const loader = <Loader />
+export default function BotMessage({ text, time, enableSubmit, chatId, setChatId,disable }) {
+  const [displayText, setDisplayText] = useState('');
+  const [textBot, setTextBot] = useState('');
+  const loader = <Loader />;
+  const hasTyped = useRef(false);
+
   useEffect(() => {
-    setDisplayText(loader)
-    const timer = setTimeout(() => {
-      typeMachine()
-    }, time)
-    console.log(displayText.length)
-    return () => {
-      clearTimeout(timer)
+    if (!hasTyped.current) {
+      console.log(chatId)
+      hasTyped.current = true;
+      if(disable == true){
+        setTextBot(text)
+      }else{
+        const waitMessage = async () => {
+          setDisplayText(loader);
+          try {
+            console.log(text);
+            const response = await api.chat(chatId, JSON.stringify({ message: text }));
+            console.log(response);
+            setChatId(response.chatId);
+            setTextBot(response.text);
+          } catch (error) {
+            console.error('Error during fetching bot message', error);
+          }
+        };
+        waitMessage();
+      }
     }
-  }, [text])
+  }, []);
+
+  useEffect(() => {
+    if (textBot) {
+      typeMachine();
+    }
+  }, [textBot]);
 
   const typeMachine = () => {
-    setDisplayText('')
-    let index = -1;
+    setDisplayText(textBot[0]);
+    let index = 0;
     const interval = setInterval(() => {
-      setDisplayText((prevText) => prevText + text[index]);
+      setDisplayText((prevText) => prevText + textBot[index]);
       index += 1;
-
-      if (index === text.length-1) {
-        enableSubmit()
+      if (index === textBot.length-1) {
+        enableSubmit();
         clearInterval(interval);
       }
-    }, time / text.length);
+    }, time / textBot.length);
   };
+
   return <span>{displayText}</span>;
 }
