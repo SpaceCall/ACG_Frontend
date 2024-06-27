@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import loginImg from '../../../assets/images/login/hi-there.png'
 import ForgotModal from './forgotModal'
 import CheckModal from './checkModal'
@@ -9,6 +9,8 @@ import Cookies from 'js-cookie';
 import visibleEye from '../../../assets/icons/visible-eye.svg'
 import invisibleEye from '../../../assets/icons/invisible-eye.svg'
 import api from '../../../service/api'
+import { LangContext } from '../../../context/Context';
+import { useParams,useNavigate } from 'react-router-dom';
 
 export default function SignInPage({ toSignUp }) {
     const [isForgotPassword, setIsForgotPassword] = useState(false)
@@ -20,6 +22,9 @@ export default function SignInPage({ toSignUp }) {
     const [errors, setErrors] = useState({ email: '', password: '' })
     const [showPassword, setShowPassword] = useState(false)
 
+    const langContext = useContext(LangContext)
+    const logined = () => langContext.setIsLogged(true)
+    const navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -40,6 +45,8 @@ export default function SignInPage({ toSignUp }) {
             try {
                 const response = await api.login(data)
                 Cookies.set('user', JSON.stringify(response), { expires: 7 });
+                logined()
+                navigate(`/`);
                 // Обработка успешного входа
             } catch (error) {
                 console.error('Ошибка при входе', error);
