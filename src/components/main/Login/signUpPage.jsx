@@ -6,6 +6,8 @@ import SuccessModal from './successModal'
 import ResetModal from './resetModal'
 import styles from './styles/index.module.scss'
 import IsExistModal from './isExistModal'
+import visibleEye from '../../../assets/icons/visible-eye.svg'
+import invisibleEye from '../../../assets/icons/invisible-eye.svg'
 
 export default function SignUpPage() {
     const [isForgotPassword, setIsForgotPassword] = useState(false)
@@ -123,11 +125,11 @@ export default function SignUpPage() {
                                         onChange={(e) => setPassword(e.target.value)}
                                         className={errors.password ? styles.inputError : ''}
                                     />
-                                    <button
-                                        type="button"
+                                    <img
+                                        src={showPassword ? visibleEye : invisibleEye}
+                                        alt=''
                                         onClick={toggleShowPassword}
-                                        className={styles.showPasswordBtn}
-                                    >{showPassword ? "Hide" : "Show"}</button>
+                                    />
                                     {errors.password && (
                                         <div className={styles.error}>
                                             <span>{errors.password}</span>
@@ -143,11 +145,11 @@ export default function SignUpPage() {
                                         onChange={(e) => setConfirmPassword(e.target.value)}
                                         className={errors.confirmPassword ? styles.inputError : ''}
                                     />
-                                    <button
-                                        type="button"
+                                    <img
+                                        src={showConfPassword ? visibleEye : invisibleEye}
+                                        alt=''
                                         onClick={toggleShowConfPassword}
-                                        className={styles.showPasswordBtn}
-                                    >{showConfPassword ? "Hide" : "Show"}</button>
+                                    />
                                     {errors.confirmPassword && (
                                         <div className={styles.error}>
                                             <span>{errors.confirmPassword}</span>

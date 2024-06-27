@@ -26,6 +26,7 @@ $sign_up_bg_hovered_color: #F8F8F8;
     }
 
     .signUp {
+        transform: scale(.8);
         background-color: $sign_up_bg_color;
         border: 1px solid $sign_up_bg_color;
         border-radius: 12px;

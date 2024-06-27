@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Links from '../../components/shared/Links'
 import styles from './header.module.scss'
 import { NavLink } from 'react-router-dom'
 import logo from './../../assets/icons/logo.svg'
-// import { LangContext } from '../../context/Context';
+import { LangContext } from '../../context/Context';
 import LanguageSelector from '../../components/shared/LanguageSelector'
 import LoginButtons from '../../components/header/LoginButtons'
-
+import Avatar from '../../components/header/Avatar'
 
 export default function Header() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
@@ -20,7 +20,7 @@ export default function Header() {
         setIsBurgerMenuOpen(false)
     }
 
-    // const langContext = useContext(LangContext)
+    const langContext = useContext(LangContext)
 
     useEffect(() => {
         const handleResize = () => {
@@ -51,7 +51,7 @@ export default function Header() {
                     <></>
                 )}
 
-                <LoginButtons />
+                {!langContext.isLogged ? <LoginButtons /> : <Avatar />} 
                 <div className={styles.header__burgerIcon} onClick={toggleBurgerMenu}>
                     <div className={styles.line}></div>
                     <div className={styles.line}></div>

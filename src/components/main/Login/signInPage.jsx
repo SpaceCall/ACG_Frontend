@@ -6,6 +6,9 @@ import SuccessModal from './successModal'
 import ResetModal from './resetModal'
 import styles from './styles/index.module.scss'
 import Cookies from 'js-cookie';
+import visibleEye from '../../../assets/icons/visible-eye.svg'
+import invisibleEye from '../../../assets/icons/invisible-eye.svg'
+
 export default function SignInPage({ toSignUp }) {
     const [isForgotPassword, setIsForgotPassword] = useState(false)
     const [isCheck, setIsCheck] = useState(false)
@@ -97,11 +100,11 @@ export default function SignInPage({ toSignUp }) {
                                         onChange={(e) => setPassword(e.target.value)}
                                         className={errors.password ? styles.inputError : ''}
                                     />
-                                    <button
-                                        type="button"
+                                    <img
+                                        src={showPassword ? visibleEye : invisibleEye}
+                                        alt=''
                                         onClick={toggleShowPassword}
-                                        className={styles.showPasswordBtn}
-                                    >{showPassword ? "Hide" : "Show"}</button>
+                                    />
                                 </div>
                                 {errors.password && (
                                     <div className={styles.error}>

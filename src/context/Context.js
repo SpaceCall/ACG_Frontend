@@ -13,15 +13,11 @@ const messages = {
 
 export default function Context({ children }) {
     const { lang } = useParams()
-    // const navigate = useNavigate()
     const browserLocale = navigator.language.startsWith('uk') ? 'uk' : 'en'
 
     const initialLocale = lang || localStorage.getItem('locale') || browserLocale
     const [activeLang, setActiveLang] = useState(initialLocale)
-
-    // useEffect(() => {
-    //     if (lang !== activeLang) navigate(`/${activeLang}`)
-    // }, [activeLang, navigate, lang])
+    const [isLogged, setIsLogged] = useState(true)
 
     useEffect(() => {
         localStorage.setItem('locale', activeLang)
@@ -34,7 +30,9 @@ export default function Context({ children }) {
     const value = {
         activeLang,
         setUkrainianLang,
-        setEnglishLang
+        setEnglishLang,
+        isLogged,
+        setIsLogged
     };
 
     return (

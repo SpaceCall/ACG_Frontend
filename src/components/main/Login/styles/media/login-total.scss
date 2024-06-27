@@ -78,9 +78,32 @@ $red-color: #F15A51;
                         border-radius: 12px;
                         border: 1px #C9D1D7 solid;
                     }
+                    
                     .inputError{
                         border: 1px $red-color solid;
                     }
+                }
+            }
+
+            &__password{
+                position: relative;
+                img{
+                    width: 24px;
+                    height: 24px;
+                    position: absolute;
+                    top: 35px;
+                    right: 20px;
+                }
+            }
+
+            &__passwordConf{
+                position: relative;
+                img{
+                    width: 24px;
+                    height: 24px;
+                    position: absolute;
+                    top: 35px;
+                    right: 20px;
                 }
             }
         }
