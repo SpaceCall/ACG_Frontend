@@ -9,7 +9,7 @@ import ComingSoon from '../components/main/MainPage/ComingSoon'
 import SignInPage from '../components/main/Login/signInPage';
 import SignUpPage from '../components/main/Login/signUpPage';
 import ConfirmMail from '../components/main/Login/ConfirmMail'
-
+import Debug from '../service/debug'
 export default function Router() {
     // const { activeLang } = useContext(LangContext);
 
@@ -24,6 +24,7 @@ export default function Router() {
             <Route path='/signUp' element={<SignUpPage />} />
             <Route path='/chat' element={<Chat />} />
             <Route path='/topics' element={<Topics />} />
+            <Route path='/debug' element={<Debug />} />
         </Routes>
     );
 }

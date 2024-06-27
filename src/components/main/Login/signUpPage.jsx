@@ -6,7 +6,8 @@ import SuccessModal from './successModal'
 import ResetModal from './resetModal'
 import styles from './styles/index.module.scss'
 import IsExistModal from './isExistModal'
-
+import Cookies from 'js-cookie';
+import api from '../../../service/api'
 export default function SignUpPage() {
     const [isForgotPassword, setIsForgotPassword] = useState(false)
     const [isCheck, setIsCheck] = useState(false)
@@ -21,7 +22,7 @@ export default function SignUpPage() {
     const [showPassword, setShowPassword] = useState(false)
     const [showConfPassword, setShowConfPassword] = useState(false)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
         let errorMessages = { name: '', email: '', password: '', confirmPassword: '' }
@@ -42,26 +43,15 @@ export default function SignUpPage() {
                 password2: confirmPassword
             }
             console.log(data)
-            fetch("http://localhost:3001/auth/sign-up", {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Request failed!')
-                    }
-                    return response.json()
-                })
-                .then(data => {
-                    console.log(data)
-                    setIsSuccess(true)
-                })
-                .catch(error => {
-                    console.error('Error:', error)
-                })
+            try {
+                const response = await api.register(data)
+                setIsSuccess(true)
+                Cookies.set('user', JSON.stringify(response), { expires: 7 });
+                // Обработка успешного входа
+            } catch (error) {
+                console.error('Ошибка при входе', error);
+            }
+
         }
     }
 

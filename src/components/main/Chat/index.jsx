@@ -2,36 +2,18 @@ import React, { useEffect, useState } from 'react'
 import MessageInput from './MessageInput'
 import ChatWindow from './ChatWindow'
 import styles from './chat.module.scss'
-import Cookies from 'js-cookie';
+
 export default function Chat() {
     const [messages, setMessages] = useState([{
         label: "Hello there! I'm here to create the perfect course just for you. To get started, I'd love to learn more about your preferences, including the course goal, your experience, and any specific wishes you have. Feel free to share, and we'll tailor the course to match your needs!",
         isUserSend: false,
         type: 'message',
-        id:Date.now()+1
+        id:Date.now()+1,
+        isFirst:true,
       }])
-    const [index, setIndex] = useState(0);
     const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
-    const [newMessage, setNewMessage]= useState("");
-    const botMessages = [
-        {
-            text:"Perhaps you'd like to get additional knowledge in Python in the process of passing?",
-            type:"message"
-        },{
-            text:"Alright! It would be helpful to know if you already have some knowledge in this or related areas and any specific preferences you have. The more you share, the better we can tailor the course to your needs!",
-            type:"message"
-        },{
-            text:"Fantastic! This information will be very helpful. Are you ready for us to start generating a course plan, or is there anything else you'd like to add?",
-            type:"message"
-        },{
-            text:"Take a look at the generated course",
-            type:"topic"
-        },{
-            text:"Can we start?",
-            type:"end"
-        } 
-    ]
-
+    const [chatId, setChatId] = useState(null)
+    
     const createUserMessages = (label) => {
         return {
             label,
@@ -49,41 +31,10 @@ export default function Chat() {
         }
     }
  
-    const  sendMessage = async (text) => {
-
+    const  sendMessage = (text) => {
         if (text.length >= 1) {
             setIsSubmitDisabled(true);
-            const user = JSON.parse(Cookies.get('user'));
-            console.log(user)
-            await fetch(`http://localhost:3001/chat/${user.user.user_id}`, {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${user.accessToken}`,
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ 
-                        message:text 
-                    })
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Request failed!');    
-                    } 
-                    return response.json(); 
-                    
-                })
-                .then(data => {
-                    //navigate(`/login`);
-                    console.log(data)
-                    setNewMessage(data)
-                    setMessages([createBotMessages(newMessage), createUserMessages(text)]) 
-                })
-                .catch(error => {
-                    console.log('Error activating account.');
-                    console.error('Error:', error);
-                });
-            
-            setIndex(index + 1)
+            setMessages([createBotMessages(text),createUserMessages(text)]) 
         }
     }
     const enableSubmit = () =>{
@@ -91,7 +42,7 @@ export default function Chat() {
     }
     return (
         <div className={styles.chat}>
-            <ChatWindow messages={messages}  enableSubmit={enableSubmit}/>
+            <ChatWindow messages={messages}  enableSubmit={enableSubmit} chatId={chatId} setChatId={setChatId} />
             <MessageInput sendMessage={sendMessage} isSubmitDisabled={isSubmitDisabled}/>
         </div>
     )
