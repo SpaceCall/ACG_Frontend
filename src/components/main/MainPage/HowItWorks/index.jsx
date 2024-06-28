@@ -73,6 +73,15 @@ export default function HowItWorks() {
                                 </div>
                             ))}
                         </div>
+                        <div className={styles.howItWorks__list__dots}>
+                            {howItWorksData.map((_, index) => (
+                                <div
+                                    key={index}
+                                    className={`${styles.dot} ${activeBlock === index ? styles.activeDot : ''}`}
+                                    onClick={() => handleBlockClick(index)}
+                                ></div>
+                            ))}
+                        </div>
                         <div className={styles.howItWorks__laptop}>
                             <Swiper
                                 slidesPerView={1}

@@ -75,18 +75,23 @@
                     }
 
                     p {
-                        min-height: 20px;
+                        min-height: 50px;
                         padding: 0 12px;
                     }
 
                     li {
                         padding: 0 12px;
+                        min-height: 72px;
 
                         &::before {
                             left: 0px;
                         }
                     }
                 }
+            }
+
+            &__dots{
+                margin-top: 24px;
             }
         }
 

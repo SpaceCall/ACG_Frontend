@@ -5,6 +5,7 @@ import English from '../lang/en.json';
 import Ukrainian from '../lang/uk.json';
 
 export const LangContext = createContext(null);
+// export const DataContext = createContext(null)
 
 const messages = {
     en: English,
