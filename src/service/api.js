@@ -67,7 +67,7 @@ api.interceptors.response.use(response => response, async error => {
         }
         return console.error(error);
     }
-    return error
+    throw error
 });
 
 const apiService = {
@@ -100,6 +100,14 @@ const apiService = {
     confirmEmail: async (data) => {
       try {
         const response = await api.post('/auth/confirm-email', data);
+        return response.data;
+      } catch (error) {
+        throw error;
+      }
+    },
+    forgotPassword: async (data) => {
+      try {
+        const response = await api.post('/auth/forgot-password', data);
         return response.data;
       } catch (error) {
         throw error;

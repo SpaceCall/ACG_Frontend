@@ -34,7 +34,7 @@ export default function SignInPage({ toSignUp }) {
         // if() errorMessages.password = 'Wrong password'
         // if() errorMessages.email = 'Account is not activated'
 
-        setErrors(errorMessages)
+        
 
         if (!errorMessages.email && !errorMessages.password) {
             const data = {
@@ -46,12 +46,18 @@ export default function SignInPage({ toSignUp }) {
                 const response = await api.login(data)
                 Cookies.set('user', JSON.stringify(response), { expires: 7 });
                 logined()
+                //setIsCheck(true)
                 navigate(`/`);
                 // Обработка успешного входа
             } catch (error) {
+                if(error.response.status === 401){
+                    console.log('asdasdasdas')
+                    errorMessages.password = 'Wrong email or password.'
+                }
                 console.error('Ошибка при входе', error);
             }
         }
+        setErrors(errorMessages)
     }
 
     const toggleShowPassword = () => {

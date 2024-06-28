@@ -36,7 +36,7 @@ export default function SignUpPage() {
         if (password !== confirmPassword) errorMessages.confirmPassword = 'Passwords do not match.'
         if (name.length < 3) errorMessages.name = 'Name must contain at least 3 characters.'
 
-        setErrors(errorMessages)
+        
 
         if (!errorMessages.password && !errorMessages.confirmPassword && !errorMessages.name) {
             const data = {
@@ -52,10 +52,15 @@ export default function SignUpPage() {
                 Cookies.set('user', JSON.stringify(response), { expires: 7 });
                 // Обработка успешного входа
             } catch (error) {
-                console.error('Ошибка при входе', error);
+                if(error.response.status === 409){
+                    console.log('asdasdasdas')
+                    errorMessages.email = 'The mail is already in use.'
+                }
+                console.error('Ошибка при входе', );
             }
 
         }
+        setErrors(errorMessages)
     }
 
     const toggleShowPassword = () => {
