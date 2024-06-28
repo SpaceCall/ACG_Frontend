@@ -9,6 +9,7 @@ import ComingSoon from '../components/main/MainPage/ComingSoon'
 import SignInPage from '../components/main/Login/signInPage';
 import SignUpPage from '../components/main/Login/signUpPage';
 import ConfirmMail from '../components/main/Login/ConfirmMail'
+import PasswordReset from '../components/main/Login/PasswordReset'
 import Debug from '../service/debug'
 export default function Router() {
     // const { activeLang } = useContext(LangContext);
@@ -25,6 +26,7 @@ export default function Router() {
             <Route path='/chat' element={<Chat />} />
             <Route path='/topics' element={<Topics />} />
             <Route path='/debug' element={<Debug />} />
+            <Route path='/reset-password/:token' element={<PasswordReset />} />
         </Routes>
     );
 }

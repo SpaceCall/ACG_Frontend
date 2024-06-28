@@ -51,8 +51,9 @@ export default function SignInPage({ toSignUp }) {
                 // Обработка успешного входа
             } catch (error) {
                 if(error.response.status === 401){
-                    console.log('asdasdasdas')
-                    errorMessages.password = 'Wrong email or password.'
+                    errorMessages.password = 'Wrong name or password.'
+                }else if(error.response.status === 404){
+                    errorMessages.email = 'Email is not registered'
                 }
                 console.error('Ошибка при входе', error);
             }

@@ -113,6 +113,14 @@ const apiService = {
         throw error;
       }
     },
+    resetPassword: async (data) => {
+      try {
+        const response = await api.post('/auth/reset-password', data);
+        return response.data;
+      } catch (error) {
+        throw error;
+      }
+    },
     // Добавьте другие методы, которые вам нужны
   };
 

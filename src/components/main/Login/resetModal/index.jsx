@@ -1,6 +1,6 @@
 import React from 'react'
-
-export default function ResetModal({ styles, onClose }) {
+import styles from '../styles/index.module.scss'
+export default function ResetModal({ onClose }) {
     return (
         <div className={styles.welcome__modal}>
             <div className={styles.welcome__modal__wrapper}>
@@ -12,10 +12,6 @@ export default function ResetModal({ styles, onClose }) {
                         </div>
                     </div>
                     <div className={styles.welcome__modal__body}>
-                        <div className={styles.welcome__modal__body__input}>
-                            <label>Email</label>
-                            <input type="email" placeholder='Enter email' />
-                        </div>
                         <div className={styles.welcome__modal__body__input}>
                             <label>Password</label>
                             <input type="email" placeholder='Must contain at least one letter and number' />
