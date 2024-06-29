@@ -3,14 +3,14 @@ import React from 'react'
 export default function NameInput({ styles, name, setName, errors }) {
     return (
         <>
-            <div className={styles.welcome__field__body__name}>
+            <div>
                 <label>Name</label>
                 <input
                     type="text"
                     placeholder='Your name'
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className={errors.name ? styles.inputError : ''}
+                    className={errors ? styles.inputError : ''}
                 />
             </div>
             {errors && (
