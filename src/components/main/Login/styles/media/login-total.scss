@@ -72,39 +72,26 @@ $red-color: #F15A51;
                     flex-direction: column;
                     gap: 5px;
                     font-family: 'Poppins';
+                    position: relative;
 
                     input {
                         padding: 12px;
                         border-radius: 12px;
                         border: 1px #C9D1D7 solid;
                     }
-                    
-                    .inputError{
+
+                    input.inputError {
                         border: 1px $red-color solid;
                     }
                 }
             }
 
-            &__password{
-                position: relative;
-                img{
-                    width: 24px;
-                    height: 24px;
-                    position: absolute;
-                    top: 35px;
-                    right: 20px;
-                }
-            }
-
-            &__passwordConf{
-                position: relative;
-                img{
-                    width: 24px;
-                    height: 24px;
-                    position: absolute;
-                    top: 35px;
-                    right: 20px;
-                }
+            img {
+                width: 24px;
+                height: 24px;
+                position: absolute;
+                top: 35px;
+                right: 20px;
             }
         }
 
@@ -229,7 +216,8 @@ $red-color: #F15A51;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    a{
+
+                    a {
                         text-decoration: none;
                         font-weight: 500;
                         color: #6147FF;
@@ -256,14 +244,19 @@ $red-color: #F15A51;
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 8px;
 
-            &__input {
+            form {
+                width: 100%;
+            }
+
+            div {
                 display: flex;
                 flex-direction: column;
                 gap: 5px;
                 font-family: 'Poppins';
-                margin-bottom: 24px;
                 width: 100%;
+                position: relative;
 
                 label {
                     color: #7B85A5;
@@ -273,7 +266,32 @@ $red-color: #F15A51;
                     padding: 12px;
                     border-radius: 12px;
                     border: 1px #C9D1D7 solid;
+                    font-size: 0.875em;
                 }
+
+                img {
+                    width: 24px;
+                    height: 24px;
+                    position: absolute;
+                    top: 43px;
+                    right: 10px;
+                    cursor: pointer;
+                }
+
+            }
+            
+            .error {
+                display: flex;
+                flex-direction: column;
+
+                span {
+                    font-size: 0.75em;
+                    color: $red-color;
+                }
+            }
+
+            .inputError {
+                border: 1px $red-color solid;
             }
 
             &__btn {
@@ -289,6 +307,7 @@ $red-color: #F15A51;
                 color: #FFFFFF;
                 cursor: pointer;
                 transition: all .3s;
+                margin-top: 24px;
 
                 &:hover {
                     background-color: #FFFFFF;

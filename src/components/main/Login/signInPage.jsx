@@ -1,4 +1,4 @@
-import React, { useState,useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import loginImg from '../../../assets/images/login/hi-there.png'
 import ForgotModal from './forgotModal'
 import CheckModal from './checkModal'
@@ -6,11 +6,11 @@ import SuccessModal from './successModal'
 import ResetModal from './resetModal'
 import styles from './styles/index.module.scss'
 import Cookies from 'js-cookie';
-import visibleEye from '../../../assets/icons/visible-eye.svg'
-import invisibleEye from '../../../assets/icons/invisible-eye.svg'
 import api from '../../../service/api'
 import { LangContext } from '../../../context/Context';
-import { useParams,useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import PasswordInput from './inputs/PasswordInput'
+import EmailInput from './inputs/EmailInput'
 
 export default function SignInPage({ toSignUp }) {
     const [isForgotPassword, setIsForgotPassword] = useState(false)
@@ -34,8 +34,6 @@ export default function SignInPage({ toSignUp }) {
         // if() errorMessages.password = 'Wrong password'
         // if() errorMessages.email = 'Account is not activated'
 
-        
-
         if (!errorMessages.email && !errorMessages.password) {
             const data = {
                 email: email,
@@ -50,19 +48,15 @@ export default function SignInPage({ toSignUp }) {
                 navigate(`/`);
                 // Обработка успешного входа
             } catch (error) {
-                if(error.response.status === 401){
+                if (error.response.status === 401) {
                     errorMessages.password = 'Wrong name or password.'
-                }else if(error.response.status === 404){
+                } else if (error.response.status === 404) {
                     errorMessages.email = 'Email is not registered'
                 }
                 console.error('Ошибка при входе', error);
             }
         }
         setErrors(errorMessages)
-    }
-
-    const toggleShowPassword = () => {
-        setShowPassword(!showPassword)
     }
 
     return (
@@ -77,41 +71,21 @@ export default function SignInPage({ toSignUp }) {
                         <form onSubmit={handleSubmit}>
                             <div className={styles.welcome__field__body__or}>or</div>
                             <div className={styles.welcome__field__body__inputs}>
-                                <div className={styles.welcome__field__body__email}>
-                                    <label>Email</label>
-                                    <input
-                                        type="email"
-                                        placeholder='Email'
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        className={errors.email ? styles.inputError : ''}
-                                    />
-                                </div>
-                                {errors.email && (
-                                    <div className={styles.error}>
-                                        <span>{errors.email}</span>
-                                    </div>
-                                )}
-                                <div className={styles.welcome__field__body__password}>
-                                    <label>Password</label>
-                                    <input
-                                        type={showPassword ? "text" : "password"}
-                                        placeholder='Password'
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        className={errors.password ? styles.inputError : ''}
-                                    />
-                                    <img
-                                        src={showPassword ? visibleEye : invisibleEye}
-                                        alt=''
-                                        onClick={toggleShowPassword}
-                                    />
-                                </div>
-                                {errors.password && (
-                                    <div className={styles.error}>
-                                        <span>{errors.password}</span>
-                                    </div>
-                                )}
+                                <EmailInput
+                                    styles={styles}
+                                    email={email}
+                                    setEmail={setEmail}
+                                    errors={errors.email} />
+                                <PasswordInput
+                                    styles={styles}
+                                    setShow={setShowPassword}
+                                    show={showPassword}
+                                    password={password}
+                                    setPassword={setPassword}
+                                    errors={errors.password}
+                                    label="Password"
+                                    placeholder="Password"
+                                />
                             </div>
                             <button type="submit" className={styles.welcome__field__footer__loginBtn}>Log in</button>
                         </form>

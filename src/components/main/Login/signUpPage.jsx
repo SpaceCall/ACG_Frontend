@@ -6,11 +6,13 @@ import SuccessModal from './successModal'
 import ResetModal from './resetModal'
 import styles from './styles/index.module.scss'
 import IsExistModal from './isExistModal'
-import visibleEye from '../../../assets/icons/visible-eye.svg'
-import invisibleEye from '../../../assets/icons/invisible-eye.svg'
+import PasswordInput from './inputs/PasswordInput'
 
+import EmailInput from './inputs/EmailInput'
 import Cookies from 'js-cookie';
 import api from '../../../service/api'
+import NameInput from './inputs/NameInput'
+
 export default function SignUpPage() {
     const [isForgotPassword, setIsForgotPassword] = useState(false)
     const [isCheck, setIsCheck] = useState(false)
@@ -36,7 +38,7 @@ export default function SignUpPage() {
         if (password !== confirmPassword) errorMessages.confirmPassword = 'Passwords do not match.'
         if (name.length < 3) errorMessages.name = 'Name must contain at least 3 characters.'
 
-        
+
 
         if (!errorMessages.password && !errorMessages.confirmPassword && !errorMessages.name) {
             const data = {
@@ -52,22 +54,15 @@ export default function SignUpPage() {
                 Cookies.set('user', JSON.stringify(response), { expires: 7 });
                 // Обработка успешного входа
             } catch (error) {
-                if(error.response.status === 409){
+                if (error.response.status === 409) {
                     console.log('asdasdasdas')
                     errorMessages.email = 'The mail is already in use.'
                 }
-                console.error('Ошибка при входе', );
+                console.error('Ошибка при входе',);
             }
 
         }
         setErrors(errorMessages)
-    }
-
-    const toggleShowPassword = () => {
-        setShowPassword(!showPassword)
-    }
-    const toggleShowConfPassword = () => {
-        setShowConfPassword(!showConfPassword)
     }
 
     return (
@@ -82,76 +77,36 @@ export default function SignUpPage() {
                         <form onSubmit={handleSubmit}>
                             <div className={styles.welcome__field__body__or}>or</div>
                             <div className={styles.welcome__field__body__inputs}>
-                                <div className={styles.welcome__field__body__name}>
-                                    <label>Name</label>
-                                    <input
-                                        type="text"
-                                        placeholder='Your name'
-                                        value={name}
-                                        onChange={(e) => setName(e.target.value)}
-                                        className={errors.name ? styles.inputError : ''}
-                                    />
-                                </div>
-                                {errors.name && (
-                                    <div className={styles.error}>
-                                        <span>{errors.name}</span>
-                                    </div>
-                                )}
-                                <div className={styles.welcome__field__body__email}>
-                                    <label>Email</label>
-                                    <input
-                                        type="email"
-                                        placeholder='Email'
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        className={errors.email ? styles.inputError : ''}
-                                    />
-                                </div>
-                                {errors.email && (
-                                    <div className={styles.error}>
-                                        <span>{errors.email}</span>
-                                    </div>
-                                )}
-                                <div className={styles.welcome__field__body__password}>
-                                    <label>Password</label>
-                                    <input
-                                        type={showPassword ? "text" : "password"}
-                                        placeholder='Enter password'
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        className={errors.password ? styles.inputError : ''}
-                                    />
-                                    <img
-                                        src={showPassword ? visibleEye : invisibleEye}
-                                        alt=''
-                                        onClick={toggleShowPassword}
-                                    />
-                                    {errors.password && (
-                                        <div className={styles.error}>
-                                            <span>{errors.password}</span>
-                                        </div>
-                                    )}
-                                </div>
-                                <div className={styles.welcome__field__body__passwordConf}>
-                                    <label>Confirm password</label>
-                                    <input
-                                        type={showConfPassword ? "text" : "password"}
-                                        placeholder='Must contain at least one letter and one number'
-                                        value={confirmPassword}
-                                        onChange={(e) => setConfirmPassword(e.target.value)}
-                                        className={errors.confirmPassword ? styles.inputError : ''}
-                                    />
-                                    <img
-                                        src={showConfPassword ? visibleEye : invisibleEye}
-                                        alt=''
-                                        onClick={toggleShowConfPassword}
-                                    />
-                                    {errors.confirmPassword && (
-                                        <div className={styles.error}>
-                                            <span>{errors.confirmPassword}</span>
-                                        </div>
-                                    )}
-                                </div>
+                                <NameInput
+                                    styles={styles}
+                                    name={name}
+                                    setName={setName}
+                                    errors={errors.name} />
+                                <EmailInput
+                                    styles={styles}
+                                    email={email}
+                                    setEmail={setEmail}
+                                    errors={errors.email} />
+                                <PasswordInput
+                                    styles={styles}
+                                    setShow={setShowPassword}
+                                    show={showPassword}
+                                    password={password}
+                                    setPassword={setPassword}
+                                    errors={errors.password}
+                                    label="Password"
+                                    placeholder="Password"
+                                />
+                                <PasswordInput
+                                    styles={styles}
+                                    setShow={setShowConfPassword}
+                                    show={showConfPassword}
+                                    password={confirmPassword}
+                                    setPassword={setConfirmPassword}
+                                    errors={errors.confirmPassword}
+                                    label="Confirm Password"
+                                    placeholder="Confirm Password"
+                                />
                             </div>
                             <button type="submit" className={styles.welcome__field__footer__loginBtn}>Sign Up</button>
                         </form>
@@ -168,7 +123,7 @@ export default function SignUpPage() {
                     <img src={loginImg} alt="Welcome" />
                 </div>
             </div>
-            {isForgotPassword && <ForgotModal styles={styles} onClose={() => setIsForgotPassword(false)} />}
+            {isForgotPassword && <ForgotModal styles={styles} onClose={() => setIsForgotPassword(false)} errors={errors} />}
             {isCheck && <CheckModal styles={styles} onClose={() => setIsCheck(false)} />}
             {isSuccess && <SuccessModal userEmail={email} styles={styles} onClose={() => setIsSuccess(false)} />}
             {isReset && <ResetModal styles={styles} onClose={() => setIsReset(false)} />}

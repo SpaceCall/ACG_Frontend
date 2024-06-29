@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import api from '../../../../service/api'
 import Cookies from 'js-cookie';
-export default function ForgotModal({ styles, onClose }) {
+import EmailInput from '../inputs/EmailInput';
+export default function ForgotModal({ styles, onClose, errors }) {
     const [error, setError] = useState(false)
     const [email, setEmail] = useState('')
     const forgotPasswod = async (e) => {
         e.preventDefault()
         try {
-            const response = await api.forgotPassword({"email": email})
+            const response = await api.forgotPassword({ "email": email })
             Cookies.set('reset', JSON.stringify(response), { expires: 7 });
             Cookies.get('reset')
         } catch (error) {
-            if(error.response.status === 404){
+            if (error.response.status === 404) {
                 setError('Email is not registered')
             }
             console.error('Ошибка при входе', error);
@@ -30,24 +31,14 @@ export default function ForgotModal({ styles, onClose }) {
                         </div>
                     </div>
                     <div className={styles.welcome__modal__body}>
-                    <form onSubmit={forgotPasswod}>
-                        <div className={styles.welcome__modal__body__input}>
-                            <label>Email</label>
-                            <input
-                                type="email"
-                                placeholder='Email'
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                className={error.email ? styles.inputError : ''}
-                            />
-                        </div>
-                        {error && (
-                                    <div className={styles.error}>
-                                        <span>{error.password}</span>
-                                    </div>
-                                )}
-                        <button type="submit" className={styles.welcome__modal__body__btn}>Send</button>
-                    </form>
+                        <form onSubmit={forgotPasswod}>
+                            <EmailInput
+                                styles={styles}
+                                email={email}
+                                setEmail={setEmail}
+                                errors={errors.email} />
+                            <button type="submit" className={styles.welcome__modal__body__btn}>Send</button>
+                        </form>
                         <span className={styles.welcome__modal__body__remember}>Remember password?</span>
                     </div>
                 </div>
