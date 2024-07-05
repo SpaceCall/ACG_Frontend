@@ -1,4 +1,5 @@
 import React from 'react'
+import { FormattedMessage } from 'react-intl';
 
 export default function IsExistModal({ styles, onClose }) {
     return (
@@ -8,12 +9,12 @@ export default function IsExistModal({ styles, onClose }) {
                     <div className={styles.welcome__modal__header}>
                         <span className={styles.welcome__modal__header__close} onClick={onClose}>X</span>
                         <div className={styles.welcome__modal__header__text}>
-                            <h2>This email is already used!</h2>
-                            <p>Try to log in</p>
+                            <h2><FormattedMessage id='modals.exists.header.title'></FormattedMessage></h2>
+                            <p><FormattedMessage id='modals.exists.message'></FormattedMessage></p>
                         </div>
                     </div>
                     <div className={styles.welcome__modal__body}>
-                        <a href='signIn' className={styles.welcome__modal__body__btn}>Log In</a>
+                        <a href='signIn' className={styles.welcome__modal__body__btn}>Log in</a>
                     </div>
                 </div>
             </div>

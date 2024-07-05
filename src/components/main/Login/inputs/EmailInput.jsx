@@ -1,10 +1,12 @@
 import React from 'react'
+import { FormattedMessage } from 'react-intl';
 
 export default function EmailInput({ styles, email, setEmail, errors }) {
+
     return (
         <>
             <div className={styles.welcome__field__body__email}>
-                <label>Email</label>
+                <label><FormattedMessage id='inputs.email'></FormattedMessage></label>
                 <input
                     type="email"
                     placeholder='Email'

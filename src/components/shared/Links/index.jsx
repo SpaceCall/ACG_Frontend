@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './links.module.scss';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
 export default function Links({ onClose }) {
     const location = useLocation();
@@ -8,22 +9,22 @@ export default function Links({ onClose }) {
 
     const links = [
         {
-            value: 'Use cases',
+            value: 'header.navigation.cases',
             path: 'cases',
             anchor: true
         },
         {
-            value: 'How it works',
+            value: 'header.navigation.works',
             path: 'howitworks',
             anchor: true
         },
         {
-            value: 'Blog',
+            value: 'header.navigation.blog',
             path: 'blogs',
             anchor: false
         },
         {
-            value: 'Contacts',
+            value: 'header.navigation.contacts',
             path: 'contacts',
             anchor: true
         },
@@ -43,10 +44,10 @@ export default function Links({ onClose }) {
                     <li key={index}>
                         {link.anchor ? (
                             <a href={`#${link.path}`} onClick={() => handleLinkClick(link)}>
-                                {link.value}
+                                <FormattedMessage id={link.value}></FormattedMessage>
                             </a>
                         ) : (
-                            <a href={`/${link.path}`}>{link.value}</a>
+                            <a href={`/${link.path}`}><FormattedMessage id={link.value}></FormattedMessage></a>
                         )}
                     </li>
                 ))}

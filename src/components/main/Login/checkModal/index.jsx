@@ -1,4 +1,5 @@
 import React from 'react'
+import { FormattedMessage } from 'react-intl';
 
 export default function CheckModal({ styles, onClose }) {
     const email = 'example@gmail.com'
@@ -10,19 +11,19 @@ export default function CheckModal({ styles, onClose }) {
                     <div className={styles.welcome__modal__header}>
                         <span className={styles.welcome__modal__header__close} onClick={onClose}>X</span>
                         <div className={styles.welcome__modal__header__text}>
-                            <h2>Check your email</h2>
+                            <h2><FormattedMessage id='modals.check.header.title'></FormattedMessage></h2>
                             <p className={styles.welcome__modal__header__check}>
-                                <span>We've sent you a password reset link to</span>
+                                <span><FormattedMessage id='modals.check.message.firstPart'></FormattedMessage></span>
                                 <span>{email}</span>
-                                <span>Please also check your spam folder</span>
+                                <span><FormattedMessage id='modals.check.message.lastPart'></FormattedMessage></span>
                             </p>
                         </div>
                     </div>
                     <div className={styles.welcome__modal__body}>
-                        <div className={styles.welcome__modal__body__btn}>Send</div>
+                        <div className={styles.welcome__modal__body__btn}><FormattedMessage id='modals.check.send'></FormattedMessage></div>
                         <div className={styles.welcome__modal__body__again}>
-                            <span>Don't get instructions? </span>
-                            <span>Try again</span>
+                            <span><FormattedMessage id='modals.check.dontGet'></FormattedMessage> </span>
+                            <span><FormattedMessage id='modals.check.again'></FormattedMessage></span>
                         </div>
                     </div>
                 </div>

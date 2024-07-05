@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import loginImg from '../../../assets/images/login/welcome.png'
 import ForgotModal from './forgotModal'
 import CheckModal from './checkModal'
@@ -9,16 +9,18 @@ import IsExistModal from './isExistModal'
 import PasswordInput from './inputs/PasswordInput'
 
 import EmailInput from './inputs/EmailInput'
+import NameInput from './inputs/NameInput'
 import Cookies from 'js-cookie';
 import api from '../../../service/api'
-import NameInput from './inputs/NameInput'
+import { FormattedMessage } from 'react-intl';
+import LangContext from '../../../context/Context.js'
 
 export default function SignUpPage() {
-    const [isForgotPassword, setIsForgotPassword] = useState(false)
-    const [isCheck, setIsCheck] = useState(false)
-    const [isSuccess, setIsSuccess] = useState(false)
-    const [isReset, setIsReset] = useState(false)
-    const [isExists, setIsExists] = useState(false)
+    const [isForgotPassword, setIsForgotPassword] = useState(true)
+    const [isCheck, setIsCheck] = useState(true)
+    const [isSuccess, setIsSuccess] = useState(true)
+    const [isReset, setIsReset] = useState(true)
+    const [isExists, setIsExists] = useState(true)
     const [errors, setErrors] = useState({ name: '', email: '', password: '', confirmPassword: '' })
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -27,18 +29,26 @@ export default function SignUpPage() {
     const [showPassword, setShowPassword] = useState(false)
     const [showConfPassword, setShowConfPassword] = useState(false)
 
+    const langContext = useContext(LangContext)
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
         let errorMessages = { name: '', email: '', password: '', confirmPassword: '' }
         const uppercasePattern = /[A-Z]/
 
-        if (password.length < 8) errorMessages.password += 'Password must contain at least 8 characters. '
-        if (!uppercasePattern.test(password)) errorMessages.password += 'Password must contain at least one uppercase letter. '
-        if (password !== confirmPassword) errorMessages.confirmPassword = 'Passwords do not match.'
-        if (name.length < 3) errorMessages.name = 'Name must contain at least 3 characters.'
-
-
+        if (password.length < 8) {
+            langContext && langContext.activeLang === 'en' ? errorMessages.password += 'Password must contain at least 8 characters.' : errorMessages.password += 'Password must contain at least 8 characters. '
+        }
+        if (!uppercasePattern.test(password)) {
+            langContext && langContext.activeLang === 'en' ? errorMessages.password += 'Password must contain at least one uppercase letter.' : errorMessages.password += 'Password must contain at least one uppercase letter.'
+        }
+        if (password !== confirmPassword) {
+            langContext && langContext.activeLang === 'en' ? errorMessages.confirmPassword = 'Passwords do not match.' : errorMessages.confirmPassword += 'Passwords do not match.'
+        }
+        if (name.length < 3) {
+            langContext && langContext.activeLang === 'en' ? errorMessages.name = 'Name must contain at least 3 characters.' : errorMessages.name += "Name must contain at least 3 characters."
+        }
 
         if (!errorMessages.password && !errorMessages.confirmPassword && !errorMessages.name) {
             const data = {
@@ -70,12 +80,12 @@ export default function SignUpPage() {
             <div className={styles.welcome__wrapper}>
                 <div className={styles.welcome__field}>
                     <div className={styles.welcome__field__header}>
-                        <h2>Welcome!</h2>
-                        <p>Welcome to the ACG</p>
+                        <h2><FormattedMessage id='signUp.title'></FormattedMessage></h2>
+                        <p><FormattedMessage id='signUp.subtitle'></FormattedMessage></p>
                     </div>
                     <div className={styles.welcome__field__body}>
                         <form onSubmit={handleSubmit}>
-                            <div className={styles.welcome__field__body__or}>or</div>
+                            <div className={styles.welcome__field__body__or}><FormattedMessage id='signUp.or'></FormattedMessage></div>
                             <div className={styles.welcome__field__body__inputs}>
                                 <NameInput
                                     styles={styles}
@@ -94,8 +104,8 @@ export default function SignUpPage() {
                                     password={password}
                                     setPassword={setPassword}
                                     errors={errors.password}
-                                    label="Password"
-                                    placeholder="Password"
+                                    label='Password'
+                                    placeholder='Password'
                                 />
                                 <PasswordInput
                                     styles={styles}
@@ -104,18 +114,17 @@ export default function SignUpPage() {
                                     password={confirmPassword}
                                     setPassword={setConfirmPassword}
                                     errors={errors.confirmPassword}
-                                    label="Confirm Password"
-                                    placeholder="Confirm Password"
+                                    label='Confirm Password'
+                                    placeholder='Confirm Password'
                                 />
                             </div>
-                            <button type="submit" className={styles.welcome__field__footer__loginBtn}>Sign Up</button>
+                            <button type="submit" className={styles.welcome__field__footer__loginBtn}>Sign up</button>
                         </form>
                     </div>
                     <div className={styles.welcome__field__footer}>
-                        <div className={styles.welcome__field__footer__forgot} onClick={() => setIsForgotPassword(true)}>Forgot Password?</div>
                         <div className={styles.welcome__field__footer__signUp}>
-                            <span>Already have an account? </span>
-                            <a href='signIn'>Log In</a>
+                            <span><FormattedMessage id='signUp.haveTheAcc'></FormattedMessage></span>
+                            <a href='signIn'>Log in</a>
                         </div>
                     </div>
                 </div>

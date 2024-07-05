@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {  } from 'react'
+import { FormattedMessage } from 'react-intl';
 
 export default function NameInput({ styles, name, setName, errors }) {
     return (
         <>
             <div>
-                <label>Name</label>
+                <label><FormattedMessage id='inputs.name'></FormattedMessage></label>
                 <input
                     type="text"
                     placeholder='Your name'

@@ -77,7 +77,7 @@ export default function Form() {
 			<form onSubmit={handleSubmit}>
 				<input
 					type="email"
-                    placeholder={langContext && langContext.activeLang === 'en' ? 'Enter your email' : 'Введіть свою пошту'}
+                    placeholder='Enter your email'
                     value={email}
                     onChange={handleInputChange}
 				/>

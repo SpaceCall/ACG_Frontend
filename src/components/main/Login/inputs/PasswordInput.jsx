@@ -3,9 +3,7 @@ import visibleEye from '../../../../assets/icons/visible-eye.svg'
 import invisibleEye from '../../../../assets/icons/invisible-eye.svg'
 
 export default function PasswordInput({ styles, setShow, show, password, setPassword, errors, label, placeholder }) {
-    const toggleShowPassword = () => {
-        setShow(!show)
-    }
+    const toggleShowPassword = () => setShow(!show)
 
     return (
         <>

@@ -5,7 +5,7 @@ $grey-color: #686868;
 
 .blogs {
     margin-top: 80px;
-    font-family: 'Poppins';
+    font-family: 'Fixel Text';
 
     &__intro {
         margin-bottom: 150px;
@@ -14,7 +14,7 @@ $grey-color: #686868;
             text-transform: uppercase;
             margin-bottom: 55px;
             font-weight: 500;
-            font-family: 'Jost';
+            font-family: 'Fixel Text';
 
             span {
                 color: $orange-color;
@@ -52,7 +52,7 @@ $grey-color: #686868;
                     position: relative;
 
                     span:first-child {
-                        font-family: 'Jost';
+                        font-family: 'Fixel Text';
                         font-weight: 700;
                     }
 
@@ -109,7 +109,7 @@ $grey-color: #686868;
 
     &__catalog {
         &__title {
-            font-family: 'Jost';
+            font-family: 'Fixel Text';
             font-weight: 500;
         }
 
@@ -193,7 +193,7 @@ $grey-color: #686868;
                         position: relative;
 
                         span:first-child {
-                            font-family: 'Jost';
+                            font-family: 'Fixel Text';
                             font-weight: 700;
                         }
 

@@ -14,7 +14,7 @@ const messages = {
 
 export default function Context({ children }) {
     const { lang } = useParams()
-    const browserLocale = navigator.language.startsWith('uk') ? 'uk' : 'en'
+    const browserLocale = navigator.language.startsWith('en') ? 'en' : 'uk'
 
     const initialLocale = lang || localStorage.getItem('locale') || browserLocale
     const [activeLang, setActiveLang] = useState(initialLocale)

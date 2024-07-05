@@ -11,6 +11,7 @@ import { LangContext } from '../../../context/Context';
 import { useParams, useNavigate } from 'react-router-dom';
 import PasswordInput from './inputs/PasswordInput'
 import EmailInput from './inputs/EmailInput'
+import { FormattedMessage } from 'react-intl';
 
 export default function SignInPage({ toSignUp }) {
     const [isForgotPassword, setIsForgotPassword] = useState(false)
@@ -64,12 +65,12 @@ export default function SignInPage({ toSignUp }) {
             <div className={styles.welcome__wrapper}>
                 <div className={styles.welcome__field}>
                     <div className={styles.welcome__field__header}>
-                        <h2>Hi There!</h2>
-                        <p>Welcome to the ACG</p>
+                        <h2><FormattedMessage id='login.title'></FormattedMessage></h2>
+                        <p><FormattedMessage id='login.subtitle'></FormattedMessage></p>
                     </div>
                     <div className={styles.welcome__field__body}>
                         <form onSubmit={handleSubmit}>
-                            <div className={styles.welcome__field__body__or}>or</div>
+                            <div className={styles.welcome__field__body__or}><FormattedMessage id='login.or'></FormattedMessage></div>
                             <div className={styles.welcome__field__body__inputs}>
                                 <EmailInput
                                     styles={styles}
@@ -91,10 +92,10 @@ export default function SignInPage({ toSignUp }) {
                         </form>
                     </div>
                     <div className={styles.welcome__field__footer}>
-                        <div className={styles.welcome__field__footer__forgot} onClick={() => setIsForgotPassword(true)}>Forgot Password?</div>
+                        <div className={styles.welcome__field__footer__forgot} onClick={() => setIsForgotPassword(true)}><FormattedMessage id='login.forgot'></FormattedMessage></div>
                         <div className={styles.welcome__field__footer__signUp}>
-                            <span>Don't have an account? </span>
-                            <a href='signup'>Sign Up</a>
+                            <span><FormattedMessage id='login.haveTheAcc'></FormattedMessage></span>
+                            <a href='signup'>Sign up</a>
                         </div>
                     </div>
                 </div>

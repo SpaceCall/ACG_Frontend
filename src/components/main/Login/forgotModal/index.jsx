@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import api from '../../../../service/api'
 import Cookies from 'js-cookie';
 import EmailInput from '../inputs/EmailInput';
+import { FormattedMessage } from 'react-intl';
+
 export default function ForgotModal({ styles, onClose, errors }) {
     const [error, setError] = useState(false)
     const [email, setEmail] = useState('')
@@ -26,8 +28,8 @@ export default function ForgotModal({ styles, onClose, errors }) {
                     <div className={styles.welcome__modal__header}>
                         <span className={styles.welcome__modal__header__close} onClick={onClose}>X</span>
                         <div className={styles.welcome__modal__header__text}>
-                            <h2>Forgot password? No worries</h2>
-                            <p>We'll email you reset instructions</p>
+                            <h2><FormattedMessage id='modals.forgot.header.title'></FormattedMessage></h2>
+                            <p><FormattedMessage id='modals.forgot.header.subtitle'></FormattedMessage></p>
                         </div>
                     </div>
                     <div className={styles.welcome__modal__body}>
@@ -37,9 +39,9 @@ export default function ForgotModal({ styles, onClose, errors }) {
                                 email={email}
                                 setEmail={setEmail}
                                 errors={errors.email} />
-                            <button type="submit" className={styles.welcome__modal__body__btn}>Send</button>
+                            <button type="submit" className={styles.welcome__modal__body__btn}><FormattedMessage id='modals.forgot.send'></FormattedMessage></button>
                         </form>
-                        <span className={styles.welcome__modal__body__remember}>Remember password?</span>
+                        <span className={styles.welcome__modal__body__remember}><FormattedMessage id='modals.forgot.remember'></FormattedMessage></span>
                     </div>
                 </div>
             </div>

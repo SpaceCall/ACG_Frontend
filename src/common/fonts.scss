@@ -1,1 +1,77 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500&family=Poppins:wght@400;500;600;700&display=swap');
+@font-face {
+    font-family: 'Fixel Text';
+    src: url('../fonts/fixel_text/FixelText-Regular.eot');
+    src: local('Fixel Text Regular'), local('FixelText-Regular'),
+        url('../fonts/fixel_text/FixelText-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/fixel_text/FixelText-Regular.woff2') format('woff2'),
+        url('../fonts/fixel_text/FixelText-Regular.woff') format('woff'),
+        url('../fonts/fixel_text/FixelText-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fixel Text';
+    src: url('../fonts/fixel_text/FixelText-Medium.eot');
+    src: local('Fixel Text Medium'), local('FixelText-Medium'),
+        url('../fonts/fixel_text/FixelText-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/fixel_text/FixelText-Medium.woff2') format('woff2'),
+        url('../fonts/fixel_text/FixelText-Medium.woff') format('woff'),
+        url('../fonts/fixel_text/FixelText-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fixel Text';
+    src: url('../fonts/fixel_text/FixelText-SemiBold.eot');
+    src: local('Fixel Text Semi Bold'), local('FixelText-SemiBold'),
+        url('../fonts/fixel_text/FixelText-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/fixel_text/FixelText-SemiBold.woff2') format('woff2'),
+        url('../fonts/fixel_text/FixelText-SemiBold.woff') format('woff'),
+        url('../fonts/fixel_text/FixelText-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fixel Text';
+    src: url('../fonts/fixel_text/FixelText-Bold.eot');
+    src: local('Fixel Text Bold'), local('FixelText-Bold'),
+        url('../fonts/fixel_text/FixelText-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/fixel_text/FixelText-Bold.woff2') format('woff2'),
+        url('../fonts/fixel_text/FixelText-Bold.woff') format('woff'),
+        url('../fonts/fixel_text/FixelText-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fixel Text';
+    src: url('../fonts/fixel_text/FixelText-ExtraBold.eot');
+    src: local('Fixel Text Extra Bold'), local('FixelText-ExtraBold'),
+        url('../fonts/fixel_text/FixelText-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/fixel_text/FixelText-ExtraBold.woff2') format('woff2'),
+        url('../fonts/fixel_text/FixelText-ExtraBold.woff') format('woff'),
+        url('../fonts/fixel_text/FixelText-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fixel Text';
+    src: url('../fonts/fixel_text/FixelText-Black.eot');
+    src: local('Fixel Text Black'), local('FixelText-Black'),
+        url('../fonts/fixel_text/FixelText-Black.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/fixel_text/FixelText-Black.woff2') format('woff2'),
+        url('../fonts/fixel_text/FixelText-Black.woff') format('woff'),
+        url('../fonts/fixel_text/FixelText-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}

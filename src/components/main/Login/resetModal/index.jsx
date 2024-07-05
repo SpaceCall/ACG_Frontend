@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from '../styles/index.module.scss'
 import PasswordInput from '../inputs/PasswordInput'
+import { FormattedMessage } from 'react-intl';
 
 export default function ResetModal({ onClose }) {
     const [password, setPassword] = useState('')
@@ -31,36 +32,36 @@ export default function ResetModal({ onClose }) {
                     <div className={styles.welcome__modal__header}>
                         <span className={styles.welcome__modal__header__close} onClick={onClose}>X</span>
                         <div className={styles.welcome__modal__header__text}>
-                            <h2>Reset password</h2>
+                            <FormattedMessage id='modals.reset.header.subtitle'></FormattedMessage>
                         </div>
                     </div>
                     <div className={styles.welcome__modal__body}>
-                    <div className={styles.welcome__modal__body__input}>
-                        <PasswordInput 
-                            styles={styles}
-                            setShow={setShowPassword} 
-                            show={showPassword} 
-                            password={password} 
-                            setPassword={setPassword}
-                            errors={errors.password} 
-                            label="Password"
-                            placeholder="Must contain at least one letter and number"
-                        />
-                    </div>
-                    <div className={styles.welcome__modal__body__input}>
-                        <PasswordInput 
-                            styles={styles} 
-                            setShow={setShowConfPassword} 
-                            show={showConfPassword} 
-                            password={confirmPassword} 
-                            setPassword={setConfirmPassword}
-                            errors={errors.confirmPassword} 
-                            label="Confirm Password"
-                            placeholder="Confirm"
-                        />
-                    </div>
-                        <div className={styles.welcome__modal__body__btn} onClick={handleReset}>Reset password</div>
-                        <span className={styles.welcome__modal__body__remember} onClick={onClose}>Remember password</span>
+                        <div className={styles.welcome__modal__body__input}>
+                            <PasswordInput
+                                styles={styles}
+                                setShow={setShowPassword}
+                                show={showPassword}
+                                password={password}
+                                setPassword={setPassword}
+                                errors={errors.password}
+                                label="Password"
+                                placeholder="Must contain at least one letter and number"
+                            />
+                        </div>
+                        <div className={styles.welcome__modal__body__input}>
+                            <PasswordInput
+                                styles={styles}
+                                setShow={setShowConfPassword}
+                                show={showConfPassword}
+                                password={confirmPassword}
+                                setPassword={setConfirmPassword}
+                                errors={errors.confirmPassword}
+                                label="Confirm Password"
+                                placeholder="Confirm"
+                            />
+                        </div>
+                        <div className={styles.welcome__modal__body__btn} onClick={handleReset}><FormattedMessage id='modals.reset.button'></FormattedMessage></div>
+                        <span className={styles.welcome__modal__body__remember} onClick={onClose}><FormattedMessage id='modals.reset.remember'></FormattedMessage></span>
                     </div>
                 </div>
             </div>
