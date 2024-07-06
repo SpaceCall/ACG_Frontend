@@ -13,14 +13,14 @@ import NameInput from './inputs/NameInput'
 import Cookies from 'js-cookie';
 import api from '../../../service/api'
 import { FormattedMessage } from 'react-intl';
-import LangContext from '../../../context/Context.js'
+import { LangContext } from '../../../context/Context.js'
 
 export default function SignUpPage() {
-    const [isForgotPassword, setIsForgotPassword] = useState(true)
-    const [isCheck, setIsCheck] = useState(true)
-    const [isSuccess, setIsSuccess] = useState(true)
-    const [isReset, setIsReset] = useState(true)
-    const [isExists, setIsExists] = useState(true)
+    const [isForgotPassword, setIsForgotPassword] = useState(false)
+    const [isCheck, setIsCheck] = useState(false)
+    const [isSuccess, setIsSuccess] = useState(false)
+    const [isReset, setIsReset] = useState(false)
+    const [isExists, setIsExists] = useState(false)
     const [errors, setErrors] = useState({ name: '', email: '', password: '', confirmPassword: '' })
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -38,16 +38,16 @@ export default function SignUpPage() {
         const uppercasePattern = /[A-Z]/
 
         if (password.length < 8) {
-            langContext && langContext.activeLang === 'en' ? errorMessages.password += 'Password must contain at least 8 characters.' : errorMessages.password += 'Password must contain at least 8 characters. '
+            langContext && langContext.activeLang === 'en' ? errorMessages.password += 'Password must contain at least 8 characters.' : errorMessages.password += 'Пароль має містити, як мінімум, 8 символів.'
         }
         if (!uppercasePattern.test(password)) {
-            langContext && langContext.activeLang === 'en' ? errorMessages.password += 'Password must contain at least one uppercase letter.' : errorMessages.password += 'Password must contain at least one uppercase letter.'
+            langContext && langContext.activeLang === 'en' ? errorMessages.password += 'Password must contain at least one uppercase letter.' : errorMessages.password += 'Пароль має містити, як мінімум, 1 заглавну літеру.'
         }
         if (password !== confirmPassword) {
-            langContext && langContext.activeLang === 'en' ? errorMessages.confirmPassword = 'Passwords do not match.' : errorMessages.confirmPassword += 'Passwords do not match.'
+            langContext && langContext.activeLang === 'en' ? errorMessages.confirmPassword = 'Passwords do not match.' : errorMessages.confirmPassword += 'Паролі не співпадають.'
         }
         if (name.length < 3) {
-            langContext && langContext.activeLang === 'en' ? errorMessages.name = 'Name must contain at least 3 characters.' : errorMessages.name += "Name must contain at least 3 characters."
+            langContext && langContext.activeLang === 'en' ? errorMessages.name = 'Name must contain at least 3 characters.' : errorMessages.name += "Ім'я має містити, як мінімум, 3 символи."
         }
 
         if (!errorMessages.password && !errorMessages.confirmPassword && !errorMessages.name) {
@@ -104,8 +104,8 @@ export default function SignUpPage() {
                                     password={password}
                                     setPassword={setPassword}
                                     errors={errors.password}
-                                    label='Password'
-                                    placeholder='Password'
+                                    label={langContext.activeLang === 'en' ? 'Password' : 'Пароль'}
+                                    placeholder={langContext.activeLang === 'en' ? 'Password' : 'Пароль'}
                                 />
                                 <PasswordInput
                                     styles={styles}
@@ -114,17 +114,17 @@ export default function SignUpPage() {
                                     password={confirmPassword}
                                     setPassword={setConfirmPassword}
                                     errors={errors.confirmPassword}
-                                    label='Confirm Password'
-                                    placeholder='Confirm Password'
+                                    label={langContext.activeLang === 'en' ? 'Confirm Password' : 'Підтвердити Пароль'}
+                                    placeholder={langContext.activeLang === 'en' ? 'Confirm Password' : 'Підтвердити Пароль'}
                                 />
                             </div>
-                            <button type="submit" className={styles.welcome__field__footer__loginBtn}>Sign up</button>
+                            <button type="submit" className={styles.welcome__field__footer__loginBtn}><FormattedMessage id='signUp'></FormattedMessage></button>
                         </form>
                     </div>
                     <div className={styles.welcome__field__footer}>
                         <div className={styles.welcome__field__footer__signUp}>
                             <span><FormattedMessage id='signUp.haveTheAcc'></FormattedMessage></span>
-                            <a href='signIn'>Log in</a>
+                            <a href='signIn'><FormattedMessage id='signIn'></FormattedMessage></a>
                         </div>
                     </div>
                 </div>

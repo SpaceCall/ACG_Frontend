@@ -3,16 +3,15 @@ import axios from 'axios';
 import styles from './form.module.scss';
 import config from './config.jsx'
 import { FormattedMessage } from 'react-intl';
-import LangContext from '../../../../context/Context.js'
+import { LangContext } from '../../../../context/Context'
 
 export default function Form() {
 	const [email, setEmail] = useState('');
 	const [message, setMessage] = useState('');
+
 	const langContext = useContext(LangContext)
 
-	const handleInputChange = (e) => {
-		setEmail(e.target.value);
-	};
+	const handleInputChange = (e) => setEmail(e.target.value)
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -62,8 +61,6 @@ export default function Form() {
 		setEmail('');
 	};
 
-
-
 	return (
 		<div id='form' className={styles.form}>
 			<h2>
@@ -77,7 +74,7 @@ export default function Form() {
 			<form onSubmit={handleSubmit}>
 				<input
 					type="email"
-                    placeholder='Enter your email'
+                    placeholder={langContext.activeLang === 'en' ? "Enter your email" : "Введіть ваше ім'я"}
                     value={email}
                     onChange={handleInputChange}
 				/>

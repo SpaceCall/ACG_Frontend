@@ -24,6 +24,7 @@ export default function SignInPage({ toSignUp }) {
     const [showPassword, setShowPassword] = useState(false)
 
     const langContext = useContext(LangContext)
+
     const logined = () => langContext.setIsLogged(true)
     const navigate = useNavigate();
     const handleSubmit = async (e) => {
@@ -84,18 +85,18 @@ export default function SignInPage({ toSignUp }) {
                                     password={password}
                                     setPassword={setPassword}
                                     errors={errors.password}
-                                    label="Password"
-                                    placeholder="Password"
+                                    label={langContext.activeLang === 'en' ? 'Password' : 'Пароль'}
+                                    placeholder={langContext.activeLang === 'en' ? 'Password' : 'Пароль'}
                                 />
                             </div>
-                            <button type="submit" className={styles.welcome__field__footer__loginBtn}>Log in</button>
+                            <button type="submit" className={styles.welcome__field__footer__loginBtn}><FormattedMessage id='signIn'></FormattedMessage></button>
                         </form>
                     </div>
                     <div className={styles.welcome__field__footer}>
                         <div className={styles.welcome__field__footer__forgot} onClick={() => setIsForgotPassword(true)}><FormattedMessage id='login.forgot'></FormattedMessage></div>
                         <div className={styles.welcome__field__footer__signUp}>
                             <span><FormattedMessage id='login.haveTheAcc'></FormattedMessage></span>
-                            <a href='signup'>Sign up</a>
+                            <a href='signup'><FormattedMessage id='signUp'></FormattedMessage></a>
                         </div>
                     </div>
                 </div>

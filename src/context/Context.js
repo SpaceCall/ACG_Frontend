@@ -1,11 +1,10 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { IntlProvider } from 'react-intl';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import English from '../lang/en.json';
 import Ukrainian from '../lang/uk.json';
 
 export const LangContext = createContext(null);
-// export const DataContext = createContext(null)
 
 const messages = {
     en: English,
@@ -37,10 +36,10 @@ export default function Context({ children }) {
     };
 
     return (
-        <IntlProvider locale={activeLang} messages={messages[activeLang]}>
-            <LangContext.Provider value={value}>
+        <LangContext.Provider value={value}>
+            <IntlProvider locale={activeLang} messages={messages[activeLang]}>
                 {children}
-            </LangContext.Provider>
-        </IntlProvider>
+            </IntlProvider>
+        </LangContext.Provider>
     );
 }
