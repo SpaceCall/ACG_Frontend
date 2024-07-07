@@ -1,27 +1,86 @@
-.avatar{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: bisque;
+.avatar {
+    margin-left: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    justify-self: center;
+    gap: 17px;
     position: relative;
-    cursor: pointer;
-    margin-left: 100px;
-    &__logout{
+    color: #4F4F4F;
+    & > span{
+        cursor: pointer;
+    }
+
+    &__photo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: bisque;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-self: center;
+        cursor: pointer;
+    }
+
+    &__dropdown {
         position: absolute;
-        top: 100%;
-        width: 100%;
+        top: calc(100% + 8px);
+        right: 110px;
+        background-color: #FFFFFF;
+        width: 75%;
         font-size: 0.75em;
-        text-align: center;
         transition: all .3s;
         font-family: 'Fixel Text';
-        cursor: pointer;
-        &:hover{
-            background-color: #000000;
-            color: #FFFFFF;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border: 2px #B2B2B2 solid;
+        cursor: auto;
+
+        &__userInfo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 20px 20px 5px 20px;
+            border-bottom: 2px #B2B2B2 solid;
+            width: 100%;
+
+            span {
+                cursor: pointer;
+            }
+
+            span:last-child {
+                color: #B5B5B5;
+            }
+        }
+
+        &__navigation{
+            width: 100%;
+            ul {
+                padding: 12px 15px 25px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+    
+                li{
+                    width: 100%;
+                    a, span {
+                        color: #4F4F4F;
+                        text-decoration: none;
+                        cursor: pointer;
+                        transition: all .3s;
+                        padding: 5px;
+                        border-radius: 5px;
+                        width: 100%;
+                        display: block;
+                        &:hover {
+                            background-color: #4F4F4F;
+                            color: #FFFFFF;
+                        }
+                    }
+                } 
+            }
         }
     }
 }
@@ -30,5 +89,18 @@
     .avatar {
         transform: scale(.8);
         margin: 0;
+        &__dropdown{
+            width: 140px;
+            right: 0;
+            &__userInfo {
+                padding: 10px 10px 5px;
+            }
+    
+            &__navigation{
+                ul {
+                    padding: 10px 5px 5px;
+                }
+            }
+        }
     }
 }

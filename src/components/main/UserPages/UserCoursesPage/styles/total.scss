@@ -1,0 +1,97 @@
+$orange-color: #FF5F00;
+$black-color: #000000;
+$white-color: #FFFFFF;
+$grey-color: #9F9F9F;
+
+.page {
+    margin-top: 80px;
+
+    &__wrapper {}
+
+    &__frame {
+        position: relative;
+        width: 40%;
+        padding: 28px 0 28px 40px;
+        border: 1px $orange-color solid;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        border-radius: 8px;
+        margin-bottom: 75px;
+
+        img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+        }
+    }
+
+    &__coursesInfo {
+        p{
+            margin: 40px 0;
+        }
+        a {
+            background-color: $black-color;
+            border: 1px solid $black-color;
+            border-radius: 12px;
+            padding: 15px 28px;
+            transition: all .3s;
+            text-decoration: none;
+            text-align: center;
+            color: $white-color;
+            font-family: 'Fixel Text';
+            font-size: 1.125em;
+            font-weight: 600;
+            line-height: 88.889%;
+            max-width: 180px;
+
+            &:hover {
+                background-color: $white-color;
+                color: $black-color;
+            }
+        }
+
+        &__buttons{
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin: 12px 0 32px;
+            span{
+                cursor: pointer;
+                transition: all .3s;
+            }
+            .active{
+                color: $black-color;
+                text-decoration: underline;
+            }
+            .nonActive{
+                color: $grey-color;
+                text-decoration: none;
+            }
+        }
+
+        &__courses{
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            &__course{
+                width: 50%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border: 1px $orange-color solid;
+                border-radius: 8px;
+                padding: 20px 20px 20px 15px;
+                &__info{
+                    p{
+                        margin: 0;
+                    }
+                    span{
+                        color: $grey-color;
+                    }
+                }
+            }
+        }
+    }
+}

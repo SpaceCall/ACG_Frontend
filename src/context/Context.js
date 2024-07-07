@@ -17,7 +17,7 @@ export default function Context({ children }) {
 
     const initialLocale = lang || localStorage.getItem('locale') || browserLocale
     const [activeLang, setActiveLang] = useState(initialLocale)
-    const [isLogged, setIsLogged] = useState(false)
+    const [isLogged, setIsLogged] = useState(true)
 
     useEffect(() => {
         localStorage.setItem('locale', activeLang)

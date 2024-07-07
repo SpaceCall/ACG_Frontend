@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './styles/index.module.scss'
-import Medias from '../shared/Medias'
+import Medias from '../../components/shared/Medias'
 import { FormattedMessage } from 'react-intl';
 
 export default function Footer() {
