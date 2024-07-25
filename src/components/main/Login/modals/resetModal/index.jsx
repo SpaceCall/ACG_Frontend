@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import styles from '../styles/index.module.scss'
-import PasswordInput from '../inputs/PasswordInput'
+// import styles from '../styles/index.module.scss'
+// import PasswordInput from '../inputs/PasswordInput'
 import { FormattedMessage } from 'react-intl';
+import PasswordInput from '../../inputs/PasswordInput';
 
-export default function ResetModal({ onClose }) {
+export default function ResetModal({ onClose, styles }) {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)

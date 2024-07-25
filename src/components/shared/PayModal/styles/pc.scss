@@ -1,0 +1,53 @@
+@media screen and (min-width: 992px) {
+    $grey-color: #DFDFDF;
+    $white-color: #FFFFFF;
+
+    .isPayModal {
+        &__content {
+            width: 80%;
+        }
+
+        &__header {
+
+            &__payment {
+            
+                &__data {
+                    h3 {
+                        font-size: 1.25em;
+                        font-weight: 400;
+                    }
+
+                    &>p {
+                        margin: 16px 0 34px;
+                        font-size: 1em;
+                    }
+
+                    &__toPay {
+                        span{
+                            font-size: 1em;
+                        }
+                        p{
+                            font-size: 1.5em;
+                        }
+                    }
+                }
+
+                &__duration {
+                    p:first-child{
+                        font-size: 1.25em;
+                    }
+                    p:last-child{
+                        font-size: 1em;
+                        width: 30%;
+                    }
+                }
+            }
+        }
+
+        // &__body {}
+    }
+}
+
+@media screen and (min-width: 1250.01px) and (max-width: 1440px) {}
+
+@media screen and (min-width: 992px) and (max-width: 1249.98px) {}
