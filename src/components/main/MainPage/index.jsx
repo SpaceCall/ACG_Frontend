@@ -9,7 +9,7 @@ import PayModal from '../../shared/PayModal'
 // import axios from 'axios';
 
 export default function MainPage() {
-    const [isPayModalOpen, setIsPayModalOpen] = useState(false)
+    const [isPayModalOpen, setIsPayModalOpen] = useState(true)
 
     // let visit = async () => {
     //     try {

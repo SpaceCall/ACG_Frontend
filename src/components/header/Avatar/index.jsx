@@ -2,7 +2,7 @@ import React, { useContext, useState, useRef, useEffect } from 'react';
 import styles from './avatar.module.scss';
 import { LangContext } from '../../../context/Context';
 import api from '../../../service/api';
-
+import Cookies from 'js-cookie';
 export default function Avatar() {
     const [isLogoutDropdown, setIsLogoutDropdown] = useState(false);
     const langContext = useContext(LangContext);
@@ -11,7 +11,10 @@ export default function Avatar() {
     const [isLoading, setIsLoading] = useState(true); // Loading state
 
     const toggleLogoutDropdown = () => setIsLogoutDropdown(!isLogoutDropdown);
-    const logout = () => langContext.setIsLogged(false);
+    const logout = () =>{
+    Cookies.remove('userToken', { path: '', domain: '.localhost:3000' })
+    langContext.setIsLogged(false);
+}
 
     const handleClickOutside = (event) => {
         if (avatarRef.current && !avatarRef.current.contains(event.target)) {

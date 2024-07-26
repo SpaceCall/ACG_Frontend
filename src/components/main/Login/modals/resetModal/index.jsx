@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import styles from '../styles/index.module.scss'
-import PasswordInput from '../inputs/PasswordInput'
+import styles from '../../styles/index.module.scss'
+import PasswordInput from '../../inputs/PasswordInput'
 import { FormattedMessage } from 'react-intl';
-import api from '../../../../service/api'
+import api from '../../../../../service/api'
 import { useParams,useNavigate } from 'react-router-dom';
 export default function ResetModal({ onClose }) {
     const [password, setPassword] = useState('')

@@ -11,7 +11,8 @@ export default function ConfirmMail() {
             console.log(token)
             try {
                 const response = await api.confirmEmail(JSON.stringify({confirmationToken:token}))
-                Cookies.set('user', JSON.stringify(response.data), { expires: 7 });
+                Cookies.set('userToken', JSON.stringify(response.data), { expires: 7 });
+                navigate(`/signIn`);
                 // Обработка успешного входа
             } catch (error) {
                 console.log(error)

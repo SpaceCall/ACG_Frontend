@@ -1,64 +1,97 @@
-import React, { useState, useContext } from 'react';
-import loginImg from '../../../assets/images/login/hi-there.png';
-import styles from './styles/index.module.scss';
+import React, { useContext, useState } from 'react'
+import loginImg from '../../../assets/images/login/welcome.png'
+import ForgotModal from './modals/forgotModal'
+import CheckModal from './modals/checkModal'
+import SuccessModal from './modals/successModal'
+import ResetModal from './modals/resetModal'
+import styles from './styles/index.module.scss'
+import IsExistModal from './modals/isExistModal'
+import PasswordInput from './inputs/PasswordInput'
+
+import EmailInput from './inputs/EmailInput'
+import NameInput from './inputs/NameInput'
 import Cookies from 'js-cookie';
-import api from '../../../service/api';
-import { LangContext } from '../../../context/Context';
-import { useNavigate } from 'react-router-dom';
-import PasswordInput from './inputs/PasswordInput';
-import EmailInput from './inputs/EmailInput';
+import api from '../../../service/api'
 import { FormattedMessage } from 'react-intl';
-import CurrentModal from './modals/CurrentModal';
+import { LangContext } from '../../../context/Context.js'
 
-export default function SignInPage({ toSignUp }) {
-    const [modalType, setModalType] = useState(null);
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [errors, setErrors] = useState({ email: '', password: '' });
-    const [showPassword, setShowPassword] = useState(false);
+export default function SignUpPage() {
+    const [isForgotPassword, setIsForgotPassword] = useState(false)
+    const [isCheck, setIsCheck] = useState(false)
+    const [isSuccess, setIsSuccess] = useState(false)
+    const [isReset, setIsReset] = useState(false)
+    const [isExists, setIsExists] = useState(false)
+    const [errors, setErrors] = useState({ name: '', email: '', password: '', confirmPassword: '' })
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
+    const [showConfPassword, setShowConfPassword] = useState(false)
 
-    const langContext = useContext(LangContext);
-    const navigate = useNavigate();
-
-    const logined = () => langContext.setIsLogged(true);
+    const langContext = useContext(LangContext)
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault()
 
-        let errorMessages = { email: '', password: '' };
+        let errorMessages = { name: '', email: '', password: '', confirmPassword: '' }
+        const uppercasePattern = /[A-Z]/
 
-        if (!errorMessages.email && !errorMessages.password) {
-            const data = { email, password };
-            console.log(data);
-            try {
-                const response = await api.login(data);
-                Cookies.set('user', JSON.stringify(response), { expires: 7 });
-                logined();
-                navigate(`/`);
-            } catch (error) {
-                if (error.response.status === 401) {
-                    errorMessages.password = 'Wrong name or password.';
-                } else if (error.response.status === 404) {
-                    errorMessages.email = 'Email is not registered';
-                }
-                console.error('Ошибка при входе', error);
-            }
+        if (password.length < 8) {
+            langContext && langContext.activeLang === 'en' ? errorMessages.password += 'Password must contain at least 8 characters.' : errorMessages.password += 'Пароль має містити, як мінімум, 8 символів.'
         }
-        setErrors(errorMessages);
-    };
+        if (!uppercasePattern.test(password)) {
+            langContext && langContext.activeLang === 'en' ? errorMessages.password += 'Password must contain at least one uppercase letter.' : errorMessages.password += 'Пароль має містити, як мінімум, 1 заглавну літеру.'
+        }
+        if (password !== confirmPassword) {
+            langContext && langContext.activeLang === 'en' ? errorMessages.confirmPassword = 'Passwords do not match.' : errorMessages.confirmPassword += 'Паролі не співпадають.'
+        }
+        if (name.length < 3) {
+            langContext && langContext.activeLang === 'en' ? errorMessages.name = 'Name must contain at least 3 characters.' : errorMessages.name += "Ім'я має містити, як мінімум, 3 символи."
+        }
+
+        if (!errorMessages.password && !errorMessages.confirmPassword && !errorMessages.name) {
+            const data = {
+                email: email,
+                username: name,
+                password1: password,
+                password2: confirmPassword
+            }
+            console.log(data)
+            try {
+                const response = await api.register(data)
+                setIsSuccess(true)
+                Cookies.set('user', JSON.stringify(response), { expires: 7 });
+                // Обработка успешного входа
+            } catch (error) {
+                if (error.response.status === 409) {
+                    console.log('asdasdasdas')
+                    errorMessages.email = 'The mail is already in use.'
+                }
+                console.error('Ошибка при входе',);
+            }
+
+        }
+        setErrors(errorMessages)
+    }
 
     return (
         <div className={styles.welcome}>
             <div className={styles.welcome__wrapper}>
                 <div className={styles.welcome__field}>
                     <div className={styles.welcome__field__header}>
-                        <h2><FormattedMessage id='login.title' /></h2>
-                        <p><FormattedMessage id='login.subtitle' /></p>
+                        <h2><FormattedMessage id='signUp.title'></FormattedMessage></h2>
+                        <p><FormattedMessage id='signUp.subtitle'></FormattedMessage></p>
                     </div>
                     <div className={styles.welcome__field__body}>
                         <form onSubmit={handleSubmit}>
-                            <div className={styles.welcome__field__body__or}><FormattedMessage id='login.or' /></div>
+                            <div className={styles.welcome__field__body__or}><FormattedMessage id='signUp.or'></FormattedMessage></div>
                             <div className={styles.welcome__field__body__inputs}>
+                                <NameInput
+                                    styles={styles}
+                                    name={name}
+                                    setName={setName}
+                                    errors={errors.name} />
                                 <EmailInput
                                     styles={styles}
                                     email={email}
@@ -74,23 +107,36 @@ export default function SignInPage({ toSignUp }) {
                                     label={langContext.activeLang === 'en' ? 'Password' : 'Пароль'}
                                     placeholder={langContext.activeLang === 'en' ? 'Password' : 'Пароль'}
                                 />
+                                <PasswordInput
+                                    styles={styles}
+                                    setShow={setShowConfPassword}
+                                    show={showConfPassword}
+                                    password={confirmPassword}
+                                    setPassword={setConfirmPassword}
+                                    errors={errors.confirmPassword}
+                                    label={langContext.activeLang === 'en' ? 'Confirm Password' : 'Підтвердити Пароль'}
+                                    placeholder={langContext.activeLang === 'en' ? 'Confirm Password' : 'Підтвердити Пароль'}
+                                />
                             </div>
-                            <button type="submit" className={styles.welcome__field__footer__loginBtn}><FormattedMessage id='signIn' /></button>
+                            <button type="submit" className={styles.welcome__field__footer__loginBtn}><FormattedMessage id='signUp'></FormattedMessage></button>
                         </form>
                     </div>
                     <div className={styles.welcome__field__footer}>
-                        <div className={styles.welcome__field__footer__forgot} onClick={() => setModalType('forgot')}><FormattedMessage id='login.forgot' /></div>
                         <div className={styles.welcome__field__footer__signUp}>
-                            <span><FormattedMessage id='login.haveTheAcc' /></span>
-                            <a href='signup'><FormattedMessage id='signUp' /></a>
+                            <span><FormattedMessage id='signUp.haveTheAcc'></FormattedMessage></span>
+                            <a href='signIn'><FormattedMessage id='signIn'></FormattedMessage></a>
                         </div>
                     </div>
                 </div>
                 <div className={styles.welcome__image}>
-                    <img src={loginImg} alt="Hi There" />
+                    <img src={loginImg} alt="Welcome" />
                 </div>
             </div>
-            {modalType && <CurrentModal modalType={modalType} styles={styles} onClose={() => setModalType(null)} errors={errors} />}
+            {isForgotPassword && <ForgotModal styles={styles} onClose={() => setIsForgotPassword(false)} errors={errors} />}
+            {isCheck && <CheckModal styles={styles} onClose={() => setIsCheck(false)} />}
+            {isSuccess && <SuccessModal userEmail={email} styles={styles} onClose={() => setIsSuccess(false)} />}
+            {isReset && <ResetModal styles={styles} onClose={() => setIsReset(false)} />}
+            {isExists && <IsExistModal styles={styles} onClose={() => setIsExists(false)} />}
         </div>
-    );
+    )
 }

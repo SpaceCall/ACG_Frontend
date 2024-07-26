@@ -1,5 +1,5 @@
 import React from 'react';
-import ResetModal from '../resetModal';
+import ResetModal from '../modals/resetModal';
 export default function ConfirmMail() {
     
     return (
