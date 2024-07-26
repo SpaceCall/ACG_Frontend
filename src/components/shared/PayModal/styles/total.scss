@@ -2,9 +2,262 @@ $grey-color: #DFDFDF;
 $white-color: #FFFFFF;
 $black-color: #202020;
 $darkgrey-color: #393939;
+$silver-color: #808080;
+$red-color: #FF0000;
 
 .isPayModal {
-    font-family: 'Fixel Text';
+    width: 100%;
+    background-color: $grey-color;
+
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__or {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin: 55px 0 70px;
+        text-align: center;
+
+        &::after,
+        &::before {
+            content: '';
+            width: 22%;
+            height: 1px;
+            display: block;
+            background-color: $black-color;
+        }
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        padding: 24px 24px 0;
+        position: relative;
+
+        &__close {
+            position: absolute;
+            right: 40px;
+            top: 24px;
+            cursor: pointer;
+
+            img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        &__payment {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 30px;
+            align-self: center;
+            width: 50%;
+
+            &__data {
+                padding: 24px;
+                border-radius: 12px;
+                background-color: $white-color;
+
+                h3 {
+                    font-weight: 400;
+                }
+
+                &>p {
+                    margin: 16px 0 34px;
+                    color: $black-color;
+                }
+
+                &__toPay {
+                    display: flex;
+                    justify-content: space-between;
+                    color: $darkgrey-color;
+                }
+            }
+
+            &__duration {
+                padding: 14px 24px;
+                border-radius: 12px;
+                background-color: $white-color;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            &__cards {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+
+                label {
+                    display: flex;
+                    align-items: center;
+
+                    input[type='radio'] {
+                        appearance: none;
+                        width: 16px;
+                        height: 16px;
+                        border: 2px solid $silver-color;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        position: relative;
+                        background-color: $white-color;
+
+                        &:checked {
+                            border-color: $black-color;
+
+                            &::after {
+                                content: '';
+                                width: 8px;
+                                height: 8px;
+                                border-radius: 50%;
+                                background-color: $red-color;
+                                position: absolute;
+                                top: 2.3px;
+                                left: 2.3px;
+                            }
+                        }
+                    }
+
+                    img {
+                        border: 1px $black-color solid;
+                        width: 67px;
+                        height: 36px;
+                        padding: 5px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    &__body {
+        width: 50%;
+        background-color: $white-color;
+        margin-bottom: 120px;
+        padding: 30px 30px 80px;
+        border-radius: 12px;
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        color: $silver-color;
+
+        input {
+            background-color: $grey-color;
+            color: $darkgrey-color;
+            border: none;
+            border-radius: 8px;
+            padding: 8px;
+        }
+
+        &__cardNumber {
+            width: 100%;
+
+            h3 {
+                font-weight: 400;
+            }
+
+            input {
+                width: 100%;
+            }
+        }
+
+        &__cardInfo {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin: 24px 0;
+
+            h3 {
+                font-weight: 400;
+            }
+        }
+
+        &__send {
+            color: $black-color;
+            align-self: flex-start;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            &__indicator {
+                width: 36px;
+                height: 13px;
+                border-radius: 20px;
+                position: relative;
+                transition: all .3s;
+
+                .circle {
+                    position: absolute;
+                    top: calc(50% - 10px);
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    border: 1px $grey-color solid;
+                    background-color: $white-color;
+                    transition: all .3s;
+                }
+            }
+
+            .nonActive {
+                background-color: $grey-color;
+            }
+
+            .active {
+                background-color: $black-color;
+
+                .circle {
+                    transform: translateX(18px);
+                }
+            }
+        }
+
+        &__sendText p {
+            color: $black-color;
+            margin: 40px 0 50px;
+
+            a {
+                color: $black-color;
+            }
+        }
+
+        &__btn {
+            text-decoration: none;
+            margin-bottom: 24px;
+            padding: 14px 0;
+            width: 100%;
+            border-radius: 12px;
+            font-weight: 600;
+            text-align: center;
+            border: 1px $black-color solid;
+            background-color: $black-color;
+            color: $white-color;
+            cursor: pointer;
+            transition: all .3s;
+            margin-top: 24px;
+
+            &:hover {
+                background-color: $white-color;
+                color: $black-color;
+            }
+        }
+    }
+}
+
+.popup {
     position: fixed;
     top: 0;
     left: 0;
@@ -25,88 +278,37 @@ $darkgrey-color: #393939;
         justify-content: center;
         align-items: center;
         width: 100%;
+        height: 600px;
     }
 
     &__content {
         position: relative;
-        background-color: $grey-color;
+        width: 100%;
+        max-width: 450px;
+        background-color: #FFFFFF;
         display: flex;
         flex-direction: column;
+        border-radius: 24px;
     }
 
     &__header {
         display: flex;
         flex-direction: column;
         padding: 24px 24px 0;
+        margin-bottom: 8px;
         position: relative;
 
         &__close {
-            position: absolute;
-            right: 40px;
-            top: 24px;
             cursor: pointer;
-            img{
-                width: 50px;
-                height: 50px;
-            }
+            position: absolute;
+            top: 24px;
+            right: 24px;
         }
 
-        &__payment{
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-top: 30px;
-            align-self: center;
-            width: 50%;
-            &__data{
-                padding: 24px;
-                border-radius: 12px;
-                background-color: $white-color;
-                h3{
-                    font-weight: 400;
-                }
-                & > p{
-                    margin: 16px 0 34px;
-                    color: $black-color;
-                }
-                &__toPay{
-                    display: flex;
-                    justify-content: space-between;
-                    color: $darkgrey-color;
-                }
-            }
-
-            &__duration{
-                padding: 14px 24px;
-                border-radius: 12px;
-                background-color: $white-color;
-                display: flex;
-                justify-content: space-between;
-            }
-
-            &__cards{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 40px;
-                label{
-                    display: flex;
-                    align-items: center;
-                    input{
-                        background-color: $darkgrey-color;
-                        width: 16px;
-                        height: 16px;
-                        cursor: pointer;
-                    }
-                    img{
-                        border: 1px $black-color solid;
-                        width: 67px;
-                        height: 36px;
-                        padding: 5px;
-                        cursor: pointer;
-                    }
-                }
-            }
+        h2{
+            text-align: center;
+            margin-top: 10px;
+            font-weight: 400;
         }
     }
 
@@ -117,27 +319,30 @@ $darkgrey-color: #393939;
         align-items: center;
         gap: 8px;
 
-        
+        p{
+            text-align: center;
+            color: $silver-color;
+        }
 
-        // &__btn {
-        //     text-decoration: none;
-        //     margin-bottom: 24px;
-        //     padding: 14px 0;
-        //     width: 100%;
-        //     border-radius: 12px;
-        //     font-weight: 600;
-        //     text-align: center;
-        //     border: 1px #FF6314 solid;
-        //     background-color: #FF6314;
-        //     color: #FFFFFF;
-        //     cursor: pointer;
-        //     transition: all .3s;
-        //     margin-top: 24px;
+        &__btn {
+            text-decoration: none;
+            margin-bottom: 24px;
+            padding: 14px 0;
+            width: 100%;
+            border-radius: 12px;
+            font-weight: 600;
+            text-align: center;
+            border: 1px #FF6314 solid;
+            background-color: #FF6314;
+            color: #FFFFFF;
+            cursor: pointer;
+            transition: all .3s;
+            margin-top: 24px;
 
-        //     &:hover {
-        //         background-color: #FFFFFF;
-        //         color: #FF6314;
-        //     }
-        // }
+            &:hover {
+                background-color: #FFFFFF;
+                color: #FF6314;
+            }
+        }
     }
 }

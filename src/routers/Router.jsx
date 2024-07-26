@@ -12,6 +12,7 @@ import ConfirmMail from '../components/main/Login/ConfirmMail'
 import PasswordReset from '../components/main/Login/PasswordReset'
 import Debug from '../service/debug'
 import UserCoursesPage from '../components/main/UserPages/UserCoursesPage'
+import PayModal from '../components/shared/PayModal'
 export default function Router() {
     // const { activeLang } = useContext(LangContext);
 
@@ -29,6 +30,7 @@ export default function Router() {
             <Route path='/debug' element={<Debug />} />
             <Route path='/reset-password/:token' element={<PasswordReset />} />
             <Route path='/courses' element={<UserCoursesPage />}></Route>
+            <Route path='/payment' element={<PayModal />}></Route>
         </Routes>
     );
 }

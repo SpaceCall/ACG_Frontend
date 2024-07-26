@@ -76,12 +76,13 @@
 
     "modals.reset.header.subtitle": "Відновити пароль",
     "modals.reset.button": "Відновити пароль",
-    "modals.reset.remember": "Згадали пароль?",
-
+    "modals.reset.changed": "Пароль успішно змінений! ",
+    "modals.reset.link": "Увійти",
+    
     "modals.forgot.header.title": "Забули пароль? Не переймайтесь",
     "modals.forgot.header.subtitle": "Ми відправимо інструкцію по відновленню на пошту",
     "modals.forgot.send": "Відправити",
-    "modals.forgot.remember": "Згадали пароль?",
+    "modals.forgot.changed": "Перевірте Вашу пошту",
 
     "modals.exists.header.title": "Вказана пошта вже використовується!",
     "modals.exists.message": "Спробуйте увійти",

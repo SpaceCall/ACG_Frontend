@@ -76,12 +76,13 @@
 
     "modals.reset.header.subtitle": "Reset password",
     "modals.reset.button": "Reset password",
-    "modals.reset.remember": "Remember password?",
-
+    "modals.reset.changed": "Password is succesfully changed! ",
+    "modals.reset.link": "Sign In",
+    
     "modals.forgot.header.title": "Forgot password? No worries",
     "modals.forgot.header.subtitle": "We'll email you reset instructions",
     "modals.forgot.send": "Send",
-    "modals.forgot.remember": "Remember password?",
+    "modals.forgot.changed": "Check your email",
 
     "modals.exists.header.title": "This email is already used!",
     "modals.exists.message": "Try to log in",

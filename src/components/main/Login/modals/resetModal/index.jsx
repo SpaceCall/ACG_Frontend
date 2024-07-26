@@ -3,13 +3,15 @@ import styles from '../../styles/index.module.scss'
 import PasswordInput from '../../inputs/PasswordInput'
 import { FormattedMessage } from 'react-intl';
 import api from '../../../../../service/api'
-import { useParams,useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 export default function ResetModal({ onClose }) {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
     const [showConfPassword, setShowConfPassword] = useState(false)
     const [errors, setErrors] = useState({ password: '', confirmPassword: '' })
+    const [showed, setShowed] = useState(false)
+
     const { token } = useParams();
     const navigate = useNavigate();
     const handleReset = async () => {
@@ -24,13 +26,15 @@ export default function ResetModal({ onClose }) {
             // Handle password reset logic here
             try {
                 const response = await api.resetPassword({
-                    password1:password,
-                    password2:confirmPassword,
-                    resetToken:token,
+                    password1: password,
+                    password2: confirmPassword,
+                    resetToken: token,
                 })
-                if(response){
+                if (response) {
                     navigate("/signIn")
                 }
+                setShowed(true)
+
             } catch (error) {
                 console.log(error)
             }
@@ -74,8 +78,13 @@ export default function ResetModal({ onClose }) {
                                 placeholder="Confirm"
                             />
                         </div>
+                        {showed && <p>
+                            <FormattedMessage id='modals.reset.changed'></FormattedMessage>
+                            <a href="signIn">
+                                <FormattedMessage id='modals.reset.link'></FormattedMessage>
+                            </a>
+                        </p>}
                         <div className={styles.welcome__modal__body__btn} onClick={handleReset}><FormattedMessage id='modals.reset.button'></FormattedMessage></div>
-                        <span className={styles.welcome__modal__body__remember} onClick={onClose}><FormattedMessage id='modals.reset.remember'></FormattedMessage></span>
                     </div>
                 </div>
             </div>

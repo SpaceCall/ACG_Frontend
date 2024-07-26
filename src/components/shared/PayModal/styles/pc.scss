@@ -10,7 +10,7 @@
         &__header {
 
             &__payment {
-            
+
                 &__data {
                     h3 {
                         font-size: 1.25em;
@@ -23,20 +23,22 @@
                     }
 
                     &__toPay {
-                        span{
+                        span {
                             font-size: 1em;
                         }
-                        p{
+
+                        p {
                             font-size: 1.5em;
                         }
                     }
                 }
 
                 &__duration {
-                    p:first-child{
+                    p:first-child {
                         font-size: 1.25em;
                     }
-                    p:last-child{
+
+                    p:last-child {
                         font-size: 1em;
                         width: 30%;
                     }
@@ -44,7 +46,41 @@
             }
         }
 
-        // &__body {}
+        &__body {
+            &__cardNumber {
+                h3 {
+                    font-size: 1em;
+                }
+            }
+
+            &__cardInfo {
+                h3 {
+                    font-size: 1em;
+                }
+            }
+
+            &__send {
+                font-size: 1em;
+            }
+
+            &__sendText p {
+                font-size: 1em;
+            }
+        }
+    }
+
+    .popup {
+        &__header {
+            h2 {
+                font-size: 1.125em;
+            }
+        }
+
+        &__body {
+            p {
+                font-size: 0.875em;
+            }
+        }
     }
 }
 

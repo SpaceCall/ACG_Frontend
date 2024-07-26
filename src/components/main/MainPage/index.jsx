@@ -9,7 +9,6 @@ import PayModal from '../../shared/PayModal'
 // import axios from 'axios';
 
 export default function MainPage() {
-    const [isPayModalOpen, setIsPayModalOpen] = useState(true)
 
     // let visit = async () => {
     //     try {
@@ -42,7 +41,6 @@ export default function MainPage() {
                 <HowItWorks />
                 <Mission />
                 <Form />
-                {isPayModalOpen && <PayModal setIsPayModalOpen={setIsPayModalOpen} />}
             </div>
         </div>
     )

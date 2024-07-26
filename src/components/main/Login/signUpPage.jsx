@@ -1,13 +1,8 @@
 import React, { useContext, useState } from 'react'
 import loginImg from '../../../assets/images/login/welcome.png'
-import ForgotModal from './modals/forgotModal'
-import CheckModal from './modals/checkModal'
-import SuccessModal from './modals/successModal'
-import ResetModal from './modals/resetModal'
 import styles from './styles/index.module.scss'
-import IsExistModal from './modals/isExistModal'
 import PasswordInput from './inputs/PasswordInput'
-
+import CurrentModal from './modals/CurrentModal';
 import EmailInput from './inputs/EmailInput'
 import NameInput from './inputs/NameInput'
 import Cookies from 'js-cookie';
@@ -16,11 +11,7 @@ import { FormattedMessage } from 'react-intl';
 import { LangContext } from '../../../context/Context.js'
 
 export default function SignUpPage() {
-    const [isForgotPassword, setIsForgotPassword] = useState(false)
-    const [isCheck, setIsCheck] = useState(false)
-    const [isSuccess, setIsSuccess] = useState(false)
-    const [isReset, setIsReset] = useState(false)
-    const [isExists, setIsExists] = useState(false)
+    const [modalType, setModalType] = useState(null);
     const [errors, setErrors] = useState({ name: '', email: '', password: '', confirmPassword: '' })
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -60,7 +51,7 @@ export default function SignUpPage() {
             console.log(data)
             try {
                 const response = await api.register(data)
-                setIsSuccess(true)
+                setModalType('success')
                 Cookies.set('user', JSON.stringify(response), { expires: 7 });
                 // Обработка успешного входа
             } catch (error) {
@@ -132,11 +123,7 @@ export default function SignUpPage() {
                     <img src={loginImg} alt="Welcome" />
                 </div>
             </div>
-            {isForgotPassword && <ForgotModal styles={styles} onClose={() => setIsForgotPassword(false)} errors={errors} />}
-            {isCheck && <CheckModal styles={styles} onClose={() => setIsCheck(false)} />}
-            {isSuccess && <SuccessModal userEmail={email} styles={styles} onClose={() => setIsSuccess(false)} />}
-            {isReset && <ResetModal styles={styles} onClose={() => setIsReset(false)} />}
-            {isExists && <IsExistModal styles={styles} onClose={() => setIsExists(false)} />}
+            {modalType && <CurrentModal modalType={modalType} styles={styles} onClose={() => setModalType(null)} errors={errors} />}
         </div>
     )
 }

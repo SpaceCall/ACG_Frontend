@@ -7,8 +7,11 @@ import { FormattedMessage } from 'react-intl';
 export default function ForgotModal({ styles, onClose, errors = {} }) {
     const [error, setError] = useState(false)
     const [email, setEmail] = useState('')
+    const [showed, setShowed] = useState(false)
+
     const forgotPasswod = async (e) => {
         e.preventDefault()
+        setShowed(true)
         try {
             const response = await api.forgotPassword({ "email": email })
         } catch (error) {
@@ -35,9 +38,9 @@ export default function ForgotModal({ styles, onClose, errors = {} }) {
                                 email={email}
                                 setEmail={setEmail}
                                 errors={error.email} />
+                            {showed && <p><FormattedMessage id='modals.forgot.changed'></FormattedMessage></p>}
                             <button type="submit" className={styles.welcome__modal__body__btn}><FormattedMessage id='modals.forgot.send'></FormattedMessage></button>
                         </form>
-                        <span className={styles.welcome__modal__body__remember}><FormattedMessage id='modals.forgot.remember'></FormattedMessage></span>
                     </div>
                 </div>
             </div>
