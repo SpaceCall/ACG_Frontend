@@ -11,12 +11,8 @@ export default function ForgotModal({ styles, onClose, errors }) {
         e.preventDefault()
         try {
             const response = await api.forgotPassword({ "email": email })
-            Cookies.set('reset', JSON.stringify(response), { expires: 7 });
-            Cookies.get('reset')
         } catch (error) {
-            if (error.response.status === 404) {
-                setError('Email is not registered')
-            }
+            setError('пипипупупу')
             console.error('Ошибка при входе', error);
         }
     }
@@ -38,7 +34,7 @@ export default function ForgotModal({ styles, onClose, errors }) {
                                 styles={styles}
                                 email={email}
                                 setEmail={setEmail}
-                                errors={errors.email} />
+                                errors={error.email} />
                             <button type="submit" className={styles.welcome__modal__body__btn}><FormattedMessage id='modals.forgot.send'></FormattedMessage></button>
                         </form>
                         <span className={styles.welcome__modal__body__remember}><FormattedMessage id='modals.forgot.remember'></FormattedMessage></span>

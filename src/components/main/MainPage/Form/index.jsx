@@ -19,7 +19,7 @@ export default function Form() {
 		try {
 			const ipResponse = await axios.get(`https://api.ipify.org?format=json`);
 			const ip = ipResponse.data.ip;
-			const csrfResponse = await axios.get(`https://${config.server.address}/csrf-token`, {
+			const csrfResponse = await axios.get(`http://${config.server.address}/csrf-token`, {
 				withCredentials: true,
 			});
 			const csrfToken = csrfResponse.data.csrfToken;

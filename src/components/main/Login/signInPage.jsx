@@ -38,16 +38,37 @@ export default function SignInPage({ toSignUp }) {
 
         if (!errorMessages.email && !errorMessages.password) {
             const data = {
-                email: email,
+                usernameOrEmail: email,
                 password: password
             }
+            // fetch(`http://localhost:3001/auth/sign-in`, {
+            //     method: 'POST',
+            //     credentials: 'include',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify(data)
+            // }).then(response => {
+            //     if (!response.ok) {
+            //         throw new Error('Request failed!')
+            //     }
+            //     return response.json()
+            // })
+            // .then(data => {
+            //     console.log(data)
+            //     Cookies.set('user', JSON.stringify(data), { expires: 7 });
+            // })
+            // .catch(error => {
+            //     console.error('Error:', error)
+            //})
             console.log(data)
             try {
                 const response = await api.login(data)
-                Cookies.set('user', JSON.stringify(response), { expires: 7 });
+                console.log( JSON.stringify(response))
+                Cookies.set('userToken', JSON.stringify(response), { expires: 7 });
                 logined()
                 //setIsCheck(true)
-                navigate(`/`);
+                //navigate(`/`);
                 // Обработка успешного входа
             } catch (error) {
                 if (error.response.status === 401) {

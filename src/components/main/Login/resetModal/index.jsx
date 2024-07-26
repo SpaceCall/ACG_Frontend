@@ -2,15 +2,17 @@ import React, { useState } from 'react'
 import styles from '../styles/index.module.scss'
 import PasswordInput from '../inputs/PasswordInput'
 import { FormattedMessage } from 'react-intl';
-
+import api from '../../../../service/api'
+import { useParams,useNavigate } from 'react-router-dom';
 export default function ResetModal({ onClose }) {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
     const [showConfPassword, setShowConfPassword] = useState(false)
     const [errors, setErrors] = useState({ password: '', confirmPassword: '' })
-
-    const handleReset = () => {
+    const { token } = useParams();
+    const navigate = useNavigate();
+    const handleReset = async () => {
         let errorMessages = { password: '', confirmPassword: '' }
         const uppercasePattern = /[A-Z]/
 
@@ -20,6 +22,18 @@ export default function ResetModal({ onClose }) {
 
         if (!errorMessages.password && !errorMessages.confirmPassword) {
             // Handle password reset logic here
+            try {
+                const response = await api.resetPassword({
+                    password1:password,
+                    password2:confirmPassword,
+                    resetToken:token,
+                })
+                if(response){
+                    navigate("/signIn")
+                }
+            } catch (error) {
+                console.log(error)
+            }
             console.log('Password reset successfully')
         }
         setErrors(errorMessages)

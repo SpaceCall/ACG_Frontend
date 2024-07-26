@@ -6,7 +6,7 @@ const notToken = ['/auth/sign-in','/auth/sign-up','/auth/confirm-email']
  
 // Создаем инстанс axios с базовыми настройками
 const api = axios.create({
-  baseURL: `http://${config[0].Server}`, // Замените на ваш базовый URL
+  baseURL: `http://${config[0].Server}`,
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ api.interceptors.request.use(config => {
         }
     }
     if (needToken === true) {
-        const cookie = Cookies.get('user');
+        const cookie = Cookies.get('userToken');
         if (cookie) {
           const user = JSON.parse(cookie);
           if (user.accessToken) {
@@ -38,6 +38,7 @@ api.interceptors.request.use(config => {
 
 // Перехватчик ответов для обработки 401 ошибки и обновления токена
 api.interceptors.response.use(response => response, async error => {
+  console.log('pipipupupup')
   const originalRequest = error.config;
   let needToken = true
     for(let i=0;i<notToken.length;i++){
@@ -49,17 +50,27 @@ api.interceptors.response.use(response => response, async error => {
         if (error.response && error.response.status === 401 && !originalRequest._retry) {
             originalRequest._retry = true;
             try {
-            const cookie = Cookies.get('user');
-            const user = JSON.parse(cookie);
+            const token = JSON.parse(Cookies.get('userToken'));
 
-            const response = await api.post('/auth/refresh-token', {
-                refreshToken: user.refreshToken,
-            });
+            fetch(`http://${config[0].Server}/auth/refresh-access`, {
+                method: 'GET',
+                credentials:"include",
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Request failed!')
+                }
+                    return response.json()
+                })
+            .then(data => {
+              token.accessToken = data.accessToken;
+              Cookies.set('userToken', JSON.stringify(token));
+            })
+            .catch(error => {
+                console.error('Error:', error)
+            })
 
-            user.accessToken = response.data.accessToken;
-            Cookies.set('user', JSON.stringify(user));
-
-            axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`;
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token.accessToken}`;
             return api(originalRequest);
             } catch (e) {
             console.error('Не удалось обновить токен', e);
@@ -116,6 +127,14 @@ const apiService = {
     resetPassword: async (data) => {
       try {
         const response = await api.post('/auth/reset-password', data);
+        return response.data;
+      } catch (error) {
+        throw error;
+      }
+    },
+    getUserData: async () => {
+      try {
+        const response = await api('/auth/me');
         return response.data;
       } catch (error) {
         throw error;

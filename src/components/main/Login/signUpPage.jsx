@@ -53,7 +53,7 @@ export default function SignUpPage() {
         if (!errorMessages.password && !errorMessages.confirmPassword && !errorMessages.name) {
             const data = {
                 email: email,
-                name: name,
+                username: name,
                 password1: password,
                 password2: confirmPassword
             }
