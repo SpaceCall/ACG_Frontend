@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './mainPage.module.scss'
 import Intro from './Intro'
 import Cases from './Cases'
 import HowItWorks from './HowItWorks'
 import Form from './Form'
 import Mission from './Mission'
+import PayModal from '../../shared/PayModal'
 // import axios from 'axios';
 
 export default function MainPage() {
+    const [isPayModalOpen, setIsPayModalOpen] = useState(false)
+
     // let visit = async () => {
     //     try {
     //         const ipResponse = await axios.get(`https://api.ipify.org?format=json`);
@@ -39,6 +42,7 @@ export default function MainPage() {
                 <HowItWorks />
                 <Mission />
                 <Form />
+                {isPayModalOpen && <PayModal setIsPayModalOpen={setIsPayModalOpen} />}
             </div>
         </div>
     )

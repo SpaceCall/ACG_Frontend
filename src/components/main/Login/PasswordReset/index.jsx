@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { useParams,useNavigate } from 'react-router-dom';
+import React from 'react';
 import ResetModal from '../resetModal';
 export default function ConfirmMail() {
     

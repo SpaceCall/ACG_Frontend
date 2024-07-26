@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import api from '../../../../service/api'
+import api from '../../../../../service/api'
 import Cookies from 'js-cookie';
-import EmailInput from '../inputs/EmailInput';
+import EmailInput from '../../inputs/EmailInput';
 import { FormattedMessage } from 'react-intl';
 
-export default function ForgotModal({ styles, onClose, errors }) {
+export default function ForgotModal({ styles, onClose, errors = {} }) {
     const [error, setError] = useState(false)
     const [email, setEmail] = useState('')
     const forgotPasswod = async (e) => {
