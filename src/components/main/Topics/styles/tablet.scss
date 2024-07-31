@@ -6,9 +6,46 @@
     .topics {
         display: flex;
         justify-content: center;
-    
-        // &__center {
-        // }
+
+        &__center {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+
+            &__buttons {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 16px;
+            }
+        }
+
+        &__support {
+            position: static;
+        }
+
+        &__supportWindow {
+            position: static;
+            width: 470px;
+            min-height: 400px;
+            max-height: 400px;
+
+            &__chat {
+
+                &__message {
+                    font-size: 0.75em;
+                }
+            }
+
+            &__bottom {
+
+                input {
+                    font-size: 0.75em;
+                }
+            }
+        }
     }
 }
 

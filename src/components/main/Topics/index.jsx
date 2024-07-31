@@ -29,10 +29,14 @@ export default function Topics() {
             <div className={styles.topics__center}>
                 <CoursePath isActive={isActive} coursesData={coursesData} />
                 <ActiveCourse isActive={isActive} />
+                {isSupportOpen && <SupportWindow styles={styles} />}
+                <img className={styles.topics__support} src={isSupportOpen ? close_support_icon : support_icon} onClick={supportToggle} alt="Support" />
+                <div className={styles.topics__center__buttons}>
+                    <button className={styles.topics__center__buttons__bot}>Bot</button>
+                    <button className={styles.topics__center__buttons__plan}>Plan</button>
+                </div>
             </div>
             <AsideChat />
-            <img className={styles.topics__support} src={isSupportOpen ? close_support_icon : support_icon} onClick={supportToggle} alt="Support" />
-            {isSupportOpen && <SupportWindow styles={styles} />}
         </div>
     )
 }
