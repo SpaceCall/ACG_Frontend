@@ -1,0 +1,143 @@
+$image-placeholder: #D9D9D9;
+$active-btn-text: #F8F8F8;
+$non-active-btn-bg: #F8F8F8;
+$black-color: #000000;
+
+$scroll-bar-color: #B0AEB7;
+$scroll-bg-color: #E4E4E4;
+
+%scroll-style {
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $scroll-bar-color;
+        border-radius: 20px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: $scroll-bg-color;
+        border-radius: 20px;
+    }
+
+    &::-moz-scrollbar {
+        width: 10px;
+    }
+
+    &::-moz-scrollbar-thumb {
+        background-color: $scroll-bar-color;
+        border-radius: 20px;
+    }
+
+    &::-moz-scrollbar-track {
+        background-color: $scroll-bg-color;
+        border-radius: 20px;
+    }
+
+    &::-o-scrollbar {
+        width: 10px;
+    }
+
+    &::-o-scrollbar-thumb {
+        background-color: $scroll-bar-color;
+        border-radius: 20px;
+    }
+
+    &::-o-scrollbar-track {
+        background-color: $scroll-bg-color;
+        border-radius: 20px;
+    }
+}
+
+.topics__content {
+    overflow-y: scroll;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    @extend %scroll-style;
+
+    &__wrapper {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    &__title {
+        color: $black-color;
+        font-family: 'Fixel Text';
+        font-weight: 700;
+        line-height: 150%;
+    }
+
+    &__image {
+        background-color: $image-placeholder;
+        margin: 24px 0;
+        border-radius: 12px;
+        width: 90%;
+        height: 365px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__buttons {
+        margin-top: 20px;
+        display: flex;
+        gap: 8px;
+
+        button {
+            padding: 8px 24px;
+            margin-bottom: 32px;
+            text-align: center;
+            font-family: 'Fixel Text';
+            font-size: 0.75em;
+            font-weight: 600;
+            line-height: 133%;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+        }
+
+        .non-active {
+            background-color: $non-active-btn-bg;
+            color: $black-color;
+        }
+
+        .active {
+            background-color: $black-color;
+            color: $active-btn-text;
+        }
+    }
+
+    &__text {
+        color: $black-color;
+        font-family: 'Fixel Text';
+        font-size: 0.875em;
+        line-height: 150%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 24px 0;
+        gap: 36px;
+
+        div {
+            font-size: 14px;
+            font-family: 'Fixel Text';
+            font-weight: 700;
+            height: 100%;
+            border-radius: 12px;
+            background-color: $black-color;
+        }
+
+        &>div {
+            padding: 12px;
+        }
+
+        a {
+            font-size: 1.5em;
+            color: $black-color;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+    }
+}

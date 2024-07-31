@@ -1,0 +1,71 @@
+@media screen and (min-width: 992px) {}
+
+@media screen and (min-width: 1250.01px) and (max-width: 1440px) {}
+
+@media screen and (min-width: 992px) and (max-width: 1249.98px) {
+    $image-placeholder: #D9D9D9;
+$active-btn-text: #F8F8F8;
+$non-active-btn-bg: #F8F8F8;
+$black-color: #000000;
+
+$scroll-bar-color: #B0AEB7;
+$scroll-bg-color: #E4E4E4;
+
+%scroll-style {
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $scroll-bar-color;
+        border-radius: 20px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: $scroll-bg-color;
+        border-radius: 20px;
+    }
+
+    &::-moz-scrollbar {
+        width: 10px;
+    }
+
+    &::-moz-scrollbar-thumb {
+        background-color: $scroll-bar-color;
+        border-radius: 20px;
+    }
+
+    &::-moz-scrollbar-track {
+        background-color: $scroll-bg-color;
+        border-radius: 20px;
+    }
+
+    &::-o-scrollbar {
+        width: 10px;
+    }
+
+    &::-o-scrollbar-thumb {
+        background-color: $scroll-bar-color;
+        border-radius: 20px;
+    }
+
+    &::-o-scrollbar-track {
+        background-color: $scroll-bg-color;
+        border-radius: 20px;
+    }
+}
+
+.topics__content {
+
+    &__title {
+        font-size: 1.5em;
+    }
+
+    &__text {
+
+        a {
+            font-size: 1em;
+        }
+    }
+}
+}
