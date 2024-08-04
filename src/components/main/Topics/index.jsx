@@ -4,15 +4,17 @@ import AsideChat from './AsideChat';
 import CoursePath from './CoursePath';
 import CourseBar from './CourseBar';
 import ActiveCourse from './Content/activeCourse';
+import SupportWindow from './SupportWindow';
+import ModalCourseBar from './ModalCourseBar';
 import data from './Content/data.json';
 import support_icon from '../../../assets/icons/support_icon.svg'
 import close_support_icon from '../../../assets/icons/close_support_icon.svg'
-import SupportWindow from './SupportWindow';
 
 export default function Topics() {
     const [isChatOpened, setIsChatOpened] = useState(false)
-    const [isActive, setIsActive] = useState({});
-    const [coursesData, setCoursesData] = useState([]);
+    const [isPlanOpened, setIsPlanOpened] = useState(false)
+    const [isActive, setIsActive] = useState({})
+    const [coursesData, setCoursesData] = useState([])
     const [isSupportOpen, setIsSupportOpen] = useState(false)
 
     useEffect(() => {
@@ -24,9 +26,12 @@ export default function Topics() {
 
     const supportToggle = () => setIsSupportOpen(!isSupportOpen)
 
+    console.log("Rendering Topics with:", { coursesData, isActive, isPlanOpened });
+
     return (
         <div className={styles.topics}>
             <CourseBar setIsActive={setIsActive} isActive={isActive} coursesData={coursesData} />
+            {isPlanOpened && <ModalCourseBar isPlanOpened={isPlanOpened} setIsPlanOpened={setIsPlanOpened} isActive={isActive} setIsActive={setIsActive} coursesData={coursesData} />}
             <div className={styles.topics__center}>
                 <CoursePath isActive={isActive} coursesData={coursesData} />
                 <ActiveCourse isActive={isActive} />
@@ -34,7 +39,7 @@ export default function Topics() {
                 <img className={styles.topics__support} src={isSupportOpen ? close_support_icon : support_icon} onClick={supportToggle} alt="Support" />
                 <div className={styles.topics__center__buttons}>
                     <button className={styles.topics__center__buttons__bot} onClick={() => setIsChatOpened(true)}>Bot</button>
-                    <button className={styles.topics__center__buttons__plan}>Plan</button>
+                    <button className={styles.topics__center__buttons__plan} onClick={() => setIsPlanOpened(true)}>Plan</button>
                 </div>
             </div>
             <AsideChat isChatOpened={isChatOpened} setIsChatOpened={setIsChatOpened} />
