@@ -10,6 +10,7 @@ import close_support_icon from '../../../assets/icons/close_support_icon.svg'
 import SupportWindow from './SupportWindow';
 
 export default function Topics() {
+    const [isChatOpened, setIsChatOpened] = useState(false)
     const [isActive, setIsActive] = useState({});
     const [coursesData, setCoursesData] = useState([]);
     const [isSupportOpen, setIsSupportOpen] = useState(false)
@@ -32,11 +33,11 @@ export default function Topics() {
                 {isSupportOpen && <SupportWindow styles={styles} />}
                 <img className={styles.topics__support} src={isSupportOpen ? close_support_icon : support_icon} onClick={supportToggle} alt="Support" />
                 <div className={styles.topics__center__buttons}>
-                    <button className={styles.topics__center__buttons__bot}>Bot</button>
+                    <button className={styles.topics__center__buttons__bot} onClick={() => setIsChatOpened(true)}>Bot</button>
                     <button className={styles.topics__center__buttons__plan}>Plan</button>
                 </div>
             </div>
-            <AsideChat />
+            <AsideChat isChatOpened={isChatOpened} setIsChatOpened={setIsChatOpened} />
         </div>
     )
 }

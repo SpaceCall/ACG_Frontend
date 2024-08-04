@@ -43,3 +43,11 @@ $hover-bg-color: #c8c5c5;
         }
     }
 }
+
+@media screen and (max-width: 991.98px) {
+    .messageInput {
+        &__button {
+            width: 15%;
+        }
+    }
+}

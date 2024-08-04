@@ -3,7 +3,7 @@ import styles from './chatWindow.module.scss'
 import BotMessage from './BotMessage'
 import ChatTable from '../ChatTable'
 import ChatButtons from '../ChatButtons'
-import arrow from './../../../../assets/icons/black_arrow_left.svg'
+import ScrollToBottomButton from '../../../shared/ScrollToBottomButton'
 
 export default function ChatWindow({ messages, enableSubmit, chatId, setChatId }) {
   const [displayTime, setDisplayTime] = useState('')
@@ -76,12 +76,7 @@ export default function ChatWindow({ messages, enableSubmit, chatId, setChatId }
     <div ref={chatRef} className={styles.chatWindow}>
       {renderedPage}
       <ChatTable />
-      <ChatButtons />
-      {showScrollButton && (
-        <button onClick={scrollToBottom} className={styles.chatWindow__toBottom}>
-          <img src={arrow} alt="Down" />
-        </button>
-      )}
+      <ScrollToBottomButton show={showScrollButton} onClick={scrollToBottom} />
     </div>
   )
 }
