@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import styles from './chatWindow.module.scss'
 import BotMessage from './BotMessage'
 import ChatTable from '../ChatTable'
 import ChatButtons from '../ChatButtons'
+import arrow from './../../../../assets/icons/black_arrow_left.svg'
 
 export default function ChatWindow({ messages, enableSubmit, chatId, setChatId }) {
   const [displayTime, setDisplayTime] = useState('')
   const [renderedPage, setRenderedPage] = useState([])
+  const [showScrollButton, setShowScrollButton] = useState(false)
+  const chatRef = useRef(null)
 
   useEffect(() => {
-    //setDisplayTime(Math.ceil(Math.random() * (3000 - 2000) + 2000 ))
-
     const newRenderedPage = [
       ...messages.map((message) => {
         if (message.isUserSend === true) {
@@ -52,15 +53,35 @@ export default function ChatWindow({ messages, enableSubmit, chatId, setChatId }
           )
         }
       }),
-      ...renderedPage, // Добавляем текущий renderedPage после новых сообщений
+      ...renderedPage,
     ]
     setRenderedPage(newRenderedPage)
   }, [messages])
 
+  useEffect(() => {
+    const chatElement = chatRef.current
+    const handleScroll = () => chatElement.scrollTop === 0 ? setShowScrollButton(false) : setShowScrollButton(true)
+    chatElement.addEventListener('scroll', handleScroll)
+    return () => chatElement.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const scrollToBottom = () => {
+    chatRef.current.scrollTo({
+      top: chatRef.current.scrollHeight,
+      behavior: 'smooth',
+    })
+  }
+
   return (
-    <div className={styles.chatWindow}>
+    <div ref={chatRef} className={styles.chatWindow}>
       {renderedPage}
+      <ChatTable />
+      <ChatButtons />
+      {showScrollButton && (
+        <button onClick={scrollToBottom} className={styles.chatWindow__toBottom}>
+          <img src={arrow} alt="Down" />
+        </button>
+      )}
     </div>
   )
 }
-
