@@ -129,13 +129,13 @@ export default function BotMessage({ text, time, enableSubmit, chatId, setChatId
     }, time / textBot.length);
   };
 
-  // return  (<div>
-  //             {isCourse ?  <ChatTable data={courseData} /> :
-  //               <div className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}>
-  //                 <span>{displayText}</span>
-  //               </div>
-  //             }
-  //           </div>
-  //         )
-  return(<ChatTable data={data} />)
+  return  (<div>
+              {isCourse ?  <ChatTable data={courseData} /> :
+                <div className={`${styles.chatWindow__message} ${styles.chatWindow__botMessage}`}>
+                  <span>{displayText}</span>
+                </div>
+              }
+            </div>
+          )
+  //return(<ChatTable data={data} />)
 }
