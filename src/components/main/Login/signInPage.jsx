@@ -20,7 +20,6 @@ export default function SignInPage({ toSignUp }) {
     const langContext = useContext(LangContext);
     const navigate = useNavigate();
 
-    const logined = () => langContext.setIsLogged(true);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -57,7 +56,7 @@ export default function SignInPage({ toSignUp }) {
                 const response = await api.login(data)
                 console.log( JSON.stringify(response))
                 Cookies.set('userToken', JSON.stringify(response), { expires: 7 });
-                logined()
+                window.location.href = '/'
                 //setIsCheck(true)
                 //navigate(`/`);
                 // Обработка успешного входа

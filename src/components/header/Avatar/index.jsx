@@ -3,16 +3,17 @@ import styles from './avatar.module.scss';
 import { LangContext } from '../../../context/Context';
 import api from '../../../service/api';
 import Cookies from 'js-cookie';
+import { useLocation } from 'react-router-dom';
 export default function Avatar() {
     const [isLogoutDropdown, setIsLogoutDropdown] = useState(false);
     const langContext = useContext(LangContext);
     const avatarRef = useRef(null);
     const [user, setUser] = useState({ name: '', username: '', email: '', createdAt: '' });
     const [isLoading, setIsLoading] = useState(true); // Loading state
-
+    const location = useLocation();
     const toggleLogoutDropdown = () => setIsLogoutDropdown(!isLogoutDropdown);
     const logout = () =>{
-    Cookies.remove('userToken', { path: '', domain: '.localhost:3000' })
+    Cookies.remove('userToken')
     langContext.setIsLogged(false);
 }
 
@@ -36,9 +37,10 @@ export default function Avatar() {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await api.getUserData();
+                const response = await api.getUserData(fetchUserData);
                 if (response) {
                     setUser(response);
+                    console.log("usergeted")
                 } else {
                     console.error('Unexpected response format:', response);
                 }
@@ -49,10 +51,10 @@ export default function Avatar() {
             }
         };
         fetchUserData();
-    }, []);
+    }, [location]);
 
     if (isLoading) {
-        return <div>Loading...</div>; // Show loading state
+        return <div></div>; // Show loading state
     }
 
     return (

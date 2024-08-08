@@ -3,7 +3,7 @@ import api from '../../../../../service/api'
 import Cookies from 'js-cookie';
 import EmailInput from '../../inputs/EmailInput';
 import { FormattedMessage } from 'react-intl';
-
+import CurrentModal from '../CurrentModal';
 export default function ForgotModal({ styles, onClose, errors = {} }) {
     const [error, setError] = useState(false)
     const [email, setEmail] = useState('')
@@ -13,7 +13,7 @@ export default function ForgotModal({ styles, onClose, errors = {} }) {
         e.preventDefault()
         setShowed(true)
         try {
-            const response = await api.forgotPassword({ "email": email })
+            const response = await api.forgotPassword({ "email": email },forgotPasswod)
         } catch (error) {
             setError('пипипупупу')
             console.error('Ошибка при входе', error);
@@ -38,10 +38,10 @@ export default function ForgotModal({ styles, onClose, errors = {} }) {
                                 email={email}
                                 setEmail={setEmail}
                                 errors={error.email} />
-                            {showed && <p><FormattedMessage id='modals.forgot.changed'></FormattedMessage></p>}
                             <button type="submit" className={styles.welcome__modal__body__btn}><FormattedMessage id='modals.forgot.send'></FormattedMessage></button>
                         </form>
                     </div>
+                    {showed && <CurrentModal userEmail={email} modalType={"check"} styles={styles} onClose={() => setShowed(false)} errors={error} />}
                 </div>
             </div>
         </div>

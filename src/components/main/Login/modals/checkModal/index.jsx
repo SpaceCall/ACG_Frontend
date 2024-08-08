@@ -1,8 +1,8 @@
 import React from 'react'
 import { FormattedMessage } from 'react-intl';
 
-export default function CheckModal({ styles, onClose }) {
-    const email = 'example@gmail.com'
+export default function CheckModal({ styles, onClose, userEmail }) {
+    const email = userEmail ? userEmail : 'example@gmail.com'
 
     return (
         <div className={styles.welcome__modal}>

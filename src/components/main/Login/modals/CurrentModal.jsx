@@ -10,7 +10,7 @@ export default function CurrentModal({ modalType, styles, onClose, errors, userE
         case 'forgot':
             return <ForgotModal styles={styles} onClose={onClose} errors={errors} />;
         case 'check':
-            return <CheckModal styles={styles} onClose={onClose} />;
+            return <CheckModal userEmail={userEmail} styles={styles} onClose={onClose} />;
         case 'success':
             return <SuccessModal userEmail={userEmail} styles={styles} onClose={onClose} />;
         case 'reset':

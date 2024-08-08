@@ -3,6 +3,7 @@ import { IntlProvider } from 'react-intl';
 import { useParams } from 'react-router-dom';
 import English from '../lang/en.json';
 import Ukrainian from '../lang/uk.json';
+import Cookies from 'js-cookie';
 
 export const LangContext = createContext(null);
 
@@ -21,6 +22,7 @@ export default function Context({ children }) {
 
     useEffect(() => {
         localStorage.setItem('locale', activeLang)
+        setIsLogged(Cookies.get('userToken') ? true : false)
     }, [activeLang])
 
     const setUkrainianLang = () => setActiveLang('uk')
