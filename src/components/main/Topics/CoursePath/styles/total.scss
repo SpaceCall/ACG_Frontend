@@ -1,0 +1,32 @@
+$text-color: #686868;
+$active-text-color: #0C0C0C;
+
+.topics__coursePath {
+    grid-column: 2;
+    grid-row: 1 / 2;
+
+    &__wrapper{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    &__nonActive {
+        font-family: 'Fixel Text';
+        color: $text-color;
+        font-size: 1em;
+        line-height: 150%;
+    }
+
+    &__slash {
+        margin: 0 5px;
+    }
+
+    a{
+        text-decoration: none;
+    }
+
+    &__active {
+        color: $active-text-color;
+        font-weight: 600;
+    }
+}

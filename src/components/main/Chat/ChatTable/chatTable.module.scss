@@ -1,6 +1,7 @@
 $bg-color: #F8F8F8;
 $text-color: #0C0C0C;
 $border-color: #716F76;
+$red-color: #FF6969;
 
 .chatTable {
     background-color: $bg-color;
@@ -88,5 +89,88 @@ $border-color: #716F76;
 }
 
 .subRow td {
-    padding-left: 32px; /* Indent for subitems */
+    padding-left: 32px; 
+}/* Indent for subitems */
+@media screen and (max-width: 992px) {
+    .chatTable {
+        overflow: hidden;
+
+        colgroup {
+
+            col:nth-child(1),
+            col:nth-child(2),
+            col:nth-child(3),
+            col:nth-child(4) {
+                width: 100%;
+            }
+        }
+
+        thead,
+        tbody tr:not(:last-child) {
+            position: relative;
+
+            &::after {
+                width: 100%;
+            }
+        }
+
+        thead {
+            tr {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        tbody {
+            tr {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                transition: transform 0.3s ease-in-out;
+
+                td {
+                    flex: 0 0 36%;
+                    transition: all .3s;
+
+                    &:nth-child(3) {
+                        text-align: center;
+                        margin-left: 15px;
+                    }
+
+                    &:last-child img {
+                        width: 50px;
+                        height: 64px;
+                        margin-top: 5px;
+                        padding: 10px;
+                        background-color: $red-color;
+                    }
+                }
+
+                &.activeRow td {
+                    transform: translateX(-57%);
+                }
+            }
+        }
+
+        .hideableColumn button img {
+            content: url('./../../../../assets/icons/trash_can_white.svg');
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .chatTable tbody tr {
+        &.activeRow td {
+            transform: translateX(-70%);
+        }
+    }
+}
+
+@media (max-width: 481px) {
+    .chatTable tbody tr {
+        &.activeRow td {
+            transform: translateX(-100%);
+        }
+    }
 }

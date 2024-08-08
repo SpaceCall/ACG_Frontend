@@ -16,3 +16,9 @@ $purple-color: #6147FF;
         color: $purple-color;
     }
 }
+
+@media screen and (max-width: 991.98px) {
+    .courseBar {
+        display: none;
+    }
+}

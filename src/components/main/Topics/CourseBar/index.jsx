@@ -3,9 +3,7 @@ import styles from './courseBar.module.scss';
 import document from '../../../../assets/icons/text_icon_b.svg';
 
 export default function CourseBar({ setIsActive, isActive, coursesData }) {
-    const handleCourseClick = (course) => {
-        setIsActive(course);
-    };
+    const handleCourseClick = (course) => setIsActive(course)
 
     return (
         <div className={styles.courseBar}>

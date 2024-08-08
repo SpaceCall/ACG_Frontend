@@ -1,0 +1,36 @@
+@media screen and (min-width: 481px) and (max-width: 991.98px) {}
+
+@media screen and (min-width: 768px) and (max-width: 991.98px) {}
+
+@media screen and (max-width: 991.98px) {
+    .topics__coursePath {
+        width: 90%;
+
+        &__wrapper {
+            display: flex;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        &__nonActive {
+            display: none;
+        }
+
+        &__active {
+            position: relative;
+            font-weight: 700;
+            &::before{
+                content: url(../../../../../assets/icons/black_arrow_left.svg);
+                display: block;
+                transform: scale(.5);
+                position: absolute;
+                right: 100%;
+                top: 2px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767.98px) {}

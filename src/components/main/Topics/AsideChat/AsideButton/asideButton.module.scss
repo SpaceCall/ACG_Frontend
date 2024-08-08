@@ -11,3 +11,9 @@ $bg-color: #0C0C0C;
     top: calc(50% - 50px);
     right: 100%;
 }
+
+@media screen and (max-width: 991.98px) {
+    .asideButton{
+        display: none;
+    }
+}

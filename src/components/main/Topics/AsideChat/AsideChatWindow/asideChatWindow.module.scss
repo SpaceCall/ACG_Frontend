@@ -101,3 +101,14 @@ $bot-mess-bg: #F8F8F8;
 
     @extend %scroll-style;
 }
+
+@media screen and (max-width: 991.98px) {
+    .asideChatWindow {
+        display: flex;
+        height: 100%;
+    
+        &__message {
+            font-size: 1em;
+        }
+    }
+}

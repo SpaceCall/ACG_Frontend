@@ -1,14 +1,4 @@
-.topics {
-    margin: 40px 0 0;
-    overflow: hidden;
-    height: calc(100vh - 116px);
-    display: grid;
-    grid-template: repeat(2, auto) / 21% auto 21%;
-
-    &__center {
-        display: flex;
-        flex-direction: column;
-        overflow-y: hidden;
-        gap: 32px;
-    }
-}
+@import "styles/total.scss";
+@import "styles/pc.scss";
+@import "styles/tablet.scss";
+@import "styles/mobile.scss";

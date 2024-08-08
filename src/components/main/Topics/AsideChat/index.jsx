@@ -4,8 +4,7 @@ import AsideButton from './AsideButton'
 import AsideChatWindow from './AsideChatWindow'
 import AsideMessageInput from './AsideMessageInput'
 
-export default function AsideChat() {
-    const [isOpened, setIsOpened] = useState(false)
+export default function AsideChat({ isChatOpened, setIsChatOpened }) {
     const chatRef = useRef(null)
     const [messages, setMessages] = useState([])
     const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
@@ -51,11 +50,12 @@ export default function AsideChat() {
             className={styles.asideChat}
             ref={chatRef}
             style={{
-                transform: `translateX(${isOpened ? '0' : '100%'})`,
+                transform: `translateX(${isChatOpened ? '0' : '100%'})`,
             }}
         >
             <div className={styles.asideChat__wrapper}>
-                <AsideButton isOpened={isOpened} setIsOpened={setIsOpened} chatRef={chatRef} />
+                <div className={styles.asideChat__close} onClick={() => setIsChatOpened(false)}>X</div>
+                <AsideButton isOpened={isChatOpened} setIsOpened={setIsChatOpened} chatRef={chatRef} />
                 <AsideChatWindow messages={messages} enableSubmit={enableSubmit} />
                 <AsideMessageInput sendMessage={sendMessage} isSubmitDisabled={isSubmitDisabled} />
             </div>

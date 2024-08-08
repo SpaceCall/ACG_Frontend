@@ -1,0 +1,28 @@
+$black-color: #000000;
+$white-color: #FFFFFF;
+
+.scrollToBottomButton {
+    position: fixed;
+    bottom: 120px;
+    left: calc(50% - 16.5px);
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    border: 1px $black-color solid;
+    background-color: $white-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    img {
+        width: 12px;
+        transform: rotate(270deg)
+    }
+}
+
+@media screen and (max-width: 991.98px) {
+    .scrollToBottomButton {
+        bottom: 200px;
+    }
+}

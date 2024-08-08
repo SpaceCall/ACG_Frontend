@@ -1,20 +1,4 @@
-$bg-color: #F8F8F8;
-$input-color: #FFFFFF;
-$aside-btn-bg-color: #0C0C0C;
-
-.asideChat {
-    display: flex;
-    flex-direction: column;
-    background-color: $bg-color;
-    position: fixed;
-    right: 0;
-    left: 79%;
-    top: 75px;  
-    border-radius: 12px 0 0 12px;
-    transition: all .3s ease-in;
-    &__wrapper{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-}
+@import "styles/total.scss";
+@import "styles/pc.scss";
+@import "styles/tablet.scss";
+@import "styles/mobile.scss";

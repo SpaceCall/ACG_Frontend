@@ -12,16 +12,16 @@ export default function CoursePath({ isActive }) {
         <div className={styles.topics__coursePath}>
             <div className={styles.topics__coursePath__wrapper}>
                 {pathParts.map((pathPart, index) => (
-                    <span className={styles.topics__coursePath__nonActive} key={index}>
+                    <>
                         {index < pathParts.length - 1 ? (
-                            <>
+                            <span className={styles.topics__coursePath__nonActive} key={index}>
                                 {pathPart}
                                 <span className={styles.topics__coursePath__slash}>/</span>
-                            </>
+                            </span>
                         ) : (
                             <span className={styles.topics__coursePath__active}>{pathPart}</span>
                         )}
-                    </span>
+                    </>
                 ))}
             </div>
         </div>
