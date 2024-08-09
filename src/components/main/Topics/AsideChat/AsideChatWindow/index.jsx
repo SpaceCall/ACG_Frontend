@@ -7,6 +7,10 @@ export default function AsideChatWindow({ messages, enableSubmit }) {
   const [renderedPage, setRenderedPage] = useState([])
   const [showScrollButton, setShowScrollButton] = useState(false)
   const chatRef = useRef(null)
+  const currentStyles = [
+    styles.asideChatWindow__message,
+    styles.asideChatWindow__botMessage
+  ]
 
   useEffect(() => {
     setDisplayTime(Math.ceil(Math.random() * 2000))
@@ -20,9 +24,7 @@ export default function AsideChatWindow({ messages, enableSubmit }) {
           )
         } else if (message.type === 'message') {
           return (
-            <div key={message.id} className={`${styles.asideChatWindow__message} ${styles.asideChatWindow__botMessage}`}>
-              <BotMessage enableSubmit={enableSubmit} time={displayTime} text={message.label} />
-            </div>
+            <BotMessage key={message.id} enableSubmit={enableSubmit} time={displayTime} text={message.label} currentStyles={currentStyles} />
           )
         }
       }),

@@ -61,11 +61,11 @@ $sign_up_bg_hovered_color: #F8F8F8;
 @media screen and (max-width: 991.98px) {
     .header__loginButtons {
         grid-column: 4;
+        .signUp {
+            display: none;
+        }
     }
 
-    .signUp {
-        display: none;
-    }
 
     .signIn span {
         font-size: 0.75em;
