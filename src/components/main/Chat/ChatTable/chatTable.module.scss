@@ -35,7 +35,7 @@ $red-color: #FF6969;
     thead,
     tbody tr:not(:last-child) {
         position: relative;
-        
+
         &::after {
             content: "";
             position: absolute;
@@ -51,10 +51,14 @@ $red-color: #FF6969;
         font-size: 1.4em;
         font-weight: 700;
         line-height: 114.286%;
+
+        th:first-child {
+            padding-left: 10px;
+        }
     }
 
     tbody {
-       
+
         justify-content: center;
         font-size: 0.75em;
         line-height: 133.333%;
@@ -63,10 +67,15 @@ $red-color: #FF6969;
     tr {
         height: 64px;
         background: none;
+
         button {
             border: none;
             background: none;
             cursor: pointer;
+        }
+
+        &>td:first-child {
+            transform: translateX(15px);
         }
     }
 }
@@ -75,22 +84,51 @@ $red-color: #FF6969;
     cursor: pointer;
 }
 
-.subRow {
-    background-color: $bg-color;
-    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
+@keyframes slideIn {
+    0% {
+        max-height: 0;
+        opacity: 0;
+        transform: scaleY(0);
+    }
+
+    50% {
+        max-height: 500px;
+        opacity: 1;
+        transform: scaleY(50%);
+    }
+
+    100% {
+        max-height: 500px;
+        opacity: 1;
+        padding: 10px 0;
+        transform: scaleY(100%);
+    }
 }
 
-.subRow.animate {
-    max-height: 500px; /* Max height after animation */
+.subTopicsWrapper {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    background-color: #f9f9f9;
+    /* Змінюйте на потрібний фон */
+}
+
+.animate {
+    max-height: 500px;
+    /* Змініть на висоту, яка відповідає вашому контенту */
     opacity: 1;
 }
 
+.subRow {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
 .subRow td {
-    padding-left: 32px; 
-}/* Indent for subitems */
+    padding-left: 32px;
+}
+
 @media screen and (max-width: 992px) {
     .chatTable {
         overflow: hidden;

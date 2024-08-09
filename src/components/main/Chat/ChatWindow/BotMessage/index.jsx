@@ -129,14 +129,14 @@ export default function BotMessage({ text, time, enableSubmit, chatId, setChatId
     }, time / textBot.length);
   };
 
-  return (
-    <>
-      {isCourse ? <ChatTable data={courseData} /> :
-        <div className={currentStyles && currentStyles.join(' ')}>
-          <span>{displayText}</span>
-        </div>
-      }
-    </>
-  )
-  //return(<ChatTable data={data} />)
+  // return (
+  //   <>
+  //     {isCourse ? <ChatTable data={courseData} /> :
+  //       <div className={currentStyles && currentStyles.join(' ')}>
+  //         <span>{displayText}</span>
+  //       </div>
+  //     }
+  //   </>
+  // )
+  return(<ChatTable data={data} />)
 }

@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import styles from './chatTable.module.scss';
+import arrow from '../../../../assets/icons/open_topic.svg'
 
 const ChatTable = ({ data }) => {
   const [openBlock, setOpenBlock] = useState(null);
@@ -18,6 +19,7 @@ const ChatTable = ({ data }) => {
         <col />
         <col />
         <col />
+        <col />
       </colgroup>
       <thead>
         <tr>
@@ -33,6 +35,7 @@ const ChatTable = ({ data }) => {
               <td>{index + 1}</td>
               <td>{blockTitle}</td>
               <td>{data[blockTitle].length} Subtopics</td>
+              <td><img src={arrow} alt="" /></td>
             </tr>
             {openBlock === blockTitle && data[blockTitle].map((topic, topicIndex) => (
               <tr key={`${index}-${topicIndex}`} className={`${styles.subRow} ${styles.animate}`}>
