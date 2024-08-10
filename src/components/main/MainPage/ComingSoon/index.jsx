@@ -6,8 +6,9 @@ export default function ComingSoon() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            height: 'calc(100vh - 283.4px)',
-            fontSize: '4em'
+            height: '100vh',
+            fontSize: '3em',
+            textAlign: 'center'
         }}>Coming soon</h1>
     )
 }
