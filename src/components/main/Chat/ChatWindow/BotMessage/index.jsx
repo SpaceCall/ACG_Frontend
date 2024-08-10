@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Loader from '../Loader';
 import api from '../../../../../service/api';
 import ChatTable from '../../ChatTable';
+import ChatButtons from '../../ChatButtons';
 export default function BotMessage({ text, time, enableSubmit, chatId, setChatId, disable, currentStyles }) {
   const [displayText, setDisplayText] = useState('');
   const [courseData, setCourseData] = useState({});
@@ -129,14 +130,17 @@ export default function BotMessage({ text, time, enableSubmit, chatId, setChatId
     }, time / textBot.length);
   };
 
-  // return (
-  //   <>
-  //     {isCourse ? <ChatTable data={courseData} /> :
-  //       <div className={currentStyles && currentStyles.join(' ')}>
-  //         <span>{displayText}</span>
-  //       </div>
-  //     }
-  //   </>
-  // )
-  return(<ChatTable data={data} />)
+  const getChatId = () => {
+    return chatId
+  }
+  return (
+    <>
+      {isCourse ? <div><ChatTable data={courseData}/> <ChatButtons getChatId={getChatId}/></div> :
+        <div className={currentStyles && currentStyles.join(' ')}>
+          <span>{displayText}</span>
+        </div>
+      }
+    </>
+  )
+  //return(<ChatTable data={data} />)
 }

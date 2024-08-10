@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import styles from './topics.module.scss';
 import AsideChat from './AsideChat';
 import CoursePath from './CoursePath';
@@ -6,25 +7,43 @@ import CourseBar from './CourseBar';
 import ActiveCourse from './Content/activeCourse';
 import SupportWindow from './SupportWindow';
 import ModalCourseBar from './ModalCourseBar';
+import api from '../../../service/api';
+import support_icon from '../../../assets/icons/support_icon.svg';
+import close_support_icon from '../../../assets/icons/close_support_icon.svg';
 import data from './Content/data.json';
-import support_icon from '../../../assets/icons/support_icon.svg'
-import close_support_icon from '../../../assets/icons/close_support_icon.svg'
 
 export default function Topics() {
-    const [isChatOpened, setIsChatOpened] = useState(false)
-    const [isPlanOpened, setIsPlanOpened] = useState(false)
-    const [isActive, setIsActive] = useState({})
-    const [coursesData, setCoursesData] = useState([])
-    const [isSupportOpen, setIsSupportOpen] = useState(false)
+    const { token } = useParams(); // Получаем ID курса из URL
+    const [isChatOpened, setIsChatOpened] = useState(false);
+    const [isPlanOpened, setIsPlanOpened] = useState(false);
+    const [isActive, setIsActive] = useState({});
+    const [coursesData, setCoursesData] = useState([]);
+    const [isSupportOpen, setIsSupportOpen] = useState(false);
 
     useEffect(() => {
-        if (data && data.response) {
-            setCoursesData(data.response);
-            setIsActive(data.response[0]);
-        }
+        const fetchCourseData = async () => {
+            try {
+                const course = await api.getCourdeById(token);
+                console.log(course)
+                for (let i = 0; i < course.topicsId.length; i++) {
+                    try {
+                        const topic = await api.getTopicId(course.topicsId[i]);
+                        console.log(topic)
+                    } catch (error) {
+                        console.error('Error fetching course by ID', error);
+                    }
+                }
+                setCoursesData(data.response);
+                setIsActive(data.response[0]);
+            } catch (error) {
+                console.error('Error fetching course data', error);
+            }
+        };
+
+        fetchCourseData();
     }, []);
 
-    const supportToggle = () => setIsSupportOpen(!isSupportOpen)
+    const supportToggle = () => setIsSupportOpen(!isSupportOpen);
 
     console.log("Rendering Topics with:", { coursesData, isActive, isPlanOpened });
 
@@ -42,7 +61,6 @@ export default function Topics() {
                     <button className={styles.topics__center__buttons__plan} onClick={() => setIsPlanOpened(true)}>Plan</button>
                 </div>
             </div>
-            <AsideChat isChatOpened={isChatOpened} setIsChatOpened={setIsChatOpened} />
         </div>
-    )
+    );
 }

@@ -169,6 +169,41 @@ const apiService = {
       throw error;
     }
   },
+  generateCourse: async (data) => {
+    try {
+      const response = await api.post(`/chat/generate/${data}`);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
+  getAllCourse: async () => {
+    try {
+      const response = await api.get(`/courses/courses`);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
+  getCourdeById: async (data) => {
+    try {
+      const response = await api.get(`/courses/${data}`);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
+  getTopicId: async (data) => {
+    try {
+      const response = await api.get(`/courses/topic/${data}`);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
+  test: async (data) => {
+    return '12312312'
+  },
   // Добавьте другие методы, которые вам нужны
 };
 

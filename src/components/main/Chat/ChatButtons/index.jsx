@@ -1,24 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import styles from './chatButtons.module.scss'
-import { NavLink } from 'react-router-dom'
-
-export default function ChatButtons({ time }) {
-
-  const [displayContent, setDisplayContent] = useState('')
+import api from '../../../../service/api';
+export default function ChatButtons({ getChatId }) {
+  const generateCourse = async () => {
+    console.log(getChatId())
+    try {
+        const response = await api.generateCourse(getChatId());
+        console.log(response);
+    } catch (error) {
+      console.error('Error during fetching bot message', error);
+    }
+  };
   const button = <div className={styles.chatButtons}>
     <a className={styles.chatButtons__cancel}>No, I want to change something</a>
-    <NavLink to={"/topics"} className={styles.chatButtons__confirm}>Yes, generate course</NavLink>
+    <a className={styles.chatButtons__confirm} onClick={generateCourse}>Yes, generate course</a>
   </div>
-  useEffect(() => {
-    setDisplayContent('')
-    const timer = setTimeout(() => {
-      setDisplayContent(button)
-    }, time)
-    return () => {
-      clearTimeout(timer)
-    }
-  }, [])
+
   return (
-    <div>{displayContent}</div>
+    <div>{button}</div>
   )
 }

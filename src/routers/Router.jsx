@@ -26,7 +26,7 @@ export default function Router() {
             <Route path='/signIn' element={<SignInPage />} />
             <Route path='/signUp' element={<SignUpPage />} />
             <Route path='/chat' element={<Chat />} />
-            <Route path='/topics' element={<Topics />} />
+            <Route path='/topics/:token' element={<Topics />} />
             <Route path='/debug' element={<Debug />} />
             <Route path='/reset-password/:token' element={<PasswordReset />} />
             <Route path='/courses' element={<UserCoursesPage />}></Route>
