@@ -1,3 +1,73 @@
-@media screen and (min-width: 481px) and (max-width: 991.98px) {
+@media screen and (min-width: 481px) and (max-width: 991.98px) {}
 
+@media screen and (min-width: 768px) and (max-width: 991.98px) {}
+
+@media screen and (max-width: 991.98px) {
+    .welcome {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        &__image{
+            display: none;
+        }
+    
+        &__wrapper {
+            justify-content: center;
+        }
+    
+        &__field {
+            width: 50%;
+    
+            &__header {
+    
+                h2 {
+                    font-size: 3.25em;
+                }
+
+                p {
+                    font-size: 0.875em;
+                }
+            }
+    
+            &__body {
+    
+                .error {
+                    display: flex;
+                    flex-direction: column;
+    
+                    span {
+                        font-size: 0.75em;
+                        color: $red-color;
+                    }
+                }
+    
+                &__inputs div {
+                    label {
+                        font-size: 0.875em;
+                    }
+
+                    input {
+                        font-size: 0.75em;
+                    }
+                }
+            }
+    
+            &__footer {
+                &__forgot {
+                    font-size: 0.75em;
+                }
+
+                &__loginBtn {
+                    font-size: 0.875em;
+                }
+
+                &__signUp {
+                    font-size: 0.75em;
+                }
+            }
+        }
+    }
 }
+
+@media screen and (max-width: 767.98px) {}
