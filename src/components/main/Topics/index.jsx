@@ -22,29 +22,26 @@ export default function Topics() {
     const effectRan = useRef(false);
     useEffect(() => {
         if (effectRan.current) return;
-        // const fetchCourseData = async () => {
-        //     try {
-        //         const course = await api.getCourdeById(token);
-        //         console.log(course)
-        //         for (let i = 0; i < course.topicsId.length; i++) {
-        //             try {
-        //                 const topic = await api.getTopicId(course.topicsId[i]);
-        //                 console.log(topic)
-        //                 coursesData.push(topic)
-        //             } catch (error) {
-        //                 console.error('Error fetching course by ID', error);
-        //             }
-        //         }
-        //         setCoursesData(coursesData);
-        //         setIsActive(coursesData[0]);
-        //         console.log(coursesData)
-        //     } catch (error) {
-        //         console.error('Error fetching course data', error);
-        //     }
-        // };
-        setCoursesData(data);
-        setIsActive(data[0]);
-        // fetchCourseData();
+        const fetchCourseData = async () => {
+            try {
+                const course = await api.getCourdeById(token);
+                for (let i = 0; i < course.topicsId.length; i++) {
+                    try {
+                        const topic = await api.getTopicId(course.topicsId[i]);
+                        console.log(topic)
+                        coursesData.push(topic)
+                    } catch (error) {
+                        console.error('Error fetching course by ID', error);
+                    }
+                }
+                setCoursesData(coursesData);
+                setIsActive(coursesData[0].subtopics[0]);
+                console.log(coursesData[0])
+            } catch (error) {
+                console.error('Error fetching course data', error);
+            }
+        };
+        fetchCourseData();
         effectRan.current = true;
     }, []);
 

@@ -107,6 +107,7 @@ export default function BotMessage({ text, time, enableSubmit, chatId, setChatId
           }
         };
         waitMessage();
+        enableSubmit();
       }
     }
   }, []);

@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './coursePath.module.scss'
 
 export default function CoursePath({ isActive }) {
+
     const pathParts = [
         'Courses',
         'Coding',

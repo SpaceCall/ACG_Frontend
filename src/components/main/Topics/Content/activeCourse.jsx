@@ -10,8 +10,7 @@ export default function ActiveCourse({ isActive }) {
                     {/* <h2>{isActive?.title}</h2> */}
                 </div>
                 <div className={styles.topics__content__text}>
-                    {isActive?.links?.map((subtopic, index) => (
-                        <div key={index} className={styles.subtopic}>
+                        <div className={styles.subtopic}>
                             <h3>{isActive.title}</h3>
                             {isActive?.links?.map((item, linkIndex) => (
                                 <div key={linkIndex} className={styles.linkItem}>
@@ -22,7 +21,6 @@ export default function ActiveCourse({ isActive }) {
                                 </div>
                             ))}
                         </div>
-                    ))}
                 </div>
             </div>
         </div>
