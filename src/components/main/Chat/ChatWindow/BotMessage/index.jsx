@@ -94,11 +94,11 @@ export default function BotMessage({ text, time, enableSubmit, chatId, setChatId
             console.log(text);
             const response = await api.chat(chatId, JSON.stringify({ message: text }), waitMessage);
             console.log(response);
+            setChatId(response.chatId);
             if (response.plan) {
               setCourseData(response.plan)
               setIsCourse(true)
             } else {
-              setChatId(response.chatId);
               setTextBot(response.answer);
             }
 
@@ -135,7 +135,7 @@ export default function BotMessage({ text, time, enableSubmit, chatId, setChatId
   }
   return (
     <>
-      {isCourse ? <div><ChatTable data={courseData}/> <ChatButtons getChatId={getChatId}/></div> :
+      {isCourse ? <div><ChatTable data={courseData}/> <ChatButtons getChatId={getChatId} /></div> :
         <div className={currentStyles && currentStyles.join(' ')}>
           <span>{displayText}</span>
         </div>

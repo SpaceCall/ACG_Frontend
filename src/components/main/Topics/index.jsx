@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './topics.module.scss';
 import AsideChat from './AsideChat';
@@ -19,8 +19,9 @@ export default function Topics() {
     const [isActive, setIsActive] = useState({});
     const [coursesData, setCoursesData] = useState([]);
     const [isSupportOpen, setIsSupportOpen] = useState(false);
-
+    const effectRan = useRef(false);
     useEffect(() => {
+        if (effectRan.current) return;
         const fetchCourseData = async () => {
             try {
                 const course = await api.getCourdeById(token);
@@ -29,18 +30,20 @@ export default function Topics() {
                     try {
                         const topic = await api.getTopicId(course.topicsId[i]);
                         console.log(topic)
+                        coursesData.push(topic)
                     } catch (error) {
                         console.error('Error fetching course by ID', error);
                     }
                 }
-                setCoursesData(data.response);
-                setIsActive(data.response[0]);
+                setCoursesData(coursesData);
+                setIsActive(coursesData[0]);
+                console.log(coursesData)
             } catch (error) {
                 console.error('Error fetching course data', error);
             }
         };
-
         fetchCourseData();
+        effectRan.current = true;
     }, []);
 
     const supportToggle = () => setIsSupportOpen(!isSupportOpen);
