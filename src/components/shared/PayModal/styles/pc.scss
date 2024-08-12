@@ -1,7 +1,4 @@
 @media screen and (min-width: 992px) {
-    $grey-color: #DFDFDF;
-    $white-color: #FFFFFF;
-
     .isPayModal {
         &__content {
             width: 80%;
@@ -42,6 +39,12 @@
                         font-size: 1em;
                         width: 30%;
                     }
+                }
+
+            }
+            &__close{
+                span{
+                    display: none;
                 }
             }
         }

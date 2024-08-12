@@ -15,7 +15,7 @@ export default function PayModal() {
             <div className={styles.isPayModal__wrapper}>
                 <div className={styles.isPayModal__content}>
                     <div className={styles.isPayModal__header}>
-                        <a href='/' className={styles.isPayModal__header__close}><img src={close_icon} alt="X" /></a>
+                        <a href='/' className={styles.isPayModal__header__close}><span>X</span><img src={close_icon} alt="X" /></a>
                         <div className={styles.isPayModal__header__payment}>
                             <div className={styles.isPayModal__header__payment__data}>
                                 <h3>Payment data</h3>
