@@ -3,10 +3,14 @@ import styles from './courseBar.module.scss';
 import document from '../../../../assets/icons/text_icon_b.svg';
 
 export default function CourseBar({ setIsActive, isActive, coursesData }) {
-    const [activeCourse, setActiveCourse] = useState(null);
+    const [activeCourses, setActiveCourses] = useState([]);
 
     const handleCourseClick = (course) => {
-        setActiveCourse(activeCourse === course ? null : course);
+        if (activeCourses.includes(course)) {
+            setActiveCourses(activeCourses.filter((active) => active !== course));
+        } else {
+            setActiveCourses([...activeCourses, course]);
+        }
     };
 
     return (
@@ -20,7 +24,7 @@ export default function CourseBar({ setIsActive, isActive, coursesData }) {
                         <img src={document} alt="" />
                         <span>{course.title}</span>
                     </div>
-                    {activeCourse === course && (
+                    {activeCourses.includes(course) && (
                         <div className={styles.subtopics}>
                             {course.subtopics.map((subtopic, subIndex) => (
                                 <div key={subIndex} className={styles.courseBar__topic}>

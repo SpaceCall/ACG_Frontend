@@ -171,7 +171,7 @@ const apiService = {
   },
   generateCourse: async (data) => {
     try {
-      const response = await api.post(`/chat/generate/${data}`);
+      const response = await api.post(`/chat/generateCourse/${data}`);
       return response.data;
     } catch (error) {
       throw error;
@@ -196,6 +196,22 @@ const apiService = {
   getTopicId: async (data) => {
     try {
       const response = await api.get(`/courses/topic/${data}`);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
+  dontLikePlan: async (data) => {
+    try {
+      const response = await api.post(`/chat/dontLikePlan/${data}`);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
+  generatePlan: async (data) => {
+    try {
+      const response = await api.post(`/chat/generatePlan/${data}`);
       return response.data;
     } catch (error) {
       throw error;

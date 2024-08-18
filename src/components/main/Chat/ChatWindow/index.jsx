@@ -3,7 +3,7 @@ import styles from './chatWindow.module.scss'
 import BotMessage from './BotMessage'
 import ScrollToBottomButton from '../../../shared/ScrollToBottomButton'
 
-export default function ChatWindow({ messages, enableSubmit, chatId, setChatId }) {
+export default function ChatWindow({ missCourse, messages, enableSubmit, chatId, setChatId }) {
   const [displayTime, setDisplayTime] = useState('')
   const [renderedPage, setRenderedPage] = useState([])
   const [showScrollButton, setShowScrollButton] = useState(false)
@@ -12,7 +12,7 @@ export default function ChatWindow({ messages, enableSubmit, chatId, setChatId }
     styles.chatWindow__message,
     styles.chatWindow__botMessage
   ]
-
+  
   useEffect(() => {
     //setDisplayTime(Math.ceil(Math.random() * (3000 - 2000) + 2000 ))
 
@@ -27,11 +27,11 @@ export default function ChatWindow({ messages, enableSubmit, chatId, setChatId }
         } else if (message.type === 'message') {
           if (message.isFirst) {
             return (
-              <BotMessage key={message.id} enableSubmit={enableSubmit} text={message.label} disable={true} currentStyles={currentStyles} />
+              <BotMessage key={message.id} missCourse={missCourse} enableSubmit={enableSubmit} text={message.label} disable={message.disable} currentStyles={currentStyles} />
             )
           }
           return (
-            <BotMessage key={message.id} enableSubmit={enableSubmit} text={message.label} chatId={chatId} setChatId={setChatId} currentStyles={currentStyles} />
+            <BotMessage key={message.id} missCourse={missCourse} enableSubmit={enableSubmit} text={message.label} disable={message.disable} chatId={chatId} setChatId={setChatId} currentStyles={currentStyles} />
           )
         }
       }),

@@ -3,7 +3,7 @@ import Loader from '../Loader';
 import api from '../../../../../service/api';
 import ChatTable from '../../ChatTable';
 import ChatButtons from '../../ChatButtons';
-export default function BotMessage({ text, time, enableSubmit, chatId, setChatId, disable, currentStyles }) {
+export default function BotMessage({ missCourse, text, time, enableSubmit, chatId, setChatId, disable, currentStyles }) {
   const [displayText, setDisplayText] = useState('');
   const [courseData, setCourseData] = useState({});
   const [isCourse, setIsCourse] = useState(false)
@@ -95,19 +95,22 @@ export default function BotMessage({ text, time, enableSubmit, chatId, setChatId
             const response = await api.chat(chatId, JSON.stringify({ message: text }), waitMessage);
             console.log(response);
             setChatId(response.chatId);
-            if (response.plan) {
-              setCourseData(response.plan)
-              setIsCourse(true)
-            } else {
-              setTextBot(response.answer);
+            setTextBot(response.answer);
+            if (response.plan_size != null){
+              try {
+                const response = await api.generatePlan(chatId);
+                setCourseData(response)
+                setIsCourse(true)
+                enableSubmit();
+              }catch (error) {
+                console.error('Error during fetching plan', error);
+              }
             }
-
           } catch (error) {
             console.error('Error during fetching bot message', error);
           }
         };
         waitMessage();
-        enableSubmit();
       }
     }
   }, []);
@@ -130,13 +133,18 @@ export default function BotMessage({ text, time, enableSubmit, chatId, setChatId
       }
     }, time / textBot.length);
   };
-
   const getChatId = () => {
     return chatId
   }
   return (
     <>
-      {isCourse ? <div><ChatTable data={courseData}/> <ChatButtons getChatId={getChatId} /></div> :
+      {isCourse ? 
+      <div>
+        <div className={currentStyles && currentStyles.join(' ')}>
+          <span>{displayText}</span>
+        </div>
+        <ChatTable data={courseData}/> <ChatButtons missCourse={missCourse} getChatId={getChatId} /></div> :
+
         <div className={currentStyles && currentStyles.join(' ')}>
           <span>{displayText}</span>
         </div>

@@ -13,7 +13,7 @@ export default function ForgotModal({ styles, onClose, errors = {} }) {
         e.preventDefault()
         setShowed(true)
         try {
-            const response = await api.forgotPassword({ "email": email },forgotPasswod)
+            const response = await api.forgotPassword({ "email": email })
         } catch (error) {
             setError('пипипупупу')
             console.error('Ошибка при входе', error);

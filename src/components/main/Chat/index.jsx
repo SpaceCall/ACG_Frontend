@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import MessageInput from './MessageInput'
 import ChatWindow from './ChatWindow'
 import styles from './chat.module.scss'
-
+import api from './../../../service/api'
 export default function Chat() {
     const [messages, setMessages] = useState([{
         label: "Hello there! I'm here to create the perfect course just for you. To get started, I'd love to learn more about your preferences, including the course goal, your experience, and any specific wishes you have. Feel free to share, and we'll tailor the course to match your needs!",
@@ -10,6 +10,7 @@ export default function Chat() {
         type: 'message',
         id:Date.now()+1,
         isFirst:true,
+        disable:true,
       }])
     const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
     const [chatId, setChatId] = useState(null)
@@ -22,27 +23,40 @@ export default function Chat() {
         }
     }
 
-    const createBotMessages = (text) => {
+    const createBotMessages = (text,disable) => {
         return {
             label: text,
             isUserSend: false,
             type: "message",
             id:Date.now()+1,
+            disable:disable,
         }
     }
  
     const  sendMessage = (text) => {
         if (text.length >= 1) {
             setIsSubmitDisabled(true);
-            setMessages([createBotMessages(text),createUserMessages(text)]) 
+            setMessages([createBotMessages(text,false),createUserMessages(text)]) 
         }
     }
     const enableSubmit = () =>{
         setIsSubmitDisabled(false)
     }
+    const missCourse = async () => {
+        console.log('asdasd')
+        try {
+            const response = await api.dontLikePlan(chatId)
+            console.log(response);
+            setMessages([createBotMessages(response.bot,true)]) 
+          } catch (error) {
+            console.error('Error during fetching bot message', error);
+          }
+          console.log(messages)
+        //setMessages([createBotMessages('sosi'),createUserMessages('samsosi')]) 
+    };
     return (
         <div className={styles.chat}>
-            <ChatWindow messages={messages}  enableSubmit={enableSubmit} chatId={chatId} setChatId={setChatId} />
+            <ChatWindow missCourse={missCourse} messages={messages}  enableSubmit={enableSubmit} chatId={chatId} setChatId={setChatId} />
             <MessageInput sendMessage={sendMessage} isSubmitDisabled={isSubmitDisabled}/>
         </div>
     )
