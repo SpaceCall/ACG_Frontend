@@ -82,6 +82,18 @@ $red-color: #FF6969;
 
 .blockRow {
     cursor: pointer;
+
+    &__arrow {
+        transition: transform .3s;
+
+        &__closed {
+            transform: rotate(-90deg);
+        }
+
+        &__open {
+            transform: rotate(0deg);
+        }
+    }
 }
 
 @keyframes slideIn {
@@ -111,12 +123,10 @@ $red-color: #FF6969;
     opacity: 0;
     transition: max-height 0.5s ease, opacity 0.5s ease;
     background-color: #f9f9f9;
-    /* Змінюйте на потрібний фон */
 }
 
 .animate {
     max-height: 500px;
-    /* Змініть на висоту, яка відповідає вашому контенту */
     opacity: 1;
 }
 
