@@ -47,18 +47,19 @@ export default function ChatButtons({ getChatId, missCourse }) {
 
   const loader = (
     <div className={styles.chatButtons}>
-      <Loader />
-      <span>Ожидайте конца генерации курса{dots}</span>
+      <div className={styles.chatButtons__loaderMenu}>
+        <div className={styles.chatButtons__loader}></div>
+        <span className={styles.chatButtons__loaderMenu__upload}>Upload course <span>{dots}</span></span>
+      </div>
     </div>
   );
   const ready = (
     <div className={styles.chatButtons}>
-      <Link to={`/topics/${courseId}`}>проейти на курс</Link>
+      <Link to={`/topics/${courseId}`} className={styles.chatButtons__goTo}>Go to course</Link>
     </div>
   );
 
   return (
     <div>{loading ? (courseReady ? ready : loader) : button}</div>
   )
-  
 }

@@ -6,7 +6,7 @@ import ChatButtons from '../../ChatButtons';
 export default function BotMessage({ missCourse, text, time, enableSubmit, chatId, setChatId, disable, currentStyles }) {
     const [displayText, setDisplayText] = useState('');
     const [courseData, setCourseData] = useState({});
-    const [isCourse, setIsCourse] = useState(true)
+    const [isCourse, setIsCourse] = useState(false)
     const [textBot, setTextBot] = useState('');
 
     const loader = <Loader />;
@@ -143,7 +143,7 @@ export default function BotMessage({ missCourse, text, time, enableSubmit, chatI
                     <div className={currentStyles && currentStyles.join(' ')}>
                         <span>{displayText}</span>
                     </div>
-                    <ChatTable data={data} /> <ChatButtons missCourse={missCourse} getChatId={getChatId} /></div> :
+                    <ChatTable data={courseData} /> <ChatButtons missCourse={missCourse} getChatId={getChatId} /></div> :
 
                 <div className={currentStyles && currentStyles.join(' ')}>
                     <span>{displayText}</span>
