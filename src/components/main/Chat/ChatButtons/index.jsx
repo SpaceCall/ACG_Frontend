@@ -5,7 +5,7 @@ import api from '../../../../service/api';
 import { Link } from 'react-router-dom';
 import loader_icon from '../../../../assets/icons/loader.svg'
 export default function ChatButtons({ getChatId, missCourse }) {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [courseReady, setCourseReady] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [dots, setDots] = useState('');

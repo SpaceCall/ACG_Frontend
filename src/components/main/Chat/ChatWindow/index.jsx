@@ -63,7 +63,6 @@ export default function ChatWindow({ missCourse, messages, enableSubmit, chatId,
     <div ref={chatRef} className={styles.chatWindow}>
       {renderedPage}
       <ScrollToBottomButton show={showScrollButton} onClick={scrollToBottom} />
-      <ChatButtons />
     </div>
   )
 }
