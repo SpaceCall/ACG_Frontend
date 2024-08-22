@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import styles from './chatWindow.module.scss'
 import BotMessage from './BotMessage'
 import ScrollToBottomButton from '../../../shared/ScrollToBottomButton'
+import ChatButtons from '../ChatButtons'
 
 export default function ChatWindow({ missCourse, messages, enableSubmit, chatId, setChatId }) {
   const [displayTime, setDisplayTime] = useState('')
@@ -62,6 +63,7 @@ export default function ChatWindow({ missCourse, messages, enableSubmit, chatId,
     <div ref={chatRef} className={styles.chatWindow}>
       {renderedPage}
       <ScrollToBottomButton show={showScrollButton} onClick={scrollToBottom} />
+      <ChatButtons />
     </div>
   )
 }
