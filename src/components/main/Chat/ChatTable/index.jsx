@@ -6,11 +6,11 @@ const ChatTable = ({ data }) => {
     const [openBlocks, setOpenBlocks] = useState([]);
 
     const toggleBlock = (blockTitle) => {
-        if (openBlocks.includes(blockTitle)) {
-            setOpenBlocks(openBlocks.filter((title) => title !== blockTitle));
-        } else {
-            setOpenBlocks([...openBlocks, blockTitle]);
-        }
+        setOpenBlocks((prevOpenBlocks) =>
+            prevOpenBlocks.includes(blockTitle)
+                ? prevOpenBlocks.filter((title) => title !== blockTitle)
+                : [...prevOpenBlocks, blockTitle]
+        );
     };
 
     const table = useMemo(
@@ -32,7 +32,10 @@ const ChatTable = ({ data }) => {
                 <tbody>
                     {Object.keys(data).map((blockTitle, index) => (
                         <React.Fragment key={index}>
-                            <tr onClick={() => toggleBlock(blockTitle)} className={styles.blockRow}>
+                            <tr
+                                onClick={() => toggleBlock(blockTitle)}
+                                className={styles.blockRow}
+                            >
                                 <td>{index + 1}</td>
                                 <td>{blockTitle}</td>
                                 <td>{data[blockTitle].length} Subtopics</td>
@@ -40,15 +43,19 @@ const ChatTable = ({ data }) => {
                                     <img
                                         src={arrow}
                                         alt=""
-                                        className={`${styles.blockRow__arrow} ${openBlocks.includes(blockTitle) ? styles.blockRow__arrow__open : styles.blockRow__arrow__closed}`}
+                                        className={`${styles.blockRow__arrow} ${
+                                            openBlocks.includes(blockTitle)
+                                                ? styles.blockRow__arrow__open
+                                                : styles.blockRow__arrow__closed
+                                        }`}
                                     />
                                 </td>
                             </tr>
                             {openBlocks.includes(blockTitle) &&
                                 data[blockTitle].map((topic, topicIndex) => (
-                                    <tr key={`${index}-${topicIndex}`} className={`${styles.subRow} ${styles.animate}`}>
+                                    <tr key={`${index}-${topicIndex}`} className={styles.subRow}>
                                         <td>{index + 1}.{topicIndex + 1}</td>
-                                        <td colSpan="2">{topic}</td>
+                                        <td colSpan="3">{topic}</td>
                                     </tr>
                                 ))}
                         </React.Fragment>

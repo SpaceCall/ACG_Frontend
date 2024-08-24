@@ -96,35 +96,6 @@ $red-color: #FF6969;
     }
 }
 
-@keyframes slideIn {
-    0% {
-        max-height: 0;
-        opacity: 0;
-        transform: scaleY(0);
-    }
-
-    50% {
-        max-height: 500px;
-        opacity: 1;
-        transform: scaleY(50%);
-    }
-
-    100% {
-        max-height: 500px;
-        opacity: 1;
-        padding: 10px 0;
-        transform: scaleY(100%);
-    }
-}
-
-.subTopicsWrapper {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.5s ease, opacity 0.5s ease;
-    background-color: #f9f9f9;
-}
-
 .animate {
     max-height: 500px;
     opacity: 1;
@@ -133,10 +104,13 @@ $red-color: #FF6969;
 .subRow {
     padding: 10px;
     border-bottom: 1px solid #ddd;
+    animation: slideIn 0.5s ease forwards;
+    td { padding-left: 32px; }
 }
 
-.subRow td {
-    padding-left: 32px;
+@keyframes slideIn {
+    0% { max-height: 0; opacity: 0; transform: scaleY(0); }
+    100% { max-height: 500px; opacity: 1; transform: scaleY(1); }
 }
 
 @media screen and (max-width: 992px) {
