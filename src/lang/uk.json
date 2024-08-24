@@ -4,6 +4,12 @@
     "header.navigation.blog": "Блоги",
     "header.navigation.contacts": "Контакти",
 
+    "dropdown.profile": "Профіль",
+    "dropdown.courses": "Мої курси",
+    "dropdown.certificates": "Мої сертифікати",
+    "dropdown.feedback": "Зворотній зв'язок",
+    "dropdown.logout": "Вийти",
+
     "signUp": "Зареєструватись",
     "signIn": "Увійти",
 
@@ -86,6 +92,13 @@
 
     "modals.exists.header.title": "Вказана пошта вже використовується!",
     "modals.exists.message": "Спробуйте увійти",
+
+    "coursesPage.hello": "Вітаємо",
+    "coursesPage.subtitle": "Раді бачити тебе тут",
+
+    "coursesPage.courses": "Мої курси",
+    "coursesPage.active": "Активні",
+    "coursesPage.completed": "Пройдені",
 
     "footer.rights": "Всі права захищені"
 }

@@ -5,41 +5,73 @@ $grey-color: #686868;
 .courseBar {
     width: 100%;
     overflow-y: auto;
-    &__topic{
+
+    &__section {
+        border-bottom: 1px solid $black-color;
+    }
+
+    &__heading {
+        position: relative; 
+        cursor: pointer;
+        margin: 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+
+    &__checkbox {
+        display: none;
+    }
+
+    &__content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 1s ease;
+    }
+    
+    &__content.open {
+        transition: max-height 2s ease;
+        max-height: 1000px;
+    }
+
+    &__topic {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
         gap: 12px;
         padding: 22px 8px 22px 30px;
-        border-bottom: 2px $black-color solid;
         cursor: pointer;
-        &__left{
+    }
+
+    &__topic__left {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+
+        &__info {
             display: flex;
-            align-items: flex-start;
-            gap: 8px;
-            &__info{
-                display: flex;
-                flex-direction: column;
-                span:last-child{
-                    font-size: 0.75em;
-                    color: $grey-color;
-                }
+            flex-direction: column;
+            gap: 5px;
+
+            span:last-child {
+                font-size: 0.75em;
+                color: $grey-color;
             }
         }
     }
-    &__subtopic{
+
+    &__subtopic {
         display: flex;
         gap: 12px;
         padding: 22px 8px 22px 30px;
         cursor: pointer;
-        transition: all .3s;
-        &:last-child{
-            border-bottom: 2px $black-color solid;
-        }
     }
-    .active{
+
+    .active {
         color: $purple-color;
     }
+
     &__arrow {
         transition: transform .3s;
 
