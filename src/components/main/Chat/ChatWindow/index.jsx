@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react'
 import styles from './chatWindow.module.scss'
 import BotMessage from './BotMessage'
 import ScrollToBottomButton from '../../../shared/ScrollToBottomButton'
-import ChatButtons from '../ChatButtons'
 
 export default function ChatWindow({ missCourse, messages, enableSubmit, chatId, setChatId }) {
   const [displayTime, setDisplayTime] = useState('')
