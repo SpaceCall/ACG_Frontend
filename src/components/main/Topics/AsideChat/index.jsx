@@ -15,10 +15,11 @@ export default function AsideChat() {
                 transform: `translateX(${isOpened ? '0' : '100%'})`,
             }}
         >
-
             <AsideButton isOpened={isOpened} setIsOpened={setIsOpened} chatRef={chatRef} />
             <AsideChatWindow />
             <AsideMessageInput />
         </div>
     )
 }
+
+
