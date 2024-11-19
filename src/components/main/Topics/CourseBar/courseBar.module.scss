@@ -1,20 +1,87 @@
 $black-color: #000000;
 $purple-color: #6147FF;
+$grey-color: #686868;
 
 .courseBar {
     width: 100%;
     overflow-y: auto;
-    &__topic{
+
+    &__section {
+        border-bottom: 1px solid $black-color;
+    }
+
+    &__heading {
+        position: relative; 
+        cursor: pointer;
+        margin: 0;
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__checkbox {
+        display: none;
+    }
+
+    &__content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 1s ease;
+    }
+    
+    &__content.open {
+        transition: max-height 2s ease;
+        max-height: 1000px;
+    }
+
+    &__topic {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
         align-items: center;
         gap: 12px;
         padding: 22px 8px 22px 30px;
-        border-bottom: 2px $black-color solid;
-        transition: all .3s;
         cursor: pointer;
     }
-    .active{
+
+    &__topic__left {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+
+        &__info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            span:last-child {
+                font-size: 0.75em;
+                color: $grey-color;
+            }
+        }
+    }
+
+    &__subtopic {
+        display: flex;
+        gap: 12px;
+        padding: 22px 8px 22px 30px;
+        cursor: pointer;
+    }
+
+    .active {
         color: $purple-color;
+    }
+
+    &__arrow {
+        transition: transform .3s;
+
+        &__closed {
+            transform: rotate(-90deg);
+        }
+
+        &__open {
+            transform: rotate(0deg);
+        }
     }
 }
 

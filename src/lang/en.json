@@ -4,6 +4,12 @@
     "header.navigation.blog": "Blogs",
     "header.navigation.contacts": "Contacts",
 
+    "dropdown.profile": "Profile",
+    "dropdown.courses": "My courses",
+    "dropdown.certificates": "My certificates",
+    "dropdown.feedback": "Feedback",
+    "dropdown.logout": "Log out",
+
     "signUp": "Sign up",
     "signIn": "Log in",
 
@@ -86,6 +92,13 @@
 
     "modals.exists.header.title": "This email is already used!",
     "modals.exists.message": "Try to log in",
+
+    "coursesPage.hello": "Hi",
+    "coursesPage.subtitle": "It`s good to see you",
+
+    "coursesPage.courses": "My courses",
+    "coursesPage.active": "Active",
+    "coursesPage.completed": "Completed",
     
     "footer.rights": "All rights reserved"
 }

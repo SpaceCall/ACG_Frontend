@@ -1,224 +1,223 @@
 $bg-color: #F8F8F8;
-$text-color: #0C0C0C;
+$black-color: #0C0C0C;
 $border-color: #716F76;
-$red-color: #FF6969;
 
 .chatTable {
     background-color: $bg-color;
     font-family: 'Fixel Text';
-    color: $text-color;
+    color: $black-color;
     text-align: left;
     width: 100%;
-    padding: 0 16px;
     margin-top: 20px;
     border-radius: 15px;
-    border: 1px black solid;
 
-    colgroup {
-        col:nth-child(1) {
-            width: 20%;
-        }
-
-        col:nth-child(2) {
-            width: 58%;
-        }
-
-        col:nth-child(3) {
-            width: 20%;
-        }
-
-        col:nth-child(4) {
-            width: 7%;
-        }
-    }
-
-    thead,
-    tbody tr:not(:last-child) {
-        position: relative;
-
-        &::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background-color: $border-color;
-        }
-    }
-
-    thead {
+    &__header {
+        display: flex;
         font-size: 1.4em;
         font-weight: 700;
         line-height: 114.286%;
+        padding: 16px;
 
-        th:first-child {
-            padding-left: 10px;
+        p:nth-child(1) {
+            width: 20%;
+        }
+
+        p:nth-child(2) {
+            width: 60%;
+        }
+
+        p:nth-child(3) {
+            width: 20%;
         }
     }
 
-    tbody {
+    &__body {
+        display: flex;
+        flex-direction: column;
 
-        justify-content: center;
-        font-size: 0.75em;
-        line-height: 133.333%;
-    }
+        &__row {
+            border-top: 1px $black-color solid;
 
-    tr {
-        height: 64px;
-        background: none;
+            &__content {
+                display: flex;
+                align-items: center;
+                padding: 24px 16px;
+                cursor: pointer;
 
-        button {
-            border: none;
-            background: none;
-            cursor: pointer;
+                p span {
+                    display: block;
+                    width: 70%;
+                }
+
+                p:nth-child(1) {
+                    width: 20%;
+                }
+
+                p:nth-child(2) {
+                    width: 60%;
+                }
+
+                p:nth-child(3) {
+                    width: 15%;
+                }
+
+                span {
+                    display: block;
+                    width: 5%;
+                }
+            }
+
+            &__arrow {
+                transition: transform .3s;
+
+                &__closed {
+                    transform: rotate(-90deg);
+                }
+
+                &__open {
+                    transform: rotate(0deg);
+                }
+            }
+
+            &__accordion {
+                max-height: 0;
+                overflow: hidden;
+                will-change: max-height;
+                transform-origin: top;
+                transition: max-height 1s ease;
+
+                &__subrow {
+                    display: flex;
+                    padding: 24px 16px 24px 48px;
+                    border-top: 1px $black-color solid;
+                    font-size: 0.875em;
+
+                    p:nth-child(1) {
+                        width: 20%;
+                    }
+
+                    p:nth-child(2) {
+                        width: 60%;
+                    }
+                }
+            }
+
+            &.open &__accordion {
+                transition: max-height 1s ease;
+                max-height: 1000px;
+            }
         }
+    }
+}
 
-        &>td:first-child {
-            transform: translateX(15px);
+@media screen and (max-width: 1250px) {
+    .chatTable {
+
+        &__body {
+
+            &__row {
+
+                &__content {
+                    display: flex;
+                    align-items: center;
+                    padding: 24px 16px;
+                    cursor: pointer;
+
+                    p span {
+                        font-size: 0.875em;
+                    }
+                }
+
+                &__accordion {
+
+                    &__subrow {
+                        font-size: 0.75em;
+                    }
+                }
+            }
         }
     }
 }
 
-.blockRow {
-    cursor: pointer;
-
-    &__arrow {
-        transition: transform .3s;
-
-        &__closed {
-            transform: rotate(-90deg);
-        }
-
-        &__open {
-            transform: rotate(0deg);
-        }
-    }
-}
-
-@keyframes slideIn {
-    0% {
-        max-height: 0;
-        opacity: 0;
-        transform: scaleY(0);
-    }
-
-    50% {
-        max-height: 500px;
-        opacity: 1;
-        transform: scaleY(50%);
-    }
-
-    100% {
-        max-height: 500px;
-        opacity: 1;
-        padding: 10px 0;
-        transform: scaleY(100%);
-    }
-}
-
-.subTopicsWrapper {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.5s ease, opacity 0.5s ease;
-    background-color: #f9f9f9;
-}
-
-.animate {
-    max-height: 500px;
-    opacity: 1;
-}
-
-.subRow {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.subRow td {
-    padding-left: 32px;
-}
 
 @media screen and (max-width: 992px) {
-    .chatTable {
-        overflow: hidden;
-
-        colgroup {
-
-            col:nth-child(1),
-            col:nth-child(2),
-            col:nth-child(3),
-            col:nth-child(4) {
-                width: 100%;
-            }
-        }
-
-        thead,
-        tbody tr:not(:last-child) {
-            position: relative;
-
-            &::after {
-                width: 100%;
-            }
-        }
-
-        thead {
-            tr {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-        }
-
-        tbody {
-            tr {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                transition: transform 0.3s ease-in-out;
-
-                td {
-                    flex: 0 0 36%;
-                    transition: all .3s;
-
-                    &:nth-child(3) {
-                        text-align: center;
-                        margin-left: 15px;
-                    }
-
-                    &:last-child img {
-                        width: 50px;
-                        height: 64px;
-                        margin-top: 5px;
-                        padding: 10px;
-                        background-color: $red-color;
-                    }
-                }
-
-                &.activeRow td {
-                    transform: translateX(-57%);
-                }
-            }
-        }
-
-        .hideableColumn button img {
-            content: url('./../../../../assets/icons/trash_can_white.svg');
-        }
-    }
+    .chatTable {}
 }
 
 @media screen and (max-width: 767px) {
-    .chatTable tbody tr {
-        &.activeRow td {
-            transform: translateX(-70%);
+    .chatTable {
+
+        &__header {
+            padding: 12px;
+            font-size: 1em;
+
+            p:nth-child(1) {
+                width: 10%;
+            }
+
+            p:nth-child(2) {
+                width: 60%;
+            }
+
+            p:nth-child(3) {
+                width: 30%;
+            }
+        }
+
+        &__body {
+
+            &__row {
+
+                &__content {
+                    padding: 12px;
+
+                    p span{
+                        font-size: 0.75em;
+                    }
+
+                    p:nth-child(1) {
+                        width: 10%;
+                    }
+
+                    p:nth-child(2) {
+                        width: 60%;
+                    }
+
+                    p:nth-child(3) {
+                        width: 28%;
+                    }
+
+                    span {
+                        width: 2%;
+                    }
+                }
+
+                &__accordion {
+
+                    &__subrow {
+                        padding: 12px;
+                        border-top: 1px $black-color solid;
+                        font-size: 0.75em;
+
+                        p:nth-child(1) {
+                            width: 20%;
+                        }
+
+                        p:nth-child(2) {
+                            width: 60%;
+                        }
+                    }
+                }
+
+                &.open &__accordion {
+                    transition: max-height 1s ease;
+                    max-height: 1000px;
+                }
+            }
         }
     }
 }
 
 @media (max-width: 481px) {
-    .chatTable tbody tr {
-        &.activeRow td {
-            transform: translateX(-100%);
-        }
-    }
+    .chatTable {}
 }

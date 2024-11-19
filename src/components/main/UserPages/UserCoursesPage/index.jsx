@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './userCoursesPage.module.scss';
 import AsideChat from '../../Topics/AsideChat';
 import decore from '../../../../assets/images/userCourses/decore.png';
+import { FormattedMessage } from 'react-intl';
 import api from '../../../../service/api';
 
 export default function UserCoursesPage() {
@@ -53,25 +54,25 @@ export default function UserCoursesPage() {
                 <div className={styles.page__wrapper}>
                     <div className={styles.page__frame}>
                         <img src={decore} alt="" />
-                        <h2>Hi, Name!</h2>
-                        <p>It`s good to see you.</p>
+                        <h2><FormattedMessage id="coursesPage.hello" />, Name!</h2>
+                        <p><FormattedMessage id="coursesPage.subtitle" /></p>
                     </div>
                     <div className={styles.page__coursesInfo}>
                         {displayedCourses.length > 0 ? (
                             <>
-                                <h2>My courses</h2>
+                                <h2><FormattedMessage id="coursesPage.courses" /></h2>
                                 <div className={styles.page__coursesInfo__buttons}>
                                     <span
                                         onClick={() => setActiveBtn('active')}
                                         className={activeBtn === 'active' ? styles.active : styles.nonActive}
                                     >
-                                        Active
+                                        <FormattedMessage id="coursesPage.active" />
                                     </span>
                                     <span
                                         onClick={() => setActiveBtn('completed')}
                                         className={activeBtn === 'completed' ? styles.active : styles.nonActive}
                                     >
-                                        Completed
+                                        <FormattedMessage id="coursesPage.completed" />
                                     </span>
                                 </div>
                                 <div className={styles.page__coursesInfo__courses}>

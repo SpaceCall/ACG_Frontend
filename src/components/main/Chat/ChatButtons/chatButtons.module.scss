@@ -8,6 +8,27 @@ $hovered-cancel-btn-text: #F8F8F8;
 $hovered-confirm-btn-bg: #F8F8F8;
 $hovered-confirm-btn-text: #0C0C0C;
 
+%black-button {
+    background-color: $confirm-btn-bg;
+
+    color: $confirm-btn-text;
+
+    &::before {
+        content: url(./../../../../assets/icons/white-tick.svg);
+    }
+
+
+    &:hover {
+        background-color: $hovered-confirm-btn-bg;
+
+        color: $hovered-confirm-btn-text;
+
+        &::before {
+            content: url(./../../../../assets/icons/black-tick.svg);
+        }
+    }
+}
+
 .chatButtons {
     display: flex;
     justify-content: center;
@@ -17,7 +38,6 @@ $hovered-confirm-btn-text: #0C0C0C;
 
     a {
         padding: 16px;
-        width: 40%;
         max-height: 56px;
         border-radius: 12px;
         border: 1px solid $confirm-btn-bg;
@@ -36,6 +56,7 @@ $hovered-confirm-btn-text: #0C0C0C;
 
     &__cancel {
         background-color: $cancel-btn-bg;
+        width: 40%;
 
         color: $cancel-btn-text;
 
@@ -56,24 +77,47 @@ $hovered-confirm-btn-text: #0C0C0C;
     }
 
     &__confirm {
-        background-color: $confirm-btn-bg;
+        @extend %black-button;
+        width: 40%;
+    }
 
-        color: $confirm-btn-text;
+    &__goTo {
+        @extend %black-button;
+        width: 20%;
+        text-decoration: none;
+    }
 
-        &::before {
-            content: url(./../../../../assets/icons/white-tick.svg);
-        }
+    &__loaderMenu {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
 
+        &__upload {
+            font-weight: 500;
+            position: relative;
 
-        &:hover {
-            background-color: $hovered-confirm-btn-bg;
-
-            color: $hovered-confirm-btn-text;
-
-            &::before {
-                content: url(./../../../../assets/icons/black-tick.svg);
+            span {
+                position: absolute;
             }
         }
+    }
+}
+
+@keyframes loader-rotate {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes fade-opacity {
+
+    0%,
+    100% {
+        opacity: 0.84;
+    }
+
+    50% {
+        opacity: 0.4;
     }
 }
 

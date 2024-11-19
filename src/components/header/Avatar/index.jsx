@@ -4,6 +4,8 @@ import { LangContext } from '../../../context/Context';
 import api from '../../../service/api';
 import Cookies from 'js-cookie';
 import { useLocation } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
+
 export default function Avatar() {
     const [isLogoutDropdown, setIsLogoutDropdown] = useState(false);
     const langContext = useContext(LangContext);
@@ -72,12 +74,12 @@ export default function Avatar() {
                         </div>
                         <nav className={styles.avatar__dropdown__navigation}>
                             <ul>
-                                <li><a href='#'>Profile</a></li>
-                                <li><a href='/courses'>My courses</a></li>
-                                <li><a href='#'>My certificates</a></li>
-                                <li><a href='#'>Feedback</a></li>
+                                <li><a href='#'><FormattedMessage id="dropdown.profile" /></a></li>
+                                <li><a href='/courses'><FormattedMessage id="dropdown.courses" /></a></li>
+                                <li><a href='#'><FormattedMessage id="dropdown.certificates" /></a></li>
+                                <li><a href='#'><FormattedMessage id="dropdown.feedback" /></a></li>
                                 <li>
-                                    <span onClick={logout}>Log out</span>
+                                    <span onClick={logout}><FormattedMessage id="dropdown.logout" /></span>
                                 </li>
                             </ul>
                         </nav>
